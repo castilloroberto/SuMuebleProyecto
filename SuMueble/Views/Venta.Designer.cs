@@ -72,7 +72,7 @@ namespace SuMueble.Views
             this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.groupBox2);
-            this.groupBox3.Location = new System.Drawing.Point(121, 89);
+            this.groupBox3.Location = new System.Drawing.Point(111, 21);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(929, 625);
             this.groupBox3.TabIndex = 6;
