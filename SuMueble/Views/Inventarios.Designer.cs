@@ -43,7 +43,7 @@ namespace Ventana_de_Inventarios
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(574, 87);
+            this.label2.Location = new System.Drawing.Point(888, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 28);
             this.label2.TabIndex = 10;
@@ -53,7 +53,7 @@ namespace Ventana_de_Inventarios
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(150, 87);
+            this.label1.Location = new System.Drawing.Point(464, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 28);
             this.label1.TabIndex = 11;
@@ -61,11 +61,16 @@ namespace Ventana_de_Inventarios
             // 
             // comboBox2
             // 
+            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(574, 132);
+            this.comboBox2.Items.AddRange(new object[] {
+            "Item 1",
+            "Item 2",
+            "Item 3"});
+            this.comboBox2.Location = new System.Drawing.Point(888, 81);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(203, 36);
@@ -78,10 +83,10 @@ namespace Ventana_de_Inventarios
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnNuevo.Location = new System.Drawing.Point(683, 619);
+            this.btnNuevo.Location = new System.Drawing.Point(997, 568);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(94, 43);
+            this.btnNuevo.Size = new System.Drawing.Size(94, 37);
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -94,10 +99,10 @@ namespace Ventana_de_Inventarios
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnActualizar.Location = new System.Drawing.Point(507, 619);
+            this.btnActualizar.Location = new System.Drawing.Point(821, 568);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(138, 43);
+            this.btnActualizar.Size = new System.Drawing.Size(138, 37);
             this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
@@ -105,7 +110,7 @@ namespace Ventana_de_Inventarios
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(150, 183);
+            this.dataGridView1.Location = new System.Drawing.Point(464, 132);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -116,7 +121,7 @@ namespace Ventana_de_Inventarios
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(150, 132);
+            this.textBox1.Location = new System.Drawing.Point(464, 81);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Escriba aqui...";
@@ -136,7 +141,7 @@ namespace Ventana_de_Inventarios
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Inventarios";
-            this.Size = new System.Drawing.Size(927, 699);
+            this.Size = new System.Drawing.Size(1583, 699);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
