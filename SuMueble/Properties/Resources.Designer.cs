@@ -59,5 +59,6 @@ namespace SuMueble.Properties {
                 resourceCulture = value;
             }
         }
+
     }
 }

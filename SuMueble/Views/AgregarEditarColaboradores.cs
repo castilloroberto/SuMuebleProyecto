@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
 namespace SuMueble.Views
 {
-    public partial class ColaboradoresView : UserControl
+    public partial class AgregarEditarColaboradores : Form
     {
-        public ColaboradoresView()
+        public AgregarEditarColaboradores()
         {
             InitializeComponent();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }
