@@ -31,33 +31,118 @@ namespace SuMueble.Views
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.Cliente = new System.Windows.Forms.ColumnHeader();
+            this.nombre = new System.Windows.Forms.ColumnHeader();
+            this.producto = new System.Windows.Forms.ColumnHeader();
+            this.cantida = new System.Windows.Forms.ColumnHeader();
+            this.fecha = new System.Windows.Forms.ColumnHeader();
+            this.monto = new System.Windows.Forms.ColumnHeader();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(79, 92);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(76, 48);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(188, 23);
             this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "Buscar...";
+            this.textBox1.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(79, 59);
+            this.label1.Location = new System.Drawing.Point(76, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "Bucar Clientes";
             // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Cliente,
+            this.nombre,
+            this.producto,
+            this.cantida,
+            this.fecha,
+            this.monto});
+            this.listView1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(76, 103);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(784, 281);
+            this.listView1.TabIndex = 2;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // Cliente
+            // 
+            this.Cliente.Text = "ClienteID";
+            this.Cliente.Width = 120;
+            // 
+            // nombre
+            // 
+            this.nombre.Text = "Nombre";
+            this.nombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nombre.Width = 180;
+            // 
+            // producto
+            // 
+            this.producto.Text = "Producto";
+            this.producto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.producto.Width = 120;
+            // 
+            // cantida
+            // 
+            this.cantida.Text = "Cantidad";
+            this.cantida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cantida.Width = 120;
+            // 
+            // fecha
+            // 
+            this.fecha.Text = "Fecha";
+            this.fecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.fecha.Width = 120;
+            // 
+            // monto
+            // 
+            this.monto.Text = "Monto";
+            this.monto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.monto.Width = 120;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Lavender;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lavender;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lavender;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button1.Location = new System.Drawing.Point(76, 434);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 40);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Ver Detalles";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // HistorialVentasView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Name = "HistorialVentasView";
-            this.Size = new System.Drawing.Size(912, 585);
+            this.Size = new System.Drawing.Size(944, 502);
+            this.Load += new System.EventHandler(this.HistorialVentasView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -67,5 +152,13 @@ namespace SuMueble.Views
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader Cliente;
+        private System.Windows.Forms.ColumnHeader nombre;
+        private System.Windows.Forms.ColumnHeader producto;
+        private System.Windows.Forms.ColumnHeader cantida;
+        private System.Windows.Forms.ColumnHeader fecha;
+        private System.Windows.Forms.ColumnHeader monto;
+        private System.Windows.Forms.Button button1;
     }
 }
