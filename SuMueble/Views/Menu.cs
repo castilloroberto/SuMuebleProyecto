@@ -113,7 +113,7 @@ namespace SuMueble.Views
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
-           Application
+           
         }
     }
 }
