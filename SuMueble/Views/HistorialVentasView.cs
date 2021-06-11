@@ -14,5 +14,15 @@ namespace SuMueble.Views
         {
             InitializeComponent();
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HistorialVentasView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
