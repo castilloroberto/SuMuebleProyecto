@@ -21,7 +21,7 @@ namespace SuMueble.Views
             string user = txt_password.Text;
             Menu menu = new Menu();
             menu.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

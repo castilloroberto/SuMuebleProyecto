@@ -15,9 +15,22 @@ namespace SuMueble.Views
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
+        
 
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            AgregarEditarColaboradores addEditColaborador = new AgregarEditarColaboradores();
+
+            addEditColaborador.ShowDialog();
+            //actailizar data grid despues de agregar 
+        }
+
+        private void btn_actualizar_Click(object sender, EventArgs e)
+        {
+            AgregarEditarColaboradores addEditColaborador = new AgregarEditarColaboradores();
+
+            addEditColaborador.ShowDialog();
+            //actailizar data grid despues de agregar 
         }
     }
 }

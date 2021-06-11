@@ -15,25 +15,29 @@ namespace SuMueble.Views
             InitializeComponent();
         }
 
+        
         private void HideAll()
         {
 
             btn_ventas.ForeColor = Color.FromName("ControlText");
             btn_ventas.BackColor = Color.FromName("ControlLight");
+            
             btn_inventario.ForeColor = Color.FromName("ControlText");
             btn_inventario.BackColor = Color.FromName("ControlLight");
+            
             btn_creditos.ForeColor = Color.FromName("ControlText");
             btn_creditos.BackColor = Color.FromName("ControlLight");
+            
             btn_devoluciones.ForeColor = Color.FromName("ControlText");
             btn_devoluciones.BackColor = Color.FromName("ControlLight");
+            
             btn_historialVentas.ForeColor = Color.FromName("ControlText");
             btn_historialVentas.BackColor = Color.FromName("ControlLight");
+
             btn_colaboradores.ForeColor = Color.FromName("ControlText");
             btn_colaboradores.BackColor = Color.FromName("ControlLight");
-            btn_clientes.ForeColor = Color.FromName("ControlText");
-            btn_clientes.BackColor = Color.FromName("ControlLight");
-            btn_cerrarSesion.ForeColor = Color.FromName("ControlText");
-            btn_cerrarSesion.BackColor = Color.FromName("OrangeRed");
+           
+            
 
 
         }
@@ -48,8 +52,10 @@ namespace SuMueble.Views
             btn_ventas.BackColor = Color.DodgerBlue;
             //UserControl
             panel2.Controls.Clear();
-            Venta uc = new Venta();
-            panel2.Controls.Add(uc);
+            Venta ventasUc = new Venta();
+            //ventasUc.Width = panel2.Width-5;
+            //ventasUc.Height = panel2.Height-5;
+            panel2.Controls.Add(ventasUc);
             
 
         }
@@ -96,20 +102,18 @@ namespace SuMueble.Views
             panel2.Controls.Add(uc);
         }
 
-        private void btn_clientes_Click(object sender, EventArgs e)
-        {
-            HideAll();
-            btn_clientes.ForeColor = Color.White;
-            btn_clientes.BackColor = Color.DodgerBlue;
-            panel2.Controls.Clear();
-        }
+        
 
         private void btn_cerrarSesion_Click(object sender, EventArgs e)
         {
-            HideAll();
-            btn_cerrarSesion.ForeColor = Color.White;
-            btn_cerrarSesion.BackColor = Color.OrangeRed;
-            panel2.Controls.Clear();
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           Application
         }
     }
 }
