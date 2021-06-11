@@ -57,17 +57,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-  <data name="btn_cerrarSesion.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAATrzAAE68wEXCzLMAAABNUlE
-        QVRYR+3XQUrDQBjF8RQXdiEKPUDX7aJn6AHc9AAuXNX2BgUptGAXbtxpj+A59AyuFb2BdNFCi/p/0ECQ
-        keSbmTgLffCD0JCZ16RNJtl/HGmgi3OMDS7QRxNBGeAFH/g0WuEah/DKCR7hGryqd+hMeKWNV2igB4zg
-        Ot3fDXGPvIQuh1eKBe70gSEqkhfQtldCCpzhbU/bXgkpcAQdL9r2SkiBPPob9+BVIkYB5QYLmO8JsQos
-        scMcphKxCuhYjbGGqURZgRauoG+o/S63eILGMJcoK1Dcb1G5RF0FZIMpDvBj6i4wQZICugSXCL4Evj/C
-        SpMrZQWqRseaJ1diFdAZ2sI0uRKrgG7FM5gmV2IV6ODXH0bJH8fJFyTRl2RJFqXHSLosV07xjCQvJkry
-        V7O/lCz7AuGq+80/zEtzAAAAAElFTkSuQmCC
-</value>
-  </data>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>
