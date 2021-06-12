@@ -39,19 +39,19 @@ namespace SuMueble.Views
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(365, 183);
+            this.dataGridView1.Location = new System.Drawing.Point(469, 187);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(535, 249);
+            this.dataGridView1.Size = new System.Drawing.Size(912, 377);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(359, 59);
+            this.label1.Location = new System.Drawing.Point(462, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 37);
             this.label1.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace SuMueble.Views
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(365, 103);
+            this.textBox1.Location = new System.Drawing.Point(469, 133);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(236, 34);
@@ -73,7 +73,7 @@ namespace SuMueble.Views
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(365, 459);
+            this.button1.Location = new System.Drawing.Point(469, 585);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(162, 37);
@@ -91,7 +91,7 @@ namespace SuMueble.Views
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CreditosView";
-            this.Size = new System.Drawing.Size(1248, 921);
+            this.Size = new System.Drawing.Size(1810, 760);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -166,11 +166,11 @@ namespace SuMueble.Views
             // 
             // btn_ventas
             // 
-            this.btn_ventas.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_ventas.BackColor = System.Drawing.Color.DodgerBlue;
             this.btn_ventas.FlatAppearance.BorderSize = 0;
             this.btn_ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ventas.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_ventas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_ventas.ForeColor = System.Drawing.Color.White;
             this.btn_ventas.Location = new System.Drawing.Point(322, 59);
             this.btn_ventas.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ventas.Name = "btn_ventas";

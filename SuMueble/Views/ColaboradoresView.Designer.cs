@@ -32,7 +32,6 @@
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.dgv_colaboradores = new System.Windows.Forms.DataGridView();
-            this.btn_buscar = new System.Windows.Forms.Button();
             this.txt_busqueda = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_colaboradores)).BeginInit();
@@ -45,7 +44,7 @@
             this.btn_terminarContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_terminarContrato.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_terminarContrato.ForeColor = System.Drawing.Color.White;
-            this.btn_terminarContrato.Location = new System.Drawing.Point(1140, 531);
+            this.btn_terminarContrato.Location = new System.Drawing.Point(1257, 581);
             this.btn_terminarContrato.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_terminarContrato.Name = "btn_terminarContrato";
             this.btn_terminarContrato.Size = new System.Drawing.Size(176, 37);
@@ -60,7 +59,7 @@
             this.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_nuevo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_nuevo.ForeColor = System.Drawing.Color.White;
-            this.btn_nuevo.Location = new System.Drawing.Point(676, 531);
+            this.btn_nuevo.Location = new System.Drawing.Point(677, 581);
             this.btn_nuevo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_nuevo.MinimumSize = new System.Drawing.Size(0, 37);
             this.btn_nuevo.Name = "btn_nuevo";
@@ -77,7 +76,7 @@
             this.btn_actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_actualizar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_actualizar.ForeColor = System.Drawing.Color.White;
-            this.btn_actualizar.Location = new System.Drawing.Point(520, 531);
+            this.btn_actualizar.Location = new System.Drawing.Point(521, 581);
             this.btn_actualizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_actualizar.MinimumSize = new System.Drawing.Size(0, 37);
             this.btn_actualizar.Name = "btn_actualizar";
@@ -98,25 +97,8 @@
             this.dgv_colaboradores.ReadOnly = true;
             this.dgv_colaboradores.RowHeadersWidth = 51;
             this.dgv_colaboradores.RowTemplate.Height = 25;
-            this.dgv_colaboradores.Size = new System.Drawing.Size(795, 322);
+            this.dgv_colaboradores.Size = new System.Drawing.Size(912, 377);
             this.dgv_colaboradores.TabIndex = 3;
-            // 
-            // btn_buscar
-            // 
-            this.btn_buscar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btn_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_buscar.FlatAppearance.BorderSize = 0;
-            this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_buscar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_buscar.ForeColor = System.Drawing.Color.White;
-            this.btn_buscar.Location = new System.Drawing.Point(777, 121);
-            this.btn_buscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_buscar.MinimumSize = new System.Drawing.Size(0, 37);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(80, 37);
-            this.btn_buscar.TabIndex = 2;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = false;
             // 
             // txt_busqueda
             // 
@@ -133,10 +115,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(516, 89);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(516, 85);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 28);
+            this.label1.Size = new System.Drawing.Size(218, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Colaborador:";
             // 
@@ -150,7 +132,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_actualizar);
             this.Controls.Add(this.txt_busqueda);
-            this.Controls.Add(this.btn_buscar);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ColaboradoresView";
             this.Size = new System.Drawing.Size(1810, 760);
@@ -162,7 +143,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgv_colaboradores;
-        private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.TextBox txt_busqueda;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_terminarContrato;

@@ -15,6 +15,10 @@ namespace SuMueble.Views
         public Menu()
         {
             InitializeComponent();
+            
+            Venta ventasUc = new Venta();
+            panel2.Controls.Add(ventasUc);
+
         }
 
         
@@ -91,6 +95,9 @@ namespace SuMueble.Views
             btn_devoluciones.ForeColor = Color.White;
             btn_devoluciones.BackColor = Color.DodgerBlue;
             panel2.Controls.Clear();
+            // vista
+            DevolucionesView devoluciones = new DevolucionesView();
+            panel2.Controls.Add(devoluciones);
         }
 
         private void btn_historialVentas_Click(object sender, EventArgs e)
