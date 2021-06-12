@@ -41,10 +41,10 @@ namespace SuMueble.Views
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(421, 114);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(462, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 31);
+            this.label1.Size = new System.Drawing.Size(161, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Cliente:";
             // 
@@ -55,7 +55,7 @@ namespace SuMueble.Views
             this.btn_agregarDevolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarDevolucion.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_agregarDevolucion.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarDevolucion.Location = new System.Drawing.Point(1220, 614);
+            this.btn_agregarDevolucion.Location = new System.Drawing.Point(1261, 588);
             this.btn_agregarDevolucion.Name = "btn_agregarDevolucion";
             this.btn_agregarDevolucion.Size = new System.Drawing.Size(120, 37);
             this.btn_agregarDevolucion.TabIndex = 1;
@@ -68,7 +68,7 @@ namespace SuMueble.Views
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(428, 209);
+            this.dataGridView1.Location = new System.Drawing.Point(469, 187);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -79,7 +79,7 @@ namespace SuMueble.Views
             // txt_buscarCliente
             // 
             this.txt_buscarCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_buscarCliente.Location = new System.Drawing.Point(428, 149);
+            this.txt_buscarCliente.Location = new System.Drawing.Point(469, 133);
             this.txt_buscarCliente.Name = "txt_buscarCliente";
             this.txt_buscarCliente.PlaceholderText = "DNI del Cliente o Nombre...";
             this.txt_buscarCliente.Size = new System.Drawing.Size(234, 34);
@@ -92,7 +92,7 @@ namespace SuMueble.Views
             this.cb_filtro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_filtro.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cb_filtro.FormattingEnabled = true;
-            this.cb_filtro.Location = new System.Drawing.Point(1106, 149);
+            this.cb_filtro.Location = new System.Drawing.Point(1148, 131);
             this.cb_filtro.Name = "cb_filtro";
             this.cb_filtro.Size = new System.Drawing.Size(234, 36);
             this.cb_filtro.TabIndex = 4;
@@ -100,10 +100,10 @@ namespace SuMueble.Views
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1106, 105);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(1140, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 31);
+            this.label2.Size = new System.Drawing.Size(127, 32);
             this.label2.TabIndex = 0;
             this.label2.Text = "Buscar por:";
             // 

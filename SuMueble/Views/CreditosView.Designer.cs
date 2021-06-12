@@ -50,10 +50,10 @@ namespace SuMueble.Views
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(462, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 37);
+            this.label1.Size = new System.Drawing.Size(156, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Buscar Cliente";
             // 
@@ -63,7 +63,8 @@ namespace SuMueble.Views
             this.textBox1.Location = new System.Drawing.Point(469, 133);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 34);
+            this.textBox1.PlaceholderText = "DNI o Nombre de Cliente...";
+            this.textBox1.Size = new System.Drawing.Size(234, 34);
             this.textBox1.TabIndex = 2;
             // 
             // button1

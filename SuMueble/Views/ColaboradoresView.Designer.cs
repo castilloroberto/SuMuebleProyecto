@@ -44,7 +44,7 @@
             this.btn_terminarContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_terminarContrato.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_terminarContrato.ForeColor = System.Drawing.Color.White;
-            this.btn_terminarContrato.Location = new System.Drawing.Point(1257, 581);
+            this.btn_terminarContrato.Location = new System.Drawing.Point(1205, 590);
             this.btn_terminarContrato.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_terminarContrato.Name = "btn_terminarContrato";
             this.btn_terminarContrato.Size = new System.Drawing.Size(176, 37);
@@ -59,7 +59,7 @@
             this.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_nuevo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_nuevo.ForeColor = System.Drawing.Color.White;
-            this.btn_nuevo.Location = new System.Drawing.Point(677, 581);
+            this.btn_nuevo.Location = new System.Drawing.Point(625, 590);
             this.btn_nuevo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_nuevo.MinimumSize = new System.Drawing.Size(0, 37);
             this.btn_nuevo.Name = "btn_nuevo";
@@ -76,11 +76,11 @@
             this.btn_actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_actualizar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_actualizar.ForeColor = System.Drawing.Color.White;
-            this.btn_actualizar.Location = new System.Drawing.Point(521, 581);
+            this.btn_actualizar.Location = new System.Drawing.Point(467, 590);
             this.btn_actualizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_actualizar.MinimumSize = new System.Drawing.Size(0, 37);
             this.btn_actualizar.Name = "btn_actualizar";
-            this.btn_actualizar.Size = new System.Drawing.Size(110, 37);
+            this.btn_actualizar.Size = new System.Drawing.Size(134, 37);
             this.btn_actualizar.TabIndex = 4;
             this.btn_actualizar.Text = "Actualizar";
             this.btn_actualizar.UseVisualStyleBackColor = false;
@@ -91,7 +91,7 @@
             this.dgv_colaboradores.AllowUserToAddRows = false;
             this.dgv_colaboradores.AllowUserToDeleteRows = false;
             this.dgv_colaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_colaboradores.Location = new System.Drawing.Point(521, 182);
+            this.dgv_colaboradores.Location = new System.Drawing.Point(469, 187);
             this.dgv_colaboradores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_colaboradores.Name = "dgv_colaboradores";
             this.dgv_colaboradores.ReadOnly = true;
@@ -103,20 +103,19 @@
             // txt_busqueda
             // 
             this.txt_busqueda.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_busqueda.Location = new System.Drawing.Point(521, 121);
+            this.txt_busqueda.Location = new System.Drawing.Point(469, 133);
             this.txt_busqueda.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_busqueda.MaximumSize = new System.Drawing.Size(4, 37);
-            this.txt_busqueda.MinimumSize = new System.Drawing.Size(250, 37);
+            this.txt_busqueda.MaximumSize = new System.Drawing.Size(400, 37);
             this.txt_busqueda.Name = "txt_busqueda";
             this.txt_busqueda.PlaceholderText = "Escriba aqui...";
-            this.txt_busqueda.Size = new System.Drawing.Size(250, 37);
+            this.txt_busqueda.Size = new System.Drawing.Size(234, 34);
             this.txt_busqueda.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(516, 85);
+            this.label1.Location = new System.Drawing.Point(462, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(218, 32);
             this.label1.TabIndex = 0;

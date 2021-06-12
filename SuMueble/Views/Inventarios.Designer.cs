@@ -43,7 +43,7 @@ namespace Ventana_de_Inventarios
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1178, 71);
+            this.label2.Location = new System.Drawing.Point(1140, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 32);
             this.label2.TabIndex = 10;
@@ -53,7 +53,7 @@ namespace Ventana_de_Inventarios
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(462, 71);
+            this.label1.Location = new System.Drawing.Point(462, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 32);
             this.label1.TabIndex = 11;
@@ -70,10 +70,10 @@ namespace Ventana_de_Inventarios
             "Item 1",
             "Item 2",
             "Item 3"});
-            this.comboBox2.Location = new System.Drawing.Point(1178, 116);
+            this.comboBox2.Location = new System.Drawing.Point(1148, 131);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(203, 36);
+            this.comboBox2.Size = new System.Drawing.Size(234, 36);
             this.comboBox2.TabIndex = 8;
             // 
             // btnNuevo
@@ -83,10 +83,10 @@ namespace Ventana_de_Inventarios
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnNuevo.Location = new System.Drawing.Point(1288, 586);
+            this.btnNuevo.Location = new System.Drawing.Point(1261, 588);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(94, 37);
+            this.btnNuevo.Size = new System.Drawing.Size(120, 37);
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -99,7 +99,7 @@ namespace Ventana_de_Inventarios
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnActualizar.Location = new System.Drawing.Point(1112, 586);
+            this.btnActualizar.Location = new System.Drawing.Point(1085, 588);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(138, 37);
@@ -121,11 +121,11 @@ namespace Ventana_de_Inventarios
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(469, 116);
+            this.textBox1.Location = new System.Drawing.Point(469, 133);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Escriba aqui...";
-            this.textBox1.Size = new System.Drawing.Size(203, 34);
+            this.textBox1.Size = new System.Drawing.Size(234, 34);
             this.textBox1.TabIndex = 12;
             // 
             // Inventarios
