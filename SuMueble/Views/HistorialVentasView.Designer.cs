@@ -120,12 +120,15 @@ namespace SuMueble.Views
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Lavender;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.AliceBlue;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lavender;
+
+           
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lavender;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+
             this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button1.Location = new System.Drawing.Point(386, 554);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
