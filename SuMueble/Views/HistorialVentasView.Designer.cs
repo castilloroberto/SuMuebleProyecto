@@ -43,21 +43,21 @@ namespace SuMueble.Views
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(76, 48);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(386, 79);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 23);
+            this.textBox1.Size = new System.Drawing.Size(214, 34);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Buscar...";
-            this.textBox1.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(76, 15);
+            this.label1.Location = new System.Drawing.Point(379, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 30);
+            this.label1.Size = new System.Drawing.Size(176, 37);
             this.label1.TabIndex = 1;
             this.label1.Text = "Bucar Clientes";
             // 
@@ -73,9 +73,10 @@ namespace SuMueble.Views
             this.monto});
             this.listView1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(76, 103);
+            this.listView1.Location = new System.Drawing.Point(386, 152);
+            this.listView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(784, 281);
+            this.listView1.Size = new System.Drawing.Size(895, 373);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -122,27 +123,32 @@ namespace SuMueble.Views
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.AliceBlue;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lavender;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
+
+           
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lavender;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+
             this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(76, 434);
+            this.button1.Location = new System.Drawing.Point(386, 554);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 40);
+            this.button1.Size = new System.Drawing.Size(134, 37);
             this.button1.TabIndex = 3;
             this.button1.Text = "Ver Detalles";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // HistorialVentasView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "HistorialVentasView";
-            this.Size = new System.Drawing.Size(944, 502);
+            this.Size = new System.Drawing.Size(1634, 669);
             this.Load += new System.EventHandler(this.HistorialVentasView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

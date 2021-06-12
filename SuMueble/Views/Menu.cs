@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+//
+using Ventana_de_Inventarios;
 
 namespace SuMueble.Views
 {
@@ -66,7 +68,11 @@ namespace SuMueble.Views
             btn_inventario.ForeColor = Color.White;
             btn_inventario.BackColor = Color.DodgerBlue;
             panel2.Controls.Clear();
+            // vista
+            Inventarios inventario = new Inventarios();
+            panel2.Controls.Add(inventario);
         }
+    
 
         private void btn_creditos_Click(object sender, EventArgs e)
         {
@@ -74,6 +80,9 @@ namespace SuMueble.Views
             btn_creditos.ForeColor = Color.White;
             btn_creditos.BackColor = Color.DodgerBlue;
             panel2.Controls.Clear();
+            // vista
+            CreditosView creditos = new CreditosView();
+            panel2.Controls.Add(creditos);
         }
 
         private void btn_devoluciones_Click(object sender, EventArgs e)
@@ -89,7 +98,11 @@ namespace SuMueble.Views
             HideAll();
             btn_historialVentas.ForeColor = Color.White;
             btn_historialVentas.BackColor = Color.DodgerBlue;
+            
+            // vista
             panel2.Controls.Clear();
+            HistorialVentasView historial = new HistorialVentasView();
+            panel2.Controls.Add(historial);
         }
 
         private void btn_colaboradores_Click(object sender, EventArgs e)
