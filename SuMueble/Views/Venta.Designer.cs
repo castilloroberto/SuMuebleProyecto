@@ -68,11 +68,11 @@ namespace SuMueble.Views
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(436, 474);
+            this.dataGridView1.Location = new System.Drawing.Point(294, 472);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(893, 262);
+            this.dataGridView1.Size = new System.Drawing.Size(927, 271);
             this.dataGridView1.TabIndex = 5;
             // 
             // groupBox1
@@ -96,12 +96,13 @@ namespace SuMueble.Views
             this.groupBox1.Controls.Add(this.lblcantidad);
             this.groupBox1.Controls.Add(this.lblArticulo);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(435, 274);
+            this.groupBox1.Location = new System.Drawing.Point(294, 253);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(894, 183);
+            this.groupBox1.Size = new System.Drawing.Size(928, 198);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Producto";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnguardar
             // 
@@ -162,7 +163,7 @@ namespace SuMueble.Views
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(466, 72);
+            this.textBox2.Location = new System.Drawing.Point(465, 78);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(125, 34);
             this.textBox2.TabIndex = 8;
@@ -264,9 +265,9 @@ namespace SuMueble.Views
             this.groupBox2.Controls.Add(this.txtnombrecliente);
             this.groupBox2.Controls.Add(this.txtDNI);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(436, 94);
+            this.groupBox2.Location = new System.Drawing.Point(294, 60);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(893, 174);
+            this.groupBox2.Size = new System.Drawing.Size(928, 174);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
@@ -302,6 +303,7 @@ namespace SuMueble.Views
             this.btnBuscarcliente.TabIndex = 7;
             this.btnBuscarcliente.Text = "Buscar";
             this.btnBuscarcliente.UseVisualStyleBackColor = true;
+            this.btnBuscarcliente.Click += new System.EventHandler(this.btnBuscarcliente_Click);
             // 
             // lblnombrecliente
             // 
@@ -361,7 +363,7 @@ namespace SuMueble.Views
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "Venta";
-            this.Size = new System.Drawing.Size(1789, 788);
+            this.Size = new System.Drawing.Size(1413, 901);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
