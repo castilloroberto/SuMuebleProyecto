@@ -7,9 +7,10 @@ namespace SuMueble.Views
 {
     public class DBConnection
     {
-        public static string GetString()
+        public static string GetString(string nombre)
         {
-            return ConfigurationManager.ConnectionStrings[""].ConnectionString;
+            return ConfigurationManager.ConnectionStrings[nombre].ConnectionString;
         }
+        
     }
 }

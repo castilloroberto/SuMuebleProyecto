@@ -32,7 +32,7 @@ namespace SuMueble.Views
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_pagarCuota = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,26 +67,27 @@ namespace SuMueble.Views
             this.textBox1.Size = new System.Drawing.Size(234, 34);
             this.textBox1.TabIndex = 2;
             // 
-            // button1
+            // btn_pagarCuota
             // 
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(469, 585);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 37);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Pagar Cuota";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_pagarCuota.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_pagarCuota.FlatAppearance.BorderSize = 0;
+            this.btn_pagarCuota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pagarCuota.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_pagarCuota.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_pagarCuota.Location = new System.Drawing.Point(469, 585);
+            this.btn_pagarCuota.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_pagarCuota.Name = "btn_pagarCuota";
+            this.btn_pagarCuota.Size = new System.Drawing.Size(162, 37);
+            this.btn_pagarCuota.TabIndex = 3;
+            this.btn_pagarCuota.Text = "Pagar Cuota";
+            this.btn_pagarCuota.UseVisualStyleBackColor = false;
+            this.btn_pagarCuota.Click += new System.EventHandler(this.btn_pagarCuota_Click);
             // 
             // CreditosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_pagarCuota);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -104,6 +105,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_pagarCuota;
     }
 }
