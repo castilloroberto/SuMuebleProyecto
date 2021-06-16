@@ -45,10 +45,7 @@ namespace SuMueble.Views
 
         private void btngenerarcodigofactura_Click(object sender, EventArgs e)
         {
-            int n1 = 0;
-            Random alea = new Random();
-            n1 = alea.Next();
-            txtcodigofactura.Text = n1.ToString();
+            
         }
     }
 }
