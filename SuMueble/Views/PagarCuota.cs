@@ -8,17 +8,11 @@ using System.Windows.Forms;
 
 namespace SuMueble.Views
 {
-    public partial class CreditosView : UserControl
+    public partial class PagarCuota : Form
     {
-        public CreditosView()
+        public PagarCuota()
         {
             InitializeComponent();
-        }
-
-        private void btn_pagarcuota_Click(object sender, EventArgs e)
-        {
-            PagarCuota pagarCuota = new PagarCuota();
-            pagarCuota.ShowDialog();
         }
     }
 }

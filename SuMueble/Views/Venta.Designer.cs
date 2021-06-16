@@ -31,6 +31,7 @@ namespace SuMueble.Views
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnguardar = new System.Windows.Forms.Button();
             this.txttotal = new System.Windows.Forms.TextBox();
             this.btncancelar = new System.Windows.Forms.Button();
@@ -41,15 +42,14 @@ namespace SuMueble.Views
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblDescuento = new System.Windows.Forms.Label();
-            this.btnbuscarinventario = new System.Windows.Forms.Button();
             this.lblISV = new System.Windows.Forms.Label();
             this.lblsubtotal = new System.Windows.Forms.Label();
-            this.txtarticulo = new System.Windows.Forms.TextBox();
             this.lblprecio = new System.Windows.Forms.Label();
             this.txtcantidad = new System.Windows.Forms.TextBox();
             this.lblcantidad = new System.Windows.Forms.Label();
             this.lblArticulo = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnlimpiar = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtcodigofactura = new System.Windows.Forms.TextBox();
@@ -60,6 +60,8 @@ namespace SuMueble.Views
             this.lblDNI = new System.Windows.Forms.Label();
             this.txtnombrecliente = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btngenerarcodigofactura = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -77,6 +79,7 @@ namespace SuMueble.Views
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.btnguardar);
             this.groupBox1.Controls.Add(this.txttotal);
             this.groupBox1.Controls.Add(this.btncancelar);
@@ -87,10 +90,8 @@ namespace SuMueble.Views
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.lblDescuento);
-            this.groupBox1.Controls.Add(this.btnbuscarinventario);
             this.groupBox1.Controls.Add(this.lblISV);
             this.groupBox1.Controls.Add(this.lblsubtotal);
-            this.groupBox1.Controls.Add(this.txtarticulo);
             this.groupBox1.Controls.Add(this.lblprecio);
             this.groupBox1.Controls.Add(this.txtcantidad);
             this.groupBox1.Controls.Add(this.lblcantidad);
@@ -104,9 +105,17 @@ namespace SuMueble.Views
             this.groupBox1.Text = "Producto";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(100, 29);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(195, 36);
+            this.comboBox1.TabIndex = 6;
+            // 
             // btnguardar
             // 
-            this.btnguardar.Location = new System.Drawing.Point(760, 117);
+            this.btnguardar.Location = new System.Drawing.Point(729, 132);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(94, 37);
             this.btnguardar.TabIndex = 12;
@@ -115,19 +124,20 @@ namespace SuMueble.Views
             // 
             // txttotal
             // 
-            this.txttotal.Location = new System.Drawing.Point(466, 119);
+            this.txttotal.Location = new System.Drawing.Point(438, 116);
             this.txttotal.Name = "txttotal";
             this.txttotal.Size = new System.Drawing.Size(125, 34);
             this.txttotal.TabIndex = 11;
             // 
             // btncancelar
             // 
-            this.btncancelar.Location = new System.Drawing.Point(607, 118);
+            this.btncancelar.Location = new System.Drawing.Point(607, 132);
             this.btncancelar.Name = "btncancelar";
             this.btncancelar.Size = new System.Drawing.Size(94, 37);
             this.btncancelar.TabIndex = 11;
             this.btncancelar.Text = "Cancelar";
             this.btncancelar.UseVisualStyleBackColor = true;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
             // textBox4
             // 
@@ -147,7 +157,7 @@ namespace SuMueble.Views
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(729, 36);
+            this.textBox3.Location = new System.Drawing.Point(714, 33);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(125, 34);
             this.textBox3.TabIndex = 9;
@@ -155,7 +165,7 @@ namespace SuMueble.Views
             // lbltotal
             // 
             this.lbltotal.AutoSize = true;
-            this.lbltotal.Location = new System.Drawing.Point(355, 123);
+            this.lbltotal.Location = new System.Drawing.Point(317, 118);
             this.lbltotal.Name = "lbltotal";
             this.lbltotal.Size = new System.Drawing.Size(50, 28);
             this.lbltotal.TabIndex = 8;
@@ -163,14 +173,14 @@ namespace SuMueble.Views
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(465, 78);
+            this.textBox2.Location = new System.Drawing.Point(437, 75);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(125, 34);
             this.textBox2.TabIndex = 8;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(466, 36);
+            this.textBox1.Location = new System.Drawing.Point(438, 33);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(125, 34);
             this.textBox1.TabIndex = 7;
@@ -178,25 +188,16 @@ namespace SuMueble.Views
             // lblDescuento
             // 
             this.lblDescuento.AutoSize = true;
-            this.lblDescuento.Location = new System.Drawing.Point(622, 37);
+            this.lblDescuento.Location = new System.Drawing.Point(607, 36);
             this.lblDescuento.Name = "lblDescuento";
             this.lblDescuento.Size = new System.Drawing.Size(101, 28);
             this.lblDescuento.TabIndex = 6;
             this.lblDescuento.Text = "Descuento";
             // 
-            // btnbuscarinventario
-            // 
-            this.btnbuscarinventario.Location = new System.Drawing.Point(239, 33);
-            this.btnbuscarinventario.Name = "btnbuscarinventario";
-            this.btnbuscarinventario.Size = new System.Drawing.Size(81, 37);
-            this.btnbuscarinventario.TabIndex = 6;
-            this.btnbuscarinventario.Text = "Buscar";
-            this.btnbuscarinventario.UseVisualStyleBackColor = true;
-            // 
             // lblISV
             // 
             this.lblISV.AutoSize = true;
-            this.lblISV.Location = new System.Drawing.Point(355, 82);
+            this.lblISV.Location = new System.Drawing.Point(317, 77);
             this.lblISV.Name = "lblISV";
             this.lblISV.Size = new System.Drawing.Size(39, 28);
             this.lblISV.TabIndex = 5;
@@ -211,17 +212,10 @@ namespace SuMueble.Views
             this.lblsubtotal.TabIndex = 4;
             this.lblsubtotal.Text = "Sub Total";
             // 
-            // txtarticulo
-            // 
-            this.txtarticulo.Location = new System.Drawing.Point(103, 34);
-            this.txtarticulo.Name = "txtarticulo";
-            this.txtarticulo.Size = new System.Drawing.Size(125, 34);
-            this.txtarticulo.TabIndex = 4;
-            // 
             // lblprecio
             // 
             this.lblprecio.AutoSize = true;
-            this.lblprecio.Location = new System.Drawing.Point(355, 37);
+            this.lblprecio.Location = new System.Drawing.Point(317, 32);
             this.lblprecio.Name = "lblprecio";
             this.lblprecio.Size = new System.Drawing.Size(115, 28);
             this.lblprecio.TabIndex = 4;
@@ -231,7 +225,7 @@ namespace SuMueble.Views
             // 
             this.txtcantidad.Location = new System.Drawing.Point(103, 75);
             this.txtcantidad.Name = "txtcantidad";
-            this.txtcantidad.Size = new System.Drawing.Size(125, 34);
+            this.txtcantidad.Size = new System.Drawing.Size(81, 34);
             this.txtcantidad.TabIndex = 4;
             // 
             // lblcantidad
@@ -254,7 +248,8 @@ namespace SuMueble.Views
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnlimpiar);
+            this.groupBox2.Controls.Add(this.btngenerarcodigofactura);
+            this.groupBox2.Controls.Add(this.btnRegistrar);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.txtcodigofactura);
             this.groupBox2.Controls.Add(this.btnBuscarcliente);
@@ -272,32 +267,42 @@ namespace SuMueble.Views
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
             // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Location = new System.Drawing.Point(301, 89);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(103, 37);
+            this.btnRegistrar.TabIndex = 11;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            // 
             // btnlimpiar
             // 
-            this.btnlimpiar.Location = new System.Drawing.Point(639, 89);
+            this.btnlimpiar.Location = new System.Drawing.Point(112, 149);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(101, 37);
             this.btnlimpiar.TabIndex = 10;
             this.btnlimpiar.Text = "Limpiar";
             this.btnlimpiar.UseVisualStyleBackColor = true;
+            this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(465, 44);
+            this.dateTimePicker1.Location = new System.Drawing.Point(607, 41);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(275, 34);
             this.dateTimePicker1.TabIndex = 9;
             // 
             // txtcodigofactura
             // 
-            this.txtcodigofactura.Location = new System.Drawing.Point(449, 90);
+            this.txtcodigofactura.Location = new System.Drawing.Point(561, 92);
             this.txtcodigofactura.Name = "txtcodigofactura";
-            this.txtcodigofactura.Size = new System.Drawing.Size(125, 34);
+            this.txtcodigofactura.Size = new System.Drawing.Size(171, 34);
             this.txtcodigofactura.TabIndex = 8;
             // 
             // btnBuscarcliente
             // 
-            this.btnBuscarcliente.Location = new System.Drawing.Point(253, 37);
+            this.btnBuscarcliente.Location = new System.Drawing.Point(301, 37);
             this.btnBuscarcliente.Name = "btnBuscarcliente";
             this.btnBuscarcliente.Size = new System.Drawing.Size(80, 37);
             this.btnBuscarcliente.TabIndex = 7;
@@ -317,7 +322,7 @@ namespace SuMueble.Views
             // lblcodigofactura
             // 
             this.lblcodigofactura.AutoSize = true;
-            this.lblcodigofactura.Location = new System.Drawing.Point(355, 93);
+            this.lblcodigofactura.Location = new System.Drawing.Point(450, 95);
             this.lblcodigofactura.Name = "lblcodigofactura";
             this.lblcodigofactura.Size = new System.Drawing.Size(94, 28);
             this.lblcodigofactura.TabIndex = 5;
@@ -326,7 +331,7 @@ namespace SuMueble.Views
             // lblfechaventa
             // 
             this.lblfechaventa.AutoSize = true;
-            this.lblfechaventa.Location = new System.Drawing.Point(355, 44);
+            this.lblfechaventa.Location = new System.Drawing.Point(478, 44);
             this.lblfechaventa.Name = "lblfechaventa";
             this.lblfechaventa.Size = new System.Drawing.Size(113, 28);
             this.lblfechaventa.TabIndex = 3;
@@ -335,7 +340,7 @@ namespace SuMueble.Views
             // lblDNI
             // 
             this.lblDNI.AutoSize = true;
-            this.lblDNI.Location = new System.Drawing.Point(24, 46);
+            this.lblDNI.Location = new System.Drawing.Point(59, 44);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(44, 28);
             this.lblDNI.TabIndex = 2;
@@ -345,15 +350,34 @@ namespace SuMueble.Views
             // 
             this.txtnombrecliente.Location = new System.Drawing.Point(122, 92);
             this.txtnombrecliente.Name = "txtnombrecliente";
-            this.txtnombrecliente.Size = new System.Drawing.Size(125, 34);
+            this.txtnombrecliente.Size = new System.Drawing.Size(173, 34);
             this.txtnombrecliente.TabIndex = 1;
             // 
             // txtDNI
             // 
             this.txtDNI.Location = new System.Drawing.Point(122, 41);
             this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(125, 34);
+            this.txtDNI.Size = new System.Drawing.Size(173, 34);
             this.txtDNI.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(240, 20);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1028, 767);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Ventas";
+            // 
+            // btngenerarcodigofactura
+            // 
+            this.btngenerarcodigofactura.Location = new System.Drawing.Point(738, 91);
+            this.btngenerarcodigofactura.Name = "btngenerarcodigofactura";
+            this.btngenerarcodigofactura.Size = new System.Drawing.Size(101, 37);
+            this.btngenerarcodigofactura.TabIndex = 12;
+            this.btngenerarcodigofactura.Text = "Generar ";
+            this.btngenerarcodigofactura.UseVisualStyleBackColor = true;
+            this.btngenerarcodigofactura.Click += new System.EventHandler(this.btngenerarcodigofactura_Click);
             // 
             // Venta
             // 
@@ -361,9 +385,12 @@ namespace SuMueble.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnlimpiar);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
             this.Name = "Venta";
             this.Size = new System.Drawing.Size(1413, 901);
+            this.Load += new System.EventHandler(this.Venta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -386,10 +413,8 @@ namespace SuMueble.Views
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblDescuento;
-        private System.Windows.Forms.Button btnbuscarinventario;
         private System.Windows.Forms.Label lblISV;
         private System.Windows.Forms.Label lblsubtotal;
-        private System.Windows.Forms.TextBox txtarticulo;
         private System.Windows.Forms.Label lblprecio;
         private System.Windows.Forms.TextBox txtcantidad;
         private System.Windows.Forms.Label lblcantidad;
@@ -405,5 +430,9 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.TextBox txtnombrecliente;
         private System.Windows.Forms.TextBox txtDNI;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btngenerarcodigofactura;
     }
 }
