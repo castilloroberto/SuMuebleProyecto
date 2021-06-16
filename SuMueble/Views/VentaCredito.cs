@@ -8,22 +8,26 @@ using System.Windows.Forms;
 
 namespace SuMueble.Views
 {
-    public partial class Venta : UserControl
+    public partial class VentaCredito : Form
     {
-        public Venta()
+        public VentaCredito()
         {
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnBuscarcliente_Click(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
         {
-           
-;
+
+        }
+
+        private void VentaCredito_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,22 +8,18 @@ using System.Windows.Forms;
 
 namespace SuMueble.Views
 {
-    public partial class Venta : UserControl
+    public partial class AgregarEditarColaboradores : Form
     {
-        public Venta()
+        public AgregarEditarColaboradores()
         {
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void btn_hecho_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnBuscarcliente_Click(object sender, EventArgs e)
-        {
-           
-;
+            // enviar el insert 
+            this.Close();
+            
         }
     }
 }

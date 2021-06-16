@@ -8,22 +8,17 @@ using System.Windows.Forms;
 
 namespace SuMueble.Views
 {
-    public partial class Venta : UserControl
+    public partial class DevolucionesView : UserControl
     {
-        public Venta()
+        public DevolucionesView()
         {
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void btn_agregarDevolucion_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnBuscarcliente_Click(object sender, EventArgs e)
-        {
-           
-;
+            Devolucion devolucion = new Devolucion();
+            devolucion.ShowDialog();
         }
     }
 }
