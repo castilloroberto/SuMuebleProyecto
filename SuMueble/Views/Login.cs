@@ -22,6 +22,8 @@ namespace SuMueble.Views
             Menu menu = new Menu();
             menu.Show();
             this.Hide();
+            Venta venta = new Venta();
+            
         }
     }
 }
