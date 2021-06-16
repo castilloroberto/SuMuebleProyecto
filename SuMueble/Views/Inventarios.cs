@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿using SuMueble;
 using System.Windows.Forms;
 
 namespace Ventana_de_Inventarios
@@ -13,6 +8,12 @@ namespace Ventana_de_Inventarios
         public Inventarios()
         {
             InitializeComponent();
+        }
+
+        private void btnActualizar_Click(object sender, System.EventArgs e)
+        {
+            FormularioInventarios formInventarios = new FormularioInventarios();
+            formInventarios.ShowDialog();
         }
     }
 }
