@@ -15,5 +15,11 @@ namespace Ventana_de_Inventarios
             FormularioInventarios formInventarios = new FormularioInventarios();
             formInventarios.ShowDialog();
         }
+
+        private void btnNuevo_Click(object sender, System.EventArgs e)
+        {
+            FormularioInventarios formInventarios = new FormularioInventarios();
+            formInventarios.ShowDialog();
+        }
     }
 }

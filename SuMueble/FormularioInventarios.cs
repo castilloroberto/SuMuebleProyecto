@@ -19,5 +19,10 @@ namespace SuMueble
         {
             throw new NotImplementedException();
         }
+
+        private void FormularioInventarios_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

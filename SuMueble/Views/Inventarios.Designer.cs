@@ -43,9 +43,9 @@ namespace Ventana_de_Inventarios
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1140, 89);
+            this.label2.Location = new System.Drawing.Point(998, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 32);
+            this.label2.Size = new System.Drawing.Size(100, 25);
             this.label2.TabIndex = 10;
             this.label2.Text = "Buscar por:";
             // 
@@ -53,9 +53,9 @@ namespace Ventana_de_Inventarios
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(462, 89);
+            this.label1.Location = new System.Drawing.Point(404, 67);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 32);
+            this.label1.Size = new System.Drawing.Size(140, 25);
             this.label1.TabIndex = 11;
             this.label1.Text = "Buscar Producto";
             // 
@@ -70,10 +70,9 @@ namespace Ventana_de_Inventarios
             "Item 1",
             "Item 2",
             "Item 3"});
-            this.comboBox2.Location = new System.Drawing.Point(1148, 131);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox2.Location = new System.Drawing.Point(1004, 98);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(234, 36);
+            this.comboBox2.Size = new System.Drawing.Size(205, 29);
             this.comboBox2.TabIndex = 8;
             // 
             // btnNuevo
@@ -83,13 +82,13 @@ namespace Ventana_de_Inventarios
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnNuevo.Location = new System.Drawing.Point(1261, 588);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNuevo.Location = new System.Drawing.Point(1103, 441);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(120, 37);
+            this.btnNuevo.Size = new System.Drawing.Size(105, 28);
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnActualizar
             // 
@@ -99,10 +98,9 @@ namespace Ventana_de_Inventarios
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnActualizar.Location = new System.Drawing.Point(1085, 588);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnActualizar.Location = new System.Drawing.Point(949, 441);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(138, 37);
+            this.btnActualizar.Size = new System.Drawing.Size(121, 28);
             this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
@@ -111,27 +109,25 @@ namespace Ventana_de_Inventarios
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(469, 187);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(410, 140);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(912, 377);
+            this.dataGridView1.Size = new System.Drawing.Size(798, 283);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.Text = "dataGridView1";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(469, 133);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Location = new System.Drawing.Point(410, 100);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Escriba aqui...";
-            this.textBox1.Size = new System.Drawing.Size(234, 34);
+            this.textBox1.Size = new System.Drawing.Size(205, 29);
             this.textBox1.TabIndex = 12;
             // 
             // Inventarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
@@ -140,9 +136,8 @@ namespace Ventana_de_Inventarios
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Inventarios";
-            this.Size = new System.Drawing.Size(1810, 760);
+            this.Size = new System.Drawing.Size(1584, 570);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
