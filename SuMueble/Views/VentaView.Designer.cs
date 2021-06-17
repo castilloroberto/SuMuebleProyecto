@@ -1,7 +1,7 @@
 ﻿
 namespace SuMueble.Views
 {
-    partial class Venta
+    partial class VentaView
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -54,6 +54,7 @@ namespace SuMueble.Views
             this.lb_productosVenta = new System.Windows.Forms.ListBox();
             this.dgv_productos = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.existencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,7 +63,7 @@ namespace SuMueble.Views
             // 
             // btn_terminarVenta
             // 
-            this.btn_terminarVenta.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_terminarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(208)))), ((int)(((byte)(88)))));
             this.btn_terminarVenta.FlatAppearance.BorderSize = 0;
             this.btn_terminarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_terminarVenta.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -310,6 +311,7 @@ namespace SuMueble.Views
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.codigo,
             this.producto,
             this.precio,
             this.existencias});
@@ -323,12 +325,21 @@ namespace SuMueble.Views
             // 
             // id
             // 
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "Id";
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Width = 125;
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "Codigo";
+            this.codigo.HeaderText = "Codigo";
+            this.codigo.MinimumWidth = 6;
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Width = 125;
             // 
             // producto
             // 
@@ -357,7 +368,7 @@ namespace SuMueble.Views
             this.existencias.ReadOnly = true;
             this.existencias.Width = 125;
             // 
-            // Venta
+            // VentaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -385,7 +396,7 @@ namespace SuMueble.Views
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lb_productosVenta);
             this.Controls.Add(this.dgv_productos);
-            this.Name = "Venta";
+            this.Name = "VentaView";
             this.Size = new System.Drawing.Size(1810, 795);
             this.Load += new System.EventHandler(this.Venta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
@@ -421,6 +432,7 @@ namespace SuMueble.Views
         private System.Windows.Forms.ListBox lb_productosVenta;
         private System.Windows.Forms.DataGridView dgv_productos;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn existencias;
