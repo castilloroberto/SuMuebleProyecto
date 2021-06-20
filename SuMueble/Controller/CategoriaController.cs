@@ -19,12 +19,12 @@ namespace SuMueble.Controller
             }
         }
 
-        public bool InsertCategorias()
+        public bool InsertCategorias(string categoria )
         {
             using (var db = GetConnection)
             {
 
-                return db.Execute("Insert into categorias values(@categoria)", new { Categoria = "Camas" }) > 0;
+                return db.Execute("Insert into categorias values(@categoria)", new { Categoria = categoria }) > 0;
             }
         }
 
