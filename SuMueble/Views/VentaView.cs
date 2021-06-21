@@ -47,5 +47,10 @@ namespace SuMueble.Views
         {
             
         }
+
+        private void btn_terminarVenta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
