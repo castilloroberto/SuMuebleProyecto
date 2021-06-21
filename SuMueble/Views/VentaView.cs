@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace SuMueble.Views
 {
-    public partial class Venta : UserControl
+    public partial class VentaView : UserControl
     {
-        public Venta()
+        public VentaView()
         {
             InitializeComponent();
         }

@@ -164,6 +164,7 @@ namespace SuMueble.Views
             this.btn_ventasCredito.TabIndex = 1;
             this.btn_ventasCredito.Text = "Ventas Al Credito";
             this.btn_ventasCredito.UseVisualStyleBackColor = false;
+            this.btn_ventasCredito.Click += new System.EventHandler(this.btn_ventasCredito_Click);
             // 
             // btn_inventario
             // 

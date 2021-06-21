@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SuMueble
+namespace SuMueble.Views.Prompts
 {
-    public partial class UserControl1 : UserControl
+    public partial class VentaAgregarProducto : Form
     {
-        public UserControl1()
+        public VentaAgregarProducto()
         {
             InitializeComponent();
         }

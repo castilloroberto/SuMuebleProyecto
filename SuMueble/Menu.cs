@@ -16,7 +16,7 @@ namespace SuMueble.Views
         {
             InitializeComponent();
             
-            Venta ventasUc = new Venta();
+            VentaView ventasUc = new VentaView();
             panel2.Controls.Add(ventasUc);
 
         }
@@ -42,8 +42,10 @@ namespace SuMueble.Views
 
             btn_colaboradores.ForeColor = Color.FromName("ControlText");
             btn_colaboradores.BackColor = Color.FromName("ControlLight");
-           
-            
+
+            btn_ventasCredito.ForeColor = Color.FromName("ControlText");
+            btn_ventasCredito.BackColor = Color.FromName("ControlLight");
+
 
 
         }
@@ -58,7 +60,7 @@ namespace SuMueble.Views
             btn_ventas.BackColor = Color.DodgerBlue;
             //UserControl
             panel2.Controls.Clear();
-            Venta ventasUc = new Venta();
+            VentaView ventasUc = new VentaView();
             //ventasUc.Width = panel2.Width-5;
             //ventasUc.Height = panel2.Height-5;
             panel2.Controls.Add(ventasUc);
@@ -73,7 +75,7 @@ namespace SuMueble.Views
             btn_inventario.BackColor = Color.DodgerBlue;
             panel2.Controls.Clear();
             // vista
-            Inventarios inventario = new Inventarios();
+            InventariosView inventario = new InventariosView();
             panel2.Controls.Add(inventario);
         }
     
@@ -134,6 +136,17 @@ namespace SuMueble.Views
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
            
+        }
+
+        private void btn_ventasCredito_Click(object sender, EventArgs e)
+        {
+            HideAll();
+
+            btn_ventasCredito.ForeColor = Color.White;
+            btn_ventasCredito.BackColor = Color.DodgerBlue;
+            panel2.Controls.Clear();
+            VentaCreditoView ventaCreditoView = new VentaCreditoView();
+            panel2.Controls.Add(ventaCreditoView);
         }
     }
 }
