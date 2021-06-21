@@ -73,6 +73,7 @@ namespace SuMueble.Views
             this.btn_terminarVenta.TabIndex = 31;
             this.btn_terminarVenta.Text = "Terminar Venta";
             this.btn_terminarVenta.UseVisualStyleBackColor = false;
+            this.btn_terminarVenta.Click += new System.EventHandler(this.btn_terminarVenta_Click);
             // 
             // btn_agregarProducto
             // 
