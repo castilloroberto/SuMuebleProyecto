@@ -29,6 +29,7 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_user = new System.Windows.Forms.TextBox();
             this.txt_password = new System.Windows.Forms.TextBox();
@@ -56,7 +57,7 @@ namespace SuMueble.Views
             this.txt_user.MinimumSize = new System.Drawing.Size(250, 37);
             this.txt_user.Name = "txt_user";
             this.txt_user.PlaceholderText = "Escriba Aqui...";
-            this.txt_user.Size = new System.Drawing.Size(300, 37);
+            this.txt_user.Size = new System.Drawing.Size(300, 34);
             this.txt_user.TabIndex = 1;
             this.txt_user.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -68,7 +69,7 @@ namespace SuMueble.Views
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '*';
             this.txt_password.PlaceholderText = "Escriba Aqui...";
-            this.txt_password.Size = new System.Drawing.Size(300, 37);
+            this.txt_password.Size = new System.Drawing.Size(300, 34);
             this.txt_password.TabIndex = 2;
             this.txt_password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -119,10 +120,11 @@ namespace SuMueble.Views
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.txt_user);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "Su Mueble Iniciar Sesion";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
