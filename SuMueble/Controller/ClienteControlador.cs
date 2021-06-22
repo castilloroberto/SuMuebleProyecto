@@ -45,11 +45,27 @@ namespace SuMueble.Controller
             }
         }
 
-
-        /*public bool SaveCliente(Clientes cliente)
+        public Clientes GetCliente(string DNI)
         {
-            if(cliente.DNI == string.Empty)
-            
-        }*/
+            using (var db = GetConnection)
+            {
+                return db.Get<Clientes>(DNI);
+            }
+        }
+        public bool SaveCliente(Clientes cliente)
+        {
+            bool ok = false;
+            Clientes c = GetCliente(cliente.DNI);
+            if (c != null)
+            {
+                ok = UpdateCliente(cliente);
+            }
+            else
+            {
+                ok = InsertCliente(cliente);
+            }
+
+            return ok;
+        }
     }
 }
