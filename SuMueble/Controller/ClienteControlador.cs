@@ -45,11 +45,8 @@ namespace SuMueble.Controller
             }
         }
 
+        
 
-        /*public bool SaveCliente(Clientes cliente)
-        {
-            if(cliente.DNI == string.Empty)
-            
-        }*/
+       
     }
 }
