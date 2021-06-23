@@ -34,9 +34,14 @@ namespace Ventana_de_Inventarios
             this.cb_categorias = new System.Windows.Forms.ComboBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_Productos = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -105,16 +110,66 @@ namespace Ventana_de_Inventarios
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // dataGridView1
+            // dgv_Productos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(469, 187);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(912, 377);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.Text = "dataGridView1";
+            this.dgv_Productos.AllowUserToAddRows = false;
+            this.dgv_Productos.AllowUserToDeleteRows = false;
+            this.dgv_Productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.codigo,
+            this.nombreArticulo,
+            this.precioUnit,
+            this.existencia});
+            this.dgv_Productos.Location = new System.Drawing.Point(469, 187);
+            this.dgv_Productos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgv_Productos.Name = "dgv_Productos";
+            this.dgv_Productos.ReadOnly = true;
+            this.dgv_Productos.RowHeadersWidth = 51;
+            this.dgv_Productos.Size = new System.Drawing.Size(912, 377);
+            this.dgv_Productos.TabIndex = 5;
+            this.dgv_Productos.Text = "dataGridView1";
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "Codigo";
+            this.codigo.HeaderText = "Codigo";
+            this.codigo.MinimumWidth = 6;
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            // 
+            // nombreArticulo
+            // 
+            this.nombreArticulo.DataPropertyName = "Producto";
+            this.nombreArticulo.HeaderText = "Nombre Articulo";
+            this.nombreArticulo.MinimumWidth = 6;
+            this.nombreArticulo.Name = "nombreArticulo";
+            this.nombreArticulo.ReadOnly = true;
+            // 
+            // precioUnit
+            // 
+            this.precioUnit.DataPropertyName = "PrecioUnitario";
+            this.precioUnit.HeaderText = "Precio Unitario";
+            this.precioUnit.MinimumWidth = 6;
+            this.precioUnit.Name = "precioUnit";
+            this.precioUnit.ReadOnly = true;
+            // 
+            // existencia
+            // 
+            this.existencia.DataPropertyName = "Existencias";
+            this.existencia.HeaderText = "Cantidad Disponible";
+            this.existencia.MinimumWidth = 6;
+            this.existencia.Name = "existencia";
+            this.existencia.ReadOnly = true;
             // 
             // textBox1
             // 
@@ -136,11 +191,12 @@ namespace Ventana_de_Inventarios
             this.Controls.Add(this.cb_categorias);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_Productos);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "InventariosView";
             this.Size = new System.Drawing.Size(1810, 760);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.InventariosView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,7 +209,12 @@ namespace Ventana_de_Inventarios
         private System.Windows.Forms.ComboBox cb_categorias;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_Productos;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn existencia;
     }
 }
