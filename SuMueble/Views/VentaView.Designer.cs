@@ -29,6 +29,7 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_terminarVenta = new System.Windows.Forms.Button();
             this.btn_agregarProducto = new System.Windows.Forms.Button();
             this.txt_telefono = new System.Windows.Forms.TextBox();
@@ -74,6 +75,7 @@ namespace SuMueble.Views
             this.btn_terminarVenta.TabIndex = 31;
             this.btn_terminarVenta.Text = "Terminar Venta";
             this.btn_terminarVenta.UseVisualStyleBackColor = false;
+            this.btn_terminarVenta.Click += new System.EventHandler(this.btn_terminarVenta_Click);
             // 
             // btn_agregarProducto
             // 
@@ -88,6 +90,7 @@ namespace SuMueble.Views
             this.btn_agregarProducto.TabIndex = 30;
             this.btn_agregarProducto.Text = "Agregar a la Venta";
             this.btn_agregarProducto.UseVisualStyleBackColor = false;
+            this.btn_agregarProducto.Click += new System.EventHandler(this.btn_agregarProducto_Click);
             // 
             // txt_telefono
             // 
@@ -308,6 +311,17 @@ namespace SuMueble.Views
             // 
             this.dgv_productos.AllowUserToAddRows = false;
             this.dgv_productos.AllowUserToDeleteRows = false;
+            this.dgv_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_productos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -315,13 +329,16 @@ namespace SuMueble.Views
             this.producto,
             this.precio,
             this.existencias});
+            this.dgv_productos.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgv_productos.Location = new System.Drawing.Point(263, 285);
             this.dgv_productos.Name = "dgv_productos";
             this.dgv_productos.ReadOnly = true;
+            this.dgv_productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv_productos.RowHeadersWidth = 51;
             this.dgv_productos.RowTemplate.Height = 29;
             this.dgv_productos.Size = new System.Drawing.Size(857, 365);
             this.dgv_productos.TabIndex = 6;
+            this.dgv_productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellClick);
             // 
             // id
             // 
@@ -330,7 +347,6 @@ namespace SuMueble.Views
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 125;
             // 
             // codigo
             // 
@@ -339,7 +355,6 @@ namespace SuMueble.Views
             this.codigo.MinimumWidth = 6;
             this.codigo.Name = "codigo";
             this.codigo.ReadOnly = true;
-            this.codigo.Width = 125;
             // 
             // producto
             // 
@@ -348,16 +363,14 @@ namespace SuMueble.Views
             this.producto.MinimumWidth = 6;
             this.producto.Name = "producto";
             this.producto.ReadOnly = true;
-            this.producto.Width = 300;
             // 
             // precio
             // 
-            this.precio.DataPropertyName = "Precio";
+            this.precio.DataPropertyName = "PrecioUnitario";
             this.precio.HeaderText = "Precio";
             this.precio.MinimumWidth = 6;
             this.precio.Name = "precio";
             this.precio.ReadOnly = true;
-            this.precio.Width = 125;
             // 
             // existencias
             // 
@@ -366,7 +379,6 @@ namespace SuMueble.Views
             this.existencias.MinimumWidth = 6;
             this.existencias.Name = "existencias";
             this.existencias.ReadOnly = true;
-            this.existencias.Width = 125;
             // 
             // VentaView
             // 
@@ -398,7 +410,6 @@ namespace SuMueble.Views
             this.Controls.Add(this.dgv_productos);
             this.Name = "VentaView";
             this.Size = new System.Drawing.Size(1810, 795);
-            this.Load += new System.EventHandler(this.Venta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

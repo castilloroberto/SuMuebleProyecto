@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SuMueble.Models
+{
+    public class Colaboradores 
+    { 
+        public string DNI { get; set; }
+
+        public string RTN { get; set; }
+
+        public string Nombre { get; set; }
+
+        public string Clave { get; set; }
+
+        public int IDPuesto { get; set; }
+
+        public string Direccion { get; set; }
+
+        public string Tel { get; set; }
+
+        public string Email { get; set; }
+
+        public DateTime FechaNacimiento { get; set; }
+
+        public DateTime Contratado { get; set; }
+
+        public DateTime FinContrato { get; set; }
+
+        public Boolean Estado { get; set; }
+
+
+
+    }
+}
