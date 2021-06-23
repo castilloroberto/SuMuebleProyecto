@@ -51,5 +51,15 @@ namespace SuMueble.Controller
                return UpdateProductos(producto);
             }
         }
+
+        public Productos GetProducto(int ID)
+        {
+            using (var DB = GetConnection)
+            {
+
+                return DB.Get<Productos>(ID);
+
+            }
+        }
     }
 }
