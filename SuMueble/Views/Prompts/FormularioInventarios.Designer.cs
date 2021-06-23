@@ -35,11 +35,11 @@ namespace SuMueble
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_Hecho = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.cmb_Categoria = new System.Windows.Forms.ComboBox();
+            this.txt_Precio = new System.Windows.Forms.TextBox();
+            this.txt_Codigo = new System.Windows.Forms.TextBox();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
+            this.txt_Existencia = new System.Windows.Forms.TextBox();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -107,52 +107,54 @@ namespace SuMueble
             this.btn_Hecho.TabIndex = 5;
             this.btn_Hecho.Text = "Hecho";
             this.btn_Hecho.UseVisualStyleBackColor = false;
+            this.btn_Hecho.Click += new System.EventHandler(this.btn_Hecho_Click);
             // 
-            // comboBox1
+            // cmb_Categoria
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(57, 340);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(269, 36);
-            this.comboBox1.TabIndex = 6;
+            this.cmb_Categoria.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmb_Categoria.FormattingEnabled = true;
+            this.cmb_Categoria.Location = new System.Drawing.Point(57, 340);
+            this.cmb_Categoria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmb_Categoria.Name = "cmb_Categoria";
+            this.cmb_Categoria.Size = new System.Drawing.Size(269, 36);
+            this.cmb_Categoria.TabIndex = 6;
             // 
-            // textBox1
+            // txt_Precio
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(57, 213);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(269, 34);
-            this.textBox1.TabIndex = 7;
+            this.txt_Precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_Precio.Location = new System.Drawing.Point(57, 213);
+            this.txt_Precio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Precio.Name = "txt_Precio";
+            this.txt_Precio.Size = new System.Drawing.Size(269, 34);
+            this.txt_Precio.TabIndex = 7;
             // 
-            // textBox2
+            // txt_Codigo
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(57, 89);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(269, 34);
-            this.textBox2.TabIndex = 8;
+            this.txt_Codigo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_Codigo.Location = new System.Drawing.Point(57, 89);
+            this.txt_Codigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Codigo.Name = "txt_Codigo";
+            this.txt_Codigo.Size = new System.Drawing.Size(269, 34);
+            this.txt_Codigo.TabIndex = 8;
+            this.txt_Codigo.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // txt_Nombre
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(382, 89);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(269, 34);
-            this.textBox3.TabIndex = 9;
+            this.txt_Nombre.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_Nombre.Location = new System.Drawing.Point(382, 89);
+            this.txt_Nombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(269, 34);
+            this.txt_Nombre.TabIndex = 9;
             // 
-            // textBox4
+            // txt_Existencia
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(382, 213);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(269, 34);
-            this.textBox4.TabIndex = 10;
+            this.txt_Existencia.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_Existencia.Location = new System.Drawing.Point(382, 213);
+            this.txt_Existencia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Existencia.Name = "txt_Existencia";
+            this.txt_Existencia.Size = new System.Drawing.Size(269, 34);
+            this.txt_Existencia.TabIndex = 10;
             // 
             // btn_Cancelar
             // 
@@ -176,11 +178,11 @@ namespace SuMueble
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(708, 524);
             this.Controls.Add(this.btn_Cancelar);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txt_Existencia);
+            this.Controls.Add(this.txt_Nombre);
+            this.Controls.Add(this.txt_Codigo);
+            this.Controls.Add(this.txt_Precio);
+            this.Controls.Add(this.cmb_Categoria);
             this.Controls.Add(this.btn_Hecho);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -206,11 +208,11 @@ namespace SuMueble
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_Hecho;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox cmb_Categoria;
+        private System.Windows.Forms.TextBox txt_Precio;
+        private System.Windows.Forms.TextBox txt_Codigo;
+        private System.Windows.Forms.TextBox txt_Nombre;
+        private System.Windows.Forms.TextBox txt_Existencia;
         private System.Windows.Forms.Button btn_Cancelar;
     }
 }

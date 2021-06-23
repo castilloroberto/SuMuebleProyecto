@@ -8,6 +8,5 @@ namespace SuMueble.Models
     {
         public int ID { get; set; }
         public string Puesto { get; set; }
-        public string Puesto2 { get; set; }
     }
 }
