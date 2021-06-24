@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuMueble.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,7 @@ namespace SuMueble.Views
 {
     public partial class Login : Form
     {
+        ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
         public Login()
         {
             InitializeComponent();
@@ -17,12 +19,19 @@ namespace SuMueble.Views
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
-            string password = txt_user.Text;
-            string user = txt_password.Text;
-            Menu menu = new Menu();
-            menu.Show();
-            this.Hide();
-            VentaView venta = new VentaView();
+            string user = txt_user.Text;
+            string password = txt_password.Text;
+            bool res=colaboradorControlador.Login(user, password);
+            res = true;
+            if (res)
+            {
+                Menu menu = new Menu();
+                menu.Show();
+                this.Hide();
+            }
+            else
+                MessageBox.Show("Codigo o Clave de Usuario Invalido", "Contrasena Incorrecta");
+            
             
         }
     }
