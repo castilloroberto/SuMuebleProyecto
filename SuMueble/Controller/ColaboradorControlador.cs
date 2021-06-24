@@ -42,5 +42,21 @@ namespace SuMueble.Controller
                return UpdateColaborador(c);
             }
         }
+
+        public bool Login(string DNI="0", string clave="0")
+        {
+            bool ok = false;
+            using (var DB=GetConnection)
+            {
+                Colaboradores colaborador = DB.Get<Colaboradores>(DNI);
+
+                if (colaborador != null)
+                    ok = colaborador.Clave == clave;
+
+                return ok;
+            }
+        }
     }
+
+
 }
