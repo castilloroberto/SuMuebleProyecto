@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SuMueble.Models
 {
+    [Table("Colaboradores")]
     public class Colaboradores 
     { 
+        [ExplicitKey]
         public string DNI { get; set; }
 
         public string RTN { get; set; }
