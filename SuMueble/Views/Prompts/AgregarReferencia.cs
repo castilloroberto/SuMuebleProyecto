@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuMueble.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,20 @@ namespace SuMueble.Views.Prompts
         public AgregarReferencia()
         {
             InitializeComponent();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Referencias referencias = new Referencias()
+            {
+             CodigoRecibo = txtCodigoFactura.Text, 
+             Direccion = txtDireccion.Text,
+             DNIReferencia = txtDNIReferencia.Text,
+             Nombre = txt_nombreCliente.Text,
+             Tel = txt_telefono.Text
+            };
+            VentaCreditoView.listaReferencias.Add(referencias);
+            this.Close();
         }
     }
 }

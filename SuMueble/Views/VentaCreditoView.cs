@@ -13,6 +13,7 @@ namespace SuMueble.Views
     public partial class VentaCreditoView : UserControl
     {
         public static List<DetallesVentas> listaProductos;
+        public static List<Referencias> listaReferencias;
         public static void listaProducto(DetallesVentas dv)
         {
             listaProductos.Add(dv);
@@ -24,6 +25,7 @@ namespace SuMueble.Views
         {
             InitializeComponent();
             listaProductos = new List<DetallesVentas>();
+            listaReferencias = new List<Referencias>();
         }
 
         private void btn_agregarProducto_Click(object sender, EventArgs e)
@@ -43,6 +45,13 @@ namespace SuMueble.Views
         {
             AgregarReferencia agregarReferencia = new AgregarReferencia();
             agregarReferencia.ShowDialog();
+            CargarReferencias();
+        }
+
+        private void CargarReferencias()
+        {
+            lb_referencias.DataSource = listaReferencias;
+            lb_referencias.DisplayMember = "Nombre";
         }
     }
 }
