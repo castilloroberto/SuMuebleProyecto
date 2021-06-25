@@ -21,8 +21,8 @@ namespace SuMueble.Views
         {
             string user = txt_user.Text;
             string password = txt_password.Text;
-            bool res=colaboradorControlador.Login(user, password);
-            res = true;
+            bool res = colaboradorControlador.Login(user, password);
+           
             if (res)
             {
                 Menu menu = new Menu();

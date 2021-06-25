@@ -32,7 +32,7 @@ namespace SuMueble.Views
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_terminarVenta = new System.Windows.Forms.Button();
             this.btn_agregarProducto = new System.Windows.Forms.Button();
-            this.txt_telefono = new System.Windows.Forms.TextBox();
+            this.txt_clienteTelefono = new System.Windows.Forms.TextBox();
             this.txt_nombreCliente = new System.Windows.Forms.TextBox();
             this.txt_precio = new System.Windows.Forms.TextBox();
             this.txt_cantidadProducto = new System.Windows.Forms.TextBox();
@@ -92,15 +92,15 @@ namespace SuMueble.Views
             this.btn_agregarProducto.UseVisualStyleBackColor = false;
             this.btn_agregarProducto.Click += new System.EventHandler(this.btn_agregarProducto_Click);
             // 
-            // txt_telefono
+            // txt_clienteTelefono
             // 
-            this.txt_telefono.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_telefono.Location = new System.Drawing.Point(897, 124);
-            this.txt_telefono.MaxLength = 8;
-            this.txt_telefono.Name = "txt_telefono";
-            this.txt_telefono.PlaceholderText = "Escriba Aqui...";
-            this.txt_telefono.Size = new System.Drawing.Size(223, 34);
-            this.txt_telefono.TabIndex = 28;
+            this.txt_clienteTelefono.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_clienteTelefono.Location = new System.Drawing.Point(897, 124);
+            this.txt_clienteTelefono.MaxLength = 8;
+            this.txt_clienteTelefono.Name = "txt_clienteTelefono";
+            this.txt_clienteTelefono.PlaceholderText = "Escriba Aqui...";
+            this.txt_clienteTelefono.Size = new System.Drawing.Size(223, 34);
+            this.txt_clienteTelefono.TabIndex = 28;
             // 
             // txt_nombreCliente
             // 
@@ -149,6 +149,7 @@ namespace SuMueble.Views
             this.txt_dniCliente.PlaceholderText = "Numero de Identidad...";
             this.txt_dniCliente.Size = new System.Drawing.Size(223, 34);
             this.txt_dniCliente.TabIndex = 22;
+            this.txt_dniCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_dniCliente_KeyUp);
             // 
             // label9
             // 
@@ -214,10 +215,12 @@ namespace SuMueble.Views
             // 
             this.txt_dniColaborador.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_dniColaborador.Location = new System.Drawing.Point(1473, 124);
+            this.txt_dniColaborador.MaxLength = 13;
             this.txt_dniColaborador.Name = "txt_dniColaborador";
             this.txt_dniColaborador.PlaceholderText = "Numero de Identidad...";
             this.txt_dniColaborador.Size = new System.Drawing.Size(223, 34);
             this.txt_dniColaborador.TabIndex = 23;
+            this.txt_dniColaborador.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_dniColaborador_KeyUp);
             // 
             // labelTelefono
             // 
@@ -386,7 +389,7 @@ namespace SuMueble.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_terminarVenta);
             this.Controls.Add(this.btn_agregarProducto);
-            this.Controls.Add(this.txt_telefono);
+            this.Controls.Add(this.txt_clienteTelefono);
             this.Controls.Add(this.txt_nombreCliente);
             this.Controls.Add(this.txt_precio);
             this.Controls.Add(this.txt_cantidadProducto);
@@ -420,7 +423,7 @@ namespace SuMueble.Views
 
         private System.Windows.Forms.Button btn_terminarVenta;
         private System.Windows.Forms.Button btn_agregarProducto;
-        private System.Windows.Forms.TextBox txt_telefono;
+        private System.Windows.Forms.TextBox txt_clienteTelefono;
         private System.Windows.Forms.TextBox txt_nombreCliente;
         private System.Windows.Forms.TextBox txt_precio;
         private System.Windows.Forms.TextBox txt_cantidadProducto;

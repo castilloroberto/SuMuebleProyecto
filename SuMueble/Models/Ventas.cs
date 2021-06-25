@@ -14,8 +14,8 @@ namespace SuMueble.Models
         [Write(false)]
         [Computed]
         public int CodigoFactura { get; set; }
-        public int IDCliente { get; set; }
-        public int IDColaborador { get; set; }
+        public string IDCliente { get; set; }
+        public string IDColaborador { get; set; }
         public int IDTipoVenta { get; set; }
         public float Prima { get; set; }
         public int Cuotas { get; set; }
