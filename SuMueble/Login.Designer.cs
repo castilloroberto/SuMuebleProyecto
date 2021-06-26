@@ -56,7 +56,7 @@ namespace SuMueble.Views
             this.txt_user.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.txt_user.MinimumSize = new System.Drawing.Size(250, 37);
             this.txt_user.Name = "txt_user";
-            this.txt_user.PlaceholderText = "Escriba Aqui...";
+            this.txt_user.PlaceholderText = "Numero de identidad...";
             this.txt_user.Size = new System.Drawing.Size(300, 34);
             this.txt_user.TabIndex = 1;
             this.txt_user.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -68,7 +68,7 @@ namespace SuMueble.Views
             this.txt_password.MinimumSize = new System.Drawing.Size(4, 37);
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '*';
-            this.txt_password.PlaceholderText = "Escriba Aqui...";
+            this.txt_password.PlaceholderText = "Contraseña...";
             this.txt_password.Size = new System.Drawing.Size(300, 34);
             this.txt_password.TabIndex = 2;
             this.txt_password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
