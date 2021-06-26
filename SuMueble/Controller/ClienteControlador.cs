@@ -21,7 +21,7 @@ namespace SuMueble.Controller
             }
         }
 
-        public bool InsertCliente(Clientes cliente) {
+        private bool InsertCliente(Clientes cliente) {
 
             using (var DB = GetConnection)
             {
@@ -33,7 +33,7 @@ namespace SuMueble.Controller
 
         }
 
-        public bool UpdateCliente(Clientes cliente)
+        private bool UpdateCliente(Clientes cliente)
         {
 
             using (var DB = GetConnection)

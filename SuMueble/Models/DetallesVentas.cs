@@ -16,12 +16,16 @@ namespace SuMueble.Models
         public int Cantidad { get; set; }
         public int cantidadDevuelta { get; set; }
 
+
+        // propiedades que no forman parte de la tabla 
+        [Write(false)]
+        [Computed]
         public float SubTotal 
         {
             get { return PrecioVenta * Cantidad; } 
              
         }
-        // propiedades que no forman parte de la tabla 
+
         [Write(false)]
         [Computed]
         public string Producto { get; set; }

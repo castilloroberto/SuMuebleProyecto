@@ -14,7 +14,10 @@ namespace SuMueble.Models
         [Write(false)]
         [Computed]
         public int CodigoFactura { get; set; }
-        public string IDCliente { get; set; }
+        public string IDCliente { 
+            get { return this.Cliente.DNI; }
+            set { IDCliente = value; } 
+        }
         public string IDColaborador { get; set; }
         public int IDTipoVenta { get; set; }
         public float Prima { get; set; }
@@ -28,7 +31,12 @@ namespace SuMueble.Models
         public DateTime FechaFin { get; set; }
 
         // propiedades con de la parte programable
+        [Write(false)]
+        [Computed]
         public List<DetallesVentas> DetallesVenta { get; set; }
+
+        [Write(false)]
+        [Computed]
         public Clientes Cliente { get; set; }
 
 

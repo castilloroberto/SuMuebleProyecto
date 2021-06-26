@@ -16,12 +16,14 @@ namespace SuMueble.Views
         ProductoControlador productoControlador = new ProductoControlador();
         ClienteControlador clienteControlador = new ClienteControlador();
         ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
+        VentaController ventaController = new VentaController();
         
 
         //variables
         private float Total = 0;
         private List<DetallesVentas> _detallesVenta = new List<DetallesVentas>();
         private string _msg = "1. Seleccione un producto\n2. Indique la cantidad que se venderá\n3. Asegurese de No borrar el precio del producto de el cuadro de texto en la parte inferior";
+        private Guid _IDVenta = Guid.NewGuid();
 
         // metodos
         public VentaView()
@@ -47,12 +49,18 @@ namespace SuMueble.Views
             {
                 Ventas venta = new Ventas()
                 {
+                    ID = _IDVenta,
                     DetallesVenta = _detallesVenta,
                     Cliente = c,
+                    IDTipoVenta = 1,
                     IDColaborador = txt_dniColaborador.Text
 
                 };
-                
+                bool ok = ventaController.SaveVenta(venta);
+                if (ok)
+                {
+                    MessageBox.Show($"Venta Terminada\nMonto: {Total}", "Venta Completada",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }
 
             }
             else
@@ -76,6 +84,7 @@ namespace SuMueble.Views
             {
                 DetallesVentas dv = new DetallesVentas()
                 {
+                    IDVenta = _IDVenta,
                     IDProducto = int.Parse(GetCell(0)),
                     Cantidad = int.Parse(txt_cantidadProducto.Text),
                     PrecioVenta = int.Parse(txt_precio.Text),

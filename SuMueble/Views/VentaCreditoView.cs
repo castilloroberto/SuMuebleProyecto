@@ -95,6 +95,7 @@ namespace SuMueble.Views
 
         private void txt_dniColaborador_KeyUp(object sender, KeyEventArgs e)
         {
+            
             if (txt_dniColaborador.Text.Length == 13)
             {
                 Colaboradores c = colaboradorControlador.GetColaborador(txt_dniColaborador.Text);
