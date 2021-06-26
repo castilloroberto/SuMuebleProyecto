@@ -29,7 +29,7 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_terminarVenta = new System.Windows.Forms.Button();
             this.btn_agregarProducto = new System.Windows.Forms.Button();
             this.txt_clienteTelefono = new System.Windows.Forms.TextBox();
@@ -59,6 +59,7 @@ namespace SuMueble.Views
             this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.existencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_quitarItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -317,14 +318,14 @@ namespace SuMueble.Views
             this.dgv_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_productos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -383,11 +384,27 @@ namespace SuMueble.Views
             this.existencias.Name = "existencias";
             this.existencias.ReadOnly = true;
             // 
+            // btn_quitarItem
+            // 
+            this.btn_quitarItem.BackColor = System.Drawing.Color.Crimson;
+            this.btn_quitarItem.FlatAppearance.BorderSize = 0;
+            this.btn_quitarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_quitarItem.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_quitarItem.ForeColor = System.Drawing.Color.White;
+            this.btn_quitarItem.Location = new System.Drawing.Point(1183, 685);
+            this.btn_quitarItem.Name = "btn_quitarItem";
+            this.btn_quitarItem.Size = new System.Drawing.Size(129, 37);
+            this.btn_quitarItem.TabIndex = 30;
+            this.btn_quitarItem.Text = "Quitar Item";
+            this.btn_quitarItem.UseVisualStyleBackColor = false;
+            this.btn_quitarItem.Click += new System.EventHandler(this.btn_quitarItem_Click);
+            // 
             // VentaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_terminarVenta);
+            this.Controls.Add(this.btn_quitarItem);
             this.Controls.Add(this.btn_agregarProducto);
             this.Controls.Add(this.txt_clienteTelefono);
             this.Controls.Add(this.txt_nombreCliente);
@@ -413,6 +430,7 @@ namespace SuMueble.Views
             this.Controls.Add(this.dgv_productos);
             this.Name = "VentaView";
             this.Size = new System.Drawing.Size(1810, 795);
+            this.Load += new System.EventHandler(this.VentaView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -450,5 +468,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn existencias;
+        private System.Windows.Forms.Button btn_quitarItem;
     }
 }

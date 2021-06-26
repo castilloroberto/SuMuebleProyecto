@@ -19,7 +19,7 @@ namespace SuMueble.Controller
             }
         }
 
-        public bool InsertProductos(Productos producto)
+        private bool InsertProductos(Productos producto)
         {
             using (var DB = GetConnection)
             {
@@ -29,7 +29,7 @@ namespace SuMueble.Controller
             }
         }
 
-        public bool UpdateProductos(Productos producto)
+        private bool UpdateProductos(Productos producto)
         {
             using (var DB = GetConnection)
             {

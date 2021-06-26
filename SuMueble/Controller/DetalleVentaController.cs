@@ -13,8 +13,12 @@ namespace SuMueble.Controller
         {
             using (var db = GetConnection)
             {
-                return db.Insert(detallesVenta) == detallesVenta.Count;
+                bool ok = false;
+                long rows =  db.Insert(detallesVenta) ;
+                ok = rows >= detallesVenta.Count;
+                return ok;
             }
         }
+       
     }
 }

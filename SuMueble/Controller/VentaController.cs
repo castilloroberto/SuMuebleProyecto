@@ -21,14 +21,13 @@ namespace SuMueble.Controller
 
         public bool SaveVenta(Ventas v)
         {
-            bool ok = false;
-            ok = clienteControlador.SaveCliente(v.Cliente);
-            if(ok)
-                ok = InsertVenta(v);
-                    if (ok)
-                        ok = detalleVentaController.InsertDetallesVenta(v.DetallesVenta);
-
-            return ok;
+           
+           
+            if(clienteControlador.SaveCliente(v.Cliente))
+                if (InsertVenta(v))
+                    return detalleVentaController.InsertDetallesVenta(v.DetallesVenta);
+            
+            return false;
         } 
     }
 }

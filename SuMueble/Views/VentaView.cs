@@ -29,12 +29,16 @@ namespace SuMueble.Views
         public VentaView()
         {
             InitializeComponent();
-            
-        
+            CargarDataGrid();
+
+
+
+        }
+        private void CargarDataGrid()
+        {
             dgv_productos.AutoGenerateColumns = false;
             dgv_productos.DataSource = productoControlador.GetProductos();
         }
-
 
         private void btn_terminarVenta_Click(object sender, EventArgs e)
         {
@@ -58,16 +62,29 @@ namespace SuMueble.Views
                 };
                 bool ok = ventaController.SaveVenta(venta);
                 if (ok)
-                {
                     MessageBox.Show($"Venta Terminada\nMonto: {Total}", "Venta Completada",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                }
-
+                else
+                    MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Error al completar la Venta",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                CargarDataGrid();
+                ClearVenta();
+                
             }
             else
                 MessageBox.Show("Faltan los siguientes datos:\n"+msg, "Faltan datos de la venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
+        }
+
+        private void ClearVenta()
+        {
+            Total = 0;
+            _IDVenta = Guid.NewGuid();
+            txt_dniCliente.Text = string.Empty;
+            ClearCliente();
+
+            _detallesVenta = new List<DetallesVentas>();
+            ActualizarListView();
         }
 
         private void dgv_productos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -106,10 +123,14 @@ namespace SuMueble.Views
             l_monto.Text = string.Format("{0:C2}", Total);
             _detallesVenta.Add(dv);
             // actualizar el listview
+            ActualizarListView();
+
+        }
+        private void ActualizarListView()
+        {
             lb_productosVenta.DataSource = null;
             lb_productosVenta.DataSource = _detallesVenta;
             lb_productosVenta.DisplayMember = "Info";
-
         }
         private string GetCell(int cell = 0)
         {
@@ -206,6 +227,21 @@ namespace SuMueble.Views
             msg += dniColaboradorLabelError.ForeColor == Color.Crimson ? "* Agregar un DNI de Colaborador Valido": "";
             // Color.FromName("Crimson")
             return msg;
+
+        }
+
+        private void VentaView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_quitarItem_Click(object sender, EventArgs e)
+        {
+            int i = lb_productosVenta.SelectedIndex;
+            Total -= _detallesVenta[i].SubTotal; 
+            _detallesVenta.RemoveAt(i);
+            ActualizarListView();
+            l_monto.Text = string.Format("{0:C2}", Total);
 
         }
     }
