@@ -14,5 +14,12 @@ namespace SuMueble.Views
         {
             InitializeComponent();
         }
+
+
+        private void btn_pagarcuota_Click(object sender, EventArgs e)
+        {
+            PagarCuota pagarCuota = new PagarCuota();
+            pagarCuota.ShowDialog();
+        }
     }
 }

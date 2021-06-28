@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace SuMueble.Views
 {
     public class DBConnection
     {
-        public static string GetString()
-        {
-            return ConfigurationManager.ConnectionStrings[""].ConnectionString;
-        }
+        protected SqlConnection GetConnection => new SqlConnection(ConnectionString);
+        
+
+        private string ConnectionString => ConfigurationManager.ConnectionStrings["SuMuebleDB"].ConnectionString;
     }
 }

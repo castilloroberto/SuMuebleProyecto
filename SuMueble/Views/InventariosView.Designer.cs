@@ -1,7 +1,7 @@
 ﻿
 namespace Ventana_de_Inventarios
 {
-    partial class Inventarios
+    partial class InventariosView
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -31,19 +31,24 @@ namespace Ventana_de_Inventarios
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cb_categorias = new System.Windows.Forms.ComboBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_Productos = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1140, 89);
+            this.label2.Location = new System.Drawing.Point(1141, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 32);
             this.label2.TabIndex = 10;
@@ -59,22 +64,18 @@ namespace Ventana_de_Inventarios
             this.label1.TabIndex = 11;
             this.label1.Text = "Buscar Producto";
             // 
-            // comboBox2
+            // cb_categorias
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Item 1",
-            "Item 2",
-            "Item 3"});
-            this.comboBox2.Location = new System.Drawing.Point(1148, 131);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(234, 36);
-            this.comboBox2.TabIndex = 8;
+            this.cb_categorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.cb_categorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_categorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_categorias.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cb_categorias.FormattingEnabled = true;
+            this.cb_categorias.Location = new System.Drawing.Point(1147, 131);
+            this.cb_categorias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cb_categorias.Name = "cb_categorias";
+            this.cb_categorias.Size = new System.Drawing.Size(234, 36);
+            this.cb_categorias.TabIndex = 8;
             // 
             // btnNuevo
             // 
@@ -90,6 +91,7 @@ namespace Ventana_de_Inventarios
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnActualizar
             // 
@@ -106,17 +108,68 @@ namespace Ventana_de_Inventarios
             this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // dataGridView1
+            // dgv_Productos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(469, 187);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(912, 377);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.Text = "dataGridView1";
+            this.dgv_Productos.AllowUserToAddRows = false;
+            this.dgv_Productos.AllowUserToDeleteRows = false;
+            this.dgv_Productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.codigo,
+            this.nombreArticulo,
+            this.precioUnit,
+            this.existencia});
+            this.dgv_Productos.Location = new System.Drawing.Point(469, 187);
+            this.dgv_Productos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgv_Productos.Name = "dgv_Productos";
+            this.dgv_Productos.ReadOnly = true;
+            this.dgv_Productos.RowHeadersWidth = 51;
+            this.dgv_Productos.Size = new System.Drawing.Size(912, 377);
+            this.dgv_Productos.TabIndex = 5;
+            this.dgv_Productos.Text = "dataGridView1";
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "Codigo";
+            this.codigo.HeaderText = "Codigo";
+            this.codigo.MinimumWidth = 6;
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            // 
+            // nombreArticulo
+            // 
+            this.nombreArticulo.DataPropertyName = "Producto";
+            this.nombreArticulo.HeaderText = "Nombre Articulo";
+            this.nombreArticulo.MinimumWidth = 6;
+            this.nombreArticulo.Name = "nombreArticulo";
+            this.nombreArticulo.ReadOnly = true;
+            // 
+            // precioUnit
+            // 
+            this.precioUnit.DataPropertyName = "PrecioUnitario";
+            this.precioUnit.HeaderText = "Precio Unitario";
+            this.precioUnit.MinimumWidth = 6;
+            this.precioUnit.Name = "precioUnit";
+            this.precioUnit.ReadOnly = true;
+            // 
+            // existencia
+            // 
+            this.existencia.DataPropertyName = "Existencias";
+            this.existencia.HeaderText = "Cantidad Disponible";
+            this.existencia.MinimumWidth = 6;
+            this.existencia.Name = "existencia";
+            this.existencia.ReadOnly = true;
             // 
             // textBox1
             // 
@@ -128,21 +181,22 @@ namespace Ventana_de_Inventarios
             this.textBox1.Size = new System.Drawing.Size(234, 34);
             this.textBox1.TabIndex = 12;
             // 
-            // Inventarios
+            // InventariosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cb_categorias);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_Productos);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Inventarios";
+            this.Name = "InventariosView";
             this.Size = new System.Drawing.Size(1810, 760);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.InventariosView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,10 +206,15 @@ namespace Ventana_de_Inventarios
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cb_categorias;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_Productos;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn existencia;
     }
 }
