@@ -71,5 +71,40 @@ namespace Ventana_de_Inventarios
             dgv_Productos.DataSource = null;
             dgv_Productos.DataSource = filtrados;
         }
+
+        private void cb_categorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string categoriaString = cb_categorias.SelectedValue.ToString();
+           
+           
+            
+            if (categoriaString != "SuMueble.Models.Categorias") {
+                
+                int idCategoria = 0;
+                idCategoria = Convert.ToInt32(categoriaString);
+
+                if (idCategoria != 1)
+                {
+                    List<Productos> filtrados = productos.Where<Productos>(x =>
+                    {
+
+                        return x.IDCategoria == idCategoria;
+
+                    }).ToList();
+
+                    dgv_Productos.DataSource = null;
+                    dgv_Productos.DataSource = filtrados;
+                } else {
+                    dgv_Productos.DataSource = null;
+                    dgv_Productos.DataSource = productos;
+                }
+
+                
+           
+            }
+
+
+        }
     }
 }
