@@ -20,11 +20,12 @@ namespace SuMueble.Views.Prompts
         {
             Referencias referencias = new Referencias()
             {
-             CodigoRecibo = txtCodigoFactura.Text, 
-             Direccion = txtDireccion.Text,
-             DNIReferencia = txtDNIReferencia.Text,
-             Nombre = txt_nombreCliente.Text,
-             Tel = txt_telefono.Text
+                CodigoRecibo = txtCodigoFactura.Text,
+                Direccion = txtDireccion.Text,
+                DNIReferencia = txtDNIReferencia.Text,
+                Nombre = txt_nombreCliente.Text,
+                Tel = txt_telefono.Text,
+                IDVenta = VentaCreditoView._IDVenta,
             };
             VentaCreditoView.listaReferencias.Add(referencias);
             this.Close();

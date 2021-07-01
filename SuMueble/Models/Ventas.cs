@@ -19,6 +19,10 @@ namespace SuMueble.Models
             set { IDCliente = value; } 
         }
         public string IDColaborador { get; set; }
+
+        // Tipo de venta :
+        // 1 al contado
+        // 2 al credito
         public int IDTipoVenta { get; set; }
         public float Prima { get; set; }
         public int Cuotas { get; set; }
@@ -38,6 +42,11 @@ namespace SuMueble.Models
         [Write(false)]
         [Computed]
         public Clientes Cliente { get; set; }
+
+
+        [Write(false)]
+        [Computed]
+        public List<Referencias> Referencias { get; set; }
 
 
     }
