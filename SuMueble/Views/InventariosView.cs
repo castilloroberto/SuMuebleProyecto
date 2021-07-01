@@ -1,7 +1,10 @@
 ﻿using SuMueble;
 using SuMueble.Controller;
+using SuMueble.Models;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Ventana_de_Inventarios
 {
@@ -9,6 +12,7 @@ namespace Ventana_de_Inventarios
     {
         CategoriaController categoriaController = new CategoriaController();
         ProductoControlador pc = new ProductoControlador();
+        List<Productos> productos;
         public InventariosView()
         {
             InitializeComponent();
@@ -22,7 +26,8 @@ namespace Ventana_de_Inventarios
         private void CargarDatos()
         {
             cb_categorias.DataSource = categoriaController.GetCategorias();
-            dgv_Productos.DataSource = pc.GetProductos();
+            productos = pc.GetProductos().ToList();
+            dgv_Productos.DataSource = productos;
 
         }
 
@@ -50,6 +55,21 @@ namespace Ventana_de_Inventarios
         private void InventariosView_Load(object sender, System.EventArgs e)
         {
 
+        }
+
+        private void txt_buscar_metodo(object sender, EventArgs e)
+        {
+            string buscar = txt_buscar.Text;
+
+            List<Productos> filtrados = productos.Where<Productos>(x => {
+
+                return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar) ;
+
+
+            }).ToList();
+
+            dgv_Productos.DataSource = null;
+            dgv_Productos.DataSource = filtrados;
         }
     }
 }
