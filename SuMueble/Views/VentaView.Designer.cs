@@ -29,7 +29,7 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_terminarVenta = new System.Windows.Forms.Button();
             this.btn_agregarProducto = new System.Windows.Forms.Button();
             this.txt_clienteTelefono = new System.Windows.Forms.TextBox();
@@ -70,7 +70,7 @@ namespace SuMueble.Views
             this.btn_terminarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_terminarVenta.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_terminarVenta.ForeColor = System.Drawing.Color.White;
-            this.btn_terminarVenta.Location = new System.Drawing.Point(1505, 685);
+            this.btn_terminarVenta.Location = new System.Drawing.Point(1440, 706);
             this.btn_terminarVenta.Name = "btn_terminarVenta";
             this.btn_terminarVenta.Size = new System.Drawing.Size(191, 37);
             this.btn_terminarVenta.TabIndex = 31;
@@ -85,7 +85,7 @@ namespace SuMueble.Views
             this.btn_agregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_agregarProducto.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarProducto.Location = new System.Drawing.Point(929, 685);
+            this.btn_agregarProducto.Location = new System.Drawing.Point(864, 706);
             this.btn_agregarProducto.Name = "btn_agregarProducto";
             this.btn_agregarProducto.Size = new System.Drawing.Size(191, 37);
             this.btn_agregarProducto.TabIndex = 30;
@@ -96,7 +96,7 @@ namespace SuMueble.Views
             // txt_clienteTelefono
             // 
             this.txt_clienteTelefono.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_clienteTelefono.Location = new System.Drawing.Point(897, 124);
+            this.txt_clienteTelefono.Location = new System.Drawing.Point(832, 145);
             this.txt_clienteTelefono.MaxLength = 8;
             this.txt_clienteTelefono.Name = "txt_clienteTelefono";
             this.txt_clienteTelefono.PlaceholderText = "Escriba Aqui...";
@@ -106,7 +106,7 @@ namespace SuMueble.Views
             // txt_nombreCliente
             // 
             this.txt_nombreCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_nombreCliente.Location = new System.Drawing.Point(525, 124);
+            this.txt_nombreCliente.Location = new System.Drawing.Point(460, 145);
             this.txt_nombreCliente.MaxLength = 255;
             this.txt_nombreCliente.Name = "txt_nombreCliente";
             this.txt_nombreCliente.PlaceholderText = "Nombre y Apellidos...";
@@ -116,7 +116,7 @@ namespace SuMueble.Views
             // txt_precio
             // 
             this.txt_precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_precio.Location = new System.Drawing.Point(264, 688);
+            this.txt_precio.Location = new System.Drawing.Point(199, 709);
             this.txt_precio.Name = "txt_precio";
             this.txt_precio.PlaceholderText = "Precio Sugerido...";
             this.txt_precio.Size = new System.Drawing.Size(223, 34);
@@ -125,7 +125,7 @@ namespace SuMueble.Views
             // txt_cantidadProducto
             // 
             this.txt_cantidadProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_cantidadProducto.Location = new System.Drawing.Point(544, 688);
+            this.txt_cantidadProducto.Location = new System.Drawing.Point(479, 709);
             this.txt_cantidadProducto.MaxLength = 100;
             this.txt_cantidadProducto.Name = "txt_cantidadProducto";
             this.txt_cantidadProducto.PlaceholderText = "Cantidad...";
@@ -135,7 +135,7 @@ namespace SuMueble.Views
             // txt_buscarProducto
             // 
             this.txt_buscarProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_buscarProducto.Location = new System.Drawing.Point(263, 228);
+            this.txt_buscarProducto.Location = new System.Drawing.Point(198, 249);
             this.txt_buscarProducto.Name = "txt_buscarProducto";
             this.txt_buscarProducto.PlaceholderText = "Nombre o Codigo de Producto...";
             this.txt_buscarProducto.Size = new System.Drawing.Size(223, 34);
@@ -144,7 +144,7 @@ namespace SuMueble.Views
             // txt_dniCliente
             // 
             this.txt_dniCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_dniCliente.Location = new System.Drawing.Point(263, 124);
+            this.txt_dniCliente.Location = new System.Drawing.Point(198, 145);
             this.txt_dniCliente.MaxLength = 13;
             this.txt_dniCliente.Name = "txt_dniCliente";
             this.txt_dniCliente.PlaceholderText = "Numero de Identidad...";
@@ -156,7 +156,7 @@ namespace SuMueble.Views
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(261, 657);
+            this.label9.Location = new System.Drawing.Point(196, 678);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(146, 28);
             this.label9.TabIndex = 20;
@@ -166,7 +166,7 @@ namespace SuMueble.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(894, 93);
+            this.label1.Location = new System.Drawing.Point(829, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 28);
             this.label1.TabIndex = 21;
@@ -176,7 +176,7 @@ namespace SuMueble.Views
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(541, 657);
+            this.label8.Location = new System.Drawing.Point(476, 678);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(169, 28);
             this.label8.TabIndex = 18;
@@ -186,7 +186,7 @@ namespace SuMueble.Views
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(522, 93);
+            this.label5.Location = new System.Drawing.Point(457, 114);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 28);
             this.label5.TabIndex = 17;
@@ -196,7 +196,7 @@ namespace SuMueble.Views
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(260, 197);
+            this.label7.Location = new System.Drawing.Point(195, 218);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(150, 28);
             this.label7.TabIndex = 16;
@@ -206,7 +206,7 @@ namespace SuMueble.Views
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(257, 93);
+            this.label4.Location = new System.Drawing.Point(192, 114);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 28);
             this.label4.TabIndex = 15;
@@ -215,7 +215,7 @@ namespace SuMueble.Views
             // txt_dniColaborador
             // 
             this.txt_dniColaborador.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_dniColaborador.Location = new System.Drawing.Point(1473, 124);
+            this.txt_dniColaborador.Location = new System.Drawing.Point(1408, 145);
             this.txt_dniColaborador.MaxLength = 13;
             this.txt_dniColaborador.Name = "txt_dniColaborador";
             this.txt_dniColaborador.PlaceholderText = "Numero de Identidad...";
@@ -228,7 +228,7 @@ namespace SuMueble.Views
             this.labelTelefono.AutoSize = true;
             this.labelTelefono.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(213)))), ((int)(((byte)(115)))));
-            this.labelTelefono.Location = new System.Drawing.Point(897, 161);
+            this.labelTelefono.Location = new System.Drawing.Point(832, 182);
             this.labelTelefono.Name = "labelTelefono";
             this.labelTelefono.Size = new System.Drawing.Size(66, 20);
             this.labelTelefono.TabIndex = 14;
@@ -240,7 +240,7 @@ namespace SuMueble.Views
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(213)))), ((int)(((byte)(115)))));
-            this.labelNombre.Location = new System.Drawing.Point(525, 161);
+            this.labelNombre.Location = new System.Drawing.Point(460, 182);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(66, 20);
             this.labelNombre.TabIndex = 13;
@@ -252,7 +252,7 @@ namespace SuMueble.Views
             this.labelClienteNuevo.AutoSize = true;
             this.labelClienteNuevo.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelClienteNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(213)))), ((int)(((byte)(115)))));
-            this.labelClienteNuevo.Location = new System.Drawing.Point(263, 161);
+            this.labelClienteNuevo.Location = new System.Drawing.Point(198, 182);
             this.labelClienteNuevo.Name = "labelClienteNuevo";
             this.labelClienteNuevo.Size = new System.Drawing.Size(98, 20);
             this.labelClienteNuevo.TabIndex = 12;
@@ -264,7 +264,7 @@ namespace SuMueble.Views
             this.dniColaboradorLabelError.AutoSize = true;
             this.dniColaboradorLabelError.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dniColaboradorLabelError.ForeColor = System.Drawing.Color.Crimson;
-            this.dniColaboradorLabelError.Location = new System.Drawing.Point(1473, 161);
+            this.dniColaboradorLabelError.Location = new System.Drawing.Point(1408, 182);
             this.dniColaboradorLabelError.Name = "dniColaboradorLabelError";
             this.dniColaboradorLabelError.Size = new System.Drawing.Size(129, 20);
             this.dniColaboradorLabelError.TabIndex = 11;
@@ -275,7 +275,7 @@ namespace SuMueble.Views
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(1465, 89);
+            this.label3.Location = new System.Drawing.Point(1400, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 28);
             this.label3.TabIndex = 10;
@@ -285,7 +285,7 @@ namespace SuMueble.Views
             // 
             this.l_monto.AutoSize = true;
             this.l_monto.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.l_monto.Location = new System.Drawing.Point(1531, 230);
+            this.l_monto.Location = new System.Drawing.Point(1466, 251);
             this.l_monto.Name = "l_monto";
             this.l_monto.Size = new System.Drawing.Size(165, 32);
             this.l_monto.TabIndex = 9;
@@ -295,7 +295,7 @@ namespace SuMueble.Views
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1183, 230);
+            this.label2.Location = new System.Drawing.Point(1118, 251);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(169, 32);
             this.label2.TabIndex = 8;
@@ -306,7 +306,7 @@ namespace SuMueble.Views
             this.lb_productosVenta.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_productosVenta.FormattingEnabled = true;
             this.lb_productosVenta.ItemHeight = 28;
-            this.lb_productosVenta.Location = new System.Drawing.Point(1183, 285);
+            this.lb_productosVenta.Location = new System.Drawing.Point(1118, 306);
             this.lb_productosVenta.Name = "lb_productosVenta";
             this.lb_productosVenta.Size = new System.Drawing.Size(513, 340);
             this.lb_productosVenta.TabIndex = 7;
@@ -318,14 +318,14 @@ namespace SuMueble.Views
             this.dgv_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_productos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -334,7 +334,7 @@ namespace SuMueble.Views
             this.precio,
             this.existencias});
             this.dgv_productos.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgv_productos.Location = new System.Drawing.Point(263, 285);
+            this.dgv_productos.Location = new System.Drawing.Point(198, 306);
             this.dgv_productos.Name = "dgv_productos";
             this.dgv_productos.ReadOnly = true;
             this.dgv_productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -391,7 +391,7 @@ namespace SuMueble.Views
             this.btn_quitarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_quitarItem.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_quitarItem.ForeColor = System.Drawing.Color.White;
-            this.btn_quitarItem.Location = new System.Drawing.Point(1183, 685);
+            this.btn_quitarItem.Location = new System.Drawing.Point(1118, 706);
             this.btn_quitarItem.Name = "btn_quitarItem";
             this.btn_quitarItem.Size = new System.Drawing.Size(129, 37);
             this.btn_quitarItem.TabIndex = 30;
