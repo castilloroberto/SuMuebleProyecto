@@ -5,14 +5,21 @@ using System.Drawing;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
+using SuMueble.Controller;
 
 namespace SuMueble.Views
 {
     public partial class ColaboradoresView : UserControl
     {
+        ColaboradorControlador cControlador = new ColaboradorControlador();
         public ColaboradoresView()
         {
             InitializeComponent();
+            CargarDatos();
+        }
+        private void CargarDatos()
+        {
+            dgv_colaboradores.DataSource = cControlador.Colaboradores();
         }
 
         
@@ -22,6 +29,7 @@ namespace SuMueble.Views
             AgregarEditarColaboradores addEditColaborador = new AgregarEditarColaboradores();
 
             addEditColaborador.ShowDialog();
+            CargarDatos();
             //actailizar data grid despues de agregar 
         }
 
