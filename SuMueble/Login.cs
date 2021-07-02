@@ -30,8 +30,10 @@ namespace SuMueble.Views
                 this.Hide();
             }
             else
-                MessageBox.Show("Codigo o Clave de Usuario Invalido", "Contrasena Incorrecta");
-            
+                MessageBox.Show("Codigo o Clave de Usuario Invalido", "Contrasena Incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            txt_user.Text = "";   
+            txt_password.Text = "";
+            txt_user.Focus();
 
         }
     }
