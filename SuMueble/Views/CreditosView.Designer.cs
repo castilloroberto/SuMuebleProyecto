@@ -39,7 +39,7 @@ namespace SuMueble.Views
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(469, 187);
+            this.dataGridView1.Location = new System.Drawing.Point(316, 320);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -51,7 +51,7 @@ namespace SuMueble.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(462, 89);
+            this.label1.Location = new System.Drawing.Point(316, 209);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 32);
             this.label1.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace SuMueble.Views
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(469, 133);
+            this.textBox1.Location = new System.Drawing.Point(316, 257);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Codigo de Factura";
@@ -74,7 +74,7 @@ namespace SuMueble.Views
             this.btn_pagarcuota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_pagarcuota.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_pagarcuota.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_pagarcuota.Location = new System.Drawing.Point(469, 585);
+            this.btn_pagarcuota.Location = new System.Drawing.Point(1066, 705);
             this.btn_pagarcuota.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_pagarcuota.Name = "btn_pagarcuota";
             this.btn_pagarcuota.Size = new System.Drawing.Size(162, 37);

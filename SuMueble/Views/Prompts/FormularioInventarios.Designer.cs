@@ -104,7 +104,7 @@ namespace SuMueble
             this.btn_Hecho.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Hecho.Name = "btn_Hecho";
             this.btn_Hecho.Size = new System.Drawing.Size(150, 37);
-            this.btn_Hecho.TabIndex = 5;
+            this.btn_Hecho.TabIndex = 6;
             this.btn_Hecho.Text = "Hecho";
             this.btn_Hecho.UseVisualStyleBackColor = false;
             this.btn_Hecho.Click += new System.EventHandler(this.btn_Hecho_Click);
@@ -117,7 +117,7 @@ namespace SuMueble
             this.cmb_Categoria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmb_Categoria.Name = "cmb_Categoria";
             this.cmb_Categoria.Size = new System.Drawing.Size(269, 36);
-            this.cmb_Categoria.TabIndex = 6;
+            this.cmb_Categoria.TabIndex = 5;
             // 
             // txt_Precio
             // 
@@ -126,7 +126,7 @@ namespace SuMueble
             this.txt_Precio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_Precio.Name = "txt_Precio";
             this.txt_Precio.Size = new System.Drawing.Size(269, 34);
-            this.txt_Precio.TabIndex = 7;
+            this.txt_Precio.TabIndex = 3;
             this.txt_Precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Precio_KeyPress);
             // 
             // txt_Codigo
@@ -136,7 +136,7 @@ namespace SuMueble
             this.txt_Codigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(269, 34);
-            this.txt_Codigo.TabIndex = 8;
+            this.txt_Codigo.TabIndex = 1;
             this.txt_Codigo.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txt_Nombre
@@ -146,7 +146,7 @@ namespace SuMueble
             this.txt_Nombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(269, 34);
-            this.txt_Nombre.TabIndex = 9;
+            this.txt_Nombre.TabIndex = 2;
             // 
             // txt_Existencia
             // 
@@ -155,7 +155,7 @@ namespace SuMueble
             this.txt_Existencia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_Existencia.Name = "txt_Existencia";
             this.txt_Existencia.Size = new System.Drawing.Size(269, 34);
-            this.txt_Existencia.TabIndex = 10;
+            this.txt_Existencia.TabIndex = 4;
             this.txt_Existencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Existencia_KeyPress);
             // 
             // btn_Cancelar
@@ -169,7 +169,7 @@ namespace SuMueble
             this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(150, 37);
-            this.btn_Cancelar.TabIndex = 11;
+            this.btn_Cancelar.TabIndex = 7;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = false;
             // 
@@ -193,6 +193,7 @@ namespace SuMueble
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
             this.Name = "FormularioInventarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo Producto";
