@@ -25,7 +25,7 @@ namespace SuMueble.Views.Prompts
             Prompt.Controls.Add(btn);
             Prompt.Controls.Add(textlabel);
             Prompt.AcceptButton = btn;
-            return Prompt.ShowDialog() == DialogResult.OK ? textbox.Text : "";
+            return  textbox.Text;
 
         }
     }

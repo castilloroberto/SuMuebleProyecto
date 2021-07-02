@@ -19,6 +19,7 @@ namespace SuMueble.Views
         }
         private void CargarDatos()
         {
+            dgv_colaboradores.DataSource = null;
             dgv_colaboradores.DataSource = cControlador.Colaboradores();
         }
 
