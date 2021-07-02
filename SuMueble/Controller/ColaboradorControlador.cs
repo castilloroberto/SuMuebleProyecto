@@ -56,6 +56,13 @@ namespace SuMueble.Controller
                 return ok;
             }
         }
+        public IEnumerable<Colaboradores> Colaboradores()
+        {
+            using (var db = GetConnection)
+            {
+                return db.GetAll<Colaboradores>();
+            }
+        }
     }
 
 
