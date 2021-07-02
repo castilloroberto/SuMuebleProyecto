@@ -20,7 +20,7 @@ namespace Ventana_de_Inventarios
             CargarDatos();
             cb_categorias.ValueMember = "ID";
             cb_categorias.DisplayMember = "Categoria";
-
+            dgv_Productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void CargarDatos()
@@ -33,16 +33,25 @@ namespace Ventana_de_Inventarios
 
         private void btnActualizar_Click(object sender, System.EventArgs e)
         {
-            int ID = int.Parse(GetCell(0));
-            
-            FormularioInventarios formInventarios = new FormularioInventarios(ID);
-            formInventarios.ShowDialog();
-            CargarDatos();
+
+            if (dgv_Productos.SelectedRows.Count > 0)
+            {
+                int ID = int.Parse(GetCell(0));
+                FormularioInventarios formInventarios = new FormularioInventarios(ID);
+                formInventarios.ShowDialog();
+                CargarDatos();
+            }
+            else {
+                MessageBox.Show("No hay ningún producto seleccionado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+         
+            txt_buscar.Text = "";
         }
 
         private string GetCell(int ID)
         {
-            return dgv_Productos.Rows[dgv_Productos.CurrentRow.Index].Cells[ID].Value.ToString();
+                return dgv_Productos.Rows[dgv_Productos.CurrentRow.Index].Cells[ID].Value.ToString();
+            
         }
 
         private void btnNuevo_Click(object sender, System.EventArgs e)
@@ -59,7 +68,7 @@ namespace Ventana_de_Inventarios
 
         private void txt_buscar_metodo(object sender, EventArgs e)
         {
-            string buscar = txt_buscar.Text;
+            string buscar = txt_buscar.Text.ToLower();
 
             List<Productos> filtrados = productos.Where<Productos>(x => {
 
