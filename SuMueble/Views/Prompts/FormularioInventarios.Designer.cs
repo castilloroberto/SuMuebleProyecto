@@ -127,6 +127,7 @@ namespace SuMueble
             this.txt_Precio.Name = "txt_Precio";
             this.txt_Precio.Size = new System.Drawing.Size(269, 34);
             this.txt_Precio.TabIndex = 7;
+            this.txt_Precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Precio_KeyPress);
             // 
             // txt_Codigo
             // 
@@ -155,6 +156,7 @@ namespace SuMueble
             this.txt_Existencia.Name = "txt_Existencia";
             this.txt_Existencia.Size = new System.Drawing.Size(269, 34);
             this.txt_Existencia.TabIndex = 10;
+            this.txt_Existencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Existencia_KeyPress);
             // 
             // btn_Cancelar
             // 

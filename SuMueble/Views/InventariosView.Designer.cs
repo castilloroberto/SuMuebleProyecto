@@ -48,9 +48,9 @@ namespace Ventana_de_Inventarios
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(998, 67);
+            this.label2.Location = new System.Drawing.Point(1141, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 25);
+            this.label2.Size = new System.Drawing.Size(127, 32);
             this.label2.TabIndex = 10;
             this.label2.Text = "Buscar por:";
             // 
@@ -58,9 +58,9 @@ namespace Ventana_de_Inventarios
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(404, 67);
+            this.label1.Location = new System.Drawing.Point(462, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 25);
+            this.label1.Size = new System.Drawing.Size(178, 32);
             this.label1.TabIndex = 11;
             this.label1.Text = "Buscar Producto";
             // 
@@ -71,10 +71,12 @@ namespace Ventana_de_Inventarios
             this.cb_categorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_categorias.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cb_categorias.FormattingEnabled = true;
-            this.cb_categorias.Location = new System.Drawing.Point(1004, 98);
+            this.cb_categorias.Location = new System.Drawing.Point(1147, 131);
+            this.cb_categorias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cb_categorias.Name = "cb_categorias";
-            this.cb_categorias.Size = new System.Drawing.Size(205, 29);
+            this.cb_categorias.Size = new System.Drawing.Size(234, 36);
             this.cb_categorias.TabIndex = 8;
+            this.cb_categorias.SelectedIndexChanged += new System.EventHandler(this.cb_categorias_SelectedIndexChanged);
             // 
             // btnNuevo
             // 
@@ -83,9 +85,10 @@ namespace Ventana_de_Inventarios
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnNuevo.Location = new System.Drawing.Point(1103, 441);
+            this.btnNuevo.Location = new System.Drawing.Point(1261, 588);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(105, 28);
+            this.btnNuevo.Size = new System.Drawing.Size(120, 37);
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -99,9 +102,10 @@ namespace Ventana_de_Inventarios
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnActualizar.Location = new System.Drawing.Point(949, 441);
+            this.btnActualizar.Location = new System.Drawing.Point(1085, 588);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(121, 28);
+            this.btnActualizar.Size = new System.Drawing.Size(138, 37);
             this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
@@ -119,11 +123,12 @@ namespace Ventana_de_Inventarios
             this.nombreArticulo,
             this.precioUnit,
             this.existencia});
-            this.dgv_Productos.Location = new System.Drawing.Point(410, 140);
+            this.dgv_Productos.Location = new System.Drawing.Point(469, 187);
+            this.dgv_Productos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_Productos.Name = "dgv_Productos";
             this.dgv_Productos.ReadOnly = true;
             this.dgv_Productos.RowHeadersWidth = 51;
-            this.dgv_Productos.Size = new System.Drawing.Size(798, 283);
+            this.dgv_Productos.Size = new System.Drawing.Size(912, 377);
             this.dgv_Productos.TabIndex = 5;
             this.dgv_Productos.Text = "dataGridView1";
             // 
@@ -170,16 +175,17 @@ namespace Ventana_de_Inventarios
             // txt_buscar
             // 
             this.txt_buscar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_buscar.Location = new System.Drawing.Point(410, 100);
+            this.txt_buscar.Location = new System.Drawing.Point(469, 133);
+            this.txt_buscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.PlaceholderText = "Escriba aqui...";
-            this.txt_buscar.Size = new System.Drawing.Size(205, 29);
+            this.txt_buscar.Size = new System.Drawing.Size(234, 34);
             this.txt_buscar.TabIndex = 12;
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_metodo);
             // 
             // InventariosView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txt_buscar);
             this.Controls.Add(this.label2);
@@ -188,8 +194,9 @@ namespace Ventana_de_Inventarios
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.dgv_Productos);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "InventariosView";
-            this.Size = new System.Drawing.Size(1584, 570);
+            this.Size = new System.Drawing.Size(1810, 760);
             this.Load += new System.EventHandler(this.InventariosView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).EndInit();
             this.ResumeLayout(false);
