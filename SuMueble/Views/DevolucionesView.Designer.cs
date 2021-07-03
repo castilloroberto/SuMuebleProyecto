@@ -42,9 +42,9 @@ namespace SuMueble.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(462, 89);
+            this.label1.Location = new System.Drawing.Point(404, 67);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 32);
+            this.label1.Size = new System.Drawing.Size(127, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Cliente:";
             // 
@@ -55,9 +55,10 @@ namespace SuMueble.Views
             this.btn_agregarDevolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarDevolucion.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_agregarDevolucion.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarDevolucion.Location = new System.Drawing.Point(1261, 588);
+            this.btn_agregarDevolucion.Location = new System.Drawing.Point(1103, 441);
+            this.btn_agregarDevolucion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_agregarDevolucion.Name = "btn_agregarDevolucion";
-            this.btn_agregarDevolucion.Size = new System.Drawing.Size(120, 37);
+            this.btn_agregarDevolucion.Size = new System.Drawing.Size(105, 28);
             this.btn_agregarDevolucion.TabIndex = 1;
             this.btn_agregarDevolucion.Text = "Agregar";
             this.btn_agregarDevolucion.UseVisualStyleBackColor = false;
@@ -68,22 +69,25 @@ namespace SuMueble.Views
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(469, 187);
+            this.dataGridView1.Location = new System.Drawing.Point(410, 140);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(912, 377);
+            this.dataGridView1.Size = new System.Drawing.Size(798, 283);
             this.dataGridView1.TabIndex = 2;
             // 
             // txt_buscarCliente
             // 
             this.txt_buscarCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_buscarCliente.Location = new System.Drawing.Point(469, 133);
+            this.txt_buscarCliente.Location = new System.Drawing.Point(410, 100);
+            this.txt_buscarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_buscarCliente.Name = "txt_buscarCliente";
             this.txt_buscarCliente.PlaceholderText = "DNI del Cliente o Nombre...";
-            this.txt_buscarCliente.Size = new System.Drawing.Size(234, 34);
+            this.txt_buscarCliente.Size = new System.Drawing.Size(205, 29);
             this.txt_buscarCliente.TabIndex = 3;
+            this.txt_buscarCliente.TextChanged += new System.EventHandler(this.txt_buscarCliente_TextChanged);
             // 
             // cb_filtro
             // 
@@ -92,24 +96,25 @@ namespace SuMueble.Views
             this.cb_filtro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_filtro.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cb_filtro.FormattingEnabled = true;
-            this.cb_filtro.Location = new System.Drawing.Point(1148, 131);
+            this.cb_filtro.Location = new System.Drawing.Point(1004, 98);
+            this.cb_filtro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_filtro.Name = "cb_filtro";
-            this.cb_filtro.Size = new System.Drawing.Size(234, 36);
+            this.cb_filtro.Size = new System.Drawing.Size(205, 29);
             this.cb_filtro.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1140, 89);
+            this.label2.Location = new System.Drawing.Point(998, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 32);
+            this.label2.Size = new System.Drawing.Size(100, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Buscar por:";
             // 
             // DevolucionesView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cb_filtro);
             this.Controls.Add(this.txt_buscarCliente);
@@ -117,8 +122,9 @@ namespace SuMueble.Views
             this.Controls.Add(this.btn_agregarDevolucion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DevolucionesView";
-            this.Size = new System.Drawing.Size(1810, 760);
+            this.Size = new System.Drawing.Size(1584, 570);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
