@@ -29,9 +29,9 @@ namespace SuMueble.Controller
             bool ok = false;
             ok=InsertarDevolucion(d);
             if (ok)
-                cdetalleDevolucion.InsertarDetalleDevolucion(d.DetallesDevolucion);
+                ok = cdetalleDevolucion.InsertarDetalleDevolucion(d.DetallesDevolucion);
 
-
+            return ok;
 
         }
 
