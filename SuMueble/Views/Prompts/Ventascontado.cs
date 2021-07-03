@@ -19,5 +19,10 @@ namespace SuMueble.Views
         {
 
         }
+
+        private void Ventascontado_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

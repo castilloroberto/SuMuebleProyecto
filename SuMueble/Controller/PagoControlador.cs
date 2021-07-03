@@ -13,7 +13,7 @@ namespace SuMueble.Controller
         {
             using (var db = GetConnection)
             {
-                return db.Insert(pago) > 0 ;
+                return db.Insert<Pagos>(pago) > 0 ;
             }
         }
 
@@ -21,8 +21,9 @@ namespace SuMueble.Controller
         {
             using (var db = GetConnection)
             {
-                return db.Update(pago);
+                return db.Update<Pagos>(pago);
             }
         }
+
     }
 }
