@@ -36,5 +36,16 @@ namespace SuMueble.Views
             txt_user.Focus();
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ch_verContrasena.Checked)
+            {
+                txt_password.PasswordChar = '\0';
+            }
+            else {
+                txt_password.PasswordChar = '*';
+            }
+        }
     }
 }
