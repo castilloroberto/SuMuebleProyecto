@@ -9,11 +9,11 @@ namespace SuMueble.Controller
 {
     public class ReferenciaController: DBConnection
     {
-      public bool InsertReferencia(Referencias referencias)
+      public bool InsertReferencia(List<Referencias> referencias)
         {
-            using (var db=GetConnection)
+            using (var db = GetConnection)
             {
-                return db.Insert<Referencias>(referencias) >0;
+                return db.Insert(referencias) >= referencias.Count;
             }
         } 
     }

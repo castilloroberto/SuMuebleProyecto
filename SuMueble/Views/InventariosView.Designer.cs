@@ -40,7 +40,7 @@ namespace Ventana_de_Inventarios
             this.nombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_buscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +48,7 @@ namespace Ventana_de_Inventarios
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1141, 89);
+            this.label2.Location = new System.Drawing.Point(988, 222);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 32);
             this.label2.TabIndex = 10;
@@ -58,7 +58,7 @@ namespace Ventana_de_Inventarios
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(462, 89);
+            this.label1.Location = new System.Drawing.Point(309, 222);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 32);
             this.label1.TabIndex = 11;
@@ -71,11 +71,12 @@ namespace Ventana_de_Inventarios
             this.cb_categorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_categorias.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cb_categorias.FormattingEnabled = true;
-            this.cb_categorias.Location = new System.Drawing.Point(1147, 131);
+            this.cb_categorias.Location = new System.Drawing.Point(994, 264);
             this.cb_categorias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cb_categorias.Name = "cb_categorias";
             this.cb_categorias.Size = new System.Drawing.Size(234, 36);
             this.cb_categorias.TabIndex = 8;
+            this.cb_categorias.SelectedIndexChanged += new System.EventHandler(this.cb_categorias_SelectedIndexChanged);
             // 
             // btnNuevo
             // 
@@ -84,7 +85,7 @@ namespace Ventana_de_Inventarios
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnNuevo.Location = new System.Drawing.Point(1261, 588);
+            this.btnNuevo.Location = new System.Drawing.Point(1108, 721);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(120, 37);
@@ -101,7 +102,7 @@ namespace Ventana_de_Inventarios
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnActualizar.Location = new System.Drawing.Point(1085, 588);
+            this.btnActualizar.Location = new System.Drawing.Point(932, 721);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(138, 37);
@@ -122,7 +123,7 @@ namespace Ventana_de_Inventarios
             this.nombreArticulo,
             this.precioUnit,
             this.existencia});
-            this.dgv_Productos.Location = new System.Drawing.Point(469, 187);
+            this.dgv_Productos.Location = new System.Drawing.Point(316, 320);
             this.dgv_Productos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_Productos.Name = "dgv_Productos";
             this.dgv_Productos.ReadOnly = true;
@@ -171,21 +172,22 @@ namespace Ventana_de_Inventarios
             this.existencia.Name = "existencia";
             this.existencia.ReadOnly = true;
             // 
-            // textBox1
+            // txt_buscar
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(469, 133);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Escriba aqui...";
-            this.textBox1.Size = new System.Drawing.Size(234, 34);
-            this.textBox1.TabIndex = 12;
+            this.txt_buscar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_buscar.Location = new System.Drawing.Point(316, 266);
+            this.txt_buscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_buscar.Name = "txt_buscar";
+            this.txt_buscar.PlaceholderText = "Escriba aqui...";
+            this.txt_buscar.Size = new System.Drawing.Size(234, 34);
+            this.txt_buscar.TabIndex = 12;
+            this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_metodo);
             // 
             // InventariosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_buscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cb_categorias);
@@ -194,7 +196,7 @@ namespace Ventana_de_Inventarios
             this.Controls.Add(this.dgv_Productos);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "InventariosView";
-            this.Size = new System.Drawing.Size(1810, 760);
+            this.Size = new System.Drawing.Size(1345, 761);
             this.Load += new System.EventHandler(this.InventariosView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).EndInit();
             this.ResumeLayout(false);
@@ -210,7 +212,7 @@ namespace Ventana_de_Inventarios
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.DataGridView dgv_Productos;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreArticulo;

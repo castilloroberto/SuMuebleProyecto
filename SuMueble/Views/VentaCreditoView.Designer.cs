@@ -36,7 +36,7 @@ namespace SuMueble.Views
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_rtnCliente = new System.Windows.Forms.TextBox();
             this.lb_referencias = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_agregarReferencia = new System.Windows.Forms.Button();
@@ -47,17 +47,20 @@ namespace SuMueble.Views
             this.label6 = new System.Windows.Forms.Label();
             this.l_monto = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_terminarVenta = new System.Windows.Forms.Button();
             this.labelClienteNuevo = new System.Windows.Forms.Label();
             this.l_NombreCliente = new System.Windows.Forms.Label();
             this.l_TelefonoCliente = new System.Windows.Forms.Label();
             this.l_RTNCliente = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_dirCliente = new System.Windows.Forms.TextBox();
+            this.l_dir = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtTelefonoCliente
             // 
             this.txtTelefonoCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTelefonoCliente.Location = new System.Drawing.Point(613, 191);
+            this.txtTelefonoCliente.Location = new System.Drawing.Point(802, 231);
             this.txtTelefonoCliente.MaxLength = 8;
             this.txtTelefonoCliente.Name = "txtTelefonoCliente";
             this.txtTelefonoCliente.PlaceholderText = "Escriba Aqui...";
@@ -67,7 +70,7 @@ namespace SuMueble.Views
             // txt_nombreCliente
             // 
             this.txt_nombreCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_nombreCliente.Location = new System.Drawing.Point(613, 77);
+            this.txt_nombreCliente.Location = new System.Drawing.Point(428, 231);
             this.txt_nombreCliente.MaxLength = 255;
             this.txt_nombreCliente.Name = "txt_nombreCliente";
             this.txt_nombreCliente.PlaceholderText = "Nombre y Apellidos...";
@@ -77,7 +80,7 @@ namespace SuMueble.Views
             // txt_dniCliente
             // 
             this.txt_dniCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_dniCliente.Location = new System.Drawing.Point(351, 77);
+            this.txt_dniCliente.Location = new System.Drawing.Point(166, 231);
             this.txt_dniCliente.MaxLength = 13;
             this.txt_dniCliente.Name = "txt_dniCliente";
             this.txt_dniCliente.PlaceholderText = "Numero de Identidad...";
@@ -89,7 +92,7 @@ namespace SuMueble.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(613, 160);
+            this.label1.Location = new System.Drawing.Point(802, 200);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 28);
             this.label1.TabIndex = 31;
@@ -99,7 +102,7 @@ namespace SuMueble.Views
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(610, 45);
+            this.label5.Location = new System.Drawing.Point(425, 199);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 28);
             this.label5.TabIndex = 30;
@@ -109,7 +112,7 @@ namespace SuMueble.Views
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(345, 45);
+            this.label4.Location = new System.Drawing.Point(160, 199);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 28);
             this.label4.TabIndex = 29;
@@ -119,28 +122,28 @@ namespace SuMueble.Views
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(351, 160);
+            this.label2.Location = new System.Drawing.Point(166, 314);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 28);
             this.label2.TabIndex = 29;
             this.label2.Text = "RTN Cliente";
             // 
-            // textBox1
+            // txt_rtnCliente
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(351, 191);
-            this.textBox1.MaxLength = 13;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Registro Tributario Nacional...";
-            this.textBox1.Size = new System.Drawing.Size(223, 34);
-            this.textBox1.TabIndex = 32;
+            this.txt_rtnCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_rtnCliente.Location = new System.Drawing.Point(166, 345);
+            this.txt_rtnCliente.MaxLength = 14;
+            this.txt_rtnCliente.Name = "txt_rtnCliente";
+            this.txt_rtnCliente.PlaceholderText = "Registro Tributario Nacional...";
+            this.txt_rtnCliente.Size = new System.Drawing.Size(223, 34);
+            this.txt_rtnCliente.TabIndex = 32;
             // 
             // lb_referencias
             // 
             this.lb_referencias.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_referencias.FormattingEnabled = true;
             this.lb_referencias.ItemHeight = 28;
-            this.lb_referencias.Location = new System.Drawing.Point(352, 295);
+            this.lb_referencias.Location = new System.Drawing.Point(166, 465);
             this.lb_referencias.Name = "lb_referencias";
             this.lb_referencias.Size = new System.Drawing.Size(513, 340);
             this.lb_referencias.TabIndex = 35;
@@ -148,10 +151,10 @@ namespace SuMueble.Views
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(347, 259);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(160, 417);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 28);
+            this.label3.Size = new System.Drawing.Size(241, 32);
             this.label3.TabIndex = 29;
             this.label3.Text = "Referencias del Cliente";
             // 
@@ -162,7 +165,7 @@ namespace SuMueble.Views
             this.btn_agregarReferencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarReferencia.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_agregarReferencia.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarReferencia.Location = new System.Drawing.Point(351, 652);
+            this.btn_agregarReferencia.Location = new System.Drawing.Point(165, 822);
             this.btn_agregarReferencia.Name = "btn_agregarReferencia";
             this.btn_agregarReferencia.Size = new System.Drawing.Size(191, 37);
             this.btn_agregarReferencia.TabIndex = 36;
@@ -175,7 +178,7 @@ namespace SuMueble.Views
             this.lb_productosVenta.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_productosVenta.FormattingEnabled = true;
             this.lb_productosVenta.ItemHeight = 28;
-            this.lb_productosVenta.Location = new System.Drawing.Point(1176, 291);
+            this.lb_productosVenta.Location = new System.Drawing.Point(913, 465);
             this.lb_productosVenta.Name = "lb_productosVenta";
             this.lb_productosVenta.Size = new System.Drawing.Size(513, 340);
             this.lb_productosVenta.TabIndex = 37;
@@ -187,7 +190,7 @@ namespace SuMueble.Views
             this.btn_agregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_agregarProducto.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarProducto.Location = new System.Drawing.Point(1176, 652);
+            this.btn_agregarProducto.Location = new System.Drawing.Point(913, 826);
             this.btn_agregarProducto.Name = "btn_agregarProducto";
             this.btn_agregarProducto.Size = new System.Drawing.Size(191, 37);
             this.btn_agregarProducto.TabIndex = 36;
@@ -198,7 +201,7 @@ namespace SuMueble.Views
             // txt_dniColaborador
             // 
             this.txt_dniColaborador.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_dniColaborador.Location = new System.Drawing.Point(1466, 77);
+            this.txt_dniColaborador.Location = new System.Drawing.Point(1204, 231);
             this.txt_dniColaborador.MaxLength = 13;
             this.txt_dniColaborador.Name = "txt_dniColaborador";
             this.txt_dniColaborador.PlaceholderText = "Numero de Identidad...";
@@ -211,7 +214,7 @@ namespace SuMueble.Views
             this.dniColaboradorLabelError.AutoSize = true;
             this.dniColaboradorLabelError.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dniColaboradorLabelError.ForeColor = System.Drawing.Color.Crimson;
-            this.dniColaboradorLabelError.Location = new System.Drawing.Point(1466, 115);
+            this.dniColaboradorLabelError.Location = new System.Drawing.Point(1204, 269);
             this.dniColaboradorLabelError.Name = "dniColaboradorLabelError";
             this.dniColaboradorLabelError.Size = new System.Drawing.Size(129, 20);
             this.dniColaboradorLabelError.TabIndex = 39;
@@ -222,7 +225,7 @@ namespace SuMueble.Views
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(1458, 43);
+            this.label6.Location = new System.Drawing.Point(1196, 197);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(154, 28);
             this.label6.TabIndex = 38;
@@ -232,7 +235,7 @@ namespace SuMueble.Views
             // 
             this.l_monto.AutoSize = true;
             this.l_monto.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.l_monto.Location = new System.Drawing.Point(1525, 243);
+            this.l_monto.Location = new System.Drawing.Point(1262, 417);
             this.l_monto.Name = "l_monto";
             this.l_monto.Size = new System.Drawing.Size(165, 32);
             this.l_monto.TabIndex = 42;
@@ -242,32 +245,33 @@ namespace SuMueble.Views
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(1176, 243);
+            this.label7.Location = new System.Drawing.Point(913, 417);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(169, 32);
             this.label7.TabIndex = 41;
             this.label7.Text = "Resumen Venta";
             // 
-            // button2
+            // btn_terminarVenta
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(208)))), ((int)(((byte)(88)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(1498, 652);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(191, 37);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Terminar Venta";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_terminarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(208)))), ((int)(((byte)(88)))));
+            this.btn_terminarVenta.FlatAppearance.BorderSize = 0;
+            this.btn_terminarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_terminarVenta.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_terminarVenta.ForeColor = System.Drawing.Color.White;
+            this.btn_terminarVenta.Location = new System.Drawing.Point(1235, 826);
+            this.btn_terminarVenta.Name = "btn_terminarVenta";
+            this.btn_terminarVenta.Size = new System.Drawing.Size(191, 37);
+            this.btn_terminarVenta.TabIndex = 36;
+            this.btn_terminarVenta.Text = "Terminar Venta";
+            this.btn_terminarVenta.UseVisualStyleBackColor = false;
+            this.btn_terminarVenta.Click += new System.EventHandler(this.btn_terminarVenta_Click);
             // 
             // labelClienteNuevo
             // 
             this.labelClienteNuevo.AutoSize = true;
             this.labelClienteNuevo.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelClienteNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(213)))), ((int)(((byte)(115)))));
-            this.labelClienteNuevo.Location = new System.Drawing.Point(351, 119);
+            this.labelClienteNuevo.Location = new System.Drawing.Point(166, 273);
             this.labelClienteNuevo.Name = "labelClienteNuevo";
             this.labelClienteNuevo.Size = new System.Drawing.Size(98, 20);
             this.labelClienteNuevo.TabIndex = 43;
@@ -279,7 +283,7 @@ namespace SuMueble.Views
             this.l_NombreCliente.AutoSize = true;
             this.l_NombreCliente.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.l_NombreCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(213)))), ((int)(((byte)(115)))));
-            this.l_NombreCliente.Location = new System.Drawing.Point(613, 119);
+            this.l_NombreCliente.Location = new System.Drawing.Point(428, 273);
             this.l_NombreCliente.Name = "l_NombreCliente";
             this.l_NombreCliente.Size = new System.Drawing.Size(66, 20);
             this.l_NombreCliente.TabIndex = 44;
@@ -291,7 +295,7 @@ namespace SuMueble.Views
             this.l_TelefonoCliente.AutoSize = true;
             this.l_TelefonoCliente.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.l_TelefonoCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(213)))), ((int)(((byte)(115)))));
-            this.l_TelefonoCliente.Location = new System.Drawing.Point(613, 232);
+            this.l_TelefonoCliente.Location = new System.Drawing.Point(802, 272);
             this.l_TelefonoCliente.Name = "l_TelefonoCliente";
             this.l_TelefonoCliente.Size = new System.Drawing.Size(66, 20);
             this.l_TelefonoCliente.TabIndex = 45;
@@ -303,18 +307,52 @@ namespace SuMueble.Views
             this.l_RTNCliente.AutoSize = true;
             this.l_RTNCliente.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.l_RTNCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(213)))), ((int)(((byte)(115)))));
-            this.l_RTNCliente.Location = new System.Drawing.Point(351, 232);
+            this.l_RTNCliente.Location = new System.Drawing.Point(166, 386);
             this.l_RTNCliente.Name = "l_RTNCliente";
             this.l_RTNCliente.Size = new System.Drawing.Size(66, 20);
             this.l_RTNCliente.TabIndex = 46;
             this.l_RTNCliente.Text = "Ingresar...";
             this.l_RTNCliente.Visible = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(425, 314);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 28);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Direccion";
+            // 
+            // txt_dirCliente
+            // 
+            this.txt_dirCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_dirCliente.Location = new System.Drawing.Point(428, 346);
+            this.txt_dirCliente.MaxLength = 255;
+            this.txt_dirCliente.Multiline = true;
+            this.txt_dirCliente.Name = "txt_dirCliente";
+            this.txt_dirCliente.PlaceholderText = "Ciudad, colonia, referencias...";
+            this.txt_dirCliente.Size = new System.Drawing.Size(325, 33);
+            this.txt_dirCliente.TabIndex = 33;
+            // 
+            // l_dir
+            // 
+            this.l_dir.AutoSize = true;
+            this.l_dir.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.l_dir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(213)))), ((int)(((byte)(115)))));
+            this.l_dir.Location = new System.Drawing.Point(428, 386);
+            this.l_dir.Name = "l_dir";
+            this.l_dir.Size = new System.Drawing.Size(66, 20);
+            this.l_dir.TabIndex = 45;
+            this.l_dir.Text = "Ingresar...";
+            this.l_dir.Visible = false;
+            // 
             // VentaCreditoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.l_RTNCliente);
+            this.Controls.Add(this.l_dir);
             this.Controls.Add(this.l_TelefonoCliente);
             this.Controls.Add(this.l_NombreCliente);
             this.Controls.Add(this.labelClienteNuevo);
@@ -324,21 +362,23 @@ namespace SuMueble.Views
             this.Controls.Add(this.dniColaboradorLabelError);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lb_productosVenta);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_terminarVenta);
             this.Controls.Add(this.btn_agregarProducto);
             this.Controls.Add(this.btn_agregarReferencia);
             this.Controls.Add(this.lb_referencias);
             this.Controls.Add(this.txtTelefonoCliente);
+            this.Controls.Add(this.txt_dirCliente);
             this.Controls.Add(this.txt_nombreCliente);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_rtnCliente);
             this.Controls.Add(this.txt_dniCliente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Name = "VentaCreditoView";
-            this.Size = new System.Drawing.Size(1810, 760);
+            this.Size = new System.Drawing.Size(1439, 957);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,7 +393,7 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_rtnCliente;
         private System.Windows.Forms.ListBox lb_referencias;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_agregarReferencia;
@@ -364,10 +404,13 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label l_monto;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_terminarVenta;
         private System.Windows.Forms.Label labelClienteNuevo;
         private System.Windows.Forms.Label l_NombreCliente;
         private System.Windows.Forms.Label l_TelefonoCliente;
         private System.Windows.Forms.Label l_RTNCliente;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txt_dirCliente;
+        private System.Windows.Forms.Label l_dir;
     }
 }

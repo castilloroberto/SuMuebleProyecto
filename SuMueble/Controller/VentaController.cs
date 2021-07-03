@@ -11,23 +11,26 @@ namespace SuMueble.Controller
     {
         DetalleVentaController detalleVentaController = new DetalleVentaController();
         ClienteControlador clienteControlador = new ClienteControlador();
+        ReferenciaController rController = new ReferenciaController();
         private bool InsertVenta(Ventas v)
         {
             using (var db = GetConnection)
             {
-                return db.Insert<Ventas>(v) > 0;
+                return db.Insert(v) > 0;
             }
         }
 
         public bool SaveVenta(Ventas v)
         {
-           
-           
+            bool ok = false;
             if(clienteControlador.SaveCliente(v.Cliente))
                 if (InsertVenta(v))
-                    return detalleVentaController.InsertDetallesVenta(v.DetallesVenta);
+                    if(v.Referencias.Count>0)
+                        ok = rController.InsertReferencia(v.Referencias);    
+                        
+                    ok = detalleVentaController.InsertDetallesVenta(v.DetallesVenta);
             
-            return false;
+            return ok;
         } 
     }
 }

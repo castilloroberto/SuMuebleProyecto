@@ -39,7 +39,7 @@ namespace SuMueble.Views
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(469, 133);
+            this.textBox1.Location = new System.Drawing.Point(316, 253);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "DNI del Cliente o Nombre...";
@@ -50,7 +50,7 @@ namespace SuMueble.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(462, 89);
+            this.label1.Location = new System.Drawing.Point(309, 209);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 32);
             this.label1.TabIndex = 1;
@@ -66,7 +66,7 @@ namespace SuMueble.Views
             this.btn_verDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_verDetalle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_verDetalle.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btn_verDetalle.Location = new System.Drawing.Point(467, 590);
+            this.btn_verDetalle.Location = new System.Drawing.Point(1094, 704);
             this.btn_verDetalle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_verDetalle.Name = "btn_verDetalle";
             this.btn_verDetalle.Size = new System.Drawing.Size(134, 37);
@@ -80,7 +80,7 @@ namespace SuMueble.Views
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(469, 187);
+            this.dataGridView1.Location = new System.Drawing.Point(316, 320);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;

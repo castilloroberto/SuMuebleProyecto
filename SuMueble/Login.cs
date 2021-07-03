@@ -19,7 +19,7 @@ namespace SuMueble.Views
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
-            string user = txt_user.Text;
+           string user = txt_user.Text;
             string password = txt_password.Text;
             bool res = colaboradorControlador.Login(user, password);
            
@@ -30,9 +30,11 @@ namespace SuMueble.Views
                 this.Hide();
             }
             else
-                MessageBox.Show("Codigo o Clave de Usuario Invalido", "Contrasena Incorrecta");
-            
-            
+                MessageBox.Show("Codigo o Clave de Usuario Invalido", "Contrasena Incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            txt_user.Text = "";   
+            txt_password.Text = "";
+            txt_user.Focus();
+
         }
     }
 }
