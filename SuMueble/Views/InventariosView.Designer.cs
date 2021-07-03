@@ -116,6 +116,8 @@ namespace Ventana_de_Inventarios
             this.dgv_Productos.AllowUserToAddRows = false;
             this.dgv_Productos.AllowUserToDeleteRows = false;
             this.dgv_Productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_Productos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -123,10 +125,12 @@ namespace Ventana_de_Inventarios
             this.nombreArticulo,
             this.precioUnit,
             this.existencia});
+            this.dgv_Productos.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgv_Productos.Location = new System.Drawing.Point(316, 320);
             this.dgv_Productos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_Productos.Name = "dgv_Productos";
             this.dgv_Productos.ReadOnly = true;
+            this.dgv_Productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv_Productos.RowHeadersWidth = 51;
             this.dgv_Productos.Size = new System.Drawing.Size(912, 377);
             this.dgv_Productos.TabIndex = 5;
