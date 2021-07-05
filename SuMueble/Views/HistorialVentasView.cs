@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuMueble.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,10 +11,14 @@ namespace SuMueble.Views
 {
     public partial class HistorialVentasView : UserControl
     {
+        VentaController ventaController = new VentaController();
+
         bool toogle = true;
         public HistorialVentasView()
         {
             InitializeComponent();
+            dvg_ventas.AutoGenerateColumns = false;
+            dvg_ventas.DataSource = ventaController.ObtenerVenta();
         }
 
    

@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using SuMueble.Models;
 using SuMueble.Views;
 using System;
@@ -31,6 +32,15 @@ namespace SuMueble.Controller
                     ok = detalleVentaController.InsertDetallesVenta(v.DetallesVenta);
             
             return ok;
-        } 
+        }
+
+        public IEnumerable<Ventas> ObtenerVenta()
+        {
+            string sql = @"select * from v_ventasResumen order by CodigoFactura";
+            using (var db = GetConnection)
+            {
+                return db.Query<Ventas>(sql);
+            }
+        }
     }
 }
