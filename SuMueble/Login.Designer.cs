@@ -36,6 +36,7 @@ namespace SuMueble.Views
             this.btn_entrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.ch_verContrasena = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +81,7 @@ namespace SuMueble.Views
             this.btn_entrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_entrar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_entrar.ForeColor = System.Drawing.Color.White;
-            this.btn_entrar.Location = new System.Drawing.Point(371, 467);
+            this.btn_entrar.Location = new System.Drawing.Point(372, 474);
             this.btn_entrar.MinimumSize = new System.Drawing.Size(0, 37);
             this.btn_entrar.Name = "btn_entrar";
             this.btn_entrar.Size = new System.Drawing.Size(300, 37);
@@ -109,11 +110,25 @@ namespace SuMueble.Views
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña:";
             // 
+            // ch_verContrasena
+            // 
+            this.ch_verContrasena.AutoSize = true;
+            this.ch_verContrasena.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ch_verContrasena.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ch_verContrasena.Location = new System.Drawing.Point(372, 444);
+            this.ch_verContrasena.Name = "ch_verContrasena";
+            this.ch_verContrasena.Size = new System.Drawing.Size(120, 24);
+            this.ch_verContrasena.TabIndex = 4;
+            this.ch_verContrasena.Text = "Ver contraseña";
+            this.ch_verContrasena.UseVisualStyleBackColor = true;
+            this.ch_verContrasena.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 635);
+            this.Controls.Add(this.ch_verContrasena);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_entrar);
@@ -139,5 +154,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Button btn_entrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox ch_verContrasena;
     }
 }
