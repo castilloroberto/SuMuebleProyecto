@@ -18,7 +18,10 @@ namespace SuMueble.Controller
                 ok = rows >= detallesVenta.Count;
                 return ok;
             }
+
         }
-       
+
+        
+
     }
 }

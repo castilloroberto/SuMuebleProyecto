@@ -20,17 +20,33 @@ namespace SuMueble.Models
         }
         public string IDColaborador { get; set; }
 
+        [Write(false)]
+        [Computed]
+        public string NombreCliente { get; set; }
+
+        [Write(false)]
+        [Computed]
+        public string Colaborador { get; set; }
+
         // Tipo de venta :
         // 1 al contado
         // 2 al credito
         public int IDTipoVenta { get; set; }
+
+        [Write(false)]
+        [Computed]
+        public string TipoVenta { get; set; }
         public float Prima { get; set; }
         public int Cuotas { get; set; }
 
         [Write(false)]
         [Computed]
         public DateTime FechaInicio { get; set; }
-        
+
+        [Write(false)]
+        [Computed]
+        public float TotalVenta { get; set; }
+
         [Computed]
         public DateTime FechaFin { get; set; }
 

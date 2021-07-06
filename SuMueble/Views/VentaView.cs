@@ -30,7 +30,7 @@ namespace SuMueble.Views
         {
             InitializeComponent();
             CargarDataGrid();
-
+            dgv_productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
 
         }
