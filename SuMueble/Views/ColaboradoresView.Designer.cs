@@ -110,6 +110,7 @@
             this.txt_busqueda.PlaceholderText = "Escriba aqui...";
             this.txt_busqueda.Size = new System.Drawing.Size(234, 34);
             this.txt_busqueda.TabIndex = 1;
+            this.txt_busqueda.TextChanged += new System.EventHandler(this.txt_busqueda_TextChanged);
             // 
             // label1
             // 
