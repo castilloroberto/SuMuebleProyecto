@@ -34,7 +34,7 @@ namespace SuMueble.Views.Prompts
         }
         private void ClearProducto()
         {
-            txt_cantidadProducto.Text = string.Empty;
+            
             txt_precio.Text = string.Empty;
         }
 
@@ -43,7 +43,7 @@ namespace SuMueble.Views.Prompts
             DetallesVentas dv = new DetallesVentas()
             {
                 IDProducto = int.Parse(GetCell(0)),
-                Cantidad = int.Parse(txt_cantidadProducto.Text),
+                Cantidad = 1,
                 PrecioVenta = int.Parse(txt_precio.Text),
                 Producto = GetCell(2)
             };
