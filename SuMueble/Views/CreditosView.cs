@@ -12,14 +12,22 @@ namespace SuMueble.Views
     public partial class CreditosView : UserControl
     {
         VentaController ventaController = new VentaController();
-        List<dynamic> ListaVentas;
+        DataTable ListaVentas;
         public CreditosView()
         {
             InitializeComponent();
             ListaVentas = ventaController.GetCreditosPendientes();
             CargarDataGrid(ListaVentas);
+
+            //foreach (var item in ListaVentas)
+            //{   
+            //    item.Field("")
+            //}
+
+
+
         }
-        private void CargarDataGrid(List<dynamic> lista)
+        private void CargarDataGrid(DataTable lista)
         {
             dgv_ventasCredito.DataSource = lista;
         }

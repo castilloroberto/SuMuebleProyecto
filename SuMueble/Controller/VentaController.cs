@@ -4,6 +4,8 @@ using SuMueble.Models;
 using SuMueble.Views;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace SuMueble.Controller
@@ -43,11 +45,22 @@ namespace SuMueble.Controller
             }
         }
 
-        public List<dynamic> GetCreditosPendientes()
+        public DataTable GetCreditosPendientes()
         {
             using (var db = GetConnection)
             {
-                return db.Query("select * from v_VentasCredito").AsList<dynamic>();
+                db.Open();
+                SqlCommand command = new SqlCommand("Select * from v_VentasCredito",db);
+                SqlDataReader reader = command.ExecuteReader();
+                DataTable resultado = new DataTable();
+               
+                resultado.Load(reader);
+
+                reader.Close();
+
+                return resultado; 
+
+
             }
         }
     }
