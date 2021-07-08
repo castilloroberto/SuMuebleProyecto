@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace SuMueble.Views
 {
@@ -19,10 +20,7 @@ namespace SuMueble.Views
             ListaVentas = ventaController.GetCreditosPendientes();
             CargarDataGrid(ListaVentas);
 
-            //foreach (var item in ListaVentas)
-            //{   
-            //    item.Field("")
-            //}
+           
 
 
 
@@ -36,6 +34,19 @@ namespace SuMueble.Views
         {
             PagarCuota pagarCuota = new PagarCuota();
             pagarCuota.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var filtrados = ListaVentas.AsEnumerable().Where(x =>
+            {
+                int cf = 0;
+                int.TryParse(txtbuscar.Text, out cf);
+                string cl = txtbuscar.Text.ToLower();
+                return x.Field<int>("CodigoFactura")==cf || x.Field<string>("Cliente").ToLower().StartsWith(cl);
+            });
+
+            CargarDataGrid(filtrados.AsDataView().ToTable());
         }
     }
 }
