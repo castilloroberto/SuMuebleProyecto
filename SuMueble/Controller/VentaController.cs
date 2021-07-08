@@ -26,7 +26,7 @@ namespace SuMueble.Controller
             bool ok = false;
             if(clienteControlador.SaveCliente(v.Cliente))
                 if (InsertVenta(v))
-                    if(v.Referencias.Count>0)
+                    if(v.Referencias != null)
                         ok = rController.InsertReferencia(v.Referencias);    
                         
                     ok = detalleVentaController.InsertDetallesVenta(v.DetallesVenta);
