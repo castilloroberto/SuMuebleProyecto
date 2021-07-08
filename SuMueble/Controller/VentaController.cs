@@ -42,5 +42,13 @@ namespace SuMueble.Controller
                 return db.Query<Ventas>(sql);
             }
         }
+
+        public List<dynamic> GetCreditosPendientes()
+        {
+            using (var db = GetConnection)
+            {
+                return db.Query("select * from v_VentasCredito").AsList<dynamic>();
+            }
+        }
     }
 }

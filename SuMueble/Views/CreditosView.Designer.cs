@@ -29,23 +29,23 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_ventasCredito = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btn_pagarcuota = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ventasCredito)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgv_ventasCredito
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(316, 320);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(912, 377);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv_ventasCredito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ventasCredito.Location = new System.Drawing.Point(316, 320);
+            this.dgv_ventasCredito.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgv_ventasCredito.Name = "dgv_ventasCredito";
+            this.dgv_ventasCredito.RowHeadersWidth = 51;
+            this.dgv_ventasCredito.RowTemplate.Height = 25;
+            this.dgv_ventasCredito.Size = new System.Drawing.Size(912, 377);
+            this.dgv_ventasCredito.TabIndex = 0;
             // 
             // label1
             // 
@@ -90,11 +90,11 @@ namespace SuMueble.Views
             this.Controls.Add(this.btn_pagarcuota);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_ventasCredito);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CreditosView";
             this.Size = new System.Drawing.Size(1810, 760);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ventasCredito)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,7 +102,7 @@ namespace SuMueble.Views
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_ventasCredito;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btn_pagarcuota;

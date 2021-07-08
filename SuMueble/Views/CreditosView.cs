@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuMueble.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,18 @@ namespace SuMueble.Views
 {
     public partial class CreditosView : UserControl
     {
+        VentaController ventaController = new VentaController();
+        List<dynamic> ListaVentas;
         public CreditosView()
         {
             InitializeComponent();
+            ListaVentas = ventaController.GetCreditosPendientes();
+            CargarDataGrid(ListaVentas);
         }
-
+        private void CargarDataGrid(List<dynamic> lista)
+        {
+            dgv_ventasCredito.DataSource = lista;
+        }
 
         private void btn_pagarcuota_Click(object sender, EventArgs e)
         {
