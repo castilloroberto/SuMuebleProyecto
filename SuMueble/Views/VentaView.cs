@@ -7,6 +7,7 @@ using System.Text;
 using SuMueble.Controller;
 using System.Windows.Forms;
 using SuMueble.Models;
+using System.Linq;
 
 namespace SuMueble.Views
 {
@@ -17,7 +18,8 @@ namespace SuMueble.Views
         ClienteControlador clienteControlador = new ClienteControlador();
         ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
         VentaController ventaController = new VentaController();
-        
+        List<Productos> productos;
+        ProductoControlador pc = new ProductoControlador();
 
         //variables
         private float Total = 0;
@@ -31,13 +33,13 @@ namespace SuMueble.Views
             InitializeComponent();
             CargarDataGrid();
             dgv_productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-
         }
         private void CargarDataGrid()
         {
             dgv_productos.AutoGenerateColumns = false;
             dgv_productos.DataSource = productoControlador.GetProductos();
+            dgv_productos.DataSource = productos;
+            productos = pc.GetProductos().ToList();
         }
 
         private void btn_terminarVenta_Click(object sender, EventArgs e)
@@ -243,6 +245,21 @@ namespace SuMueble.Views
             ActualizarListView();
             l_monto.Text = string.Format("{0:C2}", Total);
 
+        }
+
+        private void txt_buscarProducto_TextChanged(object sender, EventArgs e)
+        {
+            string buscar = txt_buscarProducto.Text.ToLower();
+
+            List<Productos> filtrados = productos.Where<Productos>(x => {
+
+                return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
+
+
+            }).ToList();
+
+            dgv_productos.DataSource = null;
+            dgv_productos.DataSource = filtrados;
         }
     }
 }
