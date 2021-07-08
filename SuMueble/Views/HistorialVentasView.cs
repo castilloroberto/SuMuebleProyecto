@@ -19,6 +19,7 @@ namespace SuMueble.Views
             InitializeComponent();
             dvg_ventas.AutoGenerateColumns = false;
             dvg_ventas.DataSource = ventaController.ObtenerVenta();
+            dvg_ventas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
    
