@@ -18,9 +18,10 @@ namespace SuMueble.Views
         private bool Validardatos()
         {
             bool ok;
-            ok = txtCuota.Text != "";
-            ok = txtDNIColaborador.Text != "";
+            bool ok1 = txtCuota.Text != "";
+            bool ok2= txtDNIColaborador.Text != "";
            
+            ok = ok1 && ok2;
             if (ok==false)
             {
                 MessageBox.Show("Ingrese los datos que se le solicitan", "Campos vacios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
