@@ -14,5 +14,45 @@ namespace SuMueble.Views
         {
             InitializeComponent();
         }
+
+        private bool Validardatos()
+        {
+            bool ok;
+            ok = txtCuota.Text != "";
+            ok = txtDNIColaborador.Text != "";
+           
+            if (ok==false)
+            {
+                MessageBox.Show("Ingrese los datos que se le solicitan", "Campos vacios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return ok;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(Validardatos())
+            {
+
+            }
+        }
+
+        private void txtCuota_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Introduzca valores numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtDNIColaborador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Introduzca valores numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }
