@@ -31,7 +31,7 @@ namespace SuMueble.Views
         {
             this.dgv_ventasCredito = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtbuscar = new System.Windows.Forms.TextBox();
             this.btn_pagarcuota = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ventasCredito)).BeginInit();
             this.SuspendLayout();
@@ -57,15 +57,16 @@ namespace SuMueble.Views
             this.label1.TabIndex = 1;
             this.label1.Text = "Buscar Venta";
             // 
-            // textBox1
+            // txtbuscar
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(316, 257);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Codigo de Factura";
-            this.textBox1.Size = new System.Drawing.Size(234, 34);
-            this.textBox1.TabIndex = 2;
+            this.txtbuscar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtbuscar.Location = new System.Drawing.Point(316, 257);
+            this.txtbuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtbuscar.Name = "txtbuscar";
+            this.txtbuscar.PlaceholderText = "Codigo de Factura";
+            this.txtbuscar.Size = new System.Drawing.Size(234, 34);
+            this.txtbuscar.TabIndex = 2;
+            this.txtbuscar.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btn_pagarcuota
             // 
@@ -88,7 +89,7 @@ namespace SuMueble.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_pagarcuota);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtbuscar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgv_ventasCredito);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -104,7 +105,7 @@ namespace SuMueble.Views
 
         private System.Windows.Forms.DataGridView dgv_ventasCredito;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtbuscar;
         private System.Windows.Forms.Button btn_pagarcuota;
     }
 }
