@@ -43,25 +43,31 @@ namespace SuMueble.Views
         }
         private void btn_hecho_Click(object sender, EventArgs e)
         {
-            validardatos();
-            // enviar el insert 
-            Colaboradores colaborador = new Colaboradores()
-            {
-             Clave = txt_clave.Text, 
-             Contratado = dtp_contratoIniciado.Value,
-             Direccion = txt_direccion.Text,
-             DNI = txt_dni.Text,
-             Email = txt_correo.Text,
-             FechaNacimiento = dtp_fechaNacimiento.Value,
-             Nombre = txt_nombre.Text,
-             RTN = txt_rtn.Text,
-             Tel = txt_telefono.Text,
-             FinContrato = dtp_contratoFinalizado.Value,
-             IDPuesto = cb_puesto.SelectedValue.GetHashCode()
-            };
-            cControlador.SaveColaborador(colaborador);
-            this.Close();
+            bool ok = validardatos();
             
+             if (ok)
+            {
+                // enviar el insert 
+                Colaboradores colaborador = new Colaboradores()
+                {
+                    Clave = txt_clave.Text,
+                    Contratado = dtp_contratoIniciado.Value,
+                    Direccion = txt_direccion.Text,
+                    DNI = txt_dni.Text,
+                    Email = txt_correo.Text,
+                    FechaNacimiento = dtp_fechaNacimiento.Value,
+                    Nombre = txt_nombre.Text,
+                    RTN = txt_rtn.Text,
+                    Tel = txt_telefono.Text,
+                    FinContrato = dtp_contratoFinalizado.Value,
+                    IDPuesto = cb_puesto.SelectedValue.GetHashCode()
+                };
+                cControlador.SaveColaborador(colaborador);
+                this.Close();
+
+            }
+
+
         }
 
         private void label9_Click(object sender, EventArgs e)
