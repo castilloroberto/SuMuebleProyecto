@@ -95,6 +95,7 @@ namespace SuMueble.Views
             this.txt_dni.PlaceholderText = "Numero de Identidad";
             this.txt_dni.Size = new System.Drawing.Size(124, 23);
             this.txt_dni.TabIndex = 4;
+            this.txt_dni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dni_KeyPress);
             // 
             // txt_rtn
             // 
@@ -254,7 +255,7 @@ namespace SuMueble.Views
             this.txt_telefono.PlaceholderText = "Ejemplo: 88137603";
             this.txt_telefono.Size = new System.Drawing.Size(124, 23);
             this.txt_telefono.TabIndex = 20;
-            this.txt_telefono.TextChanged += new System.EventHandler(this.txt_telefono_TextChanged);
+            this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
             // 
             // label11
             // 
