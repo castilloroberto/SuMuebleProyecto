@@ -6,12 +6,16 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
+using SuMueble.Models;
 
 namespace SuMueble.Views
 {
     public partial class HistorialVentasView : UserControl
     {
         VentaController ventaController = new VentaController();
+        ClienteControlador clienteControlador = new ClienteControlador();
+        List<Clientes> clientes;
 
         bool toogle = true;
         public HistorialVentasView()
@@ -41,6 +45,21 @@ namespace SuMueble.Views
                 ventaCredito.ShowDialog();
 
 
+        }
+
+        public void txt_BuscarCliente_TextChanged(object sender, EventArgs e)
+        {
+            string buscar = txt_BuscarCliente.Text.ToLower();
+
+            //List<Clientes> filtrados = clientes.Where<Clientes>(x => {
+
+                
+
+
+            //}).ToList();
+
+            dvg_ventas.DataSource = null;
+            //dvg_ventas.DataSource = filtrados;
         }
     }
 }

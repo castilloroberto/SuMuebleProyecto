@@ -29,8 +29,8 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.txt_BuscarCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_verDetalle = new System.Windows.Forms.Button();
             this.dvg_ventas = new System.Windows.Forms.DataGridView();
@@ -46,15 +46,16 @@ namespace SuMueble.Views
             ((System.ComponentModel.ISupportInitialize)(this.dvg_ventas)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txt_BuscarCliente
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(234, 332);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "DNI del Cliente o Nombre...";
-            this.textBox1.Size = new System.Drawing.Size(292, 39);
-            this.textBox1.TabIndex = 0;
+            this.txt_BuscarCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_BuscarCliente.Location = new System.Drawing.Point(234, 332);
+            this.txt_BuscarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_BuscarCliente.Name = "txt_BuscarCliente";
+            this.txt_BuscarCliente.PlaceholderText = "DNI del Cliente o Nombre...";
+            this.txt_BuscarCliente.Size = new System.Drawing.Size(292, 39);
+            this.txt_BuscarCliente.TabIndex = 0;
+            this.txt_BuscarCliente.TextChanged += new System.EventHandler(this.txt_BuscarCliente_TextChanged);
             // 
             // label1
             // 
@@ -90,14 +91,14 @@ namespace SuMueble.Views
             this.dvg_ventas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvg_ventas.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dvg_ventas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_ventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_ventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dvg_ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvg_ventas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodigoF,
@@ -198,7 +199,7 @@ namespace SuMueble.Views
             this.Controls.Add(this.dvg_ventas);
             this.Controls.Add(this.btn_verDetalle);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_BuscarCliente);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "HistorialVentasView";
             this.Size = new System.Drawing.Size(2262, 950);
@@ -211,7 +212,7 @@ namespace SuMueble.Views
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_BuscarCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_verDetalle;
         private System.Windows.Forms.DataGridView dvg_ventas;

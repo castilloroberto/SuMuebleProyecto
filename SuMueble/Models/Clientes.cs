@@ -8,6 +8,8 @@ namespace SuMueble.Models
     [Table("Clientes")]
     public class Clientes
     {
+        internal object cliente;
+
         // espesificar que es una llave creada en el programa
         [ExplicitKey]
         public string DNI { get; set; }
@@ -23,5 +25,9 @@ namespace SuMueble.Models
         [Computed] // update no se actualiza este atributo
         public DateTime Registrado  { get; set; }
 
+        internal static object Where<T>(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
