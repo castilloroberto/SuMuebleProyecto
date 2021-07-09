@@ -4,6 +4,8 @@ using SuMueble.Models;
 using SuMueble.Views;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace SuMueble.Controller
@@ -26,7 +28,7 @@ namespace SuMueble.Controller
             bool ok = false;
             if(clienteControlador.SaveCliente(v.Cliente))
                 if (InsertVenta(v))
-                    if(v.Referencias.Count>0)
+                    if(v.Referencias != null)
                         ok = rController.InsertReferencia(v.Referencias);    
                         
                     ok = detalleVentaController.InsertDetallesVenta(v.DetallesVenta);
@@ -40,6 +42,25 @@ namespace SuMueble.Controller
             using (var db = GetConnection)
             {
                 return db.Query<Ventas>(sql);
+            }
+        }
+
+        public DataTable GetCreditosPendientes()
+        {
+            using (var db = GetConnection)
+            {
+                db.Open();
+                SqlCommand command = new SqlCommand("Select * from v_VentasCredito",db);
+                SqlDataReader reader = command.ExecuteReader();
+                DataTable resultado = new DataTable();
+               
+                resultado.Load(reader);
+
+                reader.Close();
+
+                return resultado; 
+
+
             }
         }
     }
