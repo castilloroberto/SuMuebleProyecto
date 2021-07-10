@@ -93,6 +93,7 @@
             this.dgv_colaboradores.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_colaboradores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_colaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_colaboradores.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgv_colaboradores.Location = new System.Drawing.Point(316, 320);
             this.dgv_colaboradores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_colaboradores.Name = "dgv_colaboradores";
