@@ -9,13 +9,13 @@ namespace SuMueble.Models
     public class Devoluciones
     {
         //Lave Primaria
-        [ExplicitKey]
+        [Key]
   
-        public Guid ID 
+        public int IDDevolucion 
         {
             set;get;
         }
-        public Guid IDVenta
+        public int CodigoFactura
         {
             set; get;
         }
@@ -23,10 +23,22 @@ namespace SuMueble.Models
         {
             set; get;
         }
-        //Propiedades que no estan en la tabla
-        public List<DetalleDevolucion> DetallesDevolucion
+        public int IDProducto
         {
             set; get;
         }
+        public string Observaciones
+        {
+            set; get;
+        }
+        public string Motivo
+        {
+            set; get;
+        }
+        public int Cantidad
+        {
+            set; get;
+        }
+
     }
 }
