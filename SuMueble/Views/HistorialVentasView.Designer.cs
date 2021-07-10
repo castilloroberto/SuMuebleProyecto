@@ -29,7 +29,7 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_BuscarCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_verDetalle = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@ namespace SuMueble.Views
             this.btn_verDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_verDetalle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_verDetalle.ForeColor = System.Drawing.Color.White;
-            this.btn_verDetalle.Location = new System.Drawing.Point(1670, 896);
+            this.btn_verDetalle.Location = new System.Drawing.Point(1385, 896);
             this.btn_verDetalle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_verDetalle.Name = "btn_verDetalle";
             this.btn_verDetalle.Size = new System.Drawing.Size(168, 46);
@@ -91,14 +91,14 @@ namespace SuMueble.Views
             this.dvg_ventas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvg_ventas.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dvg_ventas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_ventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_ventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dvg_ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvg_ventas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodigoF,
@@ -117,13 +117,14 @@ namespace SuMueble.Views
             this.dvg_ventas.ReadOnly = true;
             this.dvg_ventas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dvg_ventas.RowHeadersWidth = 51;
-            this.dvg_ventas.Size = new System.Drawing.Size(1604, 471);
+            this.dvg_ventas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dvg_ventas.Size = new System.Drawing.Size(1319, 471);
             this.dvg_ventas.TabIndex = 4;
             // 
             // CodigoF
             // 
             this.CodigoF.DataPropertyName = "CodigoFactura";
-            this.CodigoF.HeaderText = "Codigo Factura";
+            this.CodigoF.HeaderText = "CodigoFactura";
             this.CodigoF.MinimumWidth = 8;
             this.CodigoF.Name = "CodigoF";
             this.CodigoF.ReadOnly = true;
@@ -131,7 +132,7 @@ namespace SuMueble.Views
             // Column5
             // 
             this.Column5.DataPropertyName = "TipoVenta";
-            this.Column5.HeaderText = "Tipo venta";
+            this.Column5.HeaderText = "TipoVenta";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -147,7 +148,7 @@ namespace SuMueble.Views
             // Column2
             // 
             this.Column2.DataPropertyName = "NombreCliente";
-            this.Column2.HeaderText = "Nombre Cliente";
+            this.Column2.HeaderText = "NombreCliente";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -155,7 +156,7 @@ namespace SuMueble.Views
             // Column3
             // 
             this.Column3.DataPropertyName = "FechaInicio";
-            this.Column3.HeaderText = "Fecha Inicio";
+            this.Column3.HeaderText = "FechaInicio";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -163,7 +164,7 @@ namespace SuMueble.Views
             // Column4
             // 
             this.Column4.DataPropertyName = "FechaFin";
-            this.Column4.HeaderText = "Fecha Fin";
+            this.Column4.HeaderText = "FechaFin";
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
