@@ -88,7 +88,6 @@ namespace SuMueble.Views
             // 
             this.dvg_ventas.AllowUserToAddRows = false;
             this.dvg_ventas.AllowUserToDeleteRows = false;
-            this.dvg_ventas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvg_ventas.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dvg_ventas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -117,7 +116,6 @@ namespace SuMueble.Views
             this.dvg_ventas.ReadOnly = true;
             this.dvg_ventas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dvg_ventas.RowHeadersWidth = 51;
-            this.dvg_ventas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvg_ventas.Size = new System.Drawing.Size(1319, 471);
             this.dvg_ventas.TabIndex = 4;
             // 
@@ -128,6 +126,7 @@ namespace SuMueble.Views
             this.CodigoF.MinimumWidth = 8;
             this.CodigoF.Name = "CodigoF";
             this.CodigoF.ReadOnly = true;
+            this.CodigoF.Width = 141;
             // 
             // Column5
             // 
@@ -136,6 +135,7 @@ namespace SuMueble.Views
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Width = 141;
             // 
             // Column8
             // 
@@ -144,6 +144,7 @@ namespace SuMueble.Views
             this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            this.Column8.Width = 141;
             // 
             // Column2
             // 
@@ -152,6 +153,7 @@ namespace SuMueble.Views
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 141;
             // 
             // Column3
             // 
@@ -160,6 +162,7 @@ namespace SuMueble.Views
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 140;
             // 
             // Column4
             // 
@@ -168,6 +171,7 @@ namespace SuMueble.Views
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 141;
             // 
             // Column6
             // 
@@ -176,6 +180,7 @@ namespace SuMueble.Views
             this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Width = 141;
             // 
             // Column7
             // 
@@ -184,6 +189,7 @@ namespace SuMueble.Views
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            this.Column7.Width = 141;
             // 
             // Column1
             // 
@@ -192,6 +198,7 @@ namespace SuMueble.Views
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 141;
             // 
             // HistorialVentasView
             // 
