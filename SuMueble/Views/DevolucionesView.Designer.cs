@@ -222,7 +222,7 @@ namespace SuMueble.Views
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "DevolucionesView";
-            this.Size = new System.Drawing.Size(1810, 760);
+            this.Size = new System.Drawing.Size(1517, 760);
             ((System.ComponentModel.ISupportInitialize)(this.dvg_devoluciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

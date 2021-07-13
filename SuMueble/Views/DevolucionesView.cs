@@ -19,8 +19,11 @@ namespace SuMueble.Views
         {
             InitializeComponent();
             ListaVentas = ventaController.ObtenerVenta();
-
+            dvg_devoluciones.AutoGenerateColumns = false;
+            dvg_devoluciones.DataSource = ListaVentas;
             
+
+
 
         }
 
