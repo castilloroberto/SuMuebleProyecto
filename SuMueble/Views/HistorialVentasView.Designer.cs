@@ -49,11 +49,11 @@ namespace SuMueble.Views
             // txt_BuscarCliente
             // 
             this.txt_BuscarCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_BuscarCliente.Location = new System.Drawing.Point(234, 332);
-            this.txt_BuscarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_BuscarCliente.Location = new System.Drawing.Point(187, 266);
+            this.txt_BuscarCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_BuscarCliente.Name = "txt_BuscarCliente";
             this.txt_BuscarCliente.PlaceholderText = "DNI del Cliente o Nombre...";
-            this.txt_BuscarCliente.Size = new System.Drawing.Size(292, 39);
+            this.txt_BuscarCliente.Size = new System.Drawing.Size(234, 34);
             this.txt_BuscarCliente.TabIndex = 0;
             this.txt_BuscarCliente.TextChanged += new System.EventHandler(this.txt_BuscarCliente_TextChanged);
             // 
@@ -61,10 +61,9 @@ namespace SuMueble.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(225, 277);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(180, 222);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 38);
+            this.label1.Size = new System.Drawing.Size(161, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Buscar Cliente:";
             // 
@@ -75,10 +74,10 @@ namespace SuMueble.Views
             this.btn_verDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_verDetalle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_verDetalle.ForeColor = System.Drawing.Color.White;
-            this.btn_verDetalle.Location = new System.Drawing.Point(1385, 896);
-            this.btn_verDetalle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_verDetalle.Location = new System.Drawing.Point(1108, 717);
+            this.btn_verDetalle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_verDetalle.Name = "btn_verDetalle";
-            this.btn_verDetalle.Size = new System.Drawing.Size(168, 46);
+            this.btn_verDetalle.Size = new System.Drawing.Size(134, 37);
             this.btn_verDetalle.TabIndex = 3;
             this.btn_verDetalle.Text = "Ver Detalles";
             this.btn_verDetalle.UseVisualStyleBackColor = false;
@@ -110,13 +109,12 @@ namespace SuMueble.Views
             this.Column7,
             this.Column1});
             this.dvg_ventas.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dvg_ventas.Location = new System.Drawing.Point(234, 416);
-            this.dvg_ventas.Margin = new System.Windows.Forms.Padding(4);
+            this.dvg_ventas.Location = new System.Drawing.Point(187, 333);
             this.dvg_ventas.Name = "dvg_ventas";
             this.dvg_ventas.ReadOnly = true;
             this.dvg_ventas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dvg_ventas.RowHeadersWidth = 51;
-            this.dvg_ventas.Size = new System.Drawing.Size(1319, 471);
+            this.dvg_ventas.Size = new System.Drawing.Size(1055, 377);
             this.dvg_ventas.TabIndex = 4;
             // 
             // CodigoF
@@ -202,15 +200,15 @@ namespace SuMueble.Views
             // 
             // HistorialVentasView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dvg_ventas);
             this.Controls.Add(this.btn_verDetalle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_BuscarCliente);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "HistorialVentasView";
-            this.Size = new System.Drawing.Size(2262, 950);
+            this.Size = new System.Drawing.Size(1463, 760);
             this.Load += new System.EventHandler(this.HistorialVentasView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvg_ventas)).EndInit();
             this.ResumeLayout(false);
