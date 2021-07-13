@@ -14,16 +14,16 @@ namespace SuMueble.Views
     public partial class HistorialVentasView : UserControl
     {
         VentaController ventaController = new VentaController();
-        ClienteControlador clienteControlador = new ClienteControlador();
-        List<Clientes> clientes;
+        List<Ventas> ventas;
 
         bool toogle = true;
         public HistorialVentasView()
         {
             InitializeComponent();
             dvg_ventas.AutoGenerateColumns = false;
-            dvg_ventas.DataSource = ventaController.ObtenerVenta();
+            ventas = ventaController.ObtenerVenta().ToList();
             dvg_ventas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dvg_ventas.DataSource = ventas;
         }
 
    
@@ -51,15 +51,15 @@ namespace SuMueble.Views
         {
             string buscar = txt_BuscarCliente.Text.ToLower();
 
-            //List<Clientes> filtrados = clientes.Where<Clientes>(x => {
+            List<Ventas> filtrados = ventas.Where<Ventas>(x => {
 
-                
+                return x.NombreCliente.ToLower().StartsWith(buscar);
 
 
-            //}).ToList();
+            }).ToList();
 
             dvg_ventas.DataSource = null;
-            //dvg_ventas.DataSource = filtrados;
+            dvg_ventas.DataSource = filtrados;
         }
     }
 }
