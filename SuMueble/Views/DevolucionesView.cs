@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SuMueble.Controller;
+using SuMueble.Models;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,10 +13,15 @@ namespace SuMueble.Views
 {
     public partial class DevolucionesView : UserControl
     {
+        VentaController ventaController = new VentaController();
+        IEnumerable<Ventas> ListaVentas;
         public DevolucionesView()
         {
             InitializeComponent();
+            ListaVentas = ventaController.ObtenerVenta();
+
             
+
         }
 
         private void btn_agregarDevolucion_Click(object sender, EventArgs e)

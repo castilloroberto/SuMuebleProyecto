@@ -15,7 +15,7 @@ namespace SuMueble.Models
         [Computed]
         public int CodigoFactura { get; set; }
         public string IDCliente { 
-            get { return this.Cliente.DNI; }
+            get { return Cliente.DNI; }
             set { IDCliente = value; } 
         }
         public string IDColaborador { get; set; }
