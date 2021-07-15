@@ -25,7 +25,7 @@ namespace SuMueble.Views
         private float Total = 0;
         private List<DetallesVentas> _detallesVenta = new List<DetallesVentas>();
         private string _msg = "1. Seleccione un producto\n2. Indique la cantidad que se venderá\n3. Asegurese de No borrar el precio del producto de el cuadro de texto en la parte inferior";
-        private Guid _IDVenta = Guid.NewGuid();
+        private Guid _IDVenta;
 
         // metodos
         public VentaView()
@@ -33,6 +33,7 @@ namespace SuMueble.Views
             InitializeComponent();
             CargarDataGrid();
             dgv_productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            _IDVenta = Guid.NewGuid();
         }
         private void CargarDataGrid()
         {

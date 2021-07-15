@@ -25,13 +25,20 @@ namespace SuMueble.Controller
 
         public bool SaveVenta(Ventas v)
         {
-            bool ok = false;
-            if(clienteControlador.SaveCliente(v.Cliente))
+            bool ok = clienteControlador.SaveCliente(v.Cliente);
+
+            if (ok == true)
+            {
                 if (InsertVenta(v))
+                {
                     if(v.Referencias != null)
                         ok = rController.InsertReferencia(v.Referencias);    
                         
                     ok = detalleVentaController.InsertDetallesVenta(v.DetallesVenta);
+
+                }
+
+            }
             
             return ok;
         }
@@ -40,9 +47,9 @@ namespace SuMueble.Controller
         {
             string sql = @"select * from v_ventasResumen order by CodigoFactura";
             using (var db = GetConnection)
-            {
+            {       
                 return db.Query<Ventas>(sql);
-            }
+            }       
         }
 
         public DataTable GetCreditosPendientes()

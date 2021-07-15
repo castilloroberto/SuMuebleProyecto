@@ -26,6 +26,7 @@ namespace SuMueble.Views.Prompts
             VentaCreditoView._venta.Cuotas = int.Parse(txt_cuotas.Text);
             VentaCreditoView._venta.FechaFin = dtp_fechaFin.Value;
             VentaCreditoView._venta.Prima = float.Parse(txt_prima.Text);
+
             bool ok = vcontroller.SaveVenta(VentaCreditoView._venta);
             if (ok)
                 MessageBox.Show(string.Format(msg,float.Parse(txt_prima.Text)), "Imprimer factura", MessageBoxButtons.OK, MessageBoxIcon.Information);

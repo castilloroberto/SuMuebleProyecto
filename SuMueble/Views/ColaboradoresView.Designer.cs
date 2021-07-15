@@ -137,7 +137,7 @@
             this.Controls.Add(this.txt_busqueda);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ColaboradoresView";
-            this.Size = new System.Drawing.Size(1810, 760);
+            this.Size = new System.Drawing.Size(1399, 760);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_colaboradores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

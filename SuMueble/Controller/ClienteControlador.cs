@@ -23,10 +23,14 @@ namespace SuMueble.Controller
 
         private bool InsertCliente(Clientes cliente) {
 
+            List<Clientes> clientes = new List<Clientes>()
+            {
+                cliente
+            };
             using (var DB = GetConnection)
             {
 
-                return DB.Insert(cliente) > 0;
+                return DB.Insert(clientes) > 0;
 
 
             }
@@ -54,18 +58,18 @@ namespace SuMueble.Controller
         }
         public bool SaveCliente(Clientes cliente)
         {
-            bool ok = false;
+            
             Clientes c = GetCliente(cliente.DNI);
             if (c != null)
             {
-                ok = UpdateCliente(cliente);
+                return UpdateCliente(cliente);
             }
             else
             {
-                ok = InsertCliente(cliente);
+                return InsertCliente(cliente);
             }
 
-            return ok;
+           
         }
     }
 }
