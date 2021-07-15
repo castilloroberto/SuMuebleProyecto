@@ -37,10 +37,9 @@ namespace SuMueble.Views
         }
         private void CargarDataGrid()
         {
-            dgv_productos.AutoGenerateColumns = false;
-            dgv_productos.DataSource = productoControlador.GetProductos();
-            dgv_productos.DataSource = productos;
+            dgv_productos.AutoGenerateColumns = false;                        
             productos = pc.GetProductos().ToList();
+            dgv_productos.DataSource = productos;
         }
 
         private void btn_terminarVenta_Click(object sender, EventArgs e)
