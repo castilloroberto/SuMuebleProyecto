@@ -30,7 +30,7 @@ namespace SuMueble.Views
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_BuscarCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_verDetalle = new System.Windows.Forms.Button();
             this.dvg_ventas = new System.Windows.Forms.DataGridView();
@@ -46,24 +46,24 @@ namespace SuMueble.Views
             ((System.ComponentModel.ISupportInitialize)(this.dvg_ventas)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txt_BuscarCliente
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(234, 332);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "DNI del Cliente o Nombre...";
-            this.textBox1.Size = new System.Drawing.Size(292, 39);
-            this.textBox1.TabIndex = 0;
+            this.txt_BuscarCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_BuscarCliente.Location = new System.Drawing.Point(187, 266);
+            this.txt_BuscarCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_BuscarCliente.Name = "txt_BuscarCliente";
+            this.txt_BuscarCliente.PlaceholderText = "DNI del Cliente o Nombre...";
+            this.txt_BuscarCliente.Size = new System.Drawing.Size(234, 34);
+            this.txt_BuscarCliente.TabIndex = 0;
+            this.txt_BuscarCliente.TextChanged += new System.EventHandler(this.txt_BuscarCliente_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(225, 277);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(180, 222);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 38);
+            this.label1.Size = new System.Drawing.Size(161, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Buscar Cliente:";
             // 
@@ -74,10 +74,10 @@ namespace SuMueble.Views
             this.btn_verDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_verDetalle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_verDetalle.ForeColor = System.Drawing.Color.White;
-            this.btn_verDetalle.Location = new System.Drawing.Point(1670, 896);
-            this.btn_verDetalle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_verDetalle.Location = new System.Drawing.Point(1108, 717);
+            this.btn_verDetalle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_verDetalle.Name = "btn_verDetalle";
-            this.btn_verDetalle.Size = new System.Drawing.Size(168, 46);
+            this.btn_verDetalle.Size = new System.Drawing.Size(134, 37);
             this.btn_verDetalle.TabIndex = 3;
             this.btn_verDetalle.Text = "Ver Detalles";
             this.btn_verDetalle.UseVisualStyleBackColor = false;
@@ -87,7 +87,6 @@ namespace SuMueble.Views
             // 
             this.dvg_ventas.AllowUserToAddRows = false;
             this.dvg_ventas.AllowUserToDeleteRows = false;
-            this.dvg_ventas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvg_ventas.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dvg_ventas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -110,30 +109,31 @@ namespace SuMueble.Views
             this.Column7,
             this.Column1});
             this.dvg_ventas.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dvg_ventas.Location = new System.Drawing.Point(234, 416);
-            this.dvg_ventas.Margin = new System.Windows.Forms.Padding(4);
+            this.dvg_ventas.Location = new System.Drawing.Point(187, 333);
             this.dvg_ventas.Name = "dvg_ventas";
             this.dvg_ventas.ReadOnly = true;
             this.dvg_ventas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dvg_ventas.RowHeadersWidth = 51;
-            this.dvg_ventas.Size = new System.Drawing.Size(1604, 471);
+            this.dvg_ventas.Size = new System.Drawing.Size(1055, 377);
             this.dvg_ventas.TabIndex = 4;
             // 
             // CodigoF
             // 
             this.CodigoF.DataPropertyName = "CodigoFactura";
-            this.CodigoF.HeaderText = "Codigo Factura";
+            this.CodigoF.HeaderText = "CodigoFactura";
             this.CodigoF.MinimumWidth = 8;
             this.CodigoF.Name = "CodigoF";
             this.CodigoF.ReadOnly = true;
+            this.CodigoF.Width = 141;
             // 
             // Column5
             // 
             this.Column5.DataPropertyName = "TipoVenta";
-            this.Column5.HeaderText = "Tipo venta";
+            this.Column5.HeaderText = "TipoVenta";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Width = 141;
             // 
             // Column8
             // 
@@ -142,30 +142,34 @@ namespace SuMueble.Views
             this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            this.Column8.Width = 141;
             // 
             // Column2
             // 
             this.Column2.DataPropertyName = "NombreCliente";
-            this.Column2.HeaderText = "Nombre Cliente";
+            this.Column2.HeaderText = "NombreCliente";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 141;
             // 
             // Column3
             // 
             this.Column3.DataPropertyName = "FechaInicio";
-            this.Column3.HeaderText = "Fecha Inicio";
+            this.Column3.HeaderText = "FechaInicio";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 140;
             // 
             // Column4
             // 
             this.Column4.DataPropertyName = "FechaFin";
-            this.Column4.HeaderText = "Fecha Fin";
+            this.Column4.HeaderText = "FechaFin";
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 141;
             // 
             // Column6
             // 
@@ -174,6 +178,7 @@ namespace SuMueble.Views
             this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Width = 141;
             // 
             // Column7
             // 
@@ -182,6 +187,7 @@ namespace SuMueble.Views
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            this.Column7.Width = 141;
             // 
             // Column1
             // 
@@ -190,18 +196,19 @@ namespace SuMueble.Views
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 141;
             // 
             // HistorialVentasView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dvg_ventas);
             this.Controls.Add(this.btn_verDetalle);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Controls.Add(this.txt_BuscarCliente);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "HistorialVentasView";
-            this.Size = new System.Drawing.Size(2262, 950);
+            this.Size = new System.Drawing.Size(1463, 760);
             this.Load += new System.EventHandler(this.HistorialVentasView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvg_ventas)).EndInit();
             this.ResumeLayout(false);
@@ -211,7 +218,7 @@ namespace SuMueble.Views
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_BuscarCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_verDetalle;
         private System.Windows.Forms.DataGridView dvg_ventas;

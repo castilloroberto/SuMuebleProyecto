@@ -25,7 +25,7 @@ namespace SuMueble.Views
         private float Total = 0;
         private List<DetallesVentas> _detallesVenta = new List<DetallesVentas>();
         private string _msg = "1. Seleccione un producto\n2. Indique la cantidad que se venderá\n3. Asegurese de No borrar el precio del producto de el cuadro de texto en la parte inferior";
-        private Guid _IDVenta = Guid.NewGuid();
+        private Guid _IDVenta;
 
         // metodos
         public VentaView()
@@ -33,13 +33,13 @@ namespace SuMueble.Views
             InitializeComponent();
             CargarDataGrid();
             dgv_productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            _IDVenta = Guid.NewGuid();
         }
         private void CargarDataGrid()
         {
-            dgv_productos.AutoGenerateColumns = false;
-            dgv_productos.DataSource = productoControlador.GetProductos();
-            dgv_productos.DataSource = productos;
+            dgv_productos.AutoGenerateColumns = false;                        
             productos = pc.GetProductos().ToList();
+            dgv_productos.DataSource = productos;
         }
 
         private void btn_terminarVenta_Click(object sender, EventArgs e)
@@ -59,7 +59,8 @@ namespace SuMueble.Views
                     DetallesVenta = _detallesVenta,
                     Cliente = c,
                     IDTipoVenta = 1,
-                    IDColaborador = txt_dniColaborador.Text
+                    IDColaborador = txt_dniColaborador.Text,
+                    FechaFin = DateTime.Now
 
                 };
                 bool ok = ventaController.SaveVenta(venta);
@@ -81,6 +82,7 @@ namespace SuMueble.Views
         private void ClearVenta()
         {
             Total = 0;
+            l_monto.Text = string.Empty;
             _IDVenta = Guid.NewGuid();
             txt_dniCliente.Text = string.Empty;
             ClearCliente();
@@ -113,7 +115,8 @@ namespace SuMueble.Views
                     IDProducto = int.Parse(GetCell(0)),
                     Cantidad = int.Parse(txt_cantidadProducto.Text),
                     PrecioVenta = int.Parse(txt_precio.Text),
-                    Producto = GetCell(2)
+                    Producto = GetCell(2),
+                    
                 };
 
                 CargarListVew(dv);

@@ -15,7 +15,7 @@ namespace SuMueble.Models
         [Computed]
         public int CodigoFactura { get; set; }
         public string IDCliente { 
-            get { return this.Cliente.DNI; }
+            get { return Cliente.DNI; }
             set { IDCliente = value; } 
         }
         public string IDColaborador { get; set; }
@@ -47,7 +47,7 @@ namespace SuMueble.Models
         [Computed]
         public float TotalVenta { get; set; }
 
-        [Computed]
+        //[Computed]
         public DateTime FechaFin { get; set; }
 
         // propiedades con de la parte programable

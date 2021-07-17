@@ -94,7 +94,7 @@ namespace SuMueble.Views
             this.Controls.Add(this.dgv_ventasCredito);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CreditosView";
-            this.Size = new System.Drawing.Size(1810, 760);
+            this.Size = new System.Drawing.Size(1372, 760);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ventasCredito)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

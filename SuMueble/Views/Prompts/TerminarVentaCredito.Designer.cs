@@ -125,6 +125,7 @@ namespace SuMueble.Views.Prompts
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtp_fechaFin);
             this.Name = "TerminarVentaCredito";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TerminarVentaCredito";
             this.ResumeLayout(false);
             this.PerformLayout();
