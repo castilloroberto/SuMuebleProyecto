@@ -47,7 +47,7 @@ namespace SuMueble.Models
         [Computed]
         public float TotalVenta { get; set; }
 
-        [Computed]
+        //[Computed]
         public DateTime FechaFin { get; set; }
 
         // propiedades con de la parte programable
