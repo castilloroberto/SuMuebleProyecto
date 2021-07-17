@@ -9,7 +9,7 @@ namespace SuMueble.Controller
 {
     public class DevolucionControlador: DBConnection
     {
-        ControladorDetalleDevolucion cdetalleDevolucion = new ControladorDetalleDevolucion();
+       
         public bool InsertarDevolucion(Devoluciones d)
         {
             using (var db=GetConnection)
@@ -24,16 +24,7 @@ namespace SuMueble.Controller
             }
 
         }
-        public bool SaveDevolucion(Devoluciones d)
-        {
-            bool ok = false;
-            ok=InsertarDevolucion(d);
-            if (ok)
-                ok = cdetalleDevolucion.InsertarDetalleDevolucion(d.DetallesDevolucion);
-
-            return ok;
-
-        }
+        
 
     }
 }
