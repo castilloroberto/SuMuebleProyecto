@@ -102,35 +102,43 @@ namespace SuMueble.Views
         private void btn_agregarProducto_Click(object sender, EventArgs e)
 
         {
-            
 
-     
-
-
-            if (GetCell(4) != "0" && txt_cantidadProducto.Text != string.Empty && txt_precio.Text != string.Empty)
+            if (GetCell(4) == "0")
             {
-                DetallesVentas dv = new DetallesVentas()
-                {
-                    IDVenta = _IDVenta,
-                    IDProducto = int.Parse(GetCell(0)),
-                    Cantidad = int.Parse(txt_cantidadProducto.Text),
-                    PrecioVenta = int.Parse(txt_precio.Text),
-                    Producto = GetCell(2),
-                    
-                };
-
-                CargarListVew(dv);
-                ClearProducto();
-            }
-            else
-                MessageBox.Show(_msg, "Faltan datos de la venta",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
-            if (GetCell(4) != "0")
-                MessageBox.Show("No hay existencia del producto", "Mensaje del sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("No hay existencia del producto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 
                 
+            } else
+            {
+
+                if (txt_cantidadProducto.Text != string.Empty && txt_precio.Text != string.Empty)
+                {
+                    DetallesVentas dv = new DetallesVentas()
+                    {
+                        IDVenta = _IDVenta,
+                        IDProducto = int.Parse(GetCell(0)),
+                        Cantidad = int.Parse(txt_cantidadProducto.Text),
+                        PrecioVenta = int.Parse(txt_precio.Text),
+                        Producto = GetCell(2),
+
+                    };
+
+                    CargarListVew(dv);
+                    ClearProducto();
+                }
+                else
+                    MessageBox.Show(_msg, "Faltan datos de la venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                     
+
+
+            }
+
+
+
+
+
+
 
         }
         private void CargarListVew(DetallesVentas dv)
