@@ -4,6 +4,7 @@ using SuMueble.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace SuMueble.Controller
 {
@@ -24,7 +25,17 @@ namespace SuMueble.Controller
             }
 
         }
-        
+
+        public List<Devoluciones> ObtenerDevoluciones()
+        {
+            using (var db = GetConnection)
+            {
+                return db.GetAll<Devoluciones>().ToList();
+
+            }
+
+        }
+
 
     }
 }
