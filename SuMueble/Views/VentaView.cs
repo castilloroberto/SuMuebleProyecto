@@ -59,7 +59,8 @@ namespace SuMueble.Views
                     DetallesVenta = _detallesVenta,
                     Cliente = c,
                     IDTipoVenta = 1,
-                    IDColaborador = txt_dniColaborador.Text
+                    IDColaborador = txt_dniColaborador.Text,
+                    FechaFin = DateTime.Now
 
                 };
                 bool ok = ventaController.SaveVenta(venta);
@@ -81,6 +82,7 @@ namespace SuMueble.Views
         private void ClearVenta()
         {
             Total = 0;
+            l_monto.Text = string.Empty;
             _IDVenta = Guid.NewGuid();
             txt_dniCliente.Text = string.Empty;
             ClearCliente();
@@ -107,7 +109,8 @@ namespace SuMueble.Views
                     IDProducto = int.Parse(GetCell(0)),
                     Cantidad = int.Parse(txt_cantidadProducto.Text),
                     PrecioVenta = int.Parse(txt_precio.Text),
-                    Producto = GetCell(2)
+                    Producto = GetCell(2),
+                    
                 };
 
                 CargarListVew(dv);

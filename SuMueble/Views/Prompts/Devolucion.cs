@@ -30,7 +30,7 @@ namespace SuMueble.Views
                 Observaciones= txt_Observacion.Text
 
             };
-            bool res=devolucionControlador.InsertarDevolucion(devolucion);
+            bool res = devolucionControlador.InsertarDevolucion(devolucion);
             if (res == true)
                 MessageBox.Show("Devolucion Guardada Corrrecta Mente","Devoluciones",MessageBoxButtons.OK,MessageBoxIcon.Information);
             else
