@@ -98,8 +98,14 @@ namespace SuMueble.Views
         
 
         private void btn_agregarProducto_Click(object sender, EventArgs e)
+
         {
-            if (txt_cantidadProducto.Text != string.Empty && txt_precio.Text != string.Empty)
+            
+
+     
+
+
+            if (GetCell(4) != "0" && txt_cantidadProducto.Text != string.Empty && txt_precio.Text != string.Empty)
             {
                 DetallesVentas dv = new DetallesVentas()
                 {
@@ -115,8 +121,13 @@ namespace SuMueble.Views
             }
             else
                 MessageBox.Show(_msg, "Faltan datos de la venta",MessageBoxButtons.OK,MessageBoxIcon.Information);
-           
-           
+
+            if (GetCell(4) != "0")
+                MessageBox.Show("No hay existencia del producto", "Mensaje del sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                
+
+
+                     
 
         }
         private void CargarListVew(DetallesVentas dv)
