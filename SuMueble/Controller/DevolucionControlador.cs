@@ -36,6 +36,16 @@ namespace SuMueble.Controller
 
         }
 
+        public Devoluciones ObtenerDevoluciones(int ID)
+        {
+            using (var db = GetConnection)
+            {
+                return db.Get<Devoluciones>(ID);
+
+            }
+
+        }
+
 
     }
 }
