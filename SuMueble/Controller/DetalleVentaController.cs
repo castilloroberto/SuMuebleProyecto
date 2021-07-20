@@ -23,7 +23,7 @@ namespace SuMueble.Controller
 
         }
 
-        public DataRow GetDetalleVenta(Guid IDVenta)
+        public IEnumerable<dynamic> GetDetalleVenta(Guid IDVenta)
         {
             using (var db = GetConnection)
             {
@@ -37,7 +37,7 @@ namespace SuMueble.Controller
 
                 reader.Close();
 
-                return resultado.AsEnumerable().First();
+                return resultado.AsEnumerable();
 
 
             }

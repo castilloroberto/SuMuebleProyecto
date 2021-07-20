@@ -8,14 +8,15 @@ using System.Text;
 using System.Windows.Forms;
 using System.Linq;
 
+
 namespace SuMueble.Views
 {
     public partial class Ventascontado : Form
     {
         VentaController ventacontrolador = new VentaController();
         DetalleVentaController detalleVentaController = new DetalleVentaController();
-        DataTable venta = new DataTable();
-        DataTable DetalleVenta = new DataTable();
+        DataRow venta ;
+        IEnumerable<dynamic> DetalleVenta ;
 
         public Ventascontado()
         {
@@ -25,9 +26,19 @@ namespace SuMueble.Views
         {
             InitializeComponent();
             venta = ventacontrolador.GetVenta(cod_factura);
-            //DetalleVenta = detalleVentaController.GetDetalleVenta(venta);
+            Guid IDVenta = venta.Field<Guid>("ID");
+            DetalleVenta = detalleVentaController.GetDetalleVenta(IDVenta);
+            CargarDatos(cod_factura);
         }
 
+        private void CargarDatos(string cod_factura )
+        {
+            var venta_ = ventacontrolador.GetVentaID(cod_factura);
+            txt_cliente.Text = venta_.NombreCliente;
+            txt_DNIcliente.Text = venta.Field<string>("IDCliente");
+            txt_monto.Text = venta_.TotalVenta.ToString();
+            //lstBx_articulos.DataSource = DetalleVenta;
+        }
         private void label3_Click(object sender, EventArgs e)
         {
 

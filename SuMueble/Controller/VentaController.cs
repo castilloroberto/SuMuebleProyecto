@@ -53,6 +53,15 @@ namespace SuMueble.Controller
             }       
         }
 
+        public Ventas GetVentaID(string cod_factura)
+        {
+            string sql = @$"select * from v_ventasResumen where CodigoFactura = {cod_factura} order by CodigoFactura";
+            using (var db = GetConnection)
+            {
+                return db.QueryFirst<Ventas>(sql);
+            }
+        }
+
         public DataRow GetVenta(string cod_factura)
         {
             using (var db = GetConnection)

@@ -37,9 +37,9 @@ namespace SuMueble.Views
 
             var detalle = detalleControllador.GetDetalleVenta(IDVenta);
 
-            float precioveta = detalle.Field<float>("PrecioVenta");
+            //float precioveta = detalle.Field<float>("PrecioVenta");
             
-            var pagos = PagoControlador.
+            //var pagos = PagoControlador.
 
         }
 
