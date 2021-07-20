@@ -16,7 +16,7 @@ namespace SuMueble.Views
         VentaController ventaController = new VentaController();
         List<Ventas> ventas;
 
-        bool toogle = true;
+        //bool toogle = true;
         public HistorialVentasView()
         {
             InitializeComponent();
@@ -33,13 +33,20 @@ namespace SuMueble.Views
 
         }
 
+        private string GetCell(int cell)
+        {
+            int index = dvg_ventas.CurrentRow.Index;
+            return dvg_ventas.Rows[index].Cells[cell].Value.ToString();
+        }
+
         private void btn_verDetalle_Click(object sender, EventArgs e)
         {
-            toogle = !toogle;
+            
 
             VentaCredito ventaCredito = new VentaCredito();
             Ventascontado ventascontado = new Ventascontado();
-            if (toogle)
+            string tipoVenta = GetCell(1);
+            if (tipoVenta == "Al Contado")
                 ventascontado.ShowDialog();
             else
                 ventaCredito.ShowDialog();
