@@ -52,6 +52,26 @@ namespace SuMueble.Controller
             }       
         }
 
+        /*public Venta GetVenta(string cod_factura)
+        {
+            using (var db = GetConnection)
+            {
+                db.Open();
+                SqlCommand command = new SqlCommand("Select * from Ventas where CodigoFactura = @CodigoFactura", db);
+                command.Parameters.AddWithValue("@CodigoFactura", cod_factura);
+                SqlDataReader reader = command.ExecuteReader();
+                DataTable resultado = new DataTable();
+
+                resultado.Load(reader);
+
+                reader.Close();
+
+                return resultado.AsEnumerable();
+
+
+            }
+        }*/
+
         public DataTable GetCreditosPendientes()
         {
             using (var db = GetConnection)

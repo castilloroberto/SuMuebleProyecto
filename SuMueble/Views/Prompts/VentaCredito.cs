@@ -12,6 +12,10 @@ namespace SuMueble.Views
     {
         public VentaCredito()
         {
+        }
+
+        public VentaCredito(string cod_factura)
+        {
             InitializeComponent();
         }
 

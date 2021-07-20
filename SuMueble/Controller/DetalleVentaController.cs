@@ -3,6 +3,8 @@ using SuMueble.Models;
 using SuMueble.Views;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace SuMueble.Controller
@@ -21,7 +23,27 @@ namespace SuMueble.Controller
 
         }
 
-        
+        public DataTable GetDetalleVenta(Guid IDVenta)
+        {
+            using (var db = GetConnection)
+            {
+                db.Open();
+                SqlCommand command = new SqlCommand("Select * from DetallesVentas where IDVenta = @IDVenta", db);
+                command.Parameters.AddWithValue("@IDVenta", IDVenta);
+                SqlDataReader reader = command.ExecuteReader();
+                DataTable resultado = new DataTable();
+
+                resultado.Load(reader);
+
+                reader.Close();
+
+                return resultado;
+
+
+            }
+        }
+
+
 
     }
 }
