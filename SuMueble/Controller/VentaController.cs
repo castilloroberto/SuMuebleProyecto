@@ -5,6 +5,7 @@ using SuMueble.Views;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -52,7 +53,7 @@ namespace SuMueble.Controller
             }       
         }
 
-        /*public Venta GetVenta(string cod_factura)
+        public DataRow GetVenta(string cod_factura)
         {
             using (var db = GetConnection)
             {
@@ -66,11 +67,11 @@ namespace SuMueble.Controller
 
                 reader.Close();
 
-                return resultado.AsEnumerable();
+                return resultado.AsEnumerable().First();
 
 
             }
-        }*/
+        }
 
         public DataTable GetCreditosPendientes()
         {

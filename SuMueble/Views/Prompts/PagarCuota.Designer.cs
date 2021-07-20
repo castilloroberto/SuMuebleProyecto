@@ -44,7 +44,7 @@ namespace SuMueble.Views
             this.txt_monto_pendiente = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.l_cliente = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_fechaFin = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -209,12 +209,12 @@ namespace SuMueble.Views
             this.l_cliente.TabIndex = 0;
             this.l_cliente.Text = "----------";
             // 
-            // dateTimePicker1
+            // dtp_fechaFin
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(132, 461);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
-            this.dateTimePicker1.TabIndex = 13;
+            this.dtp_fechaFin.Location = new System.Drawing.Point(132, 461);
+            this.dtp_fechaFin.Name = "dtp_fechaFin";
+            this.dtp_fechaFin.Size = new System.Drawing.Size(250, 27);
+            this.dtp_fechaFin.TabIndex = 13;
             // 
             // PagarCuota
             // 
@@ -222,7 +222,7 @@ namespace SuMueble.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_volver;
             this.ClientSize = new System.Drawing.Size(818, 708);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtp_fechaFin);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDNIColaborador);
             this.Controls.Add(this.btnImprimirFactura);
@@ -264,6 +264,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.TextBox txt_monto_pendiente;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label l_cliente;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_fechaFin;
     }
 }

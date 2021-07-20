@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
+using System.Linq;
 
 namespace SuMueble.Controller
 {
@@ -23,7 +23,7 @@ namespace SuMueble.Controller
 
         }
 
-        public DataTable GetDetalleVenta(Guid IDVenta)
+        public DataRow GetDetalleVenta(Guid IDVenta)
         {
             using (var db = GetConnection)
             {
@@ -37,7 +37,7 @@ namespace SuMueble.Controller
 
                 reader.Close();
 
-                return resultado;
+                return resultado.AsEnumerable().First();
 
 
             }

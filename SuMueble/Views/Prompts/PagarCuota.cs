@@ -6,21 +6,44 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SuMueble.Views
 {
     public partial class PagarCuota : Form
     {
-        private string codFactura;
+
+
         VentaController ventaController = new VentaController();
+        DetalleVentaController detalleControllador = new DetalleVentaController();
         PagoControlador PagoControlador = new PagoControlador();
+        Guid IDVenta;
         public PagarCuota(string cod_factura)
         {
             InitializeComponent();
 
+            var venta = ventaController.GetVenta(cod_factura);
+
+            cargarDatos(venta);
+        }
+
+
+        private void cargarDatos(DataRow venta)
+        {
+            IDVenta = venta.Field<Guid>("ID");
+            txt_cuotas_pendientes.Text = venta.Field<string>("Cuotas");
+            dtp_fechaFin.Value = venta.Field<DateTime>("FechaFin");
+
+            var detalle = detalleControllador.GetDetalleVenta(IDVenta);
+
+            float precioveta = detalle.Field<float>("PrecioVenta");
+            
+            var pagos = PagoControlador.
 
         }
+
+
         private void btnImprimirFactura_Click(object sender, EventArgs e)
         {
             if (Validardatos())
