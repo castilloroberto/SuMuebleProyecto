@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SuMueble.Controller;
+using SuMueble.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +12,46 @@ namespace SuMueble.Views
 {
     public partial class PagarCuota : Form
     {
-        public PagarCuota()
+        private string codFactura;
+        VentaController ventaController = new VentaController();
+        PagoControlador PagoControlador = new PagoControlador();
+        public PagarCuota(string cod_factura)
         {
             InitializeComponent();
+
+
+        }
+        private void btnImprimirFactura_Click(object sender, EventArgs e)
+        {
+            if (Validardatos())
+            {
+                Pagos p = new Pagos()
+                {
+                    IDVenta = Guid.Empty,
+                    IDColaborador = txtDNIColaborador.Text,
+                    Monto = int.Parse(txtCuota.Text),
+                };
+
+                bool ok = PagoControlador.InsertPagos(p);
+                
+                if (ok)
+                {
+                    MessageBox.Show("Pago completado con exito\nLa factura se imprimira en seguida", "Mensaje del Sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El pago no se pudo completar\nVerifique los datos e intente de nuevo", "Mensaje del Sistema",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    
+
+                }
+            }
         }
 
+
+
+
+        #region Validaciones
         private bool Validardatos()
         {
             bool ok;
@@ -28,13 +65,7 @@ namespace SuMueble.Views
             }
             return ok;
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if(Validardatos())
-            {
 
-            }
-        }
 
         private void txtCuota_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -55,5 +86,7 @@ namespace SuMueble.Views
                 return;
             }
         }
+        #endregion
+
     }
 }

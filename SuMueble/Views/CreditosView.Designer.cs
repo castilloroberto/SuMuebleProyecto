@@ -38,6 +38,7 @@ namespace SuMueble.Views
             // 
             // dgv_ventasCredito
             // 
+            this.dgv_ventasCredito.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_ventasCredito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ventasCredito.Location = new System.Drawing.Point(316, 320);
             this.dgv_ventasCredito.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

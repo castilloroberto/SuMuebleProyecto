@@ -9,6 +9,7 @@ namespace SuMueble.Models
     public class Pagos
     {
         public string IDColaborador { get; set; }
+
         [ExplicitKey]
         public Guid IDVenta { get; set; }
 
