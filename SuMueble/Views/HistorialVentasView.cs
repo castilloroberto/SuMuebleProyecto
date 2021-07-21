@@ -43,7 +43,7 @@ namespace SuMueble.Views
         {
 
             var codigofactura = GetCell(0);
-            VentaCredito ventaCredito = new VentaCredito();
+            VentaCredito ventaCredito = new VentaCredito(codigofactura);
             Ventascontado ventascontado = new Ventascontado(codigofactura);
             string tipoVenta = GetCell(1);
             if (tipoVenta == "Al Contado")

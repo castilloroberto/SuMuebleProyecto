@@ -23,13 +23,13 @@ namespace SuMueble.Controller
 
         }
 
-        public IEnumerable<dynamic> GetDetalleVenta(Guid IDVenta)
+        public DataTable GetDetalleVenta(int cod_factura)
         {
             using (var db = GetConnection)
             {
                 db.Open();
-                SqlCommand command = new SqlCommand("Select * from DetallesVentas where IDVenta = @IDVenta", db);
-                command.Parameters.AddWithValue("@IDVenta", IDVenta);
+                SqlCommand command = new SqlCommand("Select * from v_venta1 where CodigoFactura = @cod_factura", db);
+                command.Parameters.AddWithValue("@cod_factura", cod_factura);
                 SqlDataReader reader = command.ExecuteReader();
                 DataTable resultado = new DataTable();
 
@@ -37,7 +37,7 @@ namespace SuMueble.Controller
 
                 reader.Close();
 
-                return resultado.AsEnumerable();
+                return resultado;
 
 
             }

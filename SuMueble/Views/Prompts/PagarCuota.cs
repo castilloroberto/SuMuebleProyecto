@@ -35,7 +35,7 @@ namespace SuMueble.Views
             txt_cuotas_pendientes.Text = venta.Field<string>("Cuotas");
             dtp_fechaFin.Value = venta.Field<DateTime>("FechaFin");
 
-            var detalle = detalleControllador.GetDetalleVenta(IDVenta);
+            //var detalle = detalleControllador.GetDetalleVenta(IDVenta);
 
             //float precioveta = detalle.Field<float>("PrecioVenta");
             

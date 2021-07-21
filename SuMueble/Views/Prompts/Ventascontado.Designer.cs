@@ -36,7 +36,8 @@ namespace SuMueble.Views
             this.txt_cliente = new System.Windows.Forms.TextBox();
             this.btn_volver = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.lstBx_articulos = new System.Windows.Forms.ListBox();
+            this.dgv_articulos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_articulos)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_monto
@@ -120,14 +121,15 @@ namespace SuMueble.Views
             this.label1.TabIndex = 8;
             this.label1.Text = "Cliente";
             // 
-            // lstBx_articulos
+            // dgv_articulos
             // 
-            this.lstBx_articulos.FormattingEnabled = true;
-            this.lstBx_articulos.ItemHeight = 25;
-            this.lstBx_articulos.Location = new System.Drawing.Point(51, 224);
-            this.lstBx_articulos.Name = "lstBx_articulos";
-            this.lstBx_articulos.Size = new System.Drawing.Size(506, 404);
-            this.lstBx_articulos.TabIndex = 16;
+            this.dgv_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_articulos.Location = new System.Drawing.Point(51, 209);
+            this.dgv_articulos.Name = "dgv_articulos";
+            this.dgv_articulos.RowHeadersWidth = 62;
+            this.dgv_articulos.RowTemplate.Height = 33;
+            this.dgv_articulos.Size = new System.Drawing.Size(514, 385);
+            this.dgv_articulos.TabIndex = 16;
             // 
             // Ventascontado
             // 
@@ -135,7 +137,7 @@ namespace SuMueble.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_volver;
             this.ClientSize = new System.Drawing.Size(972, 731);
-            this.Controls.Add(this.lstBx_articulos);
+            this.Controls.Add(this.dgv_articulos);
             this.Controls.Add(this.txt_monto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_DNIcliente);
@@ -148,6 +150,7 @@ namespace SuMueble.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventascontado";
             this.Load += new System.EventHandler(this.Ventascontado_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_articulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,6 +165,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.TextBox txt_cliente;
         private System.Windows.Forms.Button btn_volver;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lstBx_articulos;
+        private System.Windows.Forms.DataGridView dgv_articulos;
     }
 }

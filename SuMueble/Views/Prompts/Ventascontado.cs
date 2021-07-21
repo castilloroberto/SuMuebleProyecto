@@ -16,7 +16,7 @@ namespace SuMueble.Views
         VentaController ventacontrolador = new VentaController();
         DetalleVentaController detalleVentaController = new DetalleVentaController();
         DataRow venta ;
-        IEnumerable<dynamic> DetalleVenta ;
+        DataTable DetalleVenta ;
 
         public Ventascontado()
         {
@@ -26,8 +26,7 @@ namespace SuMueble.Views
         {
             InitializeComponent();
             venta = ventacontrolador.GetVenta(cod_factura);
-            Guid IDVenta = venta.Field<Guid>("ID");
-            DetalleVenta = detalleVentaController.GetDetalleVenta(IDVenta);
+            DetalleVenta = detalleVentaController.GetDetalleVenta(int.Parse( cod_factura));
             CargarDatos(cod_factura);
         }
 
@@ -37,7 +36,7 @@ namespace SuMueble.Views
             txt_cliente.Text = venta_.NombreCliente;
             txt_DNIcliente.Text = venta.Field<string>("IDCliente");
             txt_monto.Text = venta_.TotalVenta.ToString();
-            //lstBx_articulos.DataSource = DetalleVenta;
+            dgv_articulos.DataSource = DetalleVenta;
         }
         private void label3_Click(object sender, EventArgs e)
         {
