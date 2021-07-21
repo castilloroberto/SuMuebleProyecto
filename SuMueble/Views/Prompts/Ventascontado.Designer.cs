@@ -34,12 +34,10 @@ namespace SuMueble.Views
             this.txt_DNIcliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_cliente = new System.Windows.Forms.TextBox();
-            this.lstVw_articuloContado = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.btn_volver = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgv_articulos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_articulos)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_monto
@@ -97,39 +95,6 @@ namespace SuMueble.Views
             this.txt_cliente.Size = new System.Drawing.Size(316, 33);
             this.txt_cliente.TabIndex = 11;
             // 
-            // lstVw_articuloContado
-            // 
-            this.lstVw_articuloContado.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.lstVw_articuloContado.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstVw_articuloContado.HideSelection = false;
-            this.lstVw_articuloContado.Location = new System.Drawing.Point(51, 209);
-            this.lstVw_articuloContado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lstVw_articuloContado.Name = "lstVw_articuloContado";
-            this.lstVw_articuloContado.Size = new System.Drawing.Size(518, 433);
-            this.lstVw_articuloContado.TabIndex = 10;
-            this.lstVw_articuloContado.UseCompatibleStateImageBehavior = false;
-            this.lstVw_articuloContado.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Articulo";
-            this.columnHeader1.Width = 120;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Cantidad";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 120;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Precio";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 120;
-            // 
             // btn_volver
             // 
             this.btn_volver.BackColor = System.Drawing.SystemColors.MenuHighlight;
@@ -156,18 +121,28 @@ namespace SuMueble.Views
             this.label1.TabIndex = 8;
             this.label1.Text = "Cliente";
             // 
+            // dgv_articulos
+            // 
+            this.dgv_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_articulos.Location = new System.Drawing.Point(51, 209);
+            this.dgv_articulos.Name = "dgv_articulos";
+            this.dgv_articulos.RowHeadersWidth = 62;
+            this.dgv_articulos.RowTemplate.Height = 33;
+            this.dgv_articulos.Size = new System.Drawing.Size(514, 385);
+            this.dgv_articulos.TabIndex = 16;
+            // 
             // Ventascontado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_volver;
             this.ClientSize = new System.Drawing.Size(972, 731);
+            this.Controls.Add(this.dgv_articulos);
             this.Controls.Add(this.txt_monto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_DNIcliente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_cliente);
-            this.Controls.Add(this.lstVw_articuloContado);
             this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -175,6 +150,7 @@ namespace SuMueble.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventascontado";
             this.Load += new System.EventHandler(this.Ventascontado_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_articulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,11 +163,8 @@ namespace SuMueble.Views
         private System.Windows.Forms.TextBox txt_DNIcliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_cliente;
-        private System.Windows.Forms.ListView lstVw_articuloContado;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button btn_volver;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgv_articulos;
     }
 }

@@ -41,10 +41,10 @@ namespace SuMueble.Views
 
         private void btn_verDetalle_Click(object sender, EventArgs e)
         {
-            
 
-            VentaCredito ventaCredito = new VentaCredito();
-            Ventascontado ventascontado = new Ventascontado();
+            var codigofactura = GetCell(0);
+            VentaCredito ventaCredito = new VentaCredito(codigofactura);
+            Ventascontado ventascontado = new Ventascontado(codigofactura);
             string tipoVenta = GetCell(1);
             if (tipoVenta == "Al Contado")
                 ventascontado.ShowDialog();

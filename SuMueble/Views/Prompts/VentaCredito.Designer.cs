@@ -40,10 +40,8 @@ namespace SuMueble.Views
             this.txt_cliente = new System.Windows.Forms.TextBox();
             this.btn_volver = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.lstVw_articuloCredito = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.dgv_articulo = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_articulo)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_cuotaMensual
@@ -171,37 +169,15 @@ namespace SuMueble.Views
             this.label1.TabIndex = 22;
             this.label1.Text = "Cliente";
             // 
-            // lstVw_articuloCredito
+            // dgv_articulo
             // 
-            this.lstVw_articuloCredito.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.lstVw_articuloCredito.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstVw_articuloCredito.HideSelection = false;
-            this.lstVw_articuloCredito.Location = new System.Drawing.Point(49, 385);
-            this.lstVw_articuloCredito.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lstVw_articuloCredito.Name = "lstVw_articuloCredito";
-            this.lstVw_articuloCredito.Size = new System.Drawing.Size(586, 468);
-            this.lstVw_articuloCredito.TabIndex = 21;
-            this.lstVw_articuloCredito.UseCompatibleStateImageBehavior = false;
-            this.lstVw_articuloCredito.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Articulo";
-            this.columnHeader1.Width = 120;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Cantidad";
-            this.columnHeader2.Width = 120;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Cuota";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 120;
+            this.dgv_articulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_articulo.Location = new System.Drawing.Point(49, 396);
+            this.dgv_articulo.Name = "dgv_articulo";
+            this.dgv_articulo.RowHeadersWidth = 62;
+            this.dgv_articulo.RowTemplate.Height = 33;
+            this.dgv_articulo.Size = new System.Drawing.Size(574, 381);
+            this.dgv_articulo.TabIndex = 33;
             // 
             // VentaCredito
             // 
@@ -209,6 +185,7 @@ namespace SuMueble.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_volver;
             this.ClientSize = new System.Drawing.Size(1074, 899);
+            this.Controls.Add(this.dgv_articulo);
             this.Controls.Add(this.txt_cuotaMensual);
             this.Controls.Add(this.txt_montoPagado);
             this.Controls.Add(this.txt_montoPendiente);
@@ -220,12 +197,12 @@ namespace SuMueble.Views
             this.Controls.Add(this.txt_cliente);
             this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lstVw_articuloCredito);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "VentaCredito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentaCredito";
             this.Load += new System.EventHandler(this.VentaCredito_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_articulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,9 +221,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.TextBox txt_cliente;
         private System.Windows.Forms.Button btn_volver;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView lstVw_articuloCredito;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.DataGridView dgv_articulo;
     }
 }
