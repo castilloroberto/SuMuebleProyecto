@@ -87,7 +87,7 @@ namespace SuMueble.Controller
             using (var db = GetConnection)
             {
                 db.Open();
-                SqlCommand command = new SqlCommand("Select * from v_VentasCredito",db);
+                SqlCommand command = new SqlCommand("Select * from v_VentasCredito order by CodigoFactura", db);
                 SqlDataReader reader = command.ExecuteReader();
                 DataTable resultado = new DataTable();
                

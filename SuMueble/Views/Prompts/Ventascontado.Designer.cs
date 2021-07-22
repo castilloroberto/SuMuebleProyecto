@@ -29,6 +29,7 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_monto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_DNIcliente = new System.Windows.Forms.TextBox();
@@ -123,12 +124,27 @@ namespace SuMueble.Views
             // 
             // dgv_articulos
             // 
+            this.dgv_articulos.AllowUserToAddRows = false;
+            this.dgv_articulos.AllowUserToDeleteRows = false;
+            this.dgv_articulos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_articulos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_articulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_articulos.Location = new System.Drawing.Point(51, 209);
+            this.dgv_articulos.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgv_articulos.Location = new System.Drawing.Point(51, 304);
             this.dgv_articulos.Name = "dgv_articulos";
+            this.dgv_articulos.ReadOnly = true;
+            this.dgv_articulos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv_articulos.RowHeadersWidth = 62;
             this.dgv_articulos.RowTemplate.Height = 33;
-            this.dgv_articulos.Size = new System.Drawing.Size(514, 385);
+            this.dgv_articulos.Size = new System.Drawing.Size(874, 239);
             this.dgv_articulos.TabIndex = 16;
             // 
             // Ventascontado
