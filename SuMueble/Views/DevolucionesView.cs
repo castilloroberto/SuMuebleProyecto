@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace SuMueble.Views
 {
@@ -15,14 +16,15 @@ namespace SuMueble.Views
     {
         VentaController ventaController = new VentaController();
         IEnumerable<Ventas> ListaVentas;
+        List<Ventas> ventas;
         public DevolucionesView()
         {
             InitializeComponent();
             ListaVentas = ventaController.ObtenerVenta();
             dvg_devoluciones.AutoGenerateColumns = false;
             dvg_devoluciones.DataSource = ListaVentas;
-            
-
+            ventas = ventaController.ObtenerVenta().ToList();
+            dvg_devoluciones.DataSource = ventas;
 
 
         }
@@ -36,6 +38,21 @@ namespace SuMueble.Views
         private void txt_buscarCliente_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_buscarCliente_TextChanged_1(object sender, EventArgs e)
+        {
+            string buscar = txt_buscarCliente.Text.ToLower();
+
+            List<Ventas> filtrados = ventas.Where<Ventas>(x => {
+
+                return x.NombreCliente.ToLower().StartsWith(buscar);
+
+
+            }).ToList();
+
+            dvg_devoluciones.DataSource = null;
+            dvg_devoluciones.DataSource = filtrados;
         }
     }
 }

@@ -13,9 +13,10 @@ namespace SuMueble.Controller
     {
         public bool InsertPagos(Pagos pago)
         {
+            
             using (var db = GetConnection)
             {
-                return db.Insert<Pagos>(pago) > 0;
+                return db.Insert(new[] { pago } ) > 0;
             }
         }
 
@@ -45,10 +46,49 @@ namespace SuMueble.Controller
                 return resultado.AsEnumerable();
                 
             }
+        }
 
+        public  DataTable GetCuotasPendientes(int CodigoFactura)
+        {
+            using (var db = GetConnection)
+            {
+                db.Open();
+                SqlCommand command = new SqlCommand("getCuotasPendiente", db);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@CodigoFactura", CodigoFactura);
 
+                SqlDataReader reader = command.ExecuteReader();
+                DataTable resultado = new DataTable();
 
+                resultado.Load(reader);
 
+                reader.Close();
+
+                return resultado;
+
+            }
+        }
+
+        public DataTable GetCreditoPendiente(int CodigoFactura)
+        {
+
+            using (var db = GetConnection)
+            {
+                db.Open();
+                SqlCommand command = new SqlCommand("getCreditoPendiente", db);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@CodigoFactura", CodigoFactura);
+
+                SqlDataReader reader = command.ExecuteReader();
+                DataTable resultado = new DataTable();
+
+                resultado.Load(reader);
+
+                reader.Close();
+
+                return resultado;
+
+            }
         }
 
     }
