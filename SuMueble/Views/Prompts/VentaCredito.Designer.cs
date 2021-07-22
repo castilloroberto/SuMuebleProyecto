@@ -29,6 +29,7 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_cuotaMensual = new System.Windows.Forms.TextBox();
             this.txt_montoPagado = new System.Windows.Forms.TextBox();
             this.txt_montoPendiente = new System.Windows.Forms.TextBox();
@@ -49,7 +50,7 @@ namespace SuMueble.Views
             this.txt_cuotaMensual.BackColor = System.Drawing.SystemColors.Window;
             this.txt_cuotaMensual.Enabled = false;
             this.txt_cuotaMensual.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_cuotaMensual.Location = new System.Drawing.Point(678, 425);
+            this.txt_cuotaMensual.Location = new System.Drawing.Point(682, 425);
             this.txt_cuotaMensual.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_cuotaMensual.Name = "txt_cuotaMensual";
             this.txt_cuotaMensual.Size = new System.Drawing.Size(333, 33);
@@ -60,7 +61,7 @@ namespace SuMueble.Views
             this.txt_montoPagado.BackColor = System.Drawing.SystemColors.Window;
             this.txt_montoPagado.Enabled = false;
             this.txt_montoPagado.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_montoPagado.Location = new System.Drawing.Point(678, 294);
+            this.txt_montoPagado.Location = new System.Drawing.Point(682, 294);
             this.txt_montoPagado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_montoPagado.Name = "txt_montoPagado";
             this.txt_montoPagado.Size = new System.Drawing.Size(333, 33);
@@ -71,7 +72,7 @@ namespace SuMueble.Views
             this.txt_montoPendiente.BackColor = System.Drawing.SystemColors.Window;
             this.txt_montoPendiente.Enabled = false;
             this.txt_montoPendiente.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_montoPendiente.Location = new System.Drawing.Point(678, 146);
+            this.txt_montoPendiente.Location = new System.Drawing.Point(682, 146);
             this.txt_montoPendiente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_montoPendiente.Name = "txt_montoPendiente";
             this.txt_montoPendiente.Size = new System.Drawing.Size(333, 33);
@@ -92,7 +93,7 @@ namespace SuMueble.Views
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(672, 106);
+            this.label5.Location = new System.Drawing.Point(676, 106);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(186, 32);
@@ -103,7 +104,7 @@ namespace SuMueble.Views
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(670, 385);
+            this.label4.Location = new System.Drawing.Point(674, 385);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(165, 32);
@@ -114,7 +115,7 @@ namespace SuMueble.Views
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(671, 254);
+            this.label3.Location = new System.Drawing.Point(675, 254);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(162, 32);
@@ -150,7 +151,7 @@ namespace SuMueble.Views
             this.btn_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_volver.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_volver.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_volver.Location = new System.Drawing.Point(824, 808);
+            this.btn_volver.Location = new System.Drawing.Point(827, 725);
             this.btn_volver.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_volver.Name = "btn_volver";
             this.btn_volver.Size = new System.Drawing.Size(188, 46);
@@ -171,12 +172,27 @@ namespace SuMueble.Views
             // 
             // dgv_articulo
             // 
+            this.dgv_articulo.AllowUserToAddRows = false;
+            this.dgv_articulo.AllowUserToDeleteRows = false;
+            this.dgv_articulo.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_articulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_articulo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_articulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_articulo.Location = new System.Drawing.Point(49, 396);
+            this.dgv_articulo.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgv_articulo.Location = new System.Drawing.Point(49, 474);
             this.dgv_articulo.Name = "dgv_articulo";
+            this.dgv_articulo.ReadOnly = true;
+            this.dgv_articulo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv_articulo.RowHeadersWidth = 62;
             this.dgv_articulo.RowTemplate.Height = 33;
-            this.dgv_articulo.Size = new System.Drawing.Size(574, 381);
+            this.dgv_articulo.Size = new System.Drawing.Size(976, 193);
             this.dgv_articulo.TabIndex = 33;
             // 
             // VentaCredito
@@ -184,7 +200,7 @@ namespace SuMueble.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_volver;
-            this.ClientSize = new System.Drawing.Size(1074, 899);
+            this.ClientSize = new System.Drawing.Size(1066, 824);
             this.Controls.Add(this.dgv_articulo);
             this.Controls.Add(this.txt_cuotaMensual);
             this.Controls.Add(this.txt_montoPagado);

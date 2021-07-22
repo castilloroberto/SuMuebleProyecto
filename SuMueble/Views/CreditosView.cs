@@ -24,6 +24,7 @@ namespace SuMueble.Views
         }
         private void CargarDataGrid(DataTable lista)
         {
+
             dgv_ventasCredito.DataSource = lista;
         }
 
