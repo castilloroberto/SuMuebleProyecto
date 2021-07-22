@@ -14,17 +14,23 @@ namespace SuMueble.Views
     public partial class PagarCuota : Form
     {
 
-
+        ColaboradorControlador ColaboradorControlador = new ColaboradorControlador();
         VentaController ventaController = new VentaController();
         DetalleVentaController detalleControllador = new DetalleVentaController();
         PagoControlador PagoControlador = new PagoControlador();
         Guid IDVenta;
+        private string codFactura;
+        DataTable DetalleVenta;
+
+
+
         public PagarCuota(string cod_factura)
         {
             InitializeComponent();
 
             var venta = ventaController.GetVenta(cod_factura);
-
+            DetalleVenta = detalleControllador.GetDetalleVenta(int.Parse(cod_factura));
+            codFactura = cod_factura;
             cargarDatos(venta);
         }
 
@@ -32,14 +38,31 @@ namespace SuMueble.Views
         private void cargarDatos(DataRow venta)
         {
             IDVenta = venta.Field<Guid>("ID");
-            txt_cuotas_pendientes.Text = venta.Field<string>("Cuotas");
+       
+            txt_cuotas_pendientes.Text = venta.Field<int>("Cuotas").ToString();
+
+            
+
             dtp_fechaFin.Value = venta.Field<DateTime>("FechaFin");
 
-            //var detalle = detalleControllador.GetDetalleVenta(IDVenta);
 
-            //float precioveta = detalle.Field<float>("PrecioVenta");
+            var venta_ = ventaController.GetVentaID(codFactura);
+            l_cliente.Text = venta_.NombreCliente;
+
+            txtProducto.Text = DetalleVenta.Rows[0].Field<string>("Producto");
+            var creditopendiente = PagoControlador.GetCreditoPendiente(int.Parse(codFactura));
+
+            if (creditopendiente.Rows.Count > 0)
+            {
+                txt_monto_pendiente.Text = creditopendiente.Rows[0].Field<double>("Pendiente").ToString();
+
+            }
+            else
+            {
+                txt_monto_pendiente.Text = DetalleVenta.Rows[0].Field<double>("SubTotal").ToString();
+            }
+
             
-            //var pagos = PagoControlador.
 
         }
 
@@ -50,14 +73,14 @@ namespace SuMueble.Views
             {
                 Pagos p = new Pagos()
                 {
-                    IDVenta = Guid.Empty,
+                    IDVenta= IDVenta,
                     IDColaborador = txtDNIColaborador.Text,
-                    Monto = int.Parse(txtCuota.Text),
+                    Monto = float.Parse(txtCuota.Text),
                 };
 
-                bool ok = PagoControlador.InsertPagos(p);
+                 
                 
-                if (ok)
+                if (PagoControlador.InsertPagos(p) == true)
                 {
                     MessageBox.Show("Pago completado con exito\nLa factura se imprimira en seguida", "Mensaje del Sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();
@@ -111,5 +134,35 @@ namespace SuMueble.Views
         }
         #endregion
 
+        private void txtDNIColaborador_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtDNIColaborador_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtDNIColaborador.Text.Length == 13)
+            {
+
+                l_colabora.Visible = true;
+                var cola = ColaboradorControlador.GetColaborador(txtDNIColaborador.Text);
+                if (cola != null)
+                {
+                    l_colabora.ForeColor = Color.DodgerBlue;
+                    l_colabora.Text = cola.Nombre;
+
+                }
+                else
+                {
+                    l_colabora.ForeColor = Color.Red;
+                    l_colabora.Text = "Tiene un error en su DNI";
+                }
+            }
+            else
+            {
+                l_colabora.Visible = false;
+
+            }
+        }
     }
 }

@@ -45,6 +45,7 @@ namespace SuMueble.Views
             this.label7 = new System.Windows.Forms.Label();
             this.l_cliente = new System.Windows.Forms.Label();
             this.dtp_fechaFin = new System.Windows.Forms.DateTimePicker();
+            this.l_colabora = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -81,7 +82,7 @@ namespace SuMueble.Views
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(132, 302);
+            this.label3.Location = new System.Drawing.Point(136, 338);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 28);
             this.label3.TabIndex = 4;
@@ -90,7 +91,7 @@ namespace SuMueble.Views
             // txtProducto
             // 
             this.txtProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProducto.Location = new System.Drawing.Point(132, 348);
+            this.txtProducto.Location = new System.Drawing.Point(136, 384);
             this.txtProducto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.ReadOnly = true;
@@ -116,7 +117,7 @@ namespace SuMueble.Views
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(132, 417);
+            this.label4.Location = new System.Drawing.Point(136, 453);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(168, 28);
             this.label4.TabIndex = 7;
@@ -126,7 +127,7 @@ namespace SuMueble.Views
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(449, 302);
+            this.label5.Location = new System.Drawing.Point(453, 338);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(166, 28);
             this.label5.TabIndex = 9;
@@ -135,7 +136,7 @@ namespace SuMueble.Views
             // txt_cuotas_pendientes
             // 
             this.txt_cuotas_pendientes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_cuotas_pendientes.Location = new System.Drawing.Point(453, 353);
+            this.txt_cuotas_pendientes.Location = new System.Drawing.Point(457, 389);
             this.txt_cuotas_pendientes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_cuotas_pendientes.Name = "txt_cuotas_pendientes";
             this.txt_cuotas_pendientes.ReadOnly = true;
@@ -177,12 +178,14 @@ namespace SuMueble.Views
             this.txtDNIColaborador.Name = "txtDNIColaborador";
             this.txtDNIColaborador.Size = new System.Drawing.Size(200, 34);
             this.txtDNIColaborador.TabIndex = 11;
+            this.txtDNIColaborador.TextChanged += new System.EventHandler(this.txtDNIColaborador_TextChanged);
             this.txtDNIColaborador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNIColaborador_KeyPress);
+            this.txtDNIColaborador.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDNIColaborador_KeyUp);
             // 
             // txt_monto_pendiente
             // 
             this.txt_monto_pendiente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_monto_pendiente.Location = new System.Drawing.Point(449, 462);
+            this.txt_monto_pendiente.Location = new System.Drawing.Point(453, 498);
             this.txt_monto_pendiente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_monto_pendiente.Name = "txt_monto_pendiente";
             this.txt_monto_pendiente.ReadOnly = true;
@@ -193,7 +196,7 @@ namespace SuMueble.Views
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(445, 411);
+            this.label7.Location = new System.Drawing.Point(449, 447);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(156, 28);
             this.label7.TabIndex = 9;
@@ -211,10 +214,22 @@ namespace SuMueble.Views
             // 
             // dtp_fechaFin
             // 
-            this.dtp_fechaFin.Location = new System.Drawing.Point(132, 461);
+            this.dtp_fechaFin.Enabled = false;
+            this.dtp_fechaFin.Location = new System.Drawing.Point(136, 497);
             this.dtp_fechaFin.Name = "dtp_fechaFin";
             this.dtp_fechaFin.Size = new System.Drawing.Size(250, 27);
             this.dtp_fechaFin.TabIndex = 13;
+            // 
+            // l_colabora
+            // 
+            this.l_colabora.AutoSize = true;
+            this.l_colabora.Font = new System.Drawing.Font("Segoe UI Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.l_colabora.Location = new System.Drawing.Point(485, 263);
+            this.l_colabora.Name = "l_colabora";
+            this.l_colabora.Size = new System.Drawing.Size(134, 23);
+            this.l_colabora.TabIndex = 12;
+            this.l_colabora.Text = "DNI Colaborador";
+            this.l_colabora.Visible = false;
             // 
             // PagarCuota
             // 
@@ -223,6 +238,7 @@ namespace SuMueble.Views
             this.CancelButton = this.btn_volver;
             this.ClientSize = new System.Drawing.Size(818, 708);
             this.Controls.Add(this.dtp_fechaFin);
+            this.Controls.Add(this.l_colabora);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDNIColaborador);
             this.Controls.Add(this.btnImprimirFactura);
@@ -265,5 +281,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label l_cliente;
         private System.Windows.Forms.DateTimePicker dtp_fechaFin;
+        private System.Windows.Forms.Label l_colabora;
     }
 }

@@ -29,7 +29,7 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_terminarVenta = new System.Windows.Forms.Button();
             this.btn_agregarProducto = new System.Windows.Forms.Button();
             this.txt_clienteTelefono = new System.Windows.Forms.TextBox();
@@ -70,10 +70,9 @@ namespace SuMueble.Views
             this.btn_terminarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_terminarVenta.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_terminarVenta.ForeColor = System.Drawing.Color.White;
-            this.btn_terminarVenta.Location = new System.Drawing.Point(1153, 592);
-            this.btn_terminarVenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_terminarVenta.Location = new System.Drawing.Point(1318, 789);
             this.btn_terminarVenta.Name = "btn_terminarVenta";
-            this.btn_terminarVenta.Size = new System.Drawing.Size(167, 28);
+            this.btn_terminarVenta.Size = new System.Drawing.Size(191, 37);
             this.btn_terminarVenta.TabIndex = 31;
             this.btn_terminarVenta.Text = "Terminar Venta";
             this.btn_terminarVenta.UseVisualStyleBackColor = false;
@@ -86,10 +85,9 @@ namespace SuMueble.Views
             this.btn_agregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_agregarProducto.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarProducto.Location = new System.Drawing.Point(649, 592);
-            this.btn_agregarProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_agregarProducto.Location = new System.Drawing.Point(742, 789);
             this.btn_agregarProducto.Name = "btn_agregarProducto";
-            this.btn_agregarProducto.Size = new System.Drawing.Size(167, 28);
+            this.btn_agregarProducto.Size = new System.Drawing.Size(191, 37);
             this.btn_agregarProducto.TabIndex = 30;
             this.btn_agregarProducto.Text = "Agregar a la Venta";
             this.btn_agregarProducto.UseVisualStyleBackColor = false;
@@ -98,66 +96,60 @@ namespace SuMueble.Views
             // txt_clienteTelefono
             // 
             this.txt_clienteTelefono.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_clienteTelefono.Location = new System.Drawing.Point(621, 172);
-            this.txt_clienteTelefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_clienteTelefono.Location = new System.Drawing.Point(710, 229);
             this.txt_clienteTelefono.MaxLength = 8;
             this.txt_clienteTelefono.Name = "txt_clienteTelefono";
             this.txt_clienteTelefono.PlaceholderText = "Escriba Aqui...";
-            this.txt_clienteTelefono.Size = new System.Drawing.Size(196, 29);
+            this.txt_clienteTelefono.Size = new System.Drawing.Size(223, 34);
             this.txt_clienteTelefono.TabIndex = 28;
             // 
             // txt_nombreCliente
             // 
             this.txt_nombreCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_nombreCliente.Location = new System.Drawing.Point(296, 172);
-            this.txt_nombreCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_nombreCliente.Location = new System.Drawing.Point(338, 229);
             this.txt_nombreCliente.MaxLength = 255;
             this.txt_nombreCliente.Name = "txt_nombreCliente";
             this.txt_nombreCliente.PlaceholderText = "Nombre y Apellidos...";
-            this.txt_nombreCliente.Size = new System.Drawing.Size(285, 29);
+            this.txt_nombreCliente.Size = new System.Drawing.Size(325, 34);
             this.txt_nombreCliente.TabIndex = 27;
             // 
             // txt_precio
             // 
             this.txt_precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_precio.Location = new System.Drawing.Point(67, 595);
-            this.txt_precio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_precio.Location = new System.Drawing.Point(77, 793);
             this.txt_precio.Name = "txt_precio";
             this.txt_precio.PlaceholderText = "Precio Sugerido...";
-            this.txt_precio.Size = new System.Drawing.Size(196, 29);
+            this.txt_precio.Size = new System.Drawing.Size(223, 34);
             this.txt_precio.TabIndex = 26;
             // 
             // txt_cantidadProducto
             // 
             this.txt_cantidadProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_cantidadProducto.Location = new System.Drawing.Point(312, 595);
-            this.txt_cantidadProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_cantidadProducto.Location = new System.Drawing.Point(357, 793);
             this.txt_cantidadProducto.MaxLength = 100;
             this.txt_cantidadProducto.Name = "txt_cantidadProducto";
             this.txt_cantidadProducto.PlaceholderText = "Cantidad...";
-            this.txt_cantidadProducto.Size = new System.Drawing.Size(196, 29);
+            this.txt_cantidadProducto.Size = new System.Drawing.Size(223, 34);
             this.txt_cantidadProducto.TabIndex = 25;
             // 
             // txt_buscarProducto
             // 
             this.txt_buscarProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_buscarProducto.Location = new System.Drawing.Point(66, 250);
-            this.txt_buscarProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_buscarProducto.Location = new System.Drawing.Point(75, 333);
             this.txt_buscarProducto.Name = "txt_buscarProducto";
             this.txt_buscarProducto.PlaceholderText = "Nombre o Codigo de Producto...";
-            this.txt_buscarProducto.Size = new System.Drawing.Size(196, 29);
+            this.txt_buscarProducto.Size = new System.Drawing.Size(223, 34);
             this.txt_buscarProducto.TabIndex = 24;
             this.txt_buscarProducto.TextChanged += new System.EventHandler(this.txt_buscarProducto_TextChanged);
             // 
             // txt_dniCliente
             // 
             this.txt_dniCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_dniCliente.Location = new System.Drawing.Point(66, 172);
-            this.txt_dniCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_dniCliente.Location = new System.Drawing.Point(75, 229);
             this.txt_dniCliente.MaxLength = 13;
             this.txt_dniCliente.Name = "txt_dniCliente";
             this.txt_dniCliente.PlaceholderText = "Numero de Identidad...";
-            this.txt_dniCliente.Size = new System.Drawing.Size(196, 29);
+            this.txt_dniCliente.Size = new System.Drawing.Size(223, 34);
             this.txt_dniCliente.TabIndex = 22;
             this.txt_dniCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_dniCliente_KeyUp);
             // 
@@ -165,9 +157,9 @@ namespace SuMueble.Views
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(65, 572);
+            this.label9.Location = new System.Drawing.Point(74, 763);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 21);
+            this.label9.Size = new System.Drawing.Size(146, 28);
             this.label9.TabIndex = 20;
             this.label9.Text = "Precio Producto";
             // 
@@ -175,9 +167,9 @@ namespace SuMueble.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(619, 148);
+            this.label1.Location = new System.Drawing.Point(707, 197);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 21);
+            this.label1.Size = new System.Drawing.Size(144, 28);
             this.label1.TabIndex = 21;
             this.label1.Text = "Telefono Cliente";
             // 
@@ -185,9 +177,9 @@ namespace SuMueble.Views
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(310, 572);
+            this.label8.Location = new System.Drawing.Point(354, 763);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(137, 21);
+            this.label8.Size = new System.Drawing.Size(169, 28);
             this.label8.TabIndex = 18;
             this.label8.Text = "Cantidad Producto";
             // 
@@ -195,9 +187,9 @@ namespace SuMueble.Views
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(293, 148);
+            this.label5.Location = new System.Drawing.Point(335, 197);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 21);
+            this.label5.Size = new System.Drawing.Size(143, 28);
             this.label5.TabIndex = 17;
             this.label5.Text = "Nombre Cliente";
             // 
@@ -205,9 +197,9 @@ namespace SuMueble.Views
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(64, 226);
+            this.label7.Location = new System.Drawing.Point(73, 301);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 21);
+            this.label7.Size = new System.Drawing.Size(150, 28);
             this.label7.TabIndex = 16;
             this.label7.Text = "Buscar Producto";
             // 
@@ -215,21 +207,20 @@ namespace SuMueble.Views
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(61, 148);
+            this.label4.Location = new System.Drawing.Point(70, 197);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 21);
+            this.label4.Size = new System.Drawing.Size(106, 28);
             this.label4.TabIndex = 15;
             this.label4.Text = "DNI Cliente";
             // 
             // txt_dniColaborador
             // 
             this.txt_dniColaborador.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_dniColaborador.Location = new System.Drawing.Point(1125, 172);
-            this.txt_dniColaborador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_dniColaborador.Location = new System.Drawing.Point(1286, 229);
             this.txt_dniColaborador.MaxLength = 13;
             this.txt_dniColaborador.Name = "txt_dniColaborador";
             this.txt_dniColaborador.PlaceholderText = "Numero de Identidad...";
-            this.txt_dniColaborador.Size = new System.Drawing.Size(196, 29);
+            this.txt_dniColaborador.Size = new System.Drawing.Size(223, 34);
             this.txt_dniColaborador.TabIndex = 23;
             this.txt_dniColaborador.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_dniColaborador_KeyUp);
             // 
@@ -238,9 +229,9 @@ namespace SuMueble.Views
             this.labelTelefono.AutoSize = true;
             this.labelTelefono.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(213)))), ((int)(((byte)(115)))));
-            this.labelTelefono.Location = new System.Drawing.Point(621, 200);
+            this.labelTelefono.Location = new System.Drawing.Point(710, 267);
             this.labelTelefono.Name = "labelTelefono";
-            this.labelTelefono.Size = new System.Drawing.Size(55, 15);
+            this.labelTelefono.Size = new System.Drawing.Size(66, 20);
             this.labelTelefono.TabIndex = 14;
             this.labelTelefono.Text = "Ingresar...";
             this.labelTelefono.Visible = false;
@@ -250,9 +241,9 @@ namespace SuMueble.Views
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(213)))), ((int)(((byte)(115)))));
-            this.labelNombre.Location = new System.Drawing.Point(296, 200);
+            this.labelNombre.Location = new System.Drawing.Point(338, 267);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(55, 15);
+            this.labelNombre.Size = new System.Drawing.Size(66, 20);
             this.labelNombre.TabIndex = 13;
             this.labelNombre.Text = "Ingresar...";
             this.labelNombre.Visible = false;
@@ -262,9 +253,9 @@ namespace SuMueble.Views
             this.labelClienteNuevo.AutoSize = true;
             this.labelClienteNuevo.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelClienteNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(213)))), ((int)(((byte)(115)))));
-            this.labelClienteNuevo.Location = new System.Drawing.Point(66, 200);
+            this.labelClienteNuevo.Location = new System.Drawing.Point(75, 267);
             this.labelClienteNuevo.Name = "labelClienteNuevo";
-            this.labelClienteNuevo.Size = new System.Drawing.Size(76, 15);
+            this.labelClienteNuevo.Size = new System.Drawing.Size(98, 20);
             this.labelClienteNuevo.TabIndex = 12;
             this.labelClienteNuevo.Text = "Cliente Nuevo";
             this.labelClienteNuevo.Visible = false;
@@ -274,9 +265,9 @@ namespace SuMueble.Views
             this.dniColaboradorLabelError.AutoSize = true;
             this.dniColaboradorLabelError.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dniColaboradorLabelError.ForeColor = System.Drawing.Color.Crimson;
-            this.dniColaboradorLabelError.Location = new System.Drawing.Point(1125, 200);
+            this.dniColaboradorLabelError.Location = new System.Drawing.Point(1286, 267);
             this.dniColaboradorLabelError.Name = "dniColaboradorLabelError";
-            this.dniColaboradorLabelError.Size = new System.Drawing.Size(103, 15);
+            this.dniColaboradorLabelError.Size = new System.Drawing.Size(129, 20);
             this.dniColaboradorLabelError.TabIndex = 11;
             this.dniColaboradorLabelError.Text = "Escribio mal su DNI";
             this.dniColaboradorLabelError.Visible = false;
@@ -285,9 +276,9 @@ namespace SuMueble.Views
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(1118, 146);
+            this.label3.Location = new System.Drawing.Point(1278, 195);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 21);
+            this.label3.Size = new System.Drawing.Size(154, 28);
             this.label3.TabIndex = 10;
             this.label3.Text = "DNI Colaborador";
             // 
@@ -295,9 +286,9 @@ namespace SuMueble.Views
             // 
             this.l_monto.AutoSize = true;
             this.l_monto.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.l_monto.Location = new System.Drawing.Point(1176, 251);
+            this.l_monto.Location = new System.Drawing.Point(1344, 335);
             this.l_monto.Name = "l_monto";
-            this.l_monto.Size = new System.Drawing.Size(136, 25);
+            this.l_monto.Size = new System.Drawing.Size(165, 32);
             this.l_monto.TabIndex = 9;
             this.l_monto.Text = "Lps. 000,000.00";
             // 
@@ -305,9 +296,9 @@ namespace SuMueble.Views
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(872, 251);
+            this.label2.Location = new System.Drawing.Point(997, 335);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 25);
+            this.label2.Size = new System.Drawing.Size(169, 32);
             this.label2.TabIndex = 8;
             this.label2.Text = "Resumen Venta";
             // 
@@ -315,11 +306,10 @@ namespace SuMueble.Views
             // 
             this.lb_productosVenta.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_productosVenta.FormattingEnabled = true;
-            this.lb_productosVenta.ItemHeight = 21;
-            this.lb_productosVenta.Location = new System.Drawing.Point(872, 292);
-            this.lb_productosVenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lb_productosVenta.ItemHeight = 28;
+            this.lb_productosVenta.Location = new System.Drawing.Point(997, 389);
             this.lb_productosVenta.Name = "lb_productosVenta";
-            this.lb_productosVenta.Size = new System.Drawing.Size(449, 256);
+            this.lb_productosVenta.Size = new System.Drawing.Size(513, 340);
             this.lb_productosVenta.TabIndex = 7;
             // 
             // dgv_productos
@@ -329,14 +319,14 @@ namespace SuMueble.Views
             this.dgv_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_productos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -345,14 +335,13 @@ namespace SuMueble.Views
             this.precio,
             this.existencias});
             this.dgv_productos.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgv_productos.Location = new System.Drawing.Point(66, 292);
-            this.dgv_productos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_productos.Location = new System.Drawing.Point(75, 389);
             this.dgv_productos.Name = "dgv_productos";
             this.dgv_productos.ReadOnly = true;
             this.dgv_productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv_productos.RowHeadersWidth = 51;
             this.dgv_productos.RowTemplate.Height = 29;
-            this.dgv_productos.Size = new System.Drawing.Size(750, 274);
+            this.dgv_productos.Size = new System.Drawing.Size(857, 365);
             this.dgv_productos.TabIndex = 6;
             this.dgv_productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellClick);
             // 
@@ -403,10 +392,9 @@ namespace SuMueble.Views
             this.btn_quitarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_quitarItem.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_quitarItem.ForeColor = System.Drawing.Color.White;
-            this.btn_quitarItem.Location = new System.Drawing.Point(872, 592);
-            this.btn_quitarItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_quitarItem.Location = new System.Drawing.Point(997, 789);
             this.btn_quitarItem.Name = "btn_quitarItem";
-            this.btn_quitarItem.Size = new System.Drawing.Size(113, 28);
+            this.btn_quitarItem.Size = new System.Drawing.Size(129, 37);
             this.btn_quitarItem.TabIndex = 30;
             this.btn_quitarItem.Text = "Quitar Item";
             this.btn_quitarItem.UseVisualStyleBackColor = false;
@@ -414,7 +402,7 @@ namespace SuMueble.Views
             // 
             // VentaView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_terminarVenta);
             this.Controls.Add(this.btn_quitarItem);
@@ -441,9 +429,8 @@ namespace SuMueble.Views
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lb_productosVenta);
             this.Controls.Add(this.dgv_productos);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VentaView";
-            this.Size = new System.Drawing.Size(1333, 688);
+            this.Size = new System.Drawing.Size(1523, 917);
             this.Load += new System.EventHandler(this.VentaView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
             this.ResumeLayout(false);

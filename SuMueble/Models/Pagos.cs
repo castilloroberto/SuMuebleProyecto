@@ -14,6 +14,9 @@ namespace SuMueble.Models
         public Guid IDVenta { get; set; }
 
         public float Monto { get; set; }
+
+        [Write(false)]
+        [Computed]
         public DateTime Fecha { get; set; }
     }
 }

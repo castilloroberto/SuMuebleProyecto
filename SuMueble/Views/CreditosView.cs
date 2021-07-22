@@ -17,9 +17,14 @@ namespace SuMueble.Views
         public CreditosView()
         {
             InitializeComponent();
+            GetData();
+
+
+        }
+        private void GetData()
+        {
             ListaVentas = ventaController.GetCreditosPendientes();
             CargarDataGrid(ListaVentas);
-
 
         }
         private void CargarDataGrid(DataTable lista)
@@ -40,6 +45,8 @@ namespace SuMueble.Views
             string cod_factura = GetCell(0);
             PagarCuota pagarCuota = new PagarCuota(cod_factura);
             pagarCuota.ShowDialog();
+            GetData();
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
