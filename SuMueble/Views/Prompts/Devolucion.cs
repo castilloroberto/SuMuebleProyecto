@@ -38,5 +38,10 @@ namespace SuMueble.Views
 
             this.Close();
         }
+
+        internal static object Where<T>(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

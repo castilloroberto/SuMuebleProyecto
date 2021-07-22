@@ -89,10 +89,15 @@ namespace SuMueble.Views
             this.cb_filtro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_filtro.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cb_filtro.FormattingEnabled = true;
+            this.cb_filtro.Items.AddRange(new object[] {
+            "Todo",
+            "Al Contado",
+            "Al Credito"});
             this.cb_filtro.Location = new System.Drawing.Point(1171, 246);
             this.cb_filtro.Name = "cb_filtro";
             this.cb_filtro.Size = new System.Drawing.Size(234, 36);
             this.cb_filtro.TabIndex = 4;
+            this.cb_filtro.SelectedIndexChanged += new System.EventHandler(this.cb_filtro_SelectedIndexChanged);
             // 
             // label2
             // 

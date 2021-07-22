@@ -21,7 +21,7 @@ namespace SuMueble.Views
             ListaVentas = ventaController.ObtenerVenta();
             dvg_devoluciones.AutoGenerateColumns = false;
             dvg_devoluciones.DataSource = ListaVentas;
-            
+            dvg_devoluciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
 
 
@@ -37,5 +37,10 @@ namespace SuMueble.Views
         {
 
         }
+
+        private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+            }
     }
 }
