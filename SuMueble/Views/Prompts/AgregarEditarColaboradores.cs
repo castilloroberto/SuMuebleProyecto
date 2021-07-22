@@ -45,7 +45,7 @@ namespace SuMueble.Views
         {
             bool ok = validardatos();
             
-             if (ok)
+            if (ok)
             {
                 // enviar el insert 
                 Colaboradores colaborador = new Colaboradores()
@@ -63,6 +63,7 @@ namespace SuMueble.Views
                     IDPuesto = cb_puesto.SelectedValue.GetHashCode()
                 };
                 cControlador.SaveColaborador(colaborador);
+                MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
 
             }
