@@ -10,7 +10,6 @@ namespace SuMueble.Models
     {
         //Lave Primaria
         [Key]
-  
         public int IDDevolucion 
         {
             set;get;
@@ -19,15 +18,8 @@ namespace SuMueble.Models
         {
             set; get;
         }
-        public DateTime Fecha
-        {
-            set; get;
-        }
-        public int IDProducto
-        {
-            set; get;
-        }
-        public string Observaciones
+        public int IDProducto{set; get;}
+        public int Cantidad
         {
             set; get;
         }
@@ -35,7 +27,13 @@ namespace SuMueble.Models
         {
             set; get;
         }
-        public int Cantidad
+        public string Observaciones
+        {
+            set; get;
+        }
+
+        [Write(false)]
+        public DateTime Fecha
         {
             set; get;
         }

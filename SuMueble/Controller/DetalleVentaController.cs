@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using SuMueble.Models;
 using SuMueble.Views;
 using System;
@@ -43,7 +44,15 @@ namespace SuMueble.Controller
             }
         }
 
+        public List<SQLViewVentas> GetDetalles(Guid IDVenta)
+        {
+            using (var db = GetConnection)
+            {
 
+                string sql = @"sp_SQLViewVentas @IDVenta";
+                return db.Query<SQLViewVentas>(sql, new { IDVenta = IDVenta }).ToList();
+            }
+        }
 
     }
 }

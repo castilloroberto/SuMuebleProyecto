@@ -15,23 +15,29 @@ namespace SuMueble.Views
     public partial class DevolucionesView : UserControl
     {
         VentaController ventaController = new VentaController();
-        IEnumerable<Ventas> ListaVentas;
         List<Ventas> ventas;
         public DevolucionesView()
         {
             InitializeComponent();
-            ListaVentas = ventaController.ObtenerVenta();
             dvg_devoluciones.AutoGenerateColumns = false;
-            dvg_devoluciones.DataSource = ListaVentas;
+
             ventas = ventaController.ObtenerVenta().ToList();
             dvg_devoluciones.DataSource = ventas;
 
 
         }
-
+        private string GetCell(int cell)
+        {
+            int index = dvg_devoluciones.CurrentRow.Index;
+            return dvg_devoluciones.Rows[index].Cells[cell].Value.ToString();
+        }
         private void btn_agregarDevolucion_Click(object sender, EventArgs e)
         {
-            Devolucion devolucion = new Devolucion();
+            int codigofactura_ = int.Parse(GetCell(0));
+
+            var ventaGuid = ventaController.GetVentaDapper(codigofactura_);
+           
+            Devolucion devolucion = new Devolucion(ventaGuid);
             devolucion.ShowDialog();
         }
 
@@ -54,5 +60,7 @@ namespace SuMueble.Views
             dvg_devoluciones.DataSource = null;
             dvg_devoluciones.DataSource = filtrados;
         }
+
+
     }
 }

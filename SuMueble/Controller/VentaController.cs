@@ -24,6 +24,16 @@ namespace SuMueble.Controller
             }
         }
 
+        public Guid GetVentaDapper(int CodigoFactura)
+        {
+            using (var db = GetConnection)
+            {
+                string sql = "SELECT ID FROM Ventas WHERE CodigoFactura = @CodigoFactura";
+                return db.QuerySingle<Guid>(sql, new { CodigoFactura }); 
+            }
+        }
+
+
         public bool SaveVenta(Ventas v)
         {
             bool ok = clienteControlador.SaveCliente(v.Cliente);
