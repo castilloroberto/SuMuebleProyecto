@@ -61,7 +61,7 @@ namespace SuMueble.Views
             // 
             this.txtTelefonoCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtTelefonoCliente.Location = new System.Drawing.Point(1002, 289);
-            this.txtTelefonoCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefonoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefonoCliente.MaxLength = 8;
             this.txtTelefonoCliente.Name = "txtTelefonoCliente";
             this.txtTelefonoCliente.PlaceholderText = "Escriba Aqui...";
@@ -73,7 +73,7 @@ namespace SuMueble.Views
             // 
             this.txt_nombreCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_nombreCliente.Location = new System.Drawing.Point(535, 289);
-            this.txt_nombreCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_nombreCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txt_nombreCliente.MaxLength = 255;
             this.txt_nombreCliente.Name = "txt_nombreCliente";
             this.txt_nombreCliente.PlaceholderText = "Nombre y Apellidos...";
@@ -85,7 +85,7 @@ namespace SuMueble.Views
             // 
             this.txt_dniCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_dniCliente.Location = new System.Drawing.Point(208, 289);
-            this.txt_dniCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_dniCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txt_dniCliente.MaxLength = 13;
             this.txt_dniCliente.Name = "txt_dniCliente";
             this.txt_dniCliente.PlaceholderText = "Numero de Identidad...";
@@ -142,13 +142,12 @@ namespace SuMueble.Views
             // 
             this.txt_rtnCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_rtnCliente.Location = new System.Drawing.Point(208, 431);
-            this.txt_rtnCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_rtnCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txt_rtnCliente.MaxLength = 14;
             this.txt_rtnCliente.Name = "txt_rtnCliente";
             this.txt_rtnCliente.PlaceholderText = "Registro Tributario Nacional...";
             this.txt_rtnCliente.Size = new System.Drawing.Size(278, 39);
             this.txt_rtnCliente.TabIndex = 32;
-            this.txt_rtnCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_rtnCliente_KeyPress);
             // 
             // lb_referencias
             // 
@@ -156,7 +155,7 @@ namespace SuMueble.Views
             this.lb_referencias.FormattingEnabled = true;
             this.lb_referencias.ItemHeight = 32;
             this.lb_referencias.Location = new System.Drawing.Point(208, 581);
-            this.lb_referencias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lb_referencias.Margin = new System.Windows.Forms.Padding(4);
             this.lb_referencias.Name = "lb_referencias";
             this.lb_referencias.Size = new System.Drawing.Size(640, 420);
             this.lb_referencias.TabIndex = 35;
@@ -180,7 +179,7 @@ namespace SuMueble.Views
             this.btn_agregarReferencia.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_agregarReferencia.ForeColor = System.Drawing.Color.White;
             this.btn_agregarReferencia.Location = new System.Drawing.Point(206, 1028);
-            this.btn_agregarReferencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_agregarReferencia.Margin = new System.Windows.Forms.Padding(4);
             this.btn_agregarReferencia.Name = "btn_agregarReferencia";
             this.btn_agregarReferencia.Size = new System.Drawing.Size(239, 46);
             this.btn_agregarReferencia.TabIndex = 36;
@@ -194,7 +193,7 @@ namespace SuMueble.Views
             this.lb_productosVenta.FormattingEnabled = true;
             this.lb_productosVenta.ItemHeight = 32;
             this.lb_productosVenta.Location = new System.Drawing.Point(1141, 581);
-            this.lb_productosVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lb_productosVenta.Margin = new System.Windows.Forms.Padding(4);
             this.lb_productosVenta.Name = "lb_productosVenta";
             this.lb_productosVenta.Size = new System.Drawing.Size(640, 420);
             this.lb_productosVenta.TabIndex = 37;
@@ -207,7 +206,7 @@ namespace SuMueble.Views
             this.btn_agregarProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_agregarProducto.ForeColor = System.Drawing.Color.White;
             this.btn_agregarProducto.Location = new System.Drawing.Point(1141, 1032);
-            this.btn_agregarProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_agregarProducto.Margin = new System.Windows.Forms.Padding(4);
             this.btn_agregarProducto.Name = "btn_agregarProducto";
             this.btn_agregarProducto.Size = new System.Drawing.Size(239, 46);
             this.btn_agregarProducto.TabIndex = 36;
@@ -219,7 +218,7 @@ namespace SuMueble.Views
             // 
             this.txt_dniColaborador.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_dniColaborador.Location = new System.Drawing.Point(1505, 289);
-            this.txt_dniColaborador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_dniColaborador.Margin = new System.Windows.Forms.Padding(4);
             this.txt_dniColaborador.MaxLength = 13;
             this.txt_dniColaborador.Name = "txt_dniColaborador";
             this.txt_dniColaborador.PlaceholderText = "Numero de Identidad...";
@@ -282,7 +281,7 @@ namespace SuMueble.Views
             this.btn_terminarVenta.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_terminarVenta.ForeColor = System.Drawing.Color.White;
             this.btn_terminarVenta.Location = new System.Drawing.Point(1544, 1032);
-            this.btn_terminarVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_terminarVenta.Margin = new System.Windows.Forms.Padding(4);
             this.btn_terminarVenta.Name = "btn_terminarVenta";
             this.btn_terminarVenta.Size = new System.Drawing.Size(239, 46);
             this.btn_terminarVenta.TabIndex = 36;
@@ -357,7 +356,7 @@ namespace SuMueble.Views
             // 
             this.txt_dirCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_dirCliente.Location = new System.Drawing.Point(535, 432);
-            this.txt_dirCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_dirCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txt_dirCliente.MaxLength = 255;
             this.txt_dirCliente.Multiline = true;
             this.txt_dirCliente.Name = "txt_dirCliente";
@@ -408,7 +407,7 @@ namespace SuMueble.Views
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VentaCreditoView";
             this.Size = new System.Drawing.Size(1799, 1196);
             this.ResumeLayout(false);

@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using SuMueble.Models;
 using SuMueble.Views;
 using System;
@@ -25,6 +26,15 @@ namespace SuMueble.Controller
             using (var db = GetConnection)
             {
                 return db.Update<Pagos>(pago);
+            }
+        }
+
+        public Nullable<float> GetPagado(Guid IDVenta)
+        {
+            using (var db = GetConnection )
+            {
+                string sql = "select sum(Monto) Pagado from pagos where IDVenta = @IDVenta";
+                return db.QuerySingle<Nullable<float>>(sql, new {IDVenta});
             }
         }
 
