@@ -52,10 +52,10 @@ namespace SuMueble.Views.Prompts
             this.btn_agregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_agregarProducto.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarProducto.Location = new System.Drawing.Point(613, 452);
-            this.btn_agregarProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_agregarProducto.Location = new System.Drawing.Point(876, 753);
+            this.btn_agregarProducto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_agregarProducto.Name = "btn_agregarProducto";
-            this.btn_agregarProducto.Size = new System.Drawing.Size(167, 28);
+            this.btn_agregarProducto.Size = new System.Drawing.Size(239, 47);
             this.btn_agregarProducto.TabIndex = 36;
             this.btn_agregarProducto.Text = "Agregar a la Venta";
             this.btn_agregarProducto.UseVisualStyleBackColor = false;
@@ -64,40 +64,43 @@ namespace SuMueble.Views.Prompts
             // txt_precio
             // 
             this.txt_precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_precio.Location = new System.Drawing.Point(584, 407);
-            this.txt_precio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_precio.Location = new System.Drawing.Point(834, 678);
+            this.txt_precio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txt_precio.Name = "txt_precio";
             this.txt_precio.PlaceholderText = "Precio Sugerido...";
-            this.txt_precio.Size = new System.Drawing.Size(196, 29);
+            this.txt_precio.Size = new System.Drawing.Size(278, 39);
             this.txt_precio.TabIndex = 35;
+            this.txt_precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precio_KeyPress);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(581, 384);
+            this.label9.Location = new System.Drawing.Point(830, 640);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 21);
+            this.label9.Size = new System.Drawing.Size(174, 32);
             this.label9.TabIndex = 33;
             this.label9.Text = "Precio Producto";
             // 
             // txt_buscarProducto
             // 
             this.txt_buscarProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_buscarProducto.Location = new System.Drawing.Point(32, 46);
-            this.txt_buscarProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_buscarProducto.Location = new System.Drawing.Point(46, 77);
+            this.txt_buscarProducto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txt_buscarProducto.Name = "txt_buscarProducto";
             this.txt_buscarProducto.PlaceholderText = "Nombre o Codigo de Producto...";
-            this.txt_buscarProducto.Size = new System.Drawing.Size(196, 29);
+            this.txt_buscarProducto.Size = new System.Drawing.Size(278, 39);
             this.txt_buscarProducto.TabIndex = 38;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(29, 23);
+            this.label7.Location = new System.Drawing.Point(41, 38);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 21);
+            this.label7.Size = new System.Drawing.Size(178, 32);
             this.label7.TabIndex = 37;
             this.label7.Text = "Buscar Producto";
             // 
@@ -108,10 +111,10 @@ namespace SuMueble.Views.Prompts
             this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_cancelar.ForeColor = System.Drawing.Color.Black;
-            this.btn_cancelar.Location = new System.Drawing.Point(32, 452);
-            this.btn_cancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_cancelar.Location = new System.Drawing.Point(46, 753);
+            this.btn_cancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(167, 28);
+            this.btn_cancelar.Size = new System.Drawing.Size(239, 47);
             this.btn_cancelar.TabIndex = 36;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = false;
@@ -139,14 +142,15 @@ namespace SuMueble.Views.Prompts
             this.precio,
             this.existencias});
             this.dgv_productos.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgv_productos.Location = new System.Drawing.Point(30, 79);
-            this.dgv_productos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_productos.Location = new System.Drawing.Point(43, 132);
+            this.dgv_productos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgv_productos.Name = "dgv_productos";
             this.dgv_productos.ReadOnly = true;
             this.dgv_productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv_productos.RowHeadersWidth = 51;
             this.dgv_productos.RowTemplate.Height = 29;
-            this.dgv_productos.Size = new System.Drawing.Size(750, 303);
+            this.dgv_productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_productos.Size = new System.Drawing.Size(1071, 505);
             this.dgv_productos.TabIndex = 39;
             this.dgv_productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellClick);
             // 
@@ -192,10 +196,10 @@ namespace SuMueble.Views.Prompts
             // 
             // VentaAgregarProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancelar;
-            this.ClientSize = new System.Drawing.Size(816, 511);
+            this.ClientSize = new System.Drawing.Size(1166, 852);
             this.Controls.Add(this.dgv_productos);
             this.Controls.Add(this.txt_buscarProducto);
             this.Controls.Add(this.label7);
@@ -204,7 +208,7 @@ namespace SuMueble.Views.Prompts
             this.Controls.Add(this.txt_precio);
             this.Controls.Add(this.label9);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "VentaAgregarProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VentaAgregarProducto";
