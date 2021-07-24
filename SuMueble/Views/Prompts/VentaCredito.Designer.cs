@@ -29,98 +29,72 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.txt_montoPagado = new System.Windows.Forms.TextBox();
+            this.txt_montoPendiente = new System.Windows.Forms.TextBox();
+            this.txt_cuotasPendientes = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_cliente = new System.Windows.Forms.TextBox();
             this.btn_volver = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.dgv_articulo = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_articulo)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox5
+            // txt_montoPagado
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(542, 340);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(267, 29);
-            this.textBox5.TabIndex = 32;
-            this.textBox5.Text = "16000";
+            this.txt_montoPagado.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_montoPagado.Enabled = false;
+            this.txt_montoPagado.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_montoPagado.Location = new System.Drawing.Point(601, 294);
+            this.txt_montoPagado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_montoPagado.Name = "txt_montoPagado";
+            this.txt_montoPagado.Size = new System.Drawing.Size(333, 33);
+            this.txt_montoPagado.TabIndex = 31;
             // 
-            // textBox4
+            // txt_montoPendiente
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(542, 235);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(267, 29);
-            this.textBox4.TabIndex = 31;
-            this.textBox4.Text = "8000";
+            this.txt_montoPendiente.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_montoPendiente.Enabled = false;
+            this.txt_montoPendiente.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_montoPendiente.Location = new System.Drawing.Point(601, 146);
+            this.txt_montoPendiente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_montoPendiente.Name = "txt_montoPendiente";
+            this.txt_montoPendiente.Size = new System.Drawing.Size(333, 33);
+            this.txt_montoPendiente.TabIndex = 30;
             // 
-            // textBox2
+            // txt_cuotasPendientes
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(542, 117);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(267, 29);
-            this.textBox2.TabIndex = 30;
-            this.textBox2.Text = "2000";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(39, 235);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(267, 29);
-            this.textBox3.TabIndex = 29;
-            this.textBox3.Text = "5 de 8";
+            this.txt_cuotasPendientes.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_cuotasPendientes.Enabled = false;
+            this.txt_cuotasPendientes.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_cuotasPendientes.Location = new System.Drawing.Point(49, 294);
+            this.txt_cuotasPendientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_cuotasPendientes.Name = "txt_cuotasPendientes";
+            this.txt_cuotasPendientes.Size = new System.Drawing.Size(333, 33);
+            this.txt_cuotasPendientes.TabIndex = 29;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(538, 85);
+            this.label5.Location = new System.Drawing.Point(595, 106);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 28);
+            this.label5.Size = new System.Drawing.Size(186, 32);
             this.label5.TabIndex = 28;
             this.label5.Text = "Monto Pendiente";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(536, 308);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 28);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "Cuota Mensual";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(537, 203);
+            this.label3.Location = new System.Drawing.Point(594, 254);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 28);
+            this.label3.Size = new System.Drawing.Size(162, 32);
             this.label3.TabIndex = 26;
             this.label3.Text = "Monto Pagado";
             // 
@@ -128,23 +102,23 @@ namespace SuMueble.Views
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(34, 197);
+            this.label2.Location = new System.Drawing.Point(42, 246);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 28);
+            this.label2.Size = new System.Drawing.Size(198, 32);
             this.label2.TabIndex = 25;
-            this.label2.Text = "Cuotas Pagadas";
+            this.label2.Text = "Cuotas Pendientes";
             // 
-            // textBox1
+            // txt_cliente
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(39, 117);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(267, 29);
-            this.textBox1.TabIndex = 24;
-            this.textBox1.Text = "Dorian Zelaya";
+            this.txt_cliente.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_cliente.Enabled = false;
+            this.txt_cliente.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_cliente.Location = new System.Drawing.Point(49, 146);
+            this.txt_cliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_cliente.Name = "txt_cliente";
+            this.txt_cliente.Size = new System.Drawing.Size(333, 33);
+            this.txt_cliente.TabIndex = 24;
             // 
             // btn_volver
             // 
@@ -153,10 +127,10 @@ namespace SuMueble.Views
             this.btn_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_volver.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_volver.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_volver.Location = new System.Drawing.Point(659, 646);
-            this.btn_volver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_volver.Location = new System.Drawing.Point(746, 605);
+            this.btn_volver.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_volver.Name = "btn_volver";
-            this.btn_volver.Size = new System.Drawing.Size(150, 37);
+            this.btn_volver.Size = new System.Drawing.Size(188, 46);
             this.btn_volver.TabIndex = 23;
             this.btn_volver.Text = "Volver";
             this.btn_volver.UseVisualStyleBackColor = false;
@@ -165,88 +139,75 @@ namespace SuMueble.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(33, 85);
+            this.label1.Location = new System.Drawing.Point(41, 106);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 28);
+            this.label1.Size = new System.Drawing.Size(83, 32);
             this.label1.TabIndex = 22;
             this.label1.Text = "Cliente";
             // 
-            // listView1
+            // dgv_articulo
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(39, 308);
-            this.listView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(470, 375);
-            this.listView1.TabIndex = 21;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Articulo";
-            this.columnHeader1.Width = 120;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Cantidad";
-            this.columnHeader2.Width = 120;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Cuota";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 120;
+            this.dgv_articulo.AllowUserToAddRows = false;
+            this.dgv_articulo.AllowUserToDeleteRows = false;
+            this.dgv_articulo.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_articulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_articulo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_articulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_articulo.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgv_articulo.Location = new System.Drawing.Point(49, 353);
+            this.dgv_articulo.Name = "dgv_articulo";
+            this.dgv_articulo.ReadOnly = true;
+            this.dgv_articulo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgv_articulo.RowHeadersWidth = 62;
+            this.dgv_articulo.RowTemplate.Height = 33;
+            this.dgv_articulo.Size = new System.Drawing.Size(885, 193);
+            this.dgv_articulo.TabIndex = 33;
             // 
             // VentaCredito
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_volver;
-            this.ClientSize = new System.Drawing.Size(859, 719);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox3);
+            this.ClientSize = new System.Drawing.Size(972, 731);
+            this.Controls.Add(this.dgv_articulo);
+            this.Controls.Add(this.txt_montoPagado);
+            this.Controls.Add(this.txt_montoPendiente);
+            this.Controls.Add(this.txt_cuotasPendientes);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_cliente);
             this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "VentaCredito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentaCredito";
             this.Load += new System.EventHandler(this.VentaCredito_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_articulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_montoPagado;
+        private System.Windows.Forms.TextBox txt_montoPendiente;
+        private System.Windows.Forms.TextBox txt_cuotasPendientes;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_cliente;
         private System.Windows.Forms.Button btn_volver;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.DataGridView dgv_articulo;
     }
 }

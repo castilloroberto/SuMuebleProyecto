@@ -5,6 +5,7 @@ using SuMueble.Views;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -22,6 +23,16 @@ namespace SuMueble.Controller
                 return db.Insert(v) > 0;
             }
         }
+
+        public Guid GetVentaDapper(int CodigoFactura)
+        {
+            using (var db = GetConnection)
+            {
+                string sql = "SELECT ID FROM Ventas WHERE CodigoFactura = @CodigoFactura";
+                return db.QuerySingle<Guid>(sql, new { CodigoFactura }); 
+            }
+        }
+
 
         public bool SaveVenta(Ventas v)
         {
@@ -52,12 +63,41 @@ namespace SuMueble.Controller
             }       
         }
 
+        public Ventas GetVentaID(string cod_factura)
+        {
+            string sql = @$"select * from v_ventasResumen where CodigoFactura = {cod_factura} order by CodigoFactura";
+            using (var db = GetConnection)
+            {
+                return db.QueryFirst<Ventas>(sql);
+            }
+        }
+
+        public DataRow GetVenta(string cod_factura)
+        {
+            using (var db = GetConnection)
+            {
+                db.Open();
+                SqlCommand command = new SqlCommand("Select * from Ventas where CodigoFactura = @CodigoFactura", db);
+                command.Parameters.AddWithValue("@CodigoFactura", cod_factura);
+                SqlDataReader reader = command.ExecuteReader();
+                DataTable resultado = new DataTable();
+
+                resultado.Load(reader);
+
+                reader.Close();
+
+                return resultado.AsEnumerable().First();
+
+
+            }
+        }
+
         public DataTable GetCreditosPendientes()
         {
             using (var db = GetConnection)
             {
                 db.Open();
-                SqlCommand command = new SqlCommand("Select * from v_VentasCredito",db);
+                SqlCommand command = new SqlCommand("Select * from v_VentasCredito order by CodigoFactura", db);
                 SqlDataReader reader = command.ExecuteReader();
                 DataTable resultado = new DataTable();
                

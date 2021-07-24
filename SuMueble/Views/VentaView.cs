@@ -4,10 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
-using SuMueble.Controller;
 using System.Windows.Forms;
-using SuMueble.Models;
 using System.Linq;
+using SuMueble.Controller;
+using SuMueble.Models;
 
 namespace SuMueble.Views
 {
@@ -37,10 +37,9 @@ namespace SuMueble.Views
         }
         private void CargarDataGrid()
         {
-            dgv_productos.AutoGenerateColumns = false;
-            dgv_productos.DataSource = productoControlador.GetProductos();
-            dgv_productos.DataSource = productos;
+            dgv_productos.AutoGenerateColumns = false;                        
             productos = pc.GetProductos().ToList();
+            dgv_productos.DataSource = productos;
         }
 
         private void btn_terminarVenta_Click(object sender, EventArgs e)
@@ -60,7 +59,8 @@ namespace SuMueble.Views
                     DetallesVenta = _detallesVenta,
                     Cliente = c,
                     IDTipoVenta = 1,
-                    IDColaborador = txt_dniColaborador.Text
+                    IDColaborador = txt_dniColaborador.Text,
+                    FechaFin = DateTime.Now
 
                 };
                 bool ok = ventaController.SaveVenta(venta);
@@ -82,6 +82,7 @@ namespace SuMueble.Views
         private void ClearVenta()
         {
             Total = 0;
+            l_monto.Text = string.Empty;
             _IDVenta = Guid.NewGuid();
             txt_dniCliente.Text = string.Empty;
             ClearCliente();
@@ -99,25 +100,45 @@ namespace SuMueble.Views
         
 
         private void btn_agregarProducto_Click(object sender, EventArgs e)
-        {
-            if (txt_cantidadProducto.Text != string.Empty && txt_precio.Text != string.Empty)
-            {
-                DetallesVentas dv = new DetallesVentas()
-                {
-                    IDVenta = _IDVenta,
-                    IDProducto = int.Parse(GetCell(0)),
-                    Cantidad = int.Parse(txt_cantidadProducto.Text),
-                    PrecioVenta = int.Parse(txt_precio.Text),
-                    Producto = GetCell(2)
-                };
 
-                CargarListVew(dv);
-                ClearProducto();
+        {
+
+            if (GetCell(4) == "0")
+            {
+                MessageBox.Show("No hay existencia del producto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 
+                
+            } else
+            {
+
+                if (txt_cantidadProducto.Text != string.Empty && txt_precio.Text != string.Empty)
+                {
+                    DetallesVentas dv = new DetallesVentas()
+                    {
+                        IDVenta = _IDVenta,
+                        IDProducto = int.Parse(GetCell(0)),
+                        Cantidad = int.Parse(txt_cantidadProducto.Text),
+                        PrecioVenta = int.Parse(txt_precio.Text),
+                        Producto = GetCell(2),
+
+                    };
+
+                    CargarListVew(dv);
+                    ClearProducto();
+                }
+                else
+                    MessageBox.Show(_msg, "Faltan datos de la venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+
             }
-            else
-                MessageBox.Show(_msg, "Faltan datos de la venta",MessageBoxButtons.OK,MessageBoxIcon.Information);
-           
-           
+
+
+
+
+
+
 
         }
         private void CargarListVew(DetallesVentas dv)
@@ -261,6 +282,67 @@ namespace SuMueble.Views
 
             dgv_productos.DataSource = null;
             dgv_productos.DataSource = filtrados;
+        }
+
+        private void txt_dniCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txt_nombreCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Introduzca letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txt_clienteTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+
+        }
+
+        private void txt_dniColaborador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txt_cantidadProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txt_precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

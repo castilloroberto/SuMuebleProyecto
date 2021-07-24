@@ -36,12 +36,16 @@ namespace SuMueble.Views
             this.txtProducto = new System.Windows.Forms.TextBox();
             this.btn_volver = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtProductoID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_cuotas_pendientes = new System.Windows.Forms.TextBox();
             this.btnImprimirFactura = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtDNIColaborador = new System.Windows.Forms.TextBox();
+            this.txt_monto_pendiente = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.l_cliente = new System.Windows.Forms.Label();
+            this.dtp_fechaFin = new System.Windows.Forms.DateTimePicker();
+            this.l_colabora = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -70,15 +74,15 @@ namespace SuMueble.Views
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(132, 174);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 28);
+            this.label2.Size = new System.Drawing.Size(130, 28);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Cuota";
+            this.label2.Text = "Cuota a Pagar";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(132, 302);
+            this.label3.Location = new System.Drawing.Point(136, 338);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 28);
             this.label3.TabIndex = 4;
@@ -87,7 +91,7 @@ namespace SuMueble.Views
             // txtProducto
             // 
             this.txtProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProducto.Location = new System.Drawing.Point(132, 348);
+            this.txtProducto.Location = new System.Drawing.Point(136, 384);
             this.txtProducto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.ReadOnly = true;
@@ -113,41 +117,31 @@ namespace SuMueble.Views
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(132, 417);
+            this.label4.Location = new System.Drawing.Point(136, 453);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 28);
+            this.label4.Size = new System.Drawing.Size(168, 28);
             this.label4.TabIndex = 7;
-            this.label4.Text = "ProductoID";
-            // 
-            // txtProductoID
-            // 
-            this.txtProductoID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProductoID.Location = new System.Drawing.Point(132, 462);
-            this.txtProductoID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtProductoID.Name = "txtProductoID";
-            this.txtProductoID.ReadOnly = true;
-            this.txtProductoID.Size = new System.Drawing.Size(200, 34);
-            this.txtProductoID.TabIndex = 6;
+            this.label4.Text = "Fecha Vencimiento";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(449, 302);
+            this.label5.Location = new System.Drawing.Point(453, 338);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(248, 28);
+            this.label5.Size = new System.Drawing.Size(166, 28);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Pendiente Despues del Pago";
+            this.label5.Text = "Cuotas Pendientes";
             // 
-            // textBox4
+            // txt_cuotas_pendientes
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(453, 353);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(244, 34);
-            this.textBox4.TabIndex = 8;
+            this.txt_cuotas_pendientes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_cuotas_pendientes.Location = new System.Drawing.Point(457, 389);
+            this.txt_cuotas_pendientes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_cuotas_pendientes.Name = "txt_cuotas_pendientes";
+            this.txt_cuotas_pendientes.ReadOnly = true;
+            this.txt_cuotas_pendientes.Size = new System.Drawing.Size(244, 34);
+            this.txt_cuotas_pendientes.TabIndex = 8;
             // 
             // btnImprimirFactura
             // 
@@ -163,7 +157,7 @@ namespace SuMueble.Views
             this.btnImprimirFactura.TabIndex = 10;
             this.btnImprimirFactura.Text = "Imprimir Factura";
             this.btnImprimirFactura.UseVisualStyleBackColor = false;
-            this.btnImprimirFactura.Click += new System.EventHandler(this.button1_Click);
+            this.btnImprimirFactura.Click += new System.EventHandler(this.btnImprimirFactura_Click);
             // 
             // label6
             // 
@@ -184,7 +178,58 @@ namespace SuMueble.Views
             this.txtDNIColaborador.Name = "txtDNIColaborador";
             this.txtDNIColaborador.Size = new System.Drawing.Size(200, 34);
             this.txtDNIColaborador.TabIndex = 11;
+            this.txtDNIColaborador.TextChanged += new System.EventHandler(this.txtDNIColaborador_TextChanged);
             this.txtDNIColaborador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNIColaborador_KeyPress);
+            this.txtDNIColaborador.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDNIColaborador_KeyUp);
+            // 
+            // txt_monto_pendiente
+            // 
+            this.txt_monto_pendiente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_monto_pendiente.Location = new System.Drawing.Point(453, 498);
+            this.txt_monto_pendiente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_monto_pendiente.Name = "txt_monto_pendiente";
+            this.txt_monto_pendiente.ReadOnly = true;
+            this.txt_monto_pendiente.Size = new System.Drawing.Size(244, 34);
+            this.txt_monto_pendiente.TabIndex = 8;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(449, 447);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 28);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Monto Pendiente";
+            // 
+            // l_cliente
+            // 
+            this.l_cliente.AutoSize = true;
+            this.l_cliente.Font = new System.Drawing.Font("Segoe UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.l_cliente.Location = new System.Drawing.Point(254, 59);
+            this.l_cliente.Name = "l_cliente";
+            this.l_cliente.Size = new System.Drawing.Size(172, 50);
+            this.l_cliente.TabIndex = 0;
+            this.l_cliente.Text = "----------";
+            // 
+            // dtp_fechaFin
+            // 
+            this.dtp_fechaFin.Enabled = false;
+            this.dtp_fechaFin.Location = new System.Drawing.Point(136, 497);
+            this.dtp_fechaFin.Name = "dtp_fechaFin";
+            this.dtp_fechaFin.Size = new System.Drawing.Size(250, 27);
+            this.dtp_fechaFin.TabIndex = 13;
+            // 
+            // l_colabora
+            // 
+            this.l_colabora.AutoSize = true;
+            this.l_colabora.Font = new System.Drawing.Font("Segoe UI Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.l_colabora.Location = new System.Drawing.Point(485, 263);
+            this.l_colabora.Name = "l_colabora";
+            this.l_colabora.Size = new System.Drawing.Size(134, 23);
+            this.l_colabora.TabIndex = 12;
+            this.l_colabora.Text = "DNI Colaborador";
+            this.l_colabora.Visible = false;
             // 
             // PagarCuota
             // 
@@ -192,18 +237,22 @@ namespace SuMueble.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_volver;
             this.ClientSize = new System.Drawing.Size(818, 708);
+            this.Controls.Add(this.dtp_fechaFin);
+            this.Controls.Add(this.l_colabora);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDNIColaborador);
             this.Controls.Add(this.btnImprimirFactura);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txt_monto_pendiente);
+            this.Controls.Add(this.txt_cuotas_pendientes);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtProductoID);
             this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtProducto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCuota);
+            this.Controls.Add(this.l_cliente);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "PagarCuota";
@@ -223,11 +272,15 @@ namespace SuMueble.Views
         private System.Windows.Forms.TextBox txtProducto;
         private System.Windows.Forms.Button btn_volver;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtProductoID;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_cuotas_pendientes;
         private System.Windows.Forms.Button btnImprimirFactura;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtDNIColaborador;
+        private System.Windows.Forms.TextBox txt_monto_pendiente;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label l_cliente;
+        private System.Windows.Forms.DateTimePicker dtp_fechaFin;
+        private System.Windows.Forms.Label l_colabora;
     }
 }

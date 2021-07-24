@@ -4,27 +4,44 @@ using SuMueble.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace SuMueble.Controller
 {
     public class DevolucionControlador: DBConnection
     {
        
-        public bool InsertarDevolucion(Devoluciones d)
+        public dynamic InsertarDevolucion(Devoluciones d)
         {
-            using (var db=GetConnection)
+            using (var db = GetConnection)
             {
-                long s = 0;
-                s = db.Insert<Devoluciones>(d);
-                if (s > 0)
-                    return true;
-                else
-                    return false;
+      
+                return db.Insert(new[] { d });
 
             }
 
         }
-        
+
+        public List<Devoluciones> ObtenerDevoluciones()
+        {
+            using (var db = GetConnection)
+            {
+                return db.GetAll<Devoluciones>().ToList();
+
+            }
+
+        }
+
+        public Devoluciones ObtenerDevoluciones(int ID)
+        {
+            using (var db = GetConnection)
+            {
+                return db.Get<Devoluciones>(ID);
+
+            }
+
+        }
+
 
     }
 }
