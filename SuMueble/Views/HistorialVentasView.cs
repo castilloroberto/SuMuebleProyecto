@@ -24,6 +24,7 @@ namespace SuMueble.Views
             ventas = ventaController.ObtenerVenta().ToList();
             dvg_ventas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dvg_ventas.DataSource = ventas;
+            cb_filtro.SelectedIndex = 0;
         }
 
    
@@ -67,6 +68,29 @@ namespace SuMueble.Views
 
             dvg_ventas.DataSource = null;
             dvg_ventas.DataSource = filtrados;
+        }
+
+        private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tipoVenta = cb_filtro.Text;
+
+            if (tipoVenta != "Todo")
+            {
+                List<Ventas> filtrados = ventas.Where<Ventas>(x =>
+                {
+
+                    return x.TipoVenta == tipoVenta;
+
+                }).ToList();
+
+                dvg_ventas.DataSource = null;
+                dvg_ventas.DataSource = filtrados;
+            }
+            else
+            {
+                dvg_ventas.DataSource = null;
+                dvg_ventas.DataSource = ventas;
+            }
         }
     }
 }

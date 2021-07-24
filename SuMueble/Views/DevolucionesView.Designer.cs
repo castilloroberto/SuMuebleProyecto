@@ -52,9 +52,9 @@ namespace SuMueble.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(106, 151);
+            this.label1.Location = new System.Drawing.Point(121, 201);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 25);
+            this.label1.Size = new System.Drawing.Size(161, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Cliente:";
             // 
@@ -65,10 +65,9 @@ namespace SuMueble.Views
             this.btn_agregarDevolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarDevolucion.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_agregarDevolucion.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarDevolucion.Location = new System.Drawing.Point(1124, 521);
-            this.btn_agregarDevolucion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_agregarDevolucion.Location = new System.Drawing.Point(1285, 695);
             this.btn_agregarDevolucion.Name = "btn_agregarDevolucion";
-            this.btn_agregarDevolucion.Size = new System.Drawing.Size(105, 28);
+            this.btn_agregarDevolucion.Size = new System.Drawing.Size(120, 37);
             this.btn_agregarDevolucion.TabIndex = 1;
             this.btn_agregarDevolucion.Text = "Agregar";
             this.btn_agregarDevolucion.UseVisualStyleBackColor = false;
@@ -77,11 +76,10 @@ namespace SuMueble.Views
             // txt_buscarCliente
             // 
             this.txt_buscarCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_buscarCliente.Location = new System.Drawing.Point(106, 185);
-            this.txt_buscarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_buscarCliente.Location = new System.Drawing.Point(121, 247);
             this.txt_buscarCliente.Name = "txt_buscarCliente";
             this.txt_buscarCliente.PlaceholderText = "Nombre del Cliente...";
-            this.txt_buscarCliente.Size = new System.Drawing.Size(206, 29);
+            this.txt_buscarCliente.Size = new System.Drawing.Size(235, 34);
             this.txt_buscarCliente.TabIndex = 3;
             this.txt_buscarCliente.TextChanged += new System.EventHandler(this.txt_buscarCliente_TextChanged_1);
             // 
@@ -92,19 +90,23 @@ namespace SuMueble.Views
             this.cb_filtro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_filtro.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cb_filtro.FormattingEnabled = true;
-            this.cb_filtro.Location = new System.Drawing.Point(1025, 185);
-            this.cb_filtro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_filtro.Items.AddRange(new object[] {
+            "Todo",
+            "Al Credito",
+            "Al Contado"});
+            this.cb_filtro.Location = new System.Drawing.Point(1171, 247);
             this.cb_filtro.Name = "cb_filtro";
-            this.cb_filtro.Size = new System.Drawing.Size(206, 29);
+            this.cb_filtro.Size = new System.Drawing.Size(235, 36);
             this.cb_filtro.TabIndex = 4;
+            this.cb_filtro.SelectedIndexChanged += new System.EventHandler(this.cb_filtro_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1018, 153);
+            this.label2.Location = new System.Drawing.Point(1163, 204);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 25);
+            this.label2.Size = new System.Drawing.Size(127, 32);
             this.label2.TabIndex = 0;
             this.label2.Text = "Buscar por:";
             // 
@@ -135,14 +137,13 @@ namespace SuMueble.Views
             this.Column7,
             this.Column1});
             this.dvg_devoluciones.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dvg_devoluciones.Location = new System.Drawing.Point(106, 223);
-            this.dvg_devoluciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dvg_devoluciones.Location = new System.Drawing.Point(121, 297);
             this.dvg_devoluciones.Name = "dvg_devoluciones";
             this.dvg_devoluciones.ReadOnly = true;
             this.dvg_devoluciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dvg_devoluciones.RowHeadersWidth = 51;
             this.dvg_devoluciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvg_devoluciones.Size = new System.Drawing.Size(1123, 283);
+            this.dvg_devoluciones.Size = new System.Drawing.Size(1283, 377);
             this.dvg_devoluciones.TabIndex = 5;
             // 
             // CodigoF
@@ -219,7 +220,7 @@ namespace SuMueble.Views
             // 
             // DevolucionesView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dvg_devoluciones);
             this.Controls.Add(this.cb_filtro);
@@ -227,9 +228,8 @@ namespace SuMueble.Views
             this.Controls.Add(this.btn_agregarDevolucion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DevolucionesView";
-            this.Size = new System.Drawing.Size(1327, 570);
+            this.Size = new System.Drawing.Size(1517, 760);
             ((System.ComponentModel.ISupportInitialize)(this.dvg_devoluciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
