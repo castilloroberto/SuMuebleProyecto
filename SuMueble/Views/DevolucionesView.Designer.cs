@@ -98,6 +98,7 @@ namespace SuMueble.Views
             this.cb_filtro.Size = new System.Drawing.Size(234, 36);
             this.cb_filtro.TabIndex = 4;
             this.cb_filtro.SelectedIndexChanged += new System.EventHandler(this.cb_filtro_SelectedIndexChanged);
+            this.cb_filtro.SelectionChangeCommitted += new System.EventHandler(this.cb_filtro_SelectionChangeCommitted);
             // 
             // label2
             // 

@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace SuMueble.Views
 {
@@ -22,6 +23,8 @@ namespace SuMueble.Views
             dvg_devoluciones.AutoGenerateColumns = false;
             dvg_devoluciones.DataSource = ListaVentas;
             dvg_devoluciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            cb_filtro.SelectedIndex = 0;
+
 
 
 
@@ -40,7 +43,30 @@ namespace SuMueble.Views
 
         private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            string tipoVenta = cb_filtro.Text;
+
+            if (tipoVenta != "Todo")
+            {
+                List<Ventas> filtrados = ListaVentas.Where(x =>
+                {
+
+                    return x.TipoVenta == tipoVenta;
+
+                }).ToList();
+
+                dvg_devoluciones.DataSource = null;
+                dvg_devoluciones.DataSource = filtrados;
             }
+            else
+            {
+                dvg_devoluciones.DataSource = null;
+                dvg_devoluciones.DataSource = ListaVentas;
+            }
+        }
+
+        private void cb_filtro_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
