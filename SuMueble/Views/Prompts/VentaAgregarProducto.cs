@@ -40,17 +40,25 @@ namespace SuMueble.Views.Prompts
 
         private void btn_agregarProducto_Click(object sender, EventArgs e)
         {
-            DetallesVentas dv = new DetallesVentas()
+
+            if (txt_precio.Text == "")
             {
-                IDProducto = int.Parse(GetCell(0)),
-                Cantidad = 1,
-                PrecioVenta = int.Parse(txt_precio.Text),
-                Producto = GetCell(2)
-            };
+                MessageBox.Show("Selecione el producto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DetallesVentas dv = new DetallesVentas()
+                {
+                    IDProducto = int.Parse(GetCell(0)),
+                    Cantidad = 1,
+                    PrecioVenta = int.Parse(txt_precio.Text),
+                    Producto = GetCell(2)
+                };
 
 
-            VentaCreditoView.listaProducto(dv);
-            this.Close();
+                VentaCreditoView.listaProducto(dv);
+                this.Close();
+            }
         }
 
         private void txt_precio_KeyPress(object sender, KeyPressEventArgs e)
