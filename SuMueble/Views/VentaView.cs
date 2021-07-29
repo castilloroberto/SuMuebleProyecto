@@ -262,10 +262,18 @@ namespace SuMueble.Views
         private void btn_quitarItem_Click(object sender, EventArgs e)
         {
             int i = lb_productosVenta.SelectedIndex;
-            Total -= _detallesVenta[i].SubTotal; 
-            _detallesVenta.RemoveAt(i);
-            ActualizarListView();
-            l_monto.Text = string.Format("{0:C2}", Total);
+            if (lb_productosVenta.Items.Count > 0)
+            {
+                Total -= _detallesVenta[i].SubTotal;
+                _detallesVenta.RemoveAt(i);
+                ActualizarListView();
+                l_monto.Text = string.Format("{0:C2}", Total);
+  
+            }
+            else
+            {
+                MessageBox.Show("No esta permitido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
