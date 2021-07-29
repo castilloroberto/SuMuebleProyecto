@@ -65,15 +65,15 @@ namespace SuMueble.Views
                 };
                 bool ok = ventaController.SaveVenta(venta);
                 if (ok)
-                    MessageBox.Show($"Venta Terminada\nMonto: {Total}", "Venta Completada",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show($"Venta Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 else
-                    MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Error al completar la Venta",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 CargarDataGrid();
                 ClearVenta();
                 
             }
             else
-                MessageBox.Show("Faltan los siguientes datos:\n"+msg, "Faltan datos de la venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Faltan los siguientes datos:\n"+msg, "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
@@ -127,7 +127,7 @@ namespace SuMueble.Views
                     ClearProducto();
                 }
                 else
-                    MessageBox.Show(_msg, "Faltan datos de la venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(_msg, "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
