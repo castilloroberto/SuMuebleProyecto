@@ -103,7 +103,7 @@ namespace SuMueble.Views
 
         {
 
-            if (GetCell(4) == "0")
+            if (int.Parse(GetCell(4)) < int.Parse(txt_cantidadProducto.Text))
             {
                 MessageBox.Show("No hay existencia del producto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                  
@@ -304,7 +304,9 @@ namespace SuMueble.Views
 
         private void txt_nombreCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+          
+
+            if ((e.KeyChar >= 33 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
                 MessageBox.Show("Introduzca letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
