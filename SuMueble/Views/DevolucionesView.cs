@@ -23,6 +23,7 @@ namespace SuMueble.Views
 
             ventas = ventaController.ObtenerVenta().ToList();
             dvg_devoluciones.DataSource = ventas;
+            cb_filtro.SelectedIndex = 0;
 
 
         }
@@ -61,6 +62,27 @@ namespace SuMueble.Views
             dvg_devoluciones.DataSource = filtrados;
         }
 
+        private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tipoVenta = cb_filtro.Text;
 
+            if (tipoVenta != "Todo")
+            {
+                List<Ventas> filtrados = ventas.Where<Ventas>(x =>
+                {
+
+                    return x.TipoVenta == tipoVenta;
+
+                }).ToList();
+
+                dvg_devoluciones.DataSource = null;
+                dvg_devoluciones.DataSource = filtrados;
+            }
+            else
+            {
+                dvg_devoluciones.DataSource = null;
+                dvg_devoluciones.DataSource = ventas;
+            }
+        }
     }
 }
