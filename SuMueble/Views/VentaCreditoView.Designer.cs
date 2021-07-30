@@ -55,6 +55,7 @@ namespace SuMueble.Views
             this.label8 = new System.Windows.Forms.Label();
             this.txt_dirCliente = new System.Windows.Forms.TextBox();
             this.l_dir = new System.Windows.Forms.Label();
+            this.btn_quitarItem = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtTelefonoCliente
@@ -352,10 +353,27 @@ namespace SuMueble.Views
             this.l_dir.Text = "Ingresar...";
             this.l_dir.Visible = false;
             // 
+            // btn_quitarItem
+            // 
+            this.btn_quitarItem.BackColor = System.Drawing.Color.Crimson;
+            this.btn_quitarItem.FlatAppearance.BorderSize = 0;
+            this.btn_quitarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_quitarItem.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_quitarItem.ForeColor = System.Drawing.Color.White;
+            this.btn_quitarItem.Location = new System.Drawing.Point(550, 821);
+            this.btn_quitarItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_quitarItem.Name = "btn_quitarItem";
+            this.btn_quitarItem.Size = new System.Drawing.Size(129, 38);
+            this.btn_quitarItem.TabIndex = 47;
+            this.btn_quitarItem.Text = "Quitar Item";
+            this.btn_quitarItem.UseVisualStyleBackColor = false;
+            this.btn_quitarItem.Click += new System.EventHandler(this.btn_quitarItem_Click);
+            // 
             // VentaCreditoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_quitarItem);
             this.Controls.Add(this.l_RTNCliente);
             this.Controls.Add(this.l_dir);
             this.Controls.Add(this.l_TelefonoCliente);
@@ -417,5 +435,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_dirCliente;
         private System.Windows.Forms.Label l_dir;
+        private System.Windows.Forms.Button btn_quitarItem;
     }
 }

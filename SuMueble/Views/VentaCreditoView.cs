@@ -189,7 +189,7 @@ namespace SuMueble.Views
             }
             else
             {
-                MessageBox.Show(msg, "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show(msg, "Campos incompletos",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
 
             
@@ -223,7 +223,7 @@ namespace SuMueble.Views
         {
             if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Ingrese valores numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -233,7 +233,7 @@ namespace SuMueble.Views
         {
             if ((e.KeyChar >= 33 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Ingrese valores NO numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Introduzca letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -243,7 +243,7 @@ namespace SuMueble.Views
         {
             if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Ingrese valores numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -258,15 +258,29 @@ namespace SuMueble.Views
         {
             if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Ingrese valores numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
         }
 
-        private void txt_nombreCliente_TextChanged(object sender, EventArgs e)
+        private void btn_quitarItem_Click(object sender, EventArgs e)
         {
+            int i = lb_referencias.SelectedIndex;
+            if (lb_referencias.Items.Count > 0)
+            {
+               
+                listaReferencias.RemoveAt(i);
+                CargarReferencias();
+               
 
+            }
+            else
+            {
+                MessageBox.Show("No esta permitido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+   
     }
 }

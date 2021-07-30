@@ -36,16 +36,30 @@ namespace SuMueble.Views
 
         private string GetCell(int cell)
         {
-            int index = dgv_ventasCredito.CurrentRow.Index;
-            return dgv_ventasCredito.Rows[index].Cells[cell].Value.ToString();
+            if (dgv_ventasCredito.Rows.Count > 0)
+            {
+                int index = dgv_ventasCredito.CurrentRow.Index;
+                return dgv_ventasCredito.Rows[index].Cells[cell].Value.ToString();
+
+            }
+            else return "0";
         }
             
         private void btn_pagarcuota_Click(object sender, EventArgs e)
         {
             string cod_factura = GetCell(0);
-            PagarCuota pagarCuota = new PagarCuota(cod_factura);
-            pagarCuota.ShowDialog();
-            GetData();
+            if (cod_factura != "0")
+            {
+                PagarCuota pagarCuota = new PagarCuota(cod_factura);
+                pagarCuota.ShowDialog();
+                GetData();
+
+            }
+            else
+            {
+                MessageBox.Show("No hay ningúna venta seleccionada", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
 
         }
 

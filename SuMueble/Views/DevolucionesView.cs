@@ -29,17 +29,31 @@ namespace SuMueble.Views
         }
         private string GetCell(int cell)
         {
-            int index = dvg_devoluciones.CurrentRow.Index;
-            return dvg_devoluciones.Rows[index].Cells[cell].Value.ToString();
+            if (dvg_devoluciones.Rows.Count > 0)
+            {
+                int index = dvg_devoluciones.CurrentRow.Index;
+                return dvg_devoluciones.Rows[index].Cells[cell].Value.ToString();
+
+            }
+            else
+            {
+                return "0";
+            }
         }
         private void btn_agregarDevolucion_Click(object sender, EventArgs e)
         {
             int codigofactura_ = int.Parse(GetCell(0));
-
-            var ventaGuid = ventaController.GetVentaDapper(codigofactura_);
+            if (codigofactura_ != 0)
+            {
+                var ventaGuid = ventaController.GetVentaDapper(codigofactura_);
            
-            Devolucion devolucion = new Devolucion(ventaGuid);
-            devolucion.ShowDialog();
+                Devolucion devolucion = new Devolucion(ventaGuid);
+                devolucion.ShowDialog();
+
+            } else
+            {
+                MessageBox.Show("No hay ningún producto seleccionado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void txt_buscarCliente_TextChanged(object sender, EventArgs e)
