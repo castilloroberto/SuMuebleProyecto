@@ -24,6 +24,7 @@ namespace SuMueble.Views
             ventas = ventaController.ObtenerVenta().ToList();
             dvg_ventas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dvg_ventas.DataSource = ventas;
+            cb_filtro.SelectedIndex = 0;
         }
 
    
@@ -35,21 +36,34 @@ namespace SuMueble.Views
 
         private string GetCell(int cell)
         {
-            int index = dvg_ventas.CurrentRow.Index;
-            return dvg_ventas.Rows[index].Cells[cell].Value.ToString();
+            if (dvg_ventas.Rows.Count > 0)
+            {
+                int index = dvg_ventas.CurrentRow.Index;
+                return dvg_ventas.Rows[index].Cells[cell].Value.ToString();
+
+            }
+            else
+                return "0";
         }
 
         private void btn_verDetalle_Click(object sender, EventArgs e)
         {
-
             var codigofactura = GetCell(0);
-            VentaCredito ventaCredito = new VentaCredito(codigofactura);
-            Ventascontado ventascontado = new Ventascontado(codigofactura);
-            string tipoVenta = GetCell(1);
-            if (tipoVenta == "Al Contado")
-                ventascontado.ShowDialog();
+            if (codigofactura != "0")
+            {
+                VentaCredito ventaCredito = new VentaCredito(codigofactura);
+                Ventascontado ventascontado = new Ventascontado(codigofactura);
+                string tipoVenta = GetCell(1);
+                if (tipoVenta == "Al Contado")
+                    ventascontado.ShowDialog();
+                else
+                    ventaCredito.ShowDialog();
+
+            }
             else
-                ventaCredito.ShowDialog();
+            {
+                MessageBox.Show("No hay ningúna venta seleccionada", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
 
         }
@@ -67,6 +81,29 @@ namespace SuMueble.Views
 
             dvg_ventas.DataSource = null;
             dvg_ventas.DataSource = filtrados;
+        }
+
+        private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tipoVenta = cb_filtro.Text;
+
+            if (tipoVenta != "Todo")
+            {
+                List<Ventas> filtrados = ventas.Where<Ventas>(x =>
+                {
+
+                    return x.TipoVenta == tipoVenta;
+
+                }).ToList();
+
+                dvg_ventas.DataSource = null;
+                dvg_ventas.DataSource = filtrados;
+            }
+            else
+            {
+                dvg_ventas.DataSource = null;
+                dvg_ventas.DataSource = ventas;
+            }
         }
     }
 }

@@ -231,7 +231,7 @@ namespace SuMueble.Views
 
         private void txt_nombreCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            if ((e.KeyChar >= 33 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
                 MessageBox.Show("Introduzca letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -263,5 +263,24 @@ namespace SuMueble.Views
                 return;
             }
         }
+
+        private void btn_quitarItem_Click(object sender, EventArgs e)
+        {
+            int i = lb_referencias.SelectedIndex;
+            if (lb_referencias.Items.Count > 0)
+            {
+               
+                listaReferencias.RemoveAt(i);
+                CargarReferencias();
+               
+
+            }
+            else
+            {
+                MessageBox.Show("No esta permitido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+   
     }
 }
