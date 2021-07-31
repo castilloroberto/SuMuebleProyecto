@@ -168,6 +168,7 @@ namespace SuMueble.Views
             this.txt_Cantidad.PlaceholderText = "Escriba Aqui...";
             this.txt_Cantidad.Size = new System.Drawing.Size(141, 27);
             this.txt_Cantidad.TabIndex = 33;
+            this.txt_Cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cantidad_KeyPress);
             // 
             // cb_productos
             // 

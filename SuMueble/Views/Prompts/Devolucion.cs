@@ -36,22 +36,41 @@ namespace SuMueble.Views
 
         private void btn_hecho_Click(object sender, EventArgs e)
         {
-            Devoluciones devolucion = new Devoluciones()
+            if (txt_Motivo.Text == "")
             {
-                CodigoFactura = detalles_[0].CodigoFactura,
-                Cantidad = int.Parse(txt_Cantidad.Text),
-                IDProducto = cb_productos.SelectedValue.GetHashCode(),
-                Motivo= txt_Motivo.Text,
-                Observaciones= txt_Observacion.Text
-
-            };
-            var res = devolucionControlador.InsertarDevolucion(devolucion);
-            if (res > 0)
-                MessageBox.Show("Devolucion Guardada Corrrecta Mente","Devoluciones",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Motivo esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_Motivo.Focus();
+            }
+            else if (txt_Cantidad.Text == "")
+            {
+                MessageBox.Show("Cantidad esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_Cantidad.Focus();
+            }
+            else if (txt_Observacion.Text == "")
+            {
+                MessageBox.Show("Observaciones esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_Observacion.Focus();
+            }
             else
-                MessageBox.Show("La Devolucion NO se Guardo Corrrecta Mente", "Devoluciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            {
+                Devoluciones devolucion = new Devoluciones()
+                {
+                    CodigoFactura = detalles_[0].CodigoFactura,
+                    Cantidad = int.Parse(txt_Cantidad.Text),
+                    IDProducto = cb_productos.SelectedValue.GetHashCode(),
+                    Motivo = txt_Motivo.Text,
+                    Observaciones = txt_Observacion.Text
 
-            this.Close();
+                };
+                var res = devolucionControlador.InsertarDevolucion(devolucion);
+                if (res > 0)
+                    MessageBox.Show("Devolucion Guardada Corrrecta Mente", "Devoluciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("La Devolucion NO se Guardo Corrrecta Mente", "Devoluciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                this.Close();
+            }
+            
         }
 
         private void cb_productos_SelectedValueChanged(object sender, EventArgs e)
@@ -63,6 +82,16 @@ namespace SuMueble.Views
         {
             txt_Cantidad.Text = detalles_.Find(x => x.IDProducto == cb_productos.SelectedValue.GetHashCode()).Cantidad.ToString();
 
+        }
+
+        private void txt_Cantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Introduzca valores numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }
