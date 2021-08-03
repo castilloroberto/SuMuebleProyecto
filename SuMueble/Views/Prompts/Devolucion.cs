@@ -22,6 +22,7 @@ namespace SuMueble.Views
             
             cargarDatos(IDVenta_);
         }
+        
 
         private void cargarDatos(Guid IDVenta)
         {
@@ -84,6 +85,7 @@ namespace SuMueble.Views
 
         }
 
+
         private void txt_Cantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
@@ -93,5 +95,6 @@ namespace SuMueble.Views
                 return;
             }
         }
+
     }
 }
