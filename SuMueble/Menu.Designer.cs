@@ -33,7 +33,7 @@ namespace SuMueble.Views
             this.panel4 = new System.Windows.Forms.Panel();
             this.btn_cerrarSesion = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
             this.btn_colaboradores = new System.Windows.Forms.Button();
             this.btn_ventas = new System.Windows.Forms.Button();
             this.btn_inventario = new System.Windows.Forms.Button();
@@ -45,9 +45,10 @@ namespace SuMueble.Views
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bienvenido = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.panel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +82,7 @@ namespace SuMueble.Views
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.panel6);
+            this.panel3.Controls.Add(this.panel);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -89,21 +90,22 @@ namespace SuMueble.Views
             this.panel3.Size = new System.Drawing.Size(303, 680);
             this.panel3.TabIndex = 9;
             // 
-            // panel6
+            // panel
             // 
-            this.panel6.AutoScroll = true;
-            this.panel6.Controls.Add(this.btn_colaboradores);
-            this.panel6.Controls.Add(this.btn_ventas);
-            this.panel6.Controls.Add(this.btn_inventario);
-            this.panel6.Controls.Add(this.btn_ventasCredito);
-            this.panel6.Controls.Add(this.btn_devoluciones);
-            this.panel6.Controls.Add(this.btn_creditos);
-            this.panel6.Controls.Add(this.btn_historialVentas);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 135);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(303, 545);
-            this.panel6.TabIndex = 12;
+            this.panel.AutoScroll = true;
+            this.panel.Controls.Add(this.bienvenido);
+            this.panel.Controls.Add(this.btn_colaboradores);
+            this.panel.Controls.Add(this.btn_ventas);
+            this.panel.Controls.Add(this.btn_inventario);
+            this.panel.Controls.Add(this.btn_ventasCredito);
+            this.panel.Controls.Add(this.btn_devoluciones);
+            this.panel.Controls.Add(this.btn_creditos);
+            this.panel.Controls.Add(this.btn_historialVentas);
+            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel.Location = new System.Drawing.Point(0, 135);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(303, 545);
+            this.panel.TabIndex = 12;
             // 
             // btn_colaboradores
             // 
@@ -254,6 +256,15 @@ namespace SuMueble.Views
             this.panel2.Size = new System.Drawing.Size(1579, 840);
             this.panel2.TabIndex = 3;
             // 
+            // bienvenido
+            // 
+            this.bienvenido.AutoSize = true;
+            this.bienvenido.Location = new System.Drawing.Point(29, 31);
+            this.bienvenido.Name = "bienvenido";
+            this.bienvenido.Size = new System.Drawing.Size(137, 20);
+            this.bienvenido.TabIndex = 6;
+            this.bienvenido.Text = "Bienvenido Usuario";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -270,7 +281,8 @@ namespace SuMueble.Views
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_FormClosed);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -293,6 +305,7 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Label bienvenido;
     }
 }

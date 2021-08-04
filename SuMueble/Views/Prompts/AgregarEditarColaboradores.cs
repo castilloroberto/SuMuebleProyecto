@@ -15,12 +15,34 @@ namespace SuMueble.Views
     {
         ColaboradorControlador cControlador = new ColaboradorControlador();
         PuestoControlador pControlador = new PuestoControlador();
-        public AgregarEditarColaboradores()
+        public AgregarEditarColaboradores(string DNI = null)
         {
             InitializeComponent();
             CargarPuestos();
+            if (DNI != null)
+            {
+                CargarColaborador(DNI);
+            }
         }
-           private bool validardatos()
+
+        private void CargarColaborador(string dni)
+        {
+            var colaborador = cControlador.GetColaborador(dni);
+            txt_correo.Text = colaborador.Email;
+            txt_dni.Text = colaborador.DNI;
+            txt_nombre.Text = colaborador.Nombre;
+            txt_rtn.Text = colaborador.RTN;
+            txt_telefono.Text = colaborador.Tel;
+            txt_direccion.Text = colaborador.Direccion;
+            dtp_fechaNacimiento.Value = colaborador.FechaNacimiento;
+            dtp_contratoIniciado.Value = colaborador.Contratado;
+            dtp_contratoFinalizado.Value = DateTime.Compare(colaborador.FinContrato, DateTime.MinValue) > 0  ? DateTime.MaxValue : colaborador.FinContrato;
+
+            cb_puesto.SelectedValue = colaborador.IDPuesto;
+            txt_dni.Enabled = false;
+        }
+
+        private bool validardatos()
         {
             bool ok;
 
