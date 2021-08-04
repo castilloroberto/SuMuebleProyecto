@@ -24,22 +24,31 @@ namespace SuMueble.Views
             string user = txt_user.Text;
             string password = txt_password.Text;
             colaborador = colaboradorControlador.GetColaborador(user);
-            
+
             if (colaborador != null)
             {
-                if (colaborador.Clave == password)
-                {
-                    Menu menu = new Menu(colaborador);
-                    menu.Show();
-                    this.Hide();
 
+                if (colaborador.Estado)
+                {
+                    if (colaborador.Clave == password)
+                    {
+                        Menu menu = new Menu(colaborador);
+                        menu.Show();
+                        this.Hide();
+
+                    }
+                  
                 }
-                txt_password.Text = "";
+                else {
+                    MessageBox.Show("Colaborador desactivado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   
+                }
             }
             else
                 MessageBox.Show("Codigo o Clave de Usuario Invalido", "Contrasena Incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             
-            txt_user.Text = "";   
+            txt_user.Text = "";
+            txt_password.Text = "";
             txt_user.Focus();
 
         }

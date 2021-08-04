@@ -51,7 +51,7 @@
             this.btn_terminarContrato.TabIndex = 6;
             this.btn_terminarContrato.Text = "Terminar Contrato";
             this.btn_terminarContrato.UseVisualStyleBackColor = false;
-            this.btn_terminarContrato.Visible = false;
+            this.btn_terminarContrato.Click += new System.EventHandler(this.btn_terminarContrato_Click);
             // 
             // btn_nuevo
             // 
