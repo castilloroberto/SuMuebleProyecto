@@ -1,26 +1,56 @@
-﻿using System;
+﻿using SuMueble.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-//
 using Ventana_de_Inventarios;
 
 namespace SuMueble.Views
 {
     public partial class Menu : Form
     {
-        public Menu()
+        private Colaboradores colaborador;
+        public Menu( Colaboradores colaborador_ )
         {
             InitializeComponent();
-            
+            colaborador = colaborador_;
             VentaView ventasUc = new VentaView();
             panel2.Controls.Add(ventasUc);
+            ValidarRol();
 
         }
+        private void ValidarRol() 
+        {
+            // ventas
+            if (colaborador.IDPuesto == 2)
+            {
+                btn_inventario.Visible = false;
+                btn_colaboradores.Visible = false;
+            }
 
+            // bodega
+            if (colaborador.IDPuesto == 3)
+            {
+                btn_ventas.Visible = false;
+                btn_ventasCredito.Visible = false;
+                btn_creditos.Visible = false;
+                btn_devoluciones.Visible = false;
+                btn_colaboradores.Visible = false;
+            }
+            // secretaria
+            if (colaborador.IDPuesto == 4)
+            {
+                btn_inventario.Visible = false;
+                btn_devoluciones.Visible = false;
+                btn_ventas.Visible = false;
+                btn_ventasCredito.Visible = false;
+            }
+            // gerente lo vee todo
+
+        }
         
         private void HideAll()
         {

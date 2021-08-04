@@ -29,6 +29,11 @@ namespace SuMueble.Controller
             }
         }
 
+        internal object GetProducto()
+        {
+            throw new NotImplementedException();
+        }
+
         private bool UpdateProductos(Productos producto)
         {
             using (var DB = GetConnection)

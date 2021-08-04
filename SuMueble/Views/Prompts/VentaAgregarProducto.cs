@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,17 +8,21 @@ using System.Text;
 using System.Windows.Forms;
 using SuMueble.Controller;
 using SuMueble.Models;
+using System.Linq;
 
 namespace SuMueble.Views.Prompts
 {
     public partial class VentaAgregarProducto : Form
     {
         ProductoControlador productoControlador = new ProductoControlador();
+        List<Productos> productos;
         public VentaAgregarProducto()
         {
             InitializeComponent();
             dgv_productos.AutoGenerateColumns = false;
             dgv_productos.DataSource = productoControlador.GetProductos();
+            productos = productoControlador.GetProductos().ToList();
+            dgv_productos.DataSource = productos;
         }
 
 
@@ -69,6 +74,21 @@ namespace SuMueble.Views.Prompts
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void txt_buscarProducto_TextChanged(object sender, EventArgs e)
+        {
+            string buscar = txt_buscarProducto.Text.ToLower();
+
+            List<Productos> filtrados = productos.Where<Productos>(x => {
+
+                return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
+
+
+            }).ToList();
+
+            dgv_productos.DataSource = null;
+            dgv_productos.DataSource = filtrados;
         }
     }
 }
