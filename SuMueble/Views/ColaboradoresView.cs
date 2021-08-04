@@ -42,12 +42,18 @@ namespace SuMueble.Views
 
         private void btn_actualizar_Click(object sender, EventArgs e)
         {
-            AgregarEditarColaboradores addEditColaborador = new AgregarEditarColaboradores();
+            string colabodador = GetCell(0);
+            var addEditColaborador = new AgregarEditarColaboradores(colabodador);
 
             addEditColaborador.ShowDialog();
             //actailizar data grid despues de agregar 
         }
+        public dynamic GetCell(int cell)
+        {
+            int idx = dgv_colaboradores.CurrentRow.Index;
+            return dgv_colaboradores.Rows[idx].Cells[cell].Value;
 
+        }
         private void txt_busqueda_TextChanged(object sender, EventArgs e)
         {
             string buscar =txt_busqueda.Text.ToLower();
