@@ -65,15 +65,15 @@ namespace SuMueble.Views
                 };
                 bool ok = ventaController.SaveVenta(venta);
                 if (ok)
-                    MessageBox.Show($"Venta Terminada\nMonto: {Total}", "Venta Completada",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show($"Venta Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 else
-                    MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Error al completar la Venta",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 CargarDataGrid();
                 ClearVenta();
                 
             }
             else
-                MessageBox.Show("Faltan los siguientes datos:\n"+msg, "Faltan datos de la venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Faltan los siguientes datos:\n"+msg, "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
@@ -102,41 +102,46 @@ namespace SuMueble.Views
         private void btn_agregarProducto_Click(object sender, EventArgs e)
 
         {
-
-            if (int.Parse(GetCell(4)) < int.Parse(txt_cantidadProducto.Text))
+            if (txt_cantidadProducto.Text == "")
             {
-                MessageBox.Show("No hay existencia del producto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 
-                
-            } else
+                MessageBox.Show("Cantidad ausente", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
             {
-
-                if (txt_cantidadProducto.Text != string.Empty && txt_precio.Text != string.Empty)
+                if (int.Parse(GetCell(4)) < int.Parse(txt_cantidadProducto.Text))
                 {
-                    DetallesVentas dv = new DetallesVentas()
-                    {
-                        IDVenta = _IDVenta,
-                        IDProducto = int.Parse(GetCell(0)),
-                        Cantidad = int.Parse(txt_cantidadProducto.Text),
-                        PrecioVenta = int.Parse(txt_precio.Text),
-                        Producto = GetCell(2),
+                    MessageBox.Show("No hay existencia del producto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    };
 
-                    CargarListVew(dv);
-                    ClearProducto();
                 }
                 else
-                    MessageBox.Show(_msg, "Faltan datos de la venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                {
+
+
+                    if (txt_cantidadProducto.Text != string.Empty && txt_precio.Text != string.Empty)
+                    {
+                        DetallesVentas dv = new DetallesVentas()
+                        {
+                            IDVenta = _IDVenta,
+                            IDProducto = int.Parse(GetCell(0)),
+                            Cantidad = int.Parse(txt_cantidadProducto.Text),
+                            PrecioVenta = int.Parse(txt_precio.Text),
+                            Producto = GetCell(2),
+
+                        };
+
+                        CargarListVew(dv);
+                        ClearProducto();
+                    }
+                    else
+                        MessageBox.Show(_msg, "Faltan datos de la venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
 
+                }
             }
-
-
-
-
 
 
 

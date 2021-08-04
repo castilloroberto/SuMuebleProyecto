@@ -68,5 +68,20 @@ namespace SuMueble.Views
             dgv_colaboradores.DataSource = null;
             dgv_colaboradores.DataSource = filtrados;
         }
+
+        private void btn_terminarContrato_Click(object sender, EventArgs e)
+        {
+            if (dgv_colaboradores.SelectedRows.Count > 0)
+            {
+                cControlador.desactivarColaborador(GetCell(0));
+                CargarDatos();
+            }
+            else {
+                MessageBox.Show("No hay ningún colaborador seleccionado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txt_busqueda.Text = "";
+                txt_busqueda.Focus();
+            }
+
+        }
     }
 }

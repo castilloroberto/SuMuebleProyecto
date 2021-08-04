@@ -65,7 +65,7 @@ namespace SuMueble.Views
             this.btn_agregarDevolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarDevolucion.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_agregarDevolucion.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarDevolucion.Location = new System.Drawing.Point(1285, 695);
+            this.btn_agregarDevolucion.Location = new System.Drawing.Point(1365, 701);
             this.btn_agregarDevolucion.Name = "btn_agregarDevolucion";
             this.btn_agregarDevolucion.Size = new System.Drawing.Size(120, 37);
             this.btn_agregarDevolucion.TabIndex = 1;
@@ -94,7 +94,7 @@ namespace SuMueble.Views
             "Todo",
             "Al Credito",
             "Al Contado"});
-            this.cb_filtro.Location = new System.Drawing.Point(1171, 247);
+            this.cb_filtro.Location = new System.Drawing.Point(1250, 245);
             this.cb_filtro.Name = "cb_filtro";
             this.cb_filtro.Size = new System.Drawing.Size(235, 36);
             this.cb_filtro.TabIndex = 4;
@@ -104,7 +104,7 @@ namespace SuMueble.Views
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1163, 204);
+            this.label2.Location = new System.Drawing.Point(1242, 202);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 32);
             this.label2.TabIndex = 0;
@@ -143,7 +143,7 @@ namespace SuMueble.Views
             this.dvg_devoluciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dvg_devoluciones.RowHeadersWidth = 51;
             this.dvg_devoluciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvg_devoluciones.Size = new System.Drawing.Size(1283, 377);
+            this.dvg_devoluciones.Size = new System.Drawing.Size(1364, 377);
             this.dvg_devoluciones.TabIndex = 5;
             // 
             // CodigoF
