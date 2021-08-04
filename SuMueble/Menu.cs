@@ -20,6 +20,7 @@ namespace SuMueble.Views
             VentaView ventasUc = new VentaView();
             panel2.Controls.Add(ventasUc);
             ValidarRol();
+            bienvenido.Text = string.Format("Bienvenido {0}",colaborador_.Nombre);
 
         }
         private void ValidarRol() 
