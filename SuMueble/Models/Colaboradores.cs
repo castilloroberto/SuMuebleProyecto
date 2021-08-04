@@ -29,7 +29,7 @@ namespace SuMueble.Models
 
         public DateTime Contratado { get; set; }
 
-        public DateTime FinContrato { get; set; }
+        public Nullable<DateTime> FinContrato { get; set; }
 
         public Boolean Estado { get; set; }
 

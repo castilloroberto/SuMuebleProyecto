@@ -36,7 +36,16 @@ namespace SuMueble.Views
             txt_direccion.Text = colaborador.Direccion;
             dtp_fechaNacimiento.Value = colaborador.FechaNacimiento;
             dtp_contratoIniciado.Value = colaborador.Contratado;
-            dtp_contratoFinalizado.Value = DateTime.Compare(colaborador.FinContrato, DateTime.MinValue) > 0  ? DateTime.MaxValue : colaborador.FinContrato;
+            txt_clave.Text = colaborador.Clave;
+            if (colaborador.FinContrato == null)
+            {
+                txt_finContrato.Text = "No definido";
+
+            } else
+            {
+                txt_finContrato.Text = colaborador.FinContrato.Value.ToString();
+
+            }
 
             cb_puesto.SelectedValue = colaborador.IDPuesto;
             txt_dni.Enabled = false;
@@ -81,8 +90,9 @@ namespace SuMueble.Views
                     Nombre = txt_nombre.Text,
                     RTN = txt_rtn.Text,
                     Tel = txt_telefono.Text,
-                    FinContrato = dtp_contratoFinalizado.Value,
-                    IDPuesto = cb_puesto.SelectedValue.GetHashCode()
+                    FinContrato = null,
+                    IDPuesto = cb_puesto.SelectedValue.GetHashCode(),
+                    Estado = true
                 };
                 cControlador.SaveColaborador(colaborador);
                 MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);

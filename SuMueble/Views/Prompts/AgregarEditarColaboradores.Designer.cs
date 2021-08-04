@@ -44,7 +44,6 @@ namespace SuMueble.Views
             this.label7 = new System.Windows.Forms.Label();
             this.dtp_fechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.dtp_contratoFinalizado = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_correo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@ namespace SuMueble.Views
             this.txt_direccion = new System.Windows.Forms.TextBox();
             this.btn_hecho = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.txt_finContrato = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -102,7 +102,7 @@ namespace SuMueble.Views
             this.txt_rtn.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_rtn.Location = new System.Drawing.Point(353, 45);
             this.txt_rtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_rtn.MaxLength = 15;
+            this.txt_rtn.MaxLength = 14;
             this.txt_rtn.Name = "txt_rtn";
             this.txt_rtn.PlaceholderText = "Escriba Aqui...";
             this.txt_rtn.Size = new System.Drawing.Size(166, 27);
@@ -212,17 +212,6 @@ namespace SuMueble.Views
             this.label8.Text = "Fecha Finalizacion Contrato:";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // dtp_contratoFinalizado
-            // 
-            this.dtp_contratoFinalizado.Enabled = false;
-            this.dtp_contratoFinalizado.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_contratoFinalizado.Location = new System.Drawing.Point(273, 479);
-            this.dtp_contratoFinalizado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dtp_contratoFinalizado.Name = "dtp_contratoFinalizado";
-            this.dtp_contratoFinalizado.Size = new System.Drawing.Size(246, 27);
-            this.dtp_contratoFinalizado.TabIndex = 16;
-            this.dtp_contratoFinalizado.ValueChanged += new System.EventHandler(this.dtp_contratoFinalizado_ValueChanged);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -320,6 +309,15 @@ namespace SuMueble.Views
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = false;
             // 
+            // txt_finContrato
+            // 
+            this.txt_finContrato.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_finContrato.Location = new System.Drawing.Point(275, 481);
+            this.txt_finContrato.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_finContrato.Name = "txt_finContrato";
+            this.txt_finContrato.Size = new System.Drawing.Size(246, 27);
+            this.txt_finContrato.TabIndex = 8;
+            // 
             // AgregarEditarColaboradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -335,7 +333,6 @@ namespace SuMueble.Views
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_correo);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dtp_contratoFinalizado);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dtp_fechaNacimiento);
             this.Controls.Add(this.label7);
@@ -343,6 +340,7 @@ namespace SuMueble.Views
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cb_puesto);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.txt_finContrato);
             this.Controls.Add(this.txt_clave);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_nombre);
@@ -380,7 +378,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtp_fechaNacimiento;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dtp_contratoFinalizado;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_correo;
         private System.Windows.Forms.Label label10;
@@ -389,5 +386,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.TextBox txt_direccion;
         private System.Windows.Forms.Button btn_hecho;
         private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.TextBox txt_finContrato;
     }
 }

@@ -55,6 +55,7 @@ namespace SuMueble.Views
             this.txt_user.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_user.Location = new System.Drawing.Point(372, 316);
             this.txt_user.MaximumSize = new System.Drawing.Size(1000, 1000);
+            this.txt_user.MaxLength = 13;
             this.txt_user.MinimumSize = new System.Drawing.Size(250, 37);
             this.txt_user.Name = "txt_user";
             this.txt_user.PlaceholderText = "Numero de identidad...";
