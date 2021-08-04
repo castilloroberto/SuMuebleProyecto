@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace SuMueble.Views
 {
@@ -63,30 +64,61 @@ namespace SuMueble.Views
             return ok;
 
         }
+
+        private bool validarCorreo(string correo) {
+            string expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(txt_correo.Text, expresion))
+            {
+                if (Regex.Replace(txt_correo.Text, expresion, String.Empty).Length == 0)
+                {
+                    return  true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void btn_hecho_Click(object sender, EventArgs e)
         {
             bool ok = validardatos();
-            
+
+           
+
             if (ok)
             {
-                // enviar el insert 
-                Colaboradores colaborador = new Colaboradores()
+                if (validarCorreo(txt_correo.Text))
                 {
-                    Clave = txt_clave.Text,
-                    Contratado = dtp_contratoIniciado.Value,
-                    Direccion = txt_direccion.Text,
-                    DNI = txt_dni.Text,
-                    Email = txt_correo.Text,
-                    FechaNacimiento = dtp_fechaNacimiento.Value,
-                    Nombre = txt_nombre.Text,
-                    RTN = txt_rtn.Text,
-                    Tel = txt_telefono.Text,
-                    FinContrato = dtp_contratoFinalizado.Value,
-                    IDPuesto = cb_puesto.SelectedValue.GetHashCode()
-                };
-                cControlador.SaveColaborador(colaborador);
-                MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                    // enviar el insert 
+                    Colaboradores colaborador = new Colaboradores()
+                    {
+                        Clave = txt_clave.Text,
+                        Contratado = dtp_contratoIniciado.Value,
+                        Direccion = txt_direccion.Text,
+                        DNI = txt_dni.Text,
+                        Email = txt_correo.Text,
+                        FechaNacimiento = dtp_fechaNacimiento.Value,
+                        Nombre = txt_nombre.Text,
+                        RTN = txt_rtn.Text,
+                        Tel = txt_telefono.Text,
+                        FinContrato = dtp_contratoFinalizado.Value,
+                        IDPuesto = cb_puesto.SelectedValue.GetHashCode()
+                    };
+                    cControlador.SaveColaborador(colaborador);
+                    MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+
+                }
+                else {
+                    MessageBox.Show("Correo no valido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txt_correo.Focus();
+                }
 
             }
 
