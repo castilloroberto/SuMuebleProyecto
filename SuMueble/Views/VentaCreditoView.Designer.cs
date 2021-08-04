@@ -78,7 +78,6 @@ namespace SuMueble.Views
             this.txt_nombreCliente.PlaceholderText = "Nombre y Apellidos...";
             this.txt_nombreCliente.Size = new System.Drawing.Size(325, 34);
             this.txt_nombreCliente.TabIndex = 33;
-            this.txt_nombreCliente.TextChanged += new System.EventHandler(this.txt_nombreCliente_TextChanged);
             this.txt_nombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombreCliente_KeyPress);
             // 
             // txt_dniCliente

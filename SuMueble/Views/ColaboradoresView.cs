@@ -62,5 +62,10 @@ namespace SuMueble.Views
             dgv_colaboradores.DataSource = null;
             dgv_colaboradores.DataSource = filtrados;
         }
+
+        private void btn_terminarContrato_Click(object sender, EventArgs e)
+        {
+            cControlador.desactivarColaborador();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using SuMueble.Models;
 using SuMueble.Views;
 using System;
@@ -23,6 +24,19 @@ namespace SuMueble.Controller
                 return db.Update<Colaboradores>(c);
             }
         }
+
+        public bool desactivarColaborador(string DNI)
+        {
+            using (var db = GetConnection)
+            {
+                string sql = @$"UPDATE Colaboradores
+                                        SET FinContrato = GETDATE()
+                                       ,Estado = 0
+                                       WHERE DNI = '{DNI}' ";
+                return db.Execute(sql) > 0;
+            }
+        }
+
         public Colaboradores GetColaborador(string DNI)
         {
             using (var db = GetConnection)
