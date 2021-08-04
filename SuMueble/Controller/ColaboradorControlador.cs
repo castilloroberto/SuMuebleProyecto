@@ -74,7 +74,8 @@ namespace SuMueble.Controller
         {
             using (var db = GetConnection)
             {
-                return db.GetAll<Colaboradores>();
+                string sql = "SELECT * from Colaboradores Where Estado = 1";
+                return db.Query<Colaboradores>(sql);
             }
         }
     }
