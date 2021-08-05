@@ -91,6 +91,8 @@
             // 
             this.dgv_colaboradores.AllowUserToAddRows = false;
             this.dgv_colaboradores.AllowUserToDeleteRows = false;
+            this.dgv_colaboradores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_colaboradores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_colaboradores.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_colaboradores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_colaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -99,6 +101,7 @@
             this.dgv_colaboradores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_colaboradores.Name = "dgv_colaboradores";
             this.dgv_colaboradores.ReadOnly = true;
+            this.dgv_colaboradores.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv_colaboradores.RowHeadersWidth = 51;
             this.dgv_colaboradores.RowTemplate.Height = 25;
             this.dgv_colaboradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
