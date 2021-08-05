@@ -71,10 +71,20 @@ namespace SuMueble.Views
 
         private void btn_terminarContrato_Click(object sender, EventArgs e)
         {
-            if (dgv_colaboradores.SelectedRows.Count > 0)
+
+            
+             
+
+                        if (dgv_colaboradores.SelectedRows.Count > 0)
             {
-                cControlador.desactivarColaborador(GetCell(0));
-                CargarDatos();
+                DialogResult boton = MessageBox.Show("¿Desea terminar el contrato seleccionado?", "Mensaje del sistena", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (boton == DialogResult.OK)
+                {
+                    cControlador.desactivarColaborador(GetCell(0));
+                    CargarDatos();
+               
+                }
+               
             }
             else {
                 MessageBox.Show("No hay ningún colaborador seleccionado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
