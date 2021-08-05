@@ -91,8 +91,6 @@
             // 
             this.dgv_colaboradores.AllowUserToAddRows = false;
             this.dgv_colaboradores.AllowUserToDeleteRows = false;
-            this.dgv_colaboradores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_colaboradores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_colaboradores.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_colaboradores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_colaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
