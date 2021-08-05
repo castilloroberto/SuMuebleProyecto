@@ -136,14 +136,14 @@ namespace SuMueble.Views
             this.txt_clave.Name = "txt_clave";
             this.txt_clave.PasswordChar = '*';
             this.txt_clave.PlaceholderText = "Para entrar al Sistema...";
-            this.txt_clave.Size = new System.Drawing.Size(141, 27);
+            this.txt_clave.Size = new System.Drawing.Size(244, 27);
             this.txt_clave.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(298, 228);
+            this.label5.Location = new System.Drawing.Point(48, 271);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 20);
             this.label5.TabIndex = 9;
@@ -155,10 +155,10 @@ namespace SuMueble.Views
             this.cb_puesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_puesto.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cb_puesto.FormattingEnabled = true;
-            this.cb_puesto.Location = new System.Drawing.Point(371, 221);
+            this.cb_puesto.Location = new System.Drawing.Point(135, 263);
             this.cb_puesto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cb_puesto.Name = "cb_puesto";
-            this.cb_puesto.Size = new System.Drawing.Size(148, 28);
+            this.cb_puesto.Size = new System.Drawing.Size(244, 28);
             this.cb_puesto.TabIndex = 10;
             // 
             // label6
@@ -191,7 +191,6 @@ namespace SuMueble.Views
             this.label7.Size = new System.Drawing.Size(131, 25);
             this.label7.TabIndex = 13;
             this.label7.Text = "Fecha Contrato:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // dtp_fechaNacimiento
             // 
@@ -210,7 +209,6 @@ namespace SuMueble.Views
             this.label8.Size = new System.Drawing.Size(224, 25);
             this.label8.TabIndex = 15;
             this.label8.Text = "Fecha Finalizacion Contrato:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -221,7 +219,6 @@ namespace SuMueble.Views
             this.label9.Size = new System.Drawing.Size(68, 25);
             this.label9.TabIndex = 17;
             this.label9.Text = "Correo:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // txt_correo
             // 
@@ -243,7 +240,6 @@ namespace SuMueble.Views
             this.label10.Size = new System.Drawing.Size(79, 25);
             this.label10.TabIndex = 19;
             this.label10.Text = "Telefono:";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // txt_telefono
             // 
@@ -315,6 +311,7 @@ namespace SuMueble.Views
             this.txt_finContrato.Location = new System.Drawing.Point(275, 481);
             this.txt_finContrato.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_finContrato.Name = "txt_finContrato";
+            this.txt_finContrato.ReadOnly = true;
             this.txt_finContrato.Size = new System.Drawing.Size(246, 27);
             this.txt_finContrato.TabIndex = 8;
             // 
@@ -387,5 +384,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Button btn_hecho;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.TextBox txt_finContrato;
+        private System.Windows.Forms.Button btn_addPuesto;
     }
 }

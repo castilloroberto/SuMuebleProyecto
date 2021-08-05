@@ -2,6 +2,7 @@
 using SuMueble.Models;
 using SuMueble.Views.Prompts;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -103,22 +104,7 @@ namespace SuMueble.Views
 
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txt_correo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
         {
 
         }
@@ -127,29 +113,20 @@ namespace SuMueble.Views
         {
 
         }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtp_contratoFinalizado_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
         private void CargarPuestos()
         {
-            cb_puesto.DataSource = pControlador.GetPuestos();
+            var puestos = pControlador.GetPuestos();
+            
+            if (Menu.colaborador.IDPuesto != 1)
+            {
+                puestos = puestos.Where( item => {
+                    return item.ID != 1;
+                }).ToList();
+            }
+
+            cb_puesto.DataSource = puestos;
             cb_puesto.DisplayMember = "Puesto";
             cb_puesto.ValueMember = "ID";
-        }
-
-        private void btnNuevoPuesto_Click(object sender, EventArgs e)
-        {
-            string Puesto = Input.Show("Ingrese Un Nuevo Puesto", "Nuevo Puesto");
-            if (Puesto != "")
-                pControlador.InsertarPuestos(Puesto);
-            CargarPuestos();
         }
 
         private void txt_dni_KeyPress(object sender, KeyPressEventArgs e)
@@ -171,5 +148,13 @@ namespace SuMueble.Views
                 return;
             }
         }
+
+        //private void btn_addPuesto_Click(object sender, EventArgs e)
+        //{
+        //    string Puesto = Input.Show("Ingrese Un Nuevo Puesto", "Nuevo Puesto");
+        //    if (Puesto != "")
+        //        pControlador.InsertarPuestos(Puesto);
+        //    CargarPuestos();
+        //}
     }
 }

@@ -46,7 +46,8 @@ namespace SuMueble.Views
             var addEditColaborador = new AgregarEditarColaboradores(colabodador);
 
             addEditColaborador.ShowDialog();
-            //actailizar data grid despues de agregar 
+            //actailizar data grid despues de agregar
+            CargarDatos();
         }
         public dynamic GetCell(int cell)
         {
@@ -72,10 +73,7 @@ namespace SuMueble.Views
         private void btn_terminarContrato_Click(object sender, EventArgs e)
         {
 
-            
-             
-
-                        if (dgv_colaboradores.SelectedRows.Count > 0)
+            if (dgv_colaboradores.SelectedRows.Count > 0)
             {
                 DialogResult boton = MessageBox.Show("¿Desea terminar el contrato seleccionado?", "Mensaje del sistena", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (boton == DialogResult.OK)
@@ -86,7 +84,8 @@ namespace SuMueble.Views
                 }
                
             }
-            else {
+            else 
+            {
                 MessageBox.Show("No hay ningún colaborador seleccionado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txt_busqueda.Text = "";
                 txt_busqueda.Focus();

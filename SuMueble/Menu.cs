@@ -12,7 +12,7 @@ namespace SuMueble.Views
 {
     public partial class Menu : Form
     {
-        private Colaboradores colaborador;
+        public static Colaboradores colaborador;
         public Menu( Colaboradores colaborador_ )
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace SuMueble.Views
             VentaView ventasUc = new VentaView();
             panel2.Controls.Add(ventasUc);
             ValidarRol();
-            bienvenido.Text = string.Format("Bienvenido {0}",colaborador_.Nombre);
+            bienvenido.Text = string.Format("{0}",colaborador_.Nombre);
 
         }
         private void ValidarRol() 
@@ -50,7 +50,7 @@ namespace SuMueble.Views
                 btn_ventasCredito.Visible = false;
             }
             // gerente lo vee todo
-
+            //ID = 1
         }
         
         private void HideAll()

@@ -84,7 +84,6 @@ namespace SuMueble.Views
             this.txt_Observacion.PlaceholderText = "Escriba Aqui...";
             this.txt_Observacion.Size = new System.Drawing.Size(329, 64);
             this.txt_Observacion.TabIndex = 27;
-            this.txt_Observacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Observacion_KeyPress);
             // 
             // label11
             // 
@@ -106,8 +105,7 @@ namespace SuMueble.Views
             this.txt_Motivo.PlaceholderText = "Escriba Aqui...";
             this.txt_Motivo.Size = new System.Drawing.Size(231, 27);
             this.txt_Motivo.TabIndex = 31;
-            this.txt_Motivo.TextChanged += new System.EventHandler(this.txt_Motivo_TextChanged);
-            this.txt_Motivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Motivo_KeyPress);
+        
             // 
             // txt_CodigoFactura
             // 
