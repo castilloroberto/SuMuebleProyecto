@@ -91,8 +91,6 @@
             // 
             this.dgv_colaboradores.AllowUserToAddRows = false;
             this.dgv_colaboradores.AllowUserToDeleteRows = false;
-            this.dgv_colaboradores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_colaboradores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_colaboradores.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_colaboradores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_colaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -134,6 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dgv_colaboradores);
             this.Controls.Add(this.btn_terminarContrato);
             this.Controls.Add(this.btn_nuevo);

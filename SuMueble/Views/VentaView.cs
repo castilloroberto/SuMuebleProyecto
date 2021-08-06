@@ -8,13 +8,13 @@ using System.Windows.Forms;
 using System.Linq;
 using SuMueble.Controller;
 using SuMueble.Models;
+using SuMueble.Views.Prompts;
 
 namespace SuMueble.Views
 {
     public partial class VentaView : UserControl
     {
         //controladores
-        ProductoControlador productoControlador = new ProductoControlador();
         ClienteControlador clienteControlador = new ClienteControlador();
         ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
         VentaController ventaController = new VentaController();
@@ -65,7 +65,10 @@ namespace SuMueble.Views
                 };
                 bool ok = ventaController.SaveVenta(venta);
                 if (ok)
+                {
                     MessageBox.Show($"Venta Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                }
                 else
                     MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 CargarDataGrid();
@@ -358,6 +361,19 @@ namespace SuMueble.Views
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void btn_verFactura_Click(object sender, EventArgs e)
+        {
+            var verfactura = new Factura(_detallesVenta, Total,_IDVenta);
+            this.Hide();
+            Menu.main_panel.BackColor = Color.LightGray;
+            this.BackColor = Color.LightGray;
+            verfactura.ShowDialog();
+            this.BackColor = Color.White;
+            Menu.main_panel.BackColor = Color.White;
+            this.Show();
+            
         }
     }
 }
