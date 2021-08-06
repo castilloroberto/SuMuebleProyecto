@@ -29,23 +29,26 @@ namespace SuMueble.Views.Prompts
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Factura));
             this.header_panel = new System.Windows.Forms.Panel();
             this.hora = new System.Windows.Forms.Label();
             this.cajero = new System.Windows.Forms.Label();
             this.fecha = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.cod_factura = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.botton_panel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.total = new System.Windows.Forms.Label();
             this.main_panel = new System.Windows.Forms.Panel();
             this.dgv_factura = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.header_panel.SuspendLayout();
             this.botton_panel.SuspendLayout();
             this.main_panel.SuspendLayout();
@@ -57,7 +60,7 @@ namespace SuMueble.Views.Prompts
             this.header_panel.Controls.Add(this.hora);
             this.header_panel.Controls.Add(this.cajero);
             this.header_panel.Controls.Add(this.fecha);
-            this.header_panel.Controls.Add(this.label5);
+            this.header_panel.Controls.Add(this.cod_factura);
             this.header_panel.Controls.Add(this.label4);
             this.header_panel.Controls.Add(this.label3);
             this.header_panel.Controls.Add(this.label2);
@@ -100,16 +103,16 @@ namespace SuMueble.Views.Prompts
             this.fecha.Text = "Fecha:";
             this.fecha.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label5
+            // cod_factura
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(149, 236);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 23);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Factura Nº : 0";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.cod_factura.AutoSize = true;
+            this.cod_factura.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cod_factura.Location = new System.Drawing.Point(149, 236);
+            this.cod_factura.Name = "cod_factura";
+            this.cod_factura.Size = new System.Drawing.Size(113, 23);
+            this.cod_factura.TabIndex = 4;
+            this.cod_factura.Text = "Factura Nº : 0";
+            this.cod_factura.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label4
             // 
@@ -157,21 +160,22 @@ namespace SuMueble.Views.Prompts
             // 
             // botton_panel
             // 
-            this.botton_panel.Controls.Add(this.label7);
+            this.botton_panel.Controls.Add(this.total);
             this.botton_panel.Location = new System.Drawing.Point(0, 701);
             this.botton_panel.Name = "botton_panel";
             this.botton_panel.Size = new System.Drawing.Size(449, 164);
             this.botton_panel.TabIndex = 3;
             // 
-            // label7
+            // total
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(146, 27);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(155, 35);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Botton Panel";
+            this.total.AutoSize = true;
+            this.total.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.total.Location = new System.Drawing.Point(250, 16);
+            this.total.Name = "total";
+            this.total.Size = new System.Drawing.Size(50, 23);
+            this.total.TabIndex = 1;
+            this.total.Text = "Total:";
+            this.total.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // main_panel
             // 
@@ -238,6 +242,21 @@ namespace SuMueble.Views.Prompts
             this.label6.TabIndex = 2;
             this.label6.Text = "Datos del Cliente";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // Factura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -252,6 +271,9 @@ namespace SuMueble.Views.Prompts
             this.Name = "Factura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Factura";
+            this.Activated += new System.EventHandler(this.Factura_Activated);
+            this.Load += new System.EventHandler(this.Factura_Load);
+            this.Shown += new System.EventHandler(this.Factura_Shown);
             this.header_panel.ResumeLayout(false);
             this.header_panel.PerformLayout();
             this.botton_panel.ResumeLayout(false);
@@ -269,7 +291,7 @@ namespace SuMueble.Views.Prompts
         private System.Windows.Forms.Label hora;
         private System.Windows.Forms.Label cajero;
         private System.Windows.Forms.Label fecha;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label cod_factura;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -281,6 +303,8 @@ namespace SuMueble.Views.Prompts
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label total;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

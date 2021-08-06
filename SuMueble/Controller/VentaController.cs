@@ -33,6 +33,13 @@ namespace SuMueble.Controller
             }
         }
 
+        public Ventas GetVentaByGuid(Guid guid)
+        {
+            using (var db = GetConnection)
+            {
+                return db.Get<Ventas>(guid);
+            }
+        }
 
         public bool SaveVenta(Ventas v)
         {

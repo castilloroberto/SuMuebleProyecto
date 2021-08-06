@@ -15,7 +15,6 @@ namespace SuMueble.Views
     public partial class VentaView : UserControl
     {
         //controladores
-        ProductoControlador productoControlador = new ProductoControlador();
         ClienteControlador clienteControlador = new ClienteControlador();
         ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
         VentaController ventaController = new VentaController();
@@ -66,7 +65,10 @@ namespace SuMueble.Views
                 };
                 bool ok = ventaController.SaveVenta(venta);
                 if (ok)
+                {
                     MessageBox.Show($"Venta Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                }
                 else
                     MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 CargarDataGrid();
@@ -363,8 +365,9 @@ namespace SuMueble.Views
 
         private void btn_verFactura_Click(object sender, EventArgs e)
         {
-            var verfactura = new Factura(_detallesVenta);
+            var verfactura = new Factura(_detallesVenta, Total,_IDVenta);
             verfactura.Show();
+            
         }
     }
 }
