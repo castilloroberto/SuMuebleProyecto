@@ -99,6 +99,7 @@
             this.dgv_colaboradores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_colaboradores.Name = "dgv_colaboradores";
             this.dgv_colaboradores.ReadOnly = true;
+            this.dgv_colaboradores.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv_colaboradores.RowHeadersWidth = 51;
             this.dgv_colaboradores.RowTemplate.Height = 25;
             this.dgv_colaboradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

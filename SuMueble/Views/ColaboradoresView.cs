@@ -87,9 +87,10 @@ namespace SuMueble.Views
             else 
             {
                 MessageBox.Show("No hay ningún colaborador seleccionado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt_busqueda.Text = "";
-                txt_busqueda.Focus();
+               
             }
+            txt_busqueda.Text = "";
+            txt_busqueda.Focus();
 
         }
     }
