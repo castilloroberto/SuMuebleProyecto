@@ -18,7 +18,7 @@ namespace SuMueble.Views
             InitializeComponent();
             colaborador = colaborador_;
             VentaView ventasUc = new VentaView();
-            panel2.Controls.Add(ventasUc);
+            main_panel.Controls.Add(ventasUc);
             ValidarRol();
             bienvenido.Text = string.Format("{0}",colaborador_.Nombre);
 
@@ -90,11 +90,11 @@ namespace SuMueble.Views
             // establece el color de selccionado
             btn_ventas.BackColor = Color.DodgerBlue;
             //UserControl
-            panel2.Controls.Clear();
+            main_panel.Controls.Clear();
             VentaView ventasUc = new VentaView();
             //ventasUc.Width = panel2.Width-5;
             //ventasUc.Height = panel2.Height-5;
-            panel2.Controls.Add(ventasUc);
+            main_panel.Controls.Add(ventasUc);
             
 
         }
@@ -104,10 +104,10 @@ namespace SuMueble.Views
             HideAll();
             btn_inventario.ForeColor = Color.White;
             btn_inventario.BackColor = Color.DodgerBlue;
-            panel2.Controls.Clear();
+            main_panel.Controls.Clear();
             // vista
             InventariosView inventario = new InventariosView();
-            panel2.Controls.Add(inventario);
+            main_panel.Controls.Add(inventario);
         }
     
 
@@ -116,10 +116,10 @@ namespace SuMueble.Views
             HideAll();
             btn_creditos.ForeColor = Color.White;
             btn_creditos.BackColor = Color.DodgerBlue;
-            panel2.Controls.Clear();
+            main_panel.Controls.Clear();
             // vista
             CreditosView creditos = new CreditosView();
-            panel2.Controls.Add(creditos);
+            main_panel.Controls.Add(creditos);
         }
 
         private void btn_devoluciones_Click(object sender, EventArgs e)
@@ -127,10 +127,10 @@ namespace SuMueble.Views
             HideAll();
             btn_devoluciones.ForeColor = Color.White;
             btn_devoluciones.BackColor = Color.DodgerBlue;
-            panel2.Controls.Clear();
+            main_panel.Controls.Clear();
             // vista
             DevolucionesView devoluciones = new DevolucionesView();
-            panel2.Controls.Add(devoluciones);
+            main_panel.Controls.Add(devoluciones);
         }
 
         private void btn_historialVentas_Click(object sender, EventArgs e)
@@ -140,9 +140,9 @@ namespace SuMueble.Views
             btn_historialVentas.BackColor = Color.DodgerBlue;
             
             // vista
-            panel2.Controls.Clear();
+            main_panel.Controls.Clear();
             HistorialVentasView historial = new HistorialVentasView();
-            panel2.Controls.Add(historial);
+            main_panel.Controls.Add(historial);
         }
 
         private void btn_colaboradores_Click(object sender, EventArgs e)
@@ -150,9 +150,9 @@ namespace SuMueble.Views
             HideAll();
             btn_colaboradores.ForeColor = Color.White;
             btn_colaboradores.BackColor = Color.DodgerBlue;
-            panel2.Controls.Clear();
+            main_panel.Controls.Clear();
             ColaboradoresView uc = new ColaboradoresView();
-            panel2.Controls.Add(uc);
+            main_panel.Controls.Add(uc);
         }
 
         
@@ -175,9 +175,9 @@ namespace SuMueble.Views
 
             btn_ventasCredito.ForeColor = Color.White;
             btn_ventasCredito.BackColor = Color.DodgerBlue;
-            panel2.Controls.Clear();
+            main_panel.Controls.Clear();
             VentaCreditoView ventaCreditoView = new VentaCreditoView();
-            panel2.Controls.Add(ventaCreditoView);
+            main_panel.Controls.Add(ventaCreditoView);
         }
     }
 }

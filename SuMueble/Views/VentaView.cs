@@ -366,7 +366,13 @@ namespace SuMueble.Views
         private void btn_verFactura_Click(object sender, EventArgs e)
         {
             var verfactura = new Factura(_detallesVenta, Total,_IDVenta);
-            verfactura.Show();
+            this.Hide();
+            Menu.main_panel.BackColor = Color.LightGray;
+            this.BackColor = Color.LightGray;
+            verfactura.ShowDialog();
+            this.BackColor = Color.White;
+            Menu.main_panel.BackColor = Color.White;
+            this.Show();
             
         }
     }

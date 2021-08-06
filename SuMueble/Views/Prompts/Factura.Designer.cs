@@ -40,6 +40,8 @@ namespace SuMueble.Views.Prompts
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.botton_panel = new System.Windows.Forms.Panel();
+            this.camcelar = new System.Windows.Forms.Button();
+            this.imprimir = new System.Windows.Forms.Button();
             this.total = new System.Windows.Forms.Label();
             this.main_panel = new System.Windows.Forms.Panel();
             this.dgv_factura = new System.Windows.Forms.DataGridView();
@@ -160,11 +162,32 @@ namespace SuMueble.Views.Prompts
             // 
             // botton_panel
             // 
+            this.botton_panel.Controls.Add(this.camcelar);
+            this.botton_panel.Controls.Add(this.imprimir);
             this.botton_panel.Controls.Add(this.total);
-            this.botton_panel.Location = new System.Drawing.Point(0, 701);
+            this.botton_panel.Location = new System.Drawing.Point(0, 738);
             this.botton_panel.Name = "botton_panel";
-            this.botton_panel.Size = new System.Drawing.Size(449, 164);
+            this.botton_panel.Size = new System.Drawing.Size(449, 127);
             this.botton_panel.TabIndex = 3;
+            // 
+            // camcelar
+            // 
+            this.camcelar.Location = new System.Drawing.Point(12, 86);
+            this.camcelar.Name = "camcelar";
+            this.camcelar.Size = new System.Drawing.Size(94, 29);
+            this.camcelar.TabIndex = 2;
+            this.camcelar.Text = "Cancelar";
+            this.camcelar.UseVisualStyleBackColor = true;
+            // 
+            // imprimir
+            // 
+            this.imprimir.Location = new System.Drawing.Point(317, 86);
+            this.imprimir.Name = "imprimir";
+            this.imprimir.Size = new System.Drawing.Size(94, 29);
+            this.imprimir.TabIndex = 2;
+            this.imprimir.Text = "imprimir";
+            this.imprimir.UseVisualStyleBackColor = true;
+            this.imprimir.Click += new System.EventHandler(this.imprimir_Click);
             // 
             // total
             // 
@@ -262,12 +285,14 @@ namespace SuMueble.Views.Prompts
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.camcelar;
             this.ClientSize = new System.Drawing.Size(449, 865);
             this.Controls.Add(this.main_panel);
             this.Controls.Add(this.botton_panel);
             this.Controls.Add(this.header_panel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Factura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Factura";
@@ -306,5 +331,7 @@ namespace SuMueble.Views.Prompts
         private System.Windows.Forms.Label total;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Button imprimir;
+        private System.Windows.Forms.Button camcelar;
     }
 }

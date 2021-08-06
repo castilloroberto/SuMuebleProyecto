@@ -34,6 +34,7 @@ namespace SuMueble.Views
             this.btn_cerrarSesion = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel = new System.Windows.Forms.Panel();
+            this.bienvenido = new System.Windows.Forms.Label();
             this.btn_colaboradores = new System.Windows.Forms.Button();
             this.btn_ventas = new System.Windows.Forms.Button();
             this.btn_inventario = new System.Windows.Forms.Button();
@@ -44,8 +45,7 @@ namespace SuMueble.Views
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.bienvenido = new System.Windows.Forms.Label();
+            Menu.main_panel = new System.Windows.Forms.Panel();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel.SuspendLayout();
@@ -106,6 +106,15 @@ namespace SuMueble.Views
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(303, 545);
             this.panel.TabIndex = 12;
+            // 
+            // bienvenido
+            // 
+            this.bienvenido.AutoSize = true;
+            this.bienvenido.Location = new System.Drawing.Point(29, 31);
+            this.bienvenido.Name = "bienvenido";
+            this.bienvenido.Size = new System.Drawing.Size(137, 20);
+            this.bienvenido.TabIndex = 6;
+            this.bienvenido.Text = "Bienvenido Usuario";
             // 
             // btn_colaboradores
             // 
@@ -245,32 +254,23 @@ namespace SuMueble.Views
             this.panel1.Size = new System.Drawing.Size(303, 840);
             this.panel1.TabIndex = 2;
             // 
-            // panel2
+            // main_panel
             // 
-            this.panel2.AutoScroll = true;
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(303, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1579, 840);
-            this.panel2.TabIndex = 3;
-            // 
-            // bienvenido
-            // 
-            this.bienvenido.AutoSize = true;
-            this.bienvenido.Location = new System.Drawing.Point(29, 31);
-            this.bienvenido.Name = "bienvenido";
-            this.bienvenido.Size = new System.Drawing.Size(137, 20);
-            this.bienvenido.TabIndex = 6;
-            this.bienvenido.Text = "Bienvenido Usuario";
+            Menu.main_panel.AutoScroll = true;
+            Menu.main_panel.BackColor = System.Drawing.Color.White;
+            Menu.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            Menu.main_panel.Location = new System.Drawing.Point(303, 0);
+            Menu.main_panel.Margin = new System.Windows.Forms.Padding(2);
+            Menu.main_panel.Name = "main_panel";
+            Menu.main_panel.Size = new System.Drawing.Size(1579, 840);
+            Menu.main_panel.TabIndex = 3;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1882, 840);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(Menu.main_panel);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -303,9 +303,9 @@ namespace SuMueble.Views
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Label bienvenido;
+        public static System.Windows.Forms.Panel main_panel;
     }
 }

@@ -70,13 +70,7 @@ namespace SuMueble.Views.Prompts
 
         private void Factura_Shown(object sender, EventArgs e)
         {
-            // un avez cargado los datos procedemos a mostrar el dialogo de impresion
-            Task.Factory.StartNew( ( ) => {
-
-                System.Threading.Thread.Sleep(500);
-                PrintFactura();
             
-            });
   
             
 
@@ -85,6 +79,23 @@ namespace SuMueble.Views.Prompts
         private void Factura_Activated(object sender, EventArgs e)
         {
             
+
+        }
+
+        private void imprimir_Click(object sender, EventArgs e)
+        {
+            imprimir.Visible = false;
+            camcelar.Visible = false;
+            // un avez cargado los datos procedemos a mostrar el dialogo de impresion
+            //Task.Factory.StartNew(() => {
+
+            //    System.Threading.Thread.Sleep(500);
+            //    PrintFactura();
+            //    this.Close();
+            //});
+
+            PrintFactura();
+            this.Close();
 
         }
     }
