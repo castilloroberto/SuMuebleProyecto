@@ -34,7 +34,7 @@ namespace SuMueble.Views.Prompts
                 height += row.Height;
             }
             dgv_factura.Height = height;
-            main_panel.Height = height;
+            main_panel.Height = height+55;
         }
     }
 }

@@ -195,7 +195,7 @@ namespace SuMueble.Views.Prompts
             this.Column2,
             this.Column3});
             this.dgv_factura.GridColor = System.Drawing.Color.White;
-            this.dgv_factura.Location = new System.Drawing.Point(37, 72);
+            this.dgv_factura.Location = new System.Drawing.Point(37, 58);
             this.dgv_factura.Name = "dgv_factura";
             this.dgv_factura.ReadOnly = true;
             this.dgv_factura.RowHeadersWidth = 51;
