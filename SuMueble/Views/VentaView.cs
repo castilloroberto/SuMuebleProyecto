@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Linq;
 using SuMueble.Controller;
 using SuMueble.Models;
+using SuMueble.Views.Prompts;
 
 namespace SuMueble.Views
 {
@@ -358,6 +359,12 @@ namespace SuMueble.Views
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void btn_verFactura_Click(object sender, EventArgs e)
+        {
+            var verfactura = new Factura(_detallesVenta);
+            verfactura.Show();
         }
     }
 }
