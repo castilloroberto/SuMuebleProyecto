@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using SuMueble.Views.Prompts;
 using System.Windows.Forms;
 using SuMueble.Models;
@@ -15,7 +11,6 @@ namespace SuMueble.Views
     public partial class VentaCreditoView : UserControl
     {   //Controladores 
         ClienteControlador clienteControlador = new ClienteControlador();
-        ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
 
         //Variables
         public static Guid _IDVenta;
@@ -89,7 +84,7 @@ namespace SuMueble.Views
         }
         private void limpiarventa()
         {
-            txt_dniCliente.Text = string.Empty;
+            txt_dniCliente.Clear(); ;
             _IDVenta = Guid.NewGuid();
             listaProductos.Clear();
             listaReferencias.Clear();
@@ -98,11 +93,11 @@ namespace SuMueble.Views
         }
         private void ClearCliente()
         {
-            txt_nombreCliente.Text = string.Empty;
-            txtTelefonoCliente.Text = string.Empty;
-            txt_dirCliente.Text = string.Empty;
-            txt_rtnCliente.Text = string.Empty;
-           
+            txt_nombreCliente.Clear();
+            txtTelefonoCliente.Clear();
+            txt_dirCliente.Clear();
+            txt_rtnCliente.Clear();
+
             ActivarIndicadores();
         }
         private void ActivarIndicadores()
@@ -114,45 +109,9 @@ namespace SuMueble.Views
             l_RTNCliente.Visible = txt_rtnCliente.Text == "";
         }
 
-        private void txt_dniColaborador_KeyUp(object sender, KeyEventArgs e)
-        {
-            
-            if (txt_dniColaborador.Text.Length == 13)
-            {
-                Colaboradores c = colaboradorControlador.GetColaborador(txt_dniColaborador.Text);
-                if (c == null)
-                {
-                    ShowHideColaboradorLabel();
-                }
-                else
-                {
-                    ShowHideColaboradorLabel(c.Nombre, true);
-
-                }
-            }
-            if (txt_dniColaborador.Text.Length == 0)
-                dniColaboradorLabelError.Visible = false;
-
-        }
-
-        private void ShowHideColaboradorLabel(string name = "", bool flag = false)
-        {
-            dniColaboradorLabelError.Visible = true;
-            if (flag)
-            {
-                dniColaboradorLabelError.Text = name;
-                dniColaboradorLabelError.ForeColor = Color.FromName("Dodgerblue");
 
 
-            }
-            else
-            {
-                dniColaboradorLabelError.Text = "Escribió mal su DNI";
-                dniColaboradorLabelError.ForeColor = Color.FromName("Crimson");
-
-            }
-
-        }
+    
         private void btn_terminarVenta_Click(object sender, EventArgs e)
         {
             string msg = IsAllReady() ;
@@ -173,7 +132,7 @@ namespace SuMueble.Views
                     ID            = _IDVenta,
                     Cliente       = cliente,
                     DetallesVenta = listaProductos,
-                    IDColaborador = txt_dniColaborador.Text,
+                    IDColaborador = Menu.colaborador.DNI,
                     Referencias   = listaReferencias,
                     IDTipoVenta   = 2,
                     //Cuotas  = 0,
@@ -201,7 +160,6 @@ namespace SuMueble.Views
             res += txt_nombreCliente.Text.Length < 3 ? "\n* Nombre de Cliente" : "";
             res += txtTelefonoCliente.Text.Length != 8 ? "\n* Telefono de Cliente" : "";
             res += txt_dirCliente.Text.Length < 10 ? "\n* Direccion de Cliente" : "";
-            res += txt_dniColaborador.Text == "" ? "\n* DNI de Colaborador" : "";
             
             res += listaReferencias.Count < 2 ? "\n* Faltan Referencias" : "";
 
@@ -254,15 +212,7 @@ namespace SuMueble.Views
 
         }
 
-        private void txt_dniColaborador_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
+       
 
         private void btn_quitarItem_Click(object sender, EventArgs e)
         {
