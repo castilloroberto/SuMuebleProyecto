@@ -91,7 +91,8 @@ namespace SuMueble
                     Existencias = (int)txt_Existencia.Value,
                     Producto = txt_Nombre.Text,
                     PrecioUnitario = (float)txt_Precio.Value,
-                    IDCategoria = cmb_Categoria.SelectedValue.GetHashCode()
+                    IDCategoria = cmb_Categoria.SelectedValue.GetHashCode(),
+                    ISV = (float)txt_impuesto.Value
                 };
                 productoControlador.SaveProductos(p);
                 MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -124,14 +124,15 @@ namespace SuMueble.Views
 
                     if (txt_cantidadProducto.Value != 0 && txt_precio.Value != 0)
                     {
+                        var descuento = txt_precio.Value * (txt_descuento.Value / 100);
                         DetallesVentas dv = new DetallesVentas()
                         {
                             IDVenta = _IDVenta,
                             IDProducto = GetCell(0),
                             Cantidad = (int)txt_cantidadProducto.Value,
-                            PrecioVenta = (float)(txt_precio.Value - (txt_precio.Value * (txt_descuento.Value/100)) ),
+                            PrecioVenta = (float)(txt_precio.Value - (descuento) ),
                             Producto = GetCell(2),
-                           
+                            descuento = (float)(descuento)
 
                         };
 

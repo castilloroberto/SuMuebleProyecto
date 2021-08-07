@@ -15,6 +15,7 @@ namespace SuMueble.Models
         public float PrecioVenta { get; set; }
         public int Cantidad { get; set; }
         public int cantidadDevuelta { get; set; }
+        public float descuento { get; set; }
 
 
         // propiedades que no forman parte de la tabla 
