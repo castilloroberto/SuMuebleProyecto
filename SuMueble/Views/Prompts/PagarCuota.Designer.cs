@@ -45,8 +45,12 @@ namespace SuMueble.Views
             this.l_cliente = new System.Windows.Forms.Label();
             this.dtp_fechaFin = new System.Windows.Forms.DateTimePicker();
             this.l_colabora = new System.Windows.Forms.Label();
+
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+
             this.txtCuota = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.txtCuota)).BeginInit();
+
             this.SuspendLayout();
             // 
             // label1
@@ -146,7 +150,7 @@ namespace SuMueble.Views
             this.btnImprimirFactura.Name = "btnImprimirFactura";
             this.btnImprimirFactura.Size = new System.Drawing.Size(200, 37);
             this.btnImprimirFactura.TabIndex = 10;
-            this.btnImprimirFactura.Text = "Imprimir Factura";
+            this.btnImprimirFactura.Text = "Imprimir Recibo";
             this.btnImprimirFactura.UseVisualStyleBackColor = false;
             this.btnImprimirFactura.Click += new System.EventHandler(this.btnImprimirFactura_Click);
             // 
@@ -279,6 +283,10 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label l_cliente;
         private System.Windows.Forms.DateTimePicker dtp_fechaFin;
         private System.Windows.Forms.Label l_colabora;
+
+        private System.Drawing.Printing.PrintDocument printDocument1;
+
         private System.Windows.Forms.NumericUpDown txtCuota;
+
     }
 }

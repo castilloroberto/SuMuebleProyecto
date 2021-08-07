@@ -24,6 +24,11 @@ namespace SuMueble.Controller
             }
         }
 
+        internal DataRow GetVenta()
+        {
+            throw new NotImplementedException();
+        }
+
         public Guid GetVentaDapper(int CodigoFactura)
         {
             using (var db = GetConnection)
