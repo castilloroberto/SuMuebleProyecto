@@ -8,6 +8,8 @@ using System.Drawing;
 using System.Text;
 using System.Linq;
 using System.Windows.Forms;
+using SuMueble.Views.Prompts;
+using System.Drawing.Printing;
 
 namespace SuMueble.Views
 {
@@ -82,8 +84,14 @@ namespace SuMueble.Views
                 
                 if (PagoControlador.InsertPagos(p) == true)
                 {
-                    MessageBox.Show("Pago completado con exito\nLa factura se imprimira en seguida", "Mensaje del Sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Pago completado con exito\nEl recibo se imprimira en seguida", "Mensaje del Sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();
+                    printDocument1 = new PrintDocument();
+                    PrinterSettings ps = new PrinterSettings();
+                    printDocument1.PrinterSettings = ps;
+                    printDocument1.PrintPage += imprimir;
+                    printDocument1.Print();
+                    
                 }
                 else
                 {
@@ -92,8 +100,15 @@ namespace SuMueble.Views
 
                 }
             }
-        }
 
+            
+        }
+         
+        private void imprimir(object sender, PrintPageEventArgs e)
+        {
+            var recibo = new Recibo();
+            recibo.ShowDialog();
+        }
 
 
 
