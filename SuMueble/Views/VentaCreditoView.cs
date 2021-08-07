@@ -148,6 +148,7 @@ namespace SuMueble.Views
                 terminar.ShowDialog();
                 limpiarventa();
                 ClearCliente();
+                
             }
             else
             {
