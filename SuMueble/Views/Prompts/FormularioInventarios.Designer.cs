@@ -36,11 +36,16 @@ namespace SuMueble
             this.label5 = new System.Windows.Forms.Label();
             this.btn_Hecho = new System.Windows.Forms.Button();
             this.cmb_Categoria = new System.Windows.Forms.ComboBox();
-            this.txt_Precio = new System.Windows.Forms.TextBox();
             this.txt_Codigo = new System.Windows.Forms.TextBox();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
-            this.txt_Existencia = new System.Windows.Forms.TextBox();
             this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_impuesto = new System.Windows.Forms.NumericUpDown();
+            this.txt_Precio = new System.Windows.Forms.NumericUpDown();
+            this.txt_Existencia = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_impuesto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Precio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Existencia)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -119,16 +124,6 @@ namespace SuMueble
             this.cmb_Categoria.Size = new System.Drawing.Size(269, 36);
             this.cmb_Categoria.TabIndex = 5;
             // 
-            // txt_Precio
-            // 
-            this.txt_Precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_Precio.Location = new System.Drawing.Point(57, 213);
-            this.txt_Precio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_Precio.Name = "txt_Precio";
-            this.txt_Precio.Size = new System.Drawing.Size(269, 34);
-            this.txt_Precio.TabIndex = 3;
-            this.txt_Precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Precio_KeyPress);
-            // 
             // txt_Codigo
             // 
             this.txt_Codigo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -137,7 +132,6 @@ namespace SuMueble
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(269, 34);
             this.txt_Codigo.TabIndex = 1;
-            this.txt_Codigo.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txt_Nombre
             // 
@@ -147,16 +141,6 @@ namespace SuMueble
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(269, 34);
             this.txt_Nombre.TabIndex = 2;
-            // 
-            // txt_Existencia
-            // 
-            this.txt_Existencia.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_Existencia.Location = new System.Drawing.Point(382, 213);
-            this.txt_Existencia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_Existencia.Name = "txt_Existencia";
-            this.txt_Existencia.Size = new System.Drawing.Size(269, 34);
-            this.txt_Existencia.TabIndex = 4;
-            this.txt_Existencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Existencia_KeyPress);
             // 
             // btn_Cancelar
             // 
@@ -173,20 +157,63 @@ namespace SuMueble
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(382, 295);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 28);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Impuesto";
+            // 
+            // txt_impuesto
+            // 
+            this.txt_impuesto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_impuesto.Location = new System.Drawing.Point(382, 340);
+            this.txt_impuesto.Name = "txt_impuesto";
+            this.txt_impuesto.Size = new System.Drawing.Size(269, 34);
+            this.txt_impuesto.TabIndex = 8;
+            // 
+            // txt_Precio
+            // 
+            this.txt_Precio.DecimalPlaces = 2;
+            this.txt_Precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_Precio.Location = new System.Drawing.Point(57, 214);
+            this.txt_Precio.Maximum = new decimal(new int[] {
+            200000,
+            0,
+            0,
+            0});
+            this.txt_Precio.Name = "txt_Precio";
+            this.txt_Precio.Size = new System.Drawing.Size(269, 34);
+            this.txt_Precio.TabIndex = 8;
+            this.txt_Precio.ThousandsSeparator = true;
+            // 
+            // txt_Existencia
+            // 
+            this.txt_Existencia.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_Existencia.Location = new System.Drawing.Point(382, 214);
+            this.txt_Existencia.Name = "txt_Existencia";
+            this.txt_Existencia.Size = new System.Drawing.Size(269, 34);
+            this.txt_Existencia.TabIndex = 8;
+            // 
             // FormularioInventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(708, 524);
-            this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.txt_Existencia);
+            this.Controls.Add(this.txt_Precio);
+            this.Controls.Add(this.txt_impuesto);
+            this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.txt_Nombre);
             this.Controls.Add(this.txt_Codigo);
-            this.Controls.Add(this.txt_Precio);
             this.Controls.Add(this.cmb_Categoria);
             this.Controls.Add(this.btn_Hecho);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -198,6 +225,9 @@ namespace SuMueble
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo Producto";
             this.Load += new System.EventHandler(this.FormularioInventarios_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txt_impuesto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Precio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Existencia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,10 +242,12 @@ namespace SuMueble
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_Hecho;
         private System.Windows.Forms.ComboBox cmb_Categoria;
-        private System.Windows.Forms.TextBox txt_Precio;
         private System.Windows.Forms.TextBox txt_Codigo;
         private System.Windows.Forms.TextBox txt_Nombre;
-        private System.Windows.Forms.TextBox txt_Existencia;
         private System.Windows.Forms.Button btn_Cancelar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown txt_impuesto;
+        private System.Windows.Forms.NumericUpDown txt_Precio;
+        private System.Windows.Forms.NumericUpDown txt_Existencia;
     }
 }

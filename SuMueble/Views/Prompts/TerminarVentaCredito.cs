@@ -23,13 +23,14 @@ namespace SuMueble.Views.Prompts
 
         private void btn_terminarVenta_Click(object sender, EventArgs e)
         {
-            VentaCreditoView._venta.Cuotas = int.Parse(txt_cuotas.Text);
+            // propiedad estatica VentaCreditoView
+            VentaCreditoView._venta.Cuotas = (int)txt_cuotas.Value;
             VentaCreditoView._venta.FechaFin = dtp_fechaFin.Value;
-            VentaCreditoView._venta.Prima = float.Parse(txt_prima.Text);
+            VentaCreditoView._venta.Prima = (float)txt_prima.Value;
 
             bool ok = vcontroller.SaveVenta(VentaCreditoView._venta);
             if (ok)
-                MessageBox.Show(string.Format(msg,float.Parse(txt_prima.Text)), "Imprimer factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format(msg,(float)txt_prima.Value), "Imprimer factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show($"Ha habido un error\nIntente de nuevo", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             this.Close();

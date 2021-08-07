@@ -46,23 +46,23 @@ namespace SuMueble.Views.Prompts
             // txt_nombreCliente
             // 
             this.txt_nombreCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_nombreCliente.Location = new System.Drawing.Point(376, 83);
-            this.txt_nombreCliente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txt_nombreCliente.Location = new System.Drawing.Point(301, 66);
+            this.txt_nombreCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_nombreCliente.MaxLength = 255;
             this.txt_nombreCliente.Name = "txt_nombreCliente";
             this.txt_nombreCliente.PlaceholderText = "Nombre y Apellidos...";
-            this.txt_nombreCliente.Size = new System.Drawing.Size(405, 39);
+            this.txt_nombreCliente.Size = new System.Drawing.Size(325, 34);
             this.txt_nombreCliente.TabIndex = 37;
             // 
             // txtDNIReferencia
             // 
             this.txtDNIReferencia.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDNIReferencia.Location = new System.Drawing.Point(49, 83);
-            this.txtDNIReferencia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtDNIReferencia.Location = new System.Drawing.Point(39, 66);
+            this.txtDNIReferencia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDNIReferencia.MaxLength = 13;
             this.txtDNIReferencia.Name = "txtDNIReferencia";
             this.txtDNIReferencia.PlaceholderText = "Numero de Identidad...";
-            this.txtDNIReferencia.Size = new System.Drawing.Size(278, 39);
+            this.txtDNIReferencia.Size = new System.Drawing.Size(223, 34);
             this.txtDNIReferencia.TabIndex = 36;
             this.txtDNIReferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNIReferencia_KeyPress);
             // 
@@ -70,10 +70,9 @@ namespace SuMueble.Views.Prompts
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(373, 43);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(298, 34);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 32);
+            this.label5.Size = new System.Drawing.Size(81, 28);
             this.label5.TabIndex = 35;
             this.label5.Text = "Nombre";
             // 
@@ -81,22 +80,21 @@ namespace SuMueble.Views.Prompts
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(41, 43);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(33, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 32);
+            this.label4.Size = new System.Drawing.Size(44, 28);
             this.label4.TabIndex = 34;
             this.label4.Text = "DNI";
             // 
             // txt_telefono
             // 
             this.txt_telefono.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_telefono.Location = new System.Drawing.Point(53, 192);
-            this.txt_telefono.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txt_telefono.Location = new System.Drawing.Point(42, 154);
+            this.txt_telefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_telefono.MaxLength = 8;
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.PlaceholderText = "Escriba Aqui...";
-            this.txt_telefono.Size = new System.Drawing.Size(278, 39);
+            this.txt_telefono.Size = new System.Drawing.Size(223, 34);
             this.txt_telefono.TabIndex = 39;
             this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
             // 
@@ -104,10 +102,9 @@ namespace SuMueble.Views.Prompts
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(49, 153);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(39, 122);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 32);
+            this.label1.Size = new System.Drawing.Size(82, 28);
             this.label1.TabIndex = 38;
             this.label1.Text = "Telefono";
             // 
@@ -115,45 +112,43 @@ namespace SuMueble.Views.Prompts
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(373, 153);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(298, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 32);
+            this.label2.Size = new System.Drawing.Size(90, 28);
             this.label2.TabIndex = 38;
             this.label2.Text = "Direccion";
             // 
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDireccion.Location = new System.Drawing.Point(376, 192);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtDireccion.MaxLength = 8;
+            this.txtDireccion.Location = new System.Drawing.Point(301, 154);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDireccion.MaxLength = 255;
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.PlaceholderText = "Escriba Aqui...";
-            this.txtDireccion.Size = new System.Drawing.Size(405, 102);
+            this.txtDireccion.Size = new System.Drawing.Size(325, 82);
             this.txtDireccion.TabIndex = 39;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(49, 257);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(39, 206);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(198, 32);
+            this.label3.Size = new System.Drawing.Size(164, 28);
             this.label3.TabIndex = 38;
             this.label3.Text = "Codigo de Factura";
             // 
             // txtCodigoFactura
             // 
             this.txtCodigoFactura.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCodigoFactura.Location = new System.Drawing.Point(53, 297);
-            this.txtCodigoFactura.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtCodigoFactura.MaxLength = 8;
+            this.txtCodigoFactura.Location = new System.Drawing.Point(42, 238);
+            this.txtCodigoFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCodigoFactura.MaxLength = 15;
             this.txtCodigoFactura.Name = "txtCodigoFactura";
             this.txtCodigoFactura.PlaceholderText = "Escriba Aqui...";
-            this.txtCodigoFactura.Size = new System.Drawing.Size(278, 39);
+            this.txtCodigoFactura.Size = new System.Drawing.Size(223, 34);
             this.txtCodigoFactura.TabIndex = 39;
             this.txtCodigoFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoFactura_KeyPress);
             // 
@@ -165,10 +160,10 @@ namespace SuMueble.Views.Prompts
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnAgregar.Location = new System.Drawing.Point(610, 417);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAgregar.Location = new System.Drawing.Point(488, 334);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(173, 47);
+            this.btnAgregar.Size = new System.Drawing.Size(138, 38);
             this.btnAgregar.TabIndex = 40;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -182,20 +177,20 @@ namespace SuMueble.Views.Prompts
             this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_cancelar.ForeColor = System.Drawing.Color.Black;
-            this.btn_cancelar.Location = new System.Drawing.Point(53, 417);
-            this.btn_cancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_cancelar.Location = new System.Drawing.Point(42, 334);
+            this.btn_cancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(173, 47);
+            this.btn_cancelar.Size = new System.Drawing.Size(138, 38);
             this.btn_cancelar.TabIndex = 40;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = false;
             // 
             // AgregarReferencia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancelar;
-            this.ClientSize = new System.Drawing.Size(827, 517);
+            this.ClientSize = new System.Drawing.Size(662, 414);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtDireccion);
@@ -209,7 +204,7 @@ namespace SuMueble.Views.Prompts
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AgregarReferencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AgregarReferencia";

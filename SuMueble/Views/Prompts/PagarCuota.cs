@@ -16,7 +16,6 @@ namespace SuMueble.Views
     public partial class PagarCuota : Form
     {
 
-        ColaboradorControlador ColaboradorControlador = new ColaboradorControlador();
         VentaController ventaController = new VentaController();
         DetalleVentaController detalleControllador = new DetalleVentaController();
         PagoControlador PagoControlador = new PagoControlador();
@@ -34,6 +33,7 @@ namespace SuMueble.Views
             DetalleVenta = detalleControllador.GetDetalleVenta(int.Parse(cod_factura));
             codFactura = cod_factura;
             cargarDatos(venta);
+            txtDNIColaborador.Text = Menu.colaborador.DNI;
         }
 
 
@@ -77,7 +77,8 @@ namespace SuMueble.Views
                 {
                     IDVenta= IDVenta,
                     IDColaborador = txtDNIColaborador.Text,
-                    Monto = float.Parse(txtCuota.Text),
+                    Monto = (float)txtCuota.Value,
+                    
                 };
 
                  
@@ -115,12 +116,9 @@ namespace SuMueble.Views
         #region Validaciones
         private bool Validardatos()
         {
-            bool ok;
-            bool ok1 = txtCuota.Text != "";
-            bool ok2= txtDNIColaborador.Text != "";
+            bool ok = txtCuota.Value != 0;
            
-            ok = ok1 && ok2;
-            if (ok==false)
+            if (ok)
             {
                 MessageBox.Show("Ingrese los datos que se le solicitan", "Campos vacios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -128,56 +126,10 @@ namespace SuMueble.Views
         }
 
 
-        private void txtCuota_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Introduzca valores numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void txtDNIColaborador_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Introduzca valores numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                e.Handled = true;
-                return;
-            }
-        }
         #endregion
 
-        private void txtDNIColaborador_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+      
 
-        private void txtDNIColaborador_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (txtDNIColaborador.Text.Length == 13)
-            {
-
-                l_colabora.Visible = true;
-                var cola = ColaboradorControlador.GetColaborador(txtDNIColaborador.Text);
-                if (cola != null)
-                {
-                    l_colabora.ForeColor = Color.DodgerBlue;
-                    l_colabora.Text = cola.Nombre;
-
-                }
-                else
-                {
-                    l_colabora.ForeColor = Color.Red;
-                    l_colabora.Text = "Tiene un error en su DNI";
-                }
-            }
-            else
-            {
-                l_colabora.Visible = false;
-
-            }
-        }
+       
     }
 }

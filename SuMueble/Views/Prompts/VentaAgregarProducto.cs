@@ -26,27 +26,28 @@ namespace SuMueble.Views.Prompts
         }
 
 
-        private string GetCell(int cell = 0)
+        private dynamic GetCell(int cell = 0)
         {
             // ID, Codigo, Producto, Precio, Existencias
             // 0 ,      1,        2,      3,          4
-            return dgv_productos.Rows[dgv_productos.CurrentRow.Index].Cells[cell].Value.ToString();
+            int row = dgv_productos.CurrentRow.Index;
+            return dgv_productos.Rows[row].Cells[cell].Value;
         }
         private void dgv_productos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // cell 3 = precio
-            txt_precio.Text = GetCell(3);
+            txt_precio.Value = (decimal)GetCell(3);
         }
         private void ClearProducto()
         {
             
-            txt_precio.Text = string.Empty;
+            txt_precio.Value = 0;
         }
 
         private void btn_agregarProducto_Click(object sender, EventArgs e)
         {
 
-            if (txt_precio.Text == "")
+            if (txt_precio.Value == 0)
             {
                 MessageBox.Show("Selecione el producto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -54,27 +55,19 @@ namespace SuMueble.Views.Prompts
             {
                 DetallesVentas dv = new DetallesVentas()
                 {
-                    IDProducto = int.Parse(GetCell(0)),
+                    IDProducto = GetCell(0),
                     Cantidad = 1,
-                    PrecioVenta = int.Parse(txt_precio.Text),
+                    PrecioVenta = (float)txt_precio.Value,
                     Producto = GetCell(2)
                 };
 
-
+                // propiedad estatica de VentaCreditoView
                 VentaCreditoView.listaProducto(dv);
                 this.Close();
             }
         }
 
-        private void txt_precio_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Introduzca valores numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                e.Handled = true;
-                return;
-            }
-        }
+  
 
         private void txt_buscarProducto_TextChanged(object sender, EventArgs e)
         {

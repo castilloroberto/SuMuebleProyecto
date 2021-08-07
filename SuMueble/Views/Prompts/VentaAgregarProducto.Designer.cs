@@ -31,7 +31,6 @@ namespace SuMueble.Views.Prompts
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_agregarProducto = new System.Windows.Forms.Button();
-            this.txt_precio = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_buscarProducto = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -42,7 +41,9 @@ namespace SuMueble.Views.Prompts
             this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.existencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_precio = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_precio)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_agregarProducto
@@ -60,17 +61,6 @@ namespace SuMueble.Views.Prompts
             this.btn_agregarProducto.Text = "Agregar a la Venta";
             this.btn_agregarProducto.UseVisualStyleBackColor = false;
             this.btn_agregarProducto.Click += new System.EventHandler(this.btn_agregarProducto_Click);
-            // 
-            // txt_precio
-            // 
-            this.txt_precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_precio.Location = new System.Drawing.Point(667, 542);
-            this.txt_precio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_precio.Name = "txt_precio";
-            this.txt_precio.PlaceholderText = "Precio Sugerido...";
-            this.txt_precio.Size = new System.Drawing.Size(223, 34);
-            this.txt_precio.TabIndex = 35;
-            this.txt_precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precio_KeyPress);
             // 
             // label9
             // 
@@ -193,18 +183,32 @@ namespace SuMueble.Views.Prompts
             this.existencias.Name = "existencias";
             this.existencias.ReadOnly = true;
             // 
+            // txt_precio
+            // 
+            this.txt_precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_precio.Location = new System.Drawing.Point(669, 543);
+            this.txt_precio.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.txt_precio.Name = "txt_precio";
+            this.txt_precio.Size = new System.Drawing.Size(223, 34);
+            this.txt_precio.TabIndex = 40;
+            // 
             // VentaAgregarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btn_cancelar;
             this.ClientSize = new System.Drawing.Size(933, 682);
+            this.Controls.Add(this.txt_precio);
             this.Controls.Add(this.dgv_productos);
             this.Controls.Add(this.txt_buscarProducto);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_agregarProducto);
-            this.Controls.Add(this.txt_precio);
             this.Controls.Add(this.label9);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -212,6 +216,7 @@ namespace SuMueble.Views.Prompts
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VentaAgregarProducto";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_precio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,7 +225,6 @@ namespace SuMueble.Views.Prompts
         #endregion
 
         private System.Windows.Forms.Button btn_agregarProducto;
-        private System.Windows.Forms.TextBox txt_precio;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_buscarProducto;
         private System.Windows.Forms.Label label7;
@@ -231,5 +235,6 @@ namespace SuMueble.Views.Prompts
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn existencias;
+        private System.Windows.Forms.NumericUpDown txt_precio;
     }
 }

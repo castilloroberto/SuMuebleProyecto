@@ -31,11 +31,13 @@ namespace SuMueble.Views.Prompts
         {
             this.dtp_fechaFin = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.txt_prima = new System.Windows.Forms.TextBox();
-            this.txt_cuotas = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_terminarVenta = new System.Windows.Forms.Button();
+            this.txt_cuotas = new System.Windows.Forms.NumericUpDown();
+            this.txt_prima = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_cuotas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_prima)).BeginInit();
             this.SuspendLayout();
             // 
             // dtp_fechaFin
@@ -55,27 +57,6 @@ namespace SuMueble.Views.Prompts
             this.label7.Size = new System.Drawing.Size(203, 32);
             this.label7.TabIndex = 42;
             this.label7.Text = "Fecha Vencimiento";
-            // 
-            // txt_prima
-            // 
-            this.txt_prima.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_prima.Location = new System.Drawing.Point(64, 224);
-            this.txt_prima.MaxLength = 255;
-            this.txt_prima.Multiline = true;
-            this.txt_prima.Name = "txt_prima";
-            this.txt_prima.PlaceholderText = "Escriba Aqui...";
-            this.txt_prima.Size = new System.Drawing.Size(208, 34);
-            this.txt_prima.TabIndex = 45;
-            // 
-            // txt_cuotas
-            // 
-            this.txt_cuotas.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_cuotas.Location = new System.Drawing.Point(64, 109);
-            this.txt_cuotas.MaxLength = 255;
-            this.txt_cuotas.Name = "txt_cuotas";
-            this.txt_cuotas.PlaceholderText = "Escriba Aqui...";
-            this.txt_cuotas.Size = new System.Drawing.Size(208, 34);
-            this.txt_cuotas.TabIndex = 46;
             // 
             // label8
             // 
@@ -112,14 +93,30 @@ namespace SuMueble.Views.Prompts
             this.btn_terminarVenta.UseVisualStyleBackColor = false;
             this.btn_terminarVenta.Click += new System.EventHandler(this.btn_terminarVenta_Click);
             // 
+            // txt_cuotas
+            // 
+            this.txt_cuotas.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_cuotas.Location = new System.Drawing.Point(64, 108);
+            this.txt_cuotas.Name = "txt_cuotas";
+            this.txt_cuotas.Size = new System.Drawing.Size(208, 34);
+            this.txt_cuotas.TabIndex = 48;
+            // 
+            // txt_prima
+            // 
+            this.txt_prima.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_prima.Location = new System.Drawing.Point(64, 223);
+            this.txt_prima.Name = "txt_prima";
+            this.txt_prima.Size = new System.Drawing.Size(208, 34);
+            this.txt_prima.TabIndex = 48;
+            // 
             // TerminarVentaCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 365);
-            this.Controls.Add(this.btn_terminarVenta);
             this.Controls.Add(this.txt_prima);
             this.Controls.Add(this.txt_cuotas);
+            this.Controls.Add(this.btn_terminarVenta);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
@@ -127,6 +124,8 @@ namespace SuMueble.Views.Prompts
             this.Name = "TerminarVentaCredito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TerminarVentaCredito";
+            ((System.ComponentModel.ISupportInitialize)(this.txt_cuotas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_prima)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,10 +135,10 @@ namespace SuMueble.Views.Prompts
 
         private System.Windows.Forms.DateTimePicker dtp_fechaFin;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txt_prima;
-        private System.Windows.Forms.TextBox txt_cuotas;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_terminarVenta;
+        private System.Windows.Forms.NumericUpDown txt_cuotas;
+        private System.Windows.Forms.NumericUpDown txt_prima;
     }
 }

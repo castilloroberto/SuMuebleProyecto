@@ -42,9 +42,6 @@ namespace SuMueble.Views
             this.btn_agregarReferencia = new System.Windows.Forms.Button();
             this.lb_productosVenta = new System.Windows.Forms.ListBox();
             this.btn_agregarProducto = new System.Windows.Forms.Button();
-            this.txt_dniColaborador = new System.Windows.Forms.TextBox();
-            this.dniColaboradorLabelError = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.l_monto = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_terminarVenta = new System.Windows.Forms.Button();
@@ -202,40 +199,6 @@ namespace SuMueble.Views
             this.btn_agregarProducto.UseVisualStyleBackColor = false;
             this.btn_agregarProducto.Click += new System.EventHandler(this.btn_agregarProducto_Click);
             // 
-            // txt_dniColaborador
-            // 
-            this.txt_dniColaborador.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_dniColaborador.Location = new System.Drawing.Point(1204, 231);
-            this.txt_dniColaborador.MaxLength = 13;
-            this.txt_dniColaborador.Name = "txt_dniColaborador";
-            this.txt_dniColaborador.PlaceholderText = "Numero de Identidad...";
-            this.txt_dniColaborador.Size = new System.Drawing.Size(223, 34);
-            this.txt_dniColaborador.TabIndex = 40;
-            this.txt_dniColaborador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dniColaborador_KeyPress);
-            this.txt_dniColaborador.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_dniColaborador_KeyUp);
-            // 
-            // dniColaboradorLabelError
-            // 
-            this.dniColaboradorLabelError.AutoSize = true;
-            this.dniColaboradorLabelError.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dniColaboradorLabelError.ForeColor = System.Drawing.Color.Crimson;
-            this.dniColaboradorLabelError.Location = new System.Drawing.Point(1204, 269);
-            this.dniColaboradorLabelError.Name = "dniColaboradorLabelError";
-            this.dniColaboradorLabelError.Size = new System.Drawing.Size(129, 20);
-            this.dniColaboradorLabelError.TabIndex = 39;
-            this.dniColaboradorLabelError.Text = "Escribio mal su DNI";
-            this.dniColaboradorLabelError.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(1196, 197);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 28);
-            this.label6.TabIndex = 38;
-            this.label6.Text = "DNI Colaborador";
-            // 
             // l_monto
             // 
             this.l_monto.AutoSize = true;
@@ -380,9 +343,6 @@ namespace SuMueble.Views
             this.Controls.Add(this.labelClienteNuevo);
             this.Controls.Add(this.l_monto);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txt_dniColaborador);
-            this.Controls.Add(this.dniColaboradorLabelError);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.lb_productosVenta);
             this.Controls.Add(this.btn_terminarVenta);
             this.Controls.Add(this.btn_agregarProducto);
@@ -421,9 +381,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Button btn_agregarReferencia;
         private System.Windows.Forms.ListBox lb_productosVenta;
         private System.Windows.Forms.Button btn_agregarProducto;
-        private System.Windows.Forms.TextBox txt_dniColaborador;
-        private System.Windows.Forms.Label dniColaboradorLabelError;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label l_monto;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_terminarVenta;

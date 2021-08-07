@@ -34,8 +34,6 @@ namespace SuMueble.Views
             this.btn_agregarProducto = new System.Windows.Forms.Button();
             this.txt_clienteTelefono = new System.Windows.Forms.TextBox();
             this.txt_nombreCliente = new System.Windows.Forms.TextBox();
-            this.txt_precio = new System.Windows.Forms.TextBox();
-            this.txt_cantidadProducto = new System.Windows.Forms.TextBox();
             this.txt_buscarProducto = new System.Windows.Forms.TextBox();
             this.txt_dniCliente = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -44,12 +42,9 @@ namespace SuMueble.Views
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_dniColaborador = new System.Windows.Forms.TextBox();
             this.labelTelefono = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelClienteNuevo = new System.Windows.Forms.Label();
-            this.dniColaboradorLabelError = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.l_monto = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lb_productosVenta = new System.Windows.Forms.ListBox();
@@ -61,7 +56,15 @@ namespace SuMueble.Views
             this.existencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_quitarItem = new System.Windows.Forms.Button();
             this.btn_verFactura = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_descuento = new System.Windows.Forms.NumericUpDown();
+            this.txt_cantidadProducto = new System.Windows.Forms.NumericUpDown();
+            this.txt_precio = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_descuento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_cantidadProducto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_precio)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_terminarVenta
@@ -119,29 +122,6 @@ namespace SuMueble.Views
             this.txt_nombreCliente.Size = new System.Drawing.Size(325, 34);
             this.txt_nombreCliente.TabIndex = 27;
             this.txt_nombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombreCliente_KeyPress);
-            // 
-            // txt_precio
-            // 
-            this.txt_precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_precio.Location = new System.Drawing.Point(77, 794);
-            this.txt_precio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_precio.Name = "txt_precio";
-            this.txt_precio.PlaceholderText = "Precio Sugerido...";
-            this.txt_precio.Size = new System.Drawing.Size(223, 34);
-            this.txt_precio.TabIndex = 26;
-            this.txt_precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precio_KeyPress);
-            // 
-            // txt_cantidadProducto
-            // 
-            this.txt_cantidadProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_cantidadProducto.Location = new System.Drawing.Point(357, 794);
-            this.txt_cantidadProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_cantidadProducto.MaxLength = 100;
-            this.txt_cantidadProducto.Name = "txt_cantidadProducto";
-            this.txt_cantidadProducto.PlaceholderText = "Cantidad...";
-            this.txt_cantidadProducto.Size = new System.Drawing.Size(223, 34);
-            this.txt_cantidadProducto.TabIndex = 25;
-            this.txt_cantidadProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cantidadProducto_KeyPress);
             // 
             // txt_buscarProducto
             // 
@@ -227,19 +207,6 @@ namespace SuMueble.Views
             this.label4.TabIndex = 15;
             this.label4.Text = "DNI Cliente";
             // 
-            // txt_dniColaborador
-            // 
-            this.txt_dniColaborador.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_dniColaborador.Location = new System.Drawing.Point(1286, 230);
-            this.txt_dniColaborador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_dniColaborador.MaxLength = 13;
-            this.txt_dniColaborador.Name = "txt_dniColaborador";
-            this.txt_dniColaborador.PlaceholderText = "Numero de Identidad...";
-            this.txt_dniColaborador.Size = new System.Drawing.Size(223, 34);
-            this.txt_dniColaborador.TabIndex = 23;
-            this.txt_dniColaborador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dniColaborador_KeyPress);
-            this.txt_dniColaborador.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_dniColaborador_KeyUp);
-            // 
             // labelTelefono
             // 
             this.labelTelefono.AutoSize = true;
@@ -275,28 +242,6 @@ namespace SuMueble.Views
             this.labelClienteNuevo.TabIndex = 12;
             this.labelClienteNuevo.Text = "Cliente Nuevo";
             this.labelClienteNuevo.Visible = false;
-            // 
-            // dniColaboradorLabelError
-            // 
-            this.dniColaboradorLabelError.AutoSize = true;
-            this.dniColaboradorLabelError.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dniColaboradorLabelError.ForeColor = System.Drawing.Color.Crimson;
-            this.dniColaboradorLabelError.Location = new System.Drawing.Point(1286, 266);
-            this.dniColaboradorLabelError.Name = "dniColaboradorLabelError";
-            this.dniColaboradorLabelError.Size = new System.Drawing.Size(129, 20);
-            this.dniColaboradorLabelError.TabIndex = 11;
-            this.dniColaboradorLabelError.Text = "Escribio mal su DNI";
-            this.dniColaboradorLabelError.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(1278, 194);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 28);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "DNI Colaborador";
             // 
             // l_monto
             // 
@@ -435,33 +380,89 @@ namespace SuMueble.Views
             this.btn_verFactura.UseVisualStyleBackColor = false;
             this.btn_verFactura.Click += new System.EventHandler(this.btn_verFactura_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(77, 844);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 28);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Descuento";
+            // 
+            // txt_descuento
+            // 
+            this.txt_descuento.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_descuento.Location = new System.Drawing.Point(77, 875);
+            this.txt_descuento.Maximum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
+            this.txt_descuento.Name = "txt_descuento";
+            this.txt_descuento.Size = new System.Drawing.Size(223, 34);
+            this.txt_descuento.TabIndex = 32;
+            // 
+            // txt_cantidadProducto
+            // 
+            this.txt_cantidadProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_cantidadProducto.Location = new System.Drawing.Point(354, 793);
+            this.txt_cantidadProducto.Name = "txt_cantidadProducto";
+            this.txt_cantidadProducto.Size = new System.Drawing.Size(223, 34);
+            this.txt_cantidadProducto.TabIndex = 33;
+            // 
+            // txt_precio
+            // 
+            this.txt_precio.DecimalPlaces = 2;
+            this.txt_precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_precio.Location = new System.Drawing.Point(77, 790);
+            this.txt_precio.Maximum = new decimal(new int[] {
+            200000,
+            0,
+            0,
+            0});
+            this.txt_precio.Name = "txt_precio";
+            this.txt_precio.Size = new System.Drawing.Size(223, 34);
+            this.txt_precio.TabIndex = 33;
+            this.txt_precio.ThousandsSeparator = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(306, 875);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 28);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "%";
+            // 
             // VentaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txt_precio);
+            this.Controls.Add(this.txt_cantidadProducto);
+            this.Controls.Add(this.txt_descuento);
             this.Controls.Add(this.btn_verFactura);
             this.Controls.Add(this.btn_terminarVenta);
             this.Controls.Add(this.btn_quitarItem);
             this.Controls.Add(this.btn_agregarProducto);
             this.Controls.Add(this.txt_clienteTelefono);
             this.Controls.Add(this.txt_nombreCliente);
-            this.Controls.Add(this.txt_precio);
-            this.Controls.Add(this.txt_cantidadProducto);
             this.Controls.Add(this.txt_buscarProducto);
             this.Controls.Add(this.txt_dniCliente);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txt_dniColaborador);
             this.Controls.Add(this.labelTelefono);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelClienteNuevo);
-            this.Controls.Add(this.dniColaboradorLabelError);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.l_monto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lb_productosVenta);
@@ -471,6 +472,9 @@ namespace SuMueble.Views
             this.Size = new System.Drawing.Size(1523, 918);
             this.Load += new System.EventHandler(this.VentaView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_descuento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_cantidadProducto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_precio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -482,8 +486,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Button btn_agregarProducto;
         private System.Windows.Forms.TextBox txt_clienteTelefono;
         private System.Windows.Forms.TextBox txt_nombreCliente;
-        private System.Windows.Forms.TextBox txt_precio;
-        private System.Windows.Forms.TextBox txt_cantidadProducto;
         private System.Windows.Forms.TextBox txt_buscarProducto;
         private System.Windows.Forms.TextBox txt_dniCliente;
         private System.Windows.Forms.Label label9;
@@ -492,12 +494,9 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_dniColaborador;
         private System.Windows.Forms.Label labelTelefono;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Label labelClienteNuevo;
-        private System.Windows.Forms.Label dniColaboradorLabelError;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label l_monto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox lb_productosVenta;
@@ -509,5 +508,10 @@ namespace SuMueble.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn existencias;
         private System.Windows.Forms.Button btn_quitarItem;
         private System.Windows.Forms.Button btn_verFactura;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown txt_descuento;
+        private System.Windows.Forms.NumericUpDown txt_cantidadProducto;
+        private System.Windows.Forms.NumericUpDown txt_precio;
+        private System.Windows.Forms.Label label3;
     }
 }
