@@ -50,7 +50,9 @@ namespace SuMueble.Views
                 Nombre = txt_nombreCliente.Text,
                 Tel = txt_clienteTelefono.Text
             };
+
             string msg = VentaIsAllReady();
+
             if (msg == string.Empty)
             {
                 Ventas venta = new Ventas()
@@ -59,7 +61,7 @@ namespace SuMueble.Views
                     DetallesVenta = _detallesVenta,
                     Cliente = c,
                     IDTipoVenta = 1,
-                    IDColaborador = txt_dniColaborador.Text,
+                    IDColaborador = Menu.colaborador.DNI,
                     FechaFin = DateTime.Now
 
                 };
@@ -97,7 +99,7 @@ namespace SuMueble.Views
         private void dgv_productos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // cell 3 = precio
-            txt_precio.Text = GetCell(3);
+            txt_precio.Value = GetCell(3);
         }
 
         
@@ -105,31 +107,28 @@ namespace SuMueble.Views
         private void btn_agregarProducto_Click(object sender, EventArgs e)
 
         {
-            if (txt_cantidadProducto.Text == "")
+            if (txt_cantidadProducto.Value == 0)
             {
                 MessageBox.Show("Cantidad ausente", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                if (int.Parse(GetCell(4)) < int.Parse(txt_cantidadProducto.Text))
+                if (int.Parse(GetCell(4)) < txt_cantidadProducto.Value)
                 {
-                    MessageBox.Show("No hay existencia del producto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
+                    MessageBox.Show("No hay suficientes existencia del producto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
-
                 {
 
 
-                    if (txt_cantidadProducto.Text != string.Empty && txt_precio.Text != string.Empty)
+                    if (txt_cantidadProducto.Value != 0 && txt_precio.Value != 0)
                     {
                         DetallesVentas dv = new DetallesVentas()
                         {
                             IDVenta = _IDVenta,
                             IDProducto = int.Parse(GetCell(0)),
-                            Cantidad = int.Parse(txt_cantidadProducto.Text),
-                            PrecioVenta = int.Parse(txt_precio.Text),
+                            Cantidad = (int)txt_cantidadProducto.Value,
+                            PrecioVenta = (float)txt_precio.Value,
                             Producto = GetCell(2),
 
                         };
@@ -164,17 +163,17 @@ namespace SuMueble.Views
             lb_productosVenta.DataSource = _detallesVenta;
             lb_productosVenta.DisplayMember = "Info";
         }
-        private string GetCell(int cell = 0)
+        private dynamic GetCell(int cell = 0)
         {
             // ID, Codigo, Producto, Precio, Existencias
             // 0 ,      1,        2,      3,          4
-            return dgv_productos.Rows[dgv_productos.CurrentRow.Index].Cells[cell].Value.ToString();
+            return dgv_productos.Rows[dgv_productos.CurrentRow.Index].Cells[cell].Value;
         }
 
         private void ClearProducto()
         {
-            txt_cantidadProducto.Text = string.Empty;
-            txt_precio.Text = string.Empty;
+            txt_cantidadProducto.Value = 0;
+            txt_precio.Value = 0;
         }
 
         private void txt_dniCliente_KeyUp(object sender, KeyEventArgs e)
@@ -206,58 +205,18 @@ namespace SuMueble.Views
         }
         private void ClearCliente()
         {
-            txt_nombreCliente.Text = string.Empty;
-            txt_clienteTelefono.Text = string.Empty;
+            txt_nombreCliente.Clear();
+            txt_clienteTelefono.Clear();
         }
 
-        private void txt_dniColaborador_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (txt_dniColaborador.Text.Length == 13)
-            {
-                Colaboradores c = colaboradorControlador.GetColaborador(txt_dniColaborador.Text);
-                if (c == null)
-                {
-                    ShowHideColaboradorLabel();
-                }
-                else
-                {
-                    ShowHideColaboradorLabel(c.Nombre,true);
-
-                }
-            }
-            if(txt_dniColaborador.Text.Length == 0)
-                dniColaboradorLabelError.Visible = false;
-
-        }
-
-        private void ShowHideColaboradorLabel(string name="",bool flag=false)
-        {
-            dniColaboradorLabelError.Visible = true;
-            if (flag)
-            {
-                dniColaboradorLabelError.Text = name;
-                dniColaboradorLabelError.ForeColor = Color.FromName("Dodgerblue");
-
-
-            }
-            else
-            {
-                dniColaboradorLabelError.Text = "Escribió mal su DNI";
-                dniColaboradorLabelError.ForeColor = Color.FromName("Crimson");
-                
-            }
-
-        }
-
+      
         private string VentaIsAllReady()
         {
             string msg = txt_dniCliente.Text.Length == 13 ? string.Empty : "* DNI del Cliente\n";
             msg += txt_nombreCliente.Text != string.Empty ? "" : "* Nombre del Cliente\n";
             msg += txt_clienteTelefono.Text != string.Empty ? "" : "* Telefono del Cliente\n";
             msg += _detallesVenta.Count > 0 ? "" : "* Agregar Productos a la Venta\n";
-            msg += txt_dniColaborador.Text.Length == 13 ? "" : "* DNI del Colaborador\n";
-            msg += dniColaboradorLabelError.ForeColor == Color.Crimson ? "* Agregar un DNI de Colaborador Valido": "";
-            // Color.FromName("Crimson")
+          
             return msg;
 
         }
@@ -333,36 +292,7 @@ namespace SuMueble.Views
 
         }
 
-        private void txt_dniColaborador_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void txt_cantidadProducto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void txt_precio_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
-
+   
         private void btn_verFactura_Click(object sender, EventArgs e)
         {
             var verfactura = new Factura(_detallesVenta, Total,_IDVenta);
