@@ -87,13 +87,14 @@ namespace SuMueble.Views
                 {
                     MessageBox.Show("Pago completado con exito\nEl recibo se imprimira en seguida", "Mensaje del Sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();
+                    var recibo = new Recibo(venta_, (float)txtCuota.Value);
+                    recibo.ShowDialog();
+                    //printDocument1 = new PrintDocument();
+                    //PrinterSettings ps = new PrinterSettings();
+                    //printDocument1.PrinterSettings = ps;
+                    //printDocument1.PrintPage += imprimir;
+                    //printDocument1.Print();
 
-                    printDocument1 = new PrintDocument();
-                    PrinterSettings ps = new PrinterSettings();
-                    printDocument1.PrinterSettings = ps;
-                    printDocument1.PrintPage += imprimir;
-                    printDocument1.Print();
-                    
                 }
                 else
                 {
@@ -106,11 +107,10 @@ namespace SuMueble.Views
             
         }
          
-        private void imprimir(object sender, PrintPageEventArgs e)
-        {
-            var recibo = new Recibo(venta_, (float)txtCuota.Value);
-            recibo.ShowDialog();
-        }
+        //private void imprimir(object sender, PrintPageEventArgs e)
+        //{
+            
+        //}
 
 
 
@@ -118,8 +118,7 @@ namespace SuMueble.Views
         private bool Validardatos()
         {
             bool ok = txtCuota.Value != 0;
-           
-            if (ok)
+            if (!ok)
             {
                 MessageBox.Show("Ingrese los datos que se le solicitan", "Campos vacios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

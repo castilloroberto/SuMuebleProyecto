@@ -29,6 +29,7 @@ namespace SuMueble.Views.Prompts
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Recibo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -48,16 +49,15 @@ namespace SuMueble.Views.Prompts
             this.cajero = new System.Windows.Forms.Label();
             this.cuotaRestantes = new System.Windows.Forms.Label();
             this.cuota = new System.Windows.Forms.Label();
-            this.cambio = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.pago = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.total = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.btn_print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -249,46 +249,6 @@ namespace SuMueble.Views.Prompts
             this.cuota.TabIndex = 39;
             this.cuota.Text = "--------";
             // 
-            // cambio
-            // 
-            this.cambio.AutoSize = true;
-            this.cambio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cambio.Location = new System.Drawing.Point(255, 941);
-            this.cambio.Name = "cambio";
-            this.cambio.Size = new System.Drawing.Size(93, 28);
-            this.cambio.TabIndex = 38;
-            this.cambio.Text = "---------";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label29.Location = new System.Drawing.Point(111, 941);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(116, 28);
-            this.label29.TabIndex = 37;
-            this.label29.Text = "Su Cambio:";
-            // 
-            // pago
-            // 
-            this.pago.AutoSize = true;
-            this.pago.Font = new System.Drawing.Font("Segoe UI Light", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.pago.Location = new System.Drawing.Point(251, 896);
-            this.pago.Name = "pago";
-            this.pago.Size = new System.Drawing.Size(125, 35);
-            this.pago.TabIndex = 36;
-            this.pago.Text = "----------";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI Light", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label27.Location = new System.Drawing.Point(43, 896);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(189, 35);
-            this.label27.TabIndex = 35;
-            this.label27.Text = "Monto Pagado:";
-            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -352,23 +312,45 @@ namespace SuMueble.Views.Prompts
     "tituto Departamental de Oriente.";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // btn_print
+            // 
+            this.btn_print.Location = new System.Drawing.Point(278, 874);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(94, 29);
+            this.btn_print.TabIndex = 41;
+            this.btn_print.Text = "Imprimir";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            // 
             // Recibo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(441, 1055);
+            this.ClientSize = new System.Drawing.Size(441, 909);
+            this.Controls.Add(this.btn_print);
             this.Controls.Add(this.cuotaRestantes);
             this.Controls.Add(this.codigoRecibo);
             this.Controls.Add(this.cuota);
             this.Controls.Add(this.cajero);
-            this.Controls.Add(this.cambio);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.label29);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.pago);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.label27);
             this.Controls.Add(this.hora);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label25);
@@ -387,8 +369,7 @@ namespace SuMueble.Views.Prompts
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Recibo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recibo";
@@ -429,5 +410,8 @@ namespace SuMueble.Views.Prompts
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label16;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Button btn_print;
     }
 }

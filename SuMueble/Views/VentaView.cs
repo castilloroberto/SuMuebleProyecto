@@ -16,7 +16,6 @@ namespace SuMueble.Views
     {
         //controladores
         ClienteControlador clienteControlador = new ClienteControlador();
-        ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
         VentaController ventaController = new VentaController();
         List<Productos> productos;
         ProductoControlador pc = new ProductoControlador();
@@ -187,7 +186,7 @@ namespace SuMueble.Views
 
         private void ClearProducto()
         {
-            txt_cantidadProducto.Value = 0;
+            txt_cantidadProducto.Value = 1;
             txt_precio.Value = 0;
             txt_descuento.Value = 0;
         }

@@ -55,7 +55,6 @@ namespace SuMueble.Views
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.existencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_quitarItem = new System.Windows.Forms.Button();
-            this.btn_verFactura = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_descuento = new System.Windows.Forms.NumericUpDown();
             this.txt_cantidadProducto = new System.Windows.Forms.NumericUpDown();
@@ -364,22 +363,6 @@ namespace SuMueble.Views
             this.btn_quitarItem.UseVisualStyleBackColor = false;
             this.btn_quitarItem.Click += new System.EventHandler(this.btn_quitarItem_Click);
             // 
-            // btn_verFactura
-            // 
-            this.btn_verFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(208)))), ((int)(((byte)(88)))));
-            this.btn_verFactura.FlatAppearance.BorderSize = 0;
-            this.btn_verFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_verFactura.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_verFactura.ForeColor = System.Drawing.Color.White;
-            this.btn_verFactura.Location = new System.Drawing.Point(1318, 844);
-            this.btn_verFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_verFactura.Name = "btn_verFactura";
-            this.btn_verFactura.Size = new System.Drawing.Size(191, 38);
-            this.btn_verFactura.TabIndex = 31;
-            this.btn_verFactura.Text = "Ver factura";
-            this.btn_verFactura.UseVisualStyleBackColor = false;
-            this.btn_verFactura.Click += new System.EventHandler(this.btn_verFactura_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -455,7 +438,6 @@ namespace SuMueble.Views
             this.Controls.Add(this.txt_precio);
             this.Controls.Add(this.txt_cantidadProducto);
             this.Controls.Add(this.txt_descuento);
-            this.Controls.Add(this.btn_verFactura);
             this.Controls.Add(this.btn_terminarVenta);
             this.Controls.Add(this.btn_quitarItem);
             this.Controls.Add(this.btn_agregarProducto);
@@ -518,7 +500,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn existencias;
         private System.Windows.Forms.Button btn_quitarItem;
-        private System.Windows.Forms.Button btn_verFactura;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown txt_descuento;
         private System.Windows.Forms.NumericUpDown txt_cantidadProducto;
