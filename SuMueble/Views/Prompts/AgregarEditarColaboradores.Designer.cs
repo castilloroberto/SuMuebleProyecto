@@ -53,6 +53,7 @@ namespace SuMueble.Views
             this.btn_hecho = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.txt_finContrato = new System.Windows.Forms.TextBox();
+            this.ch_verContrasena = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -315,6 +316,19 @@ namespace SuMueble.Views
             this.txt_finContrato.Size = new System.Drawing.Size(246, 27);
             this.txt_finContrato.TabIndex = 8;
             // 
+            // ch_verContrasena
+            // 
+            this.ch_verContrasena.AutoSize = true;
+            this.ch_verContrasena.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ch_verContrasena.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ch_verContrasena.Location = new System.Drawing.Point(385, 223);
+            this.ch_verContrasena.Name = "ch_verContrasena";
+            this.ch_verContrasena.Size = new System.Drawing.Size(120, 24);
+            this.ch_verContrasena.TabIndex = 24;
+            this.ch_verContrasena.Text = "Ver contraseña";
+            this.ch_verContrasena.UseVisualStyleBackColor = true;
+            this.ch_verContrasena.CheckedChanged += new System.EventHandler(this.ch_verContrasena_CheckedChanged);
+            // 
             // AgregarEditarColaboradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -322,6 +336,7 @@ namespace SuMueble.Views
             this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.btn_cancelar;
             this.ClientSize = new System.Drawing.Size(566, 663);
+            this.Controls.Add(this.ch_verContrasena);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_hecho);
             this.Controls.Add(this.txt_direccion);
@@ -385,5 +400,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.TextBox txt_finContrato;
         private System.Windows.Forms.Button btn_addPuesto;
+        private System.Windows.Forms.CheckBox ch_verContrasena;
     }
 }
