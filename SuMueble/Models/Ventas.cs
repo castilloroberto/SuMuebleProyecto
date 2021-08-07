@@ -45,7 +45,11 @@ namespace SuMueble.Models
 
         [Write(false)]
         [Computed]
-        public float TotalVenta { get; set; }
+        public float TotalVenta { get; set; } 
+        
+        [Write(false)]
+        [Computed]
+        public float Descuento { get; set; }
 
         //[Computed]
         public DateTime FechaFin { get; set; }
