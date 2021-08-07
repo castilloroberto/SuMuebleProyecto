@@ -37,11 +37,9 @@ namespace SuMueble.Views.Prompts
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.cliente = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.idCliente = new System.Windows.Forms.Label();
-            this.cliente = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.codigoRecibo = new System.Windows.Forms.Label();
@@ -141,15 +139,15 @@ namespace SuMueble.Views.Prompts
             this.label10.TabIndex = 19;
             this.label10.Text = "E-Mail: sumueble040610@gmail.com";
             // 
-            // label11
+            // cliente
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(43, 494);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 28);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Cliente: ";
+            this.cliente.AutoSize = true;
+            this.cliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cliente.Location = new System.Drawing.Point(43, 494);
+            this.cliente.Name = "cliente";
+            this.cliente.Size = new System.Drawing.Size(78, 28);
+            this.cliente.TabIndex = 21;
+            this.cliente.Text = "Cliente: ";
             // 
             // label12
             // 
@@ -170,26 +168,6 @@ namespace SuMueble.Views.Prompts
             this.label13.Size = new System.Drawing.Size(75, 28);
             this.label13.TabIndex = 23;
             this.label13.Text = "Cajero: ";
-            // 
-            // idCliente
-            // 
-            this.idCliente.AutoSize = true;
-            this.idCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.idCliente.Location = new System.Drawing.Point(261, 521);
-            this.idCliente.Name = "idCliente";
-            this.idCliente.Size = new System.Drawing.Size(66, 28);
-            this.idCliente.TabIndex = 24;
-            this.idCliente.Text = "------";
-            // 
-            // cliente
-            // 
-            this.cliente.AutoSize = true;
-            this.cliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cliente.Location = new System.Drawing.Point(123, 494);
-            this.cliente.Name = "cliente";
-            this.cliente.Size = new System.Drawing.Size(84, 28);
-            this.cliente.TabIndex = 26;
-            this.cliente.Text = "--------";
             // 
             // label18
             // 
@@ -400,15 +378,13 @@ namespace SuMueble.Views.Prompts
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.fecha);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.cliente);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cliente);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.idCliente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
@@ -432,10 +408,8 @@ namespace SuMueble.Views.Prompts
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label idCliente;
         private System.Windows.Forms.Label cliente;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;

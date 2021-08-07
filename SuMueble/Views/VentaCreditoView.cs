@@ -132,17 +132,13 @@ namespace SuMueble.Views
                 };
                 _venta = new Ventas()
                 {
-                    ID            = _IDVenta,
-                    Cliente       = cliente,
+                    ID = _IDVenta,
+                    Cliente = cliente,
                     DetallesVenta = listaProductos,
                     IDColaborador = Menu.colaborador.DNI,
-                    Referencias   = listaReferencias,
-                    IDTipoVenta   = 2,
-                    //Cuotas  = 0,
-                    //Prima = 0,
-                    //FechaFin = DateTime.Now,
-
-
+                    Referencias = listaReferencias,
+                    IDTipoVenta = 2,
+                    TotalVenta = _Total
                 };
 
                 var terminar = new TerminarVentaCredito();

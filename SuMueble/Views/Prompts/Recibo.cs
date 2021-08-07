@@ -1,4 +1,5 @@
 ﻿using SuMueble.Controller;
+using SuMueble.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,17 @@ namespace SuMueble.Views.Prompts
         ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
         PagoControlador pagoControlador = new PagoControlador();
 
-        public Recibo()
+        public Recibo(Ventas venta,float pago)
         {
             InitializeComponent();
 
-
+            total.Text = pago.ToString();
+            if (venta != null)
+            {
+                cliente.Text = string.Format("Cliente: {0}",venta.Cliente.Nombre);
+                cuotaRestantes.Text = venta.Cuotas.ToString();
+                
+            }
             fecha.Text = string.Format("{0:d}", DateTime.Now.Date);
             hora.Text = string.Format("{0}", DateTime.Now.ToString("h:mm tt").ToUpper());
             cajero.Text = string.Format("{0}", Menu.colaborador.Nombre);
