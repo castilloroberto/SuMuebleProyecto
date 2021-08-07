@@ -17,7 +17,7 @@ namespace SuMueble.Views.Prompts
         ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
         PagoControlador pagoControlador = new PagoControlador();
 
-        public Recibo(Ventas venta,float pago)
+        public Recibo(Ventas venta=null,float pago=0)
         {
             InitializeComponent();
 

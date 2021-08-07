@@ -87,6 +87,7 @@ namespace SuMueble.Views
                 {
                     MessageBox.Show("Pago completado con exito\nEl recibo se imprimira en seguida", "Mensaje del Sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();
+
                     printDocument1 = new PrintDocument();
                     PrinterSettings ps = new PrinterSettings();
                     printDocument1.PrinterSettings = ps;
