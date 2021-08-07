@@ -61,7 +61,10 @@ namespace SuMueble.Views
             this.existencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_quitarItem = new System.Windows.Forms.Button();
             this.btn_verFactura = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_descuento = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_descuento)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_terminarVenta
@@ -127,6 +130,7 @@ namespace SuMueble.Views
             this.txt_precio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_precio.Name = "txt_precio";
             this.txt_precio.PlaceholderText = "Precio Sugerido...";
+            this.txt_precio.ReadOnly = true;
             this.txt_precio.Size = new System.Drawing.Size(223, 34);
             this.txt_precio.TabIndex = 26;
             this.txt_precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precio_KeyPress);
@@ -435,11 +439,30 @@ namespace SuMueble.Views
             this.btn_verFactura.UseVisualStyleBackColor = false;
             this.btn_verFactura.Click += new System.EventHandler(this.btn_verFactura_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(77, 844);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 28);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Descuento";
+            // 
+            // txt_descuento
+            // 
+            this.txt_descuento.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_descuento.Location = new System.Drawing.Point(77, 875);
+            this.txt_descuento.Name = "txt_descuento";
+            this.txt_descuento.Size = new System.Drawing.Size(223, 34);
+            this.txt_descuento.TabIndex = 32;
+            // 
             // VentaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txt_descuento);
             this.Controls.Add(this.btn_verFactura);
             this.Controls.Add(this.btn_terminarVenta);
             this.Controls.Add(this.btn_quitarItem);
@@ -452,6 +475,7 @@ namespace SuMueble.Views
             this.Controls.Add(this.txt_dniCliente);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
@@ -471,6 +495,7 @@ namespace SuMueble.Views
             this.Size = new System.Drawing.Size(1523, 918);
             this.Load += new System.EventHandler(this.VentaView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_descuento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,5 +534,7 @@ namespace SuMueble.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn existencias;
         private System.Windows.Forms.Button btn_quitarItem;
         private System.Windows.Forms.Button btn_verFactura;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown txt_descuento;
     }
 }

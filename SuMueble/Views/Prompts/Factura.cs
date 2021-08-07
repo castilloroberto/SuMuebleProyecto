@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace SuMueble.Views.Prompts
 {
@@ -50,6 +51,8 @@ namespace SuMueble.Views.Prompts
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(Bitmap,0,0);
+
+            e.PageSettings.PaperSize = new PaperSize("custom size",200,1000);
         }
         private void PrintFactura()
         {
