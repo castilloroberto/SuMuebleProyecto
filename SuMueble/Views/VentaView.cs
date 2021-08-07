@@ -99,7 +99,8 @@ namespace SuMueble.Views
         private void dgv_productos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // cell 3 = precio
-            txt_precio.Value = GetCell(3);
+            decimal precio = (decimal)GetCell(3);
+            txt_precio.Value = precio;
         }
 
         
@@ -113,7 +114,7 @@ namespace SuMueble.Views
             }
             else
             {
-                if (int.Parse(GetCell(4)) < txt_cantidadProducto.Value)
+                if (GetCell(4) < txt_cantidadProducto.Value)
                 {
                     MessageBox.Show("No hay suficientes existencia del producto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -126,10 +127,11 @@ namespace SuMueble.Views
                         DetallesVentas dv = new DetallesVentas()
                         {
                             IDVenta = _IDVenta,
-                            IDProducto = int.Parse(GetCell(0)),
+                            IDProducto = GetCell(0),
                             Cantidad = (int)txt_cantidadProducto.Value,
-                            PrecioVenta = (float)txt_precio.Value,
+                            PrecioVenta = (float)(txt_precio.Value - (txt_precio.Value * (txt_descuento.Value/100)) ),
                             Producto = GetCell(2),
+                           
 
                         };
 

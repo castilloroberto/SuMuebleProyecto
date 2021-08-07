@@ -27,7 +27,8 @@ namespace SuMueble
             if (ID != 0)
             {
                 cargarDatos(ID);
-                txt_Existencia.ReadOnly = true;
+                txt_Existencia.Enabled = false;
+                txt_Precio.Enabled = false;
             }
             IDglobal = ID;
         }

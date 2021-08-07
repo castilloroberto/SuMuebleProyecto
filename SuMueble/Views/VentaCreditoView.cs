@@ -90,6 +90,9 @@ namespace SuMueble.Views
             listaReferencias.Clear();
             _Total = 0;
             _venta = new Ventas();
+            CargarListView();
+            CargarReferencias();
+
         }
         private void ClearCliente()
         {

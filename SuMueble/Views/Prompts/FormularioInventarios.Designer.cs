@@ -177,11 +177,18 @@ namespace SuMueble
             // 
             // txt_Precio
             // 
+            this.txt_Precio.DecimalPlaces = 2;
             this.txt_Precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_Precio.Location = new System.Drawing.Point(57, 214);
+            this.txt_Precio.Maximum = new decimal(new int[] {
+            200000,
+            0,
+            0,
+            0});
             this.txt_Precio.Name = "txt_Precio";
             this.txt_Precio.Size = new System.Drawing.Size(269, 34);
             this.txt_Precio.TabIndex = 8;
+            this.txt_Precio.ThousandsSeparator = true;
             // 
             // txt_Existencia
             // 

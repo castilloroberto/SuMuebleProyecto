@@ -36,7 +36,7 @@ namespace SuMueble.Views.Prompts
         private void dgv_productos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // cell 3 = precio
-            txt_precio.Value = GetCell(3);
+            txt_precio.Value = (decimal)GetCell(3);
         }
         private void ClearProducto()
         {
@@ -55,7 +55,7 @@ namespace SuMueble.Views.Prompts
             {
                 DetallesVentas dv = new DetallesVentas()
                 {
-                    IDProducto = int.Parse(GetCell(0)),
+                    IDProducto = GetCell(0),
                     Cantidad = 1,
                     PrecioVenta = (float)txt_precio.Value,
                     Producto = GetCell(2)
