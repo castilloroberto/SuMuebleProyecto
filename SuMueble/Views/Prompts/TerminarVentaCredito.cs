@@ -29,8 +29,11 @@ namespace SuMueble.Views.Prompts
             VentaCreditoView._venta.Prima = (float)txt_prima.Value;
 
             bool ok = vcontroller.SaveVenta(VentaCreditoView._venta);
-            if (ok)
+            if (ok) 
+            {
                 MessageBox.Show(string.Format(msg,(float)txt_prima.Value), "Imprimer factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
             else
                 MessageBox.Show($"Ha habido un error\nIntente de nuevo", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             this.Close();

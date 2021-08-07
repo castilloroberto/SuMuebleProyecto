@@ -72,7 +72,7 @@ namespace SuMueble.Views.Prompts
         {
             e.Graphics.DrawImage(Bitmap,0,0);
 
-            e.PageSettings.PaperSize = new PaperSize("custom size",200,1000);
+            e.PageSettings.PaperSize = new PaperSize("custom size", 449, 951);
         }
         private void PrintFactura()
         {
