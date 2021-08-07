@@ -45,12 +45,9 @@ namespace SuMueble.Views
             this.l_cliente = new System.Windows.Forms.Label();
             this.dtp_fechaFin = new System.Windows.Forms.DateTimePicker();
             this.l_colabora = new System.Windows.Forms.Label();
-
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-
             this.txtCuota = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.txtCuota)).BeginInit();
-
             this.SuspendLayout();
             // 
             // label1
@@ -228,6 +225,11 @@ namespace SuMueble.Views
             // 
             this.txtCuota.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCuota.Location = new System.Drawing.Point(136, 224);
+            this.txtCuota.Maximum = new decimal(new int[] {
+            200000,
+            0,
+            0,
+            0});
             this.txtCuota.Name = "txtCuota";
             this.txtCuota.Size = new System.Drawing.Size(200, 34);
             this.txtCuota.TabIndex = 14;

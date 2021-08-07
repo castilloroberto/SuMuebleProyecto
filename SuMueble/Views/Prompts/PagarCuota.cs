@@ -22,7 +22,7 @@ namespace SuMueble.Views
         Guid IDVenta;
         private string codFactura;
         DataTable DetalleVenta;
-
+        Ventas venta_;
 
 
         public PagarCuota(string cod_factura)
@@ -48,7 +48,7 @@ namespace SuMueble.Views
             dtp_fechaFin.Value = venta.Field<DateTime>("FechaFin");
 
 
-            var venta_ = ventaController.GetVentaID(codFactura);
+            venta_ = ventaController.GetVentaID(codFactura);
             l_cliente.Text = venta_.NombreCliente;
 
             txtProducto.Text = DetalleVenta.Rows[0].Field<string>("Producto");
@@ -108,7 +108,7 @@ namespace SuMueble.Views
          
         private void imprimir(object sender, PrintPageEventArgs e)
         {
-            var recibo = new Recibo();
+            var recibo = new Recibo(venta_, (float)txtCuota.Value);
             recibo.ShowDialog();
         }
 

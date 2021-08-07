@@ -24,7 +24,16 @@ namespace SuMueble.Views.Prompts
             total.Text = pago.ToString();
             if (venta != null)
             {
-                cliente.Text = string.Format("Cliente: {0}",venta.Cliente.Nombre);
+                if (venta.Cliente != null)
+                {
+                    cliente.Text = string.Format("Cliente: {0}", venta.Cliente.Nombre);
+
+                }
+                if (venta.NombreCliente != null)
+                {
+                    cliente.Text = string.Format("Cliente: {0}", venta.NombreCliente);
+
+                }
                 cuotaRestantes.Text = venta.Cuotas.ToString();
                 
             }
