@@ -144,11 +144,15 @@ namespace SuMueble.Views
 
 
                 };
+
                 var terminar = new TerminarVentaCredito();
                 terminar.ShowDialog();
+
                 limpiarventa();
                 ClearCliente();
-                
+                ClearReferencias();
+                ClearVenta();
+
             }
             else
             {
@@ -157,6 +161,17 @@ namespace SuMueble.Views
 
             
         }
+
+        private void ClearVenta()
+        {
+            lb_productosVenta.DataSource = null;
+        }
+
+        private void ClearReferencias()
+        {
+            lb_referencias.DataSource = null;
+        }
+
         private string IsAllReady()
         {
             string res = txt_dniCliente.Text.Length != 13 ? "* DNI Cliente" : "";
