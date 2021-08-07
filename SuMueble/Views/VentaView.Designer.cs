@@ -407,13 +407,24 @@ namespace SuMueble.Views
             // 
             this.txt_cantidadProducto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_cantidadProducto.Location = new System.Drawing.Point(354, 793);
+            this.txt_cantidadProducto.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txt_cantidadProducto.Name = "txt_cantidadProducto";
             this.txt_cantidadProducto.Size = new System.Drawing.Size(223, 34);
             this.txt_cantidadProducto.TabIndex = 33;
+            this.txt_cantidadProducto.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // txt_precio
             // 
             this.txt_precio.DecimalPlaces = 2;
+            this.txt_precio.Enabled = false;
             this.txt_precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_precio.Location = new System.Drawing.Point(77, 790);
             this.txt_precio.Maximum = new decimal(new int[] {

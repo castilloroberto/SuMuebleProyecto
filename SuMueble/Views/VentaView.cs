@@ -62,19 +62,29 @@ namespace SuMueble.Views
                     Cliente = c,
                     IDTipoVenta = 1,
                     IDColaborador = Menu.colaborador.DNI,
-                    FechaFin = DateTime.Now
+                    FechaFin = DateTime.Now,
+                    TotalVenta = Total,
+                    IDCliente = c.DNI
 
                 };
+
                 bool ok = ventaController.SaveVenta(venta);
+
                 if (ok)
                 {
-                    MessageBox.Show($"Venta Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show($"Venta Terminada\nMonto: {Total} \na continuacion se imprimira la factura", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MostrarFactura(venta);
+
+                    CargarDataGrid();
+                    ClearVenta();
 
                 }
                 else
+                {
                     MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
-                CargarDataGrid();
-                ClearVenta();
+
+                }
+                
                 
             }
             else
@@ -132,12 +142,14 @@ namespace SuMueble.Views
                             Cantidad = (int)txt_cantidadProducto.Value,
                             PrecioVenta = (float)(txt_precio.Value - (descuento) ),
                             Producto = GetCell(2),
-                            descuento = (float)(descuento)
+                            descuento = (float)(descuento),
+                            PrecioProducto = (float)txt_precio.Value
 
                         };
 
                         CargarListVew(dv);
                         ClearProducto();
+
                     }
                     else
                         MessageBox.Show(_msg, "Faltan datos de la venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -177,6 +189,7 @@ namespace SuMueble.Views
         {
             txt_cantidadProducto.Value = 0;
             txt_precio.Value = 0;
+            txt_descuento.Value = 0;
         }
 
         private void txt_dniCliente_KeyUp(object sender, KeyEventArgs e)
@@ -295,17 +308,25 @@ namespace SuMueble.Views
 
         }
 
-   
-        private void btn_verFactura_Click(object sender, EventArgs e)
+        private void MostrarFactura(Ventas venta)
         {
-            var verfactura = new Factura(_detallesVenta, Total,_IDVenta);
+            var verfactura = new Factura(venta);
+
             this.Hide();
+
             Menu.main_panel.BackColor = Color.LightGray;
             this.BackColor = Color.LightGray;
+
             verfactura.ShowDialog();
+
             this.BackColor = Color.White;
             Menu.main_panel.BackColor = Color.White;
+
             this.Show();
+        }
+        private void btn_verFactura_Click(object sender, EventArgs e)
+        {
+            
             
         }
     }

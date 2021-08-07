@@ -32,28 +32,29 @@ namespace SuMueble.Views.Prompts
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Factura));
             this.header_panel = new System.Windows.Forms.Panel();
             this.hora = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.nombre_cliente = new System.Windows.Forms.Label();
+            this.dni_cliente = new System.Windows.Forms.Label();
             this.cajero = new System.Windows.Forms.Label();
             this.fecha = new System.Windows.Forms.Label();
+            this.RTN = new System.Windows.Forms.Label();
             this.cod_factura = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.botton_panel = new System.Windows.Forms.Panel();
-            this.camcelar = new System.Windows.Forms.Button();
-            this.imprimir = new System.Windows.Forms.Button();
+            this.btn_print = new System.Windows.Forms.Button();
             this.total = new System.Windows.Forms.Label();
+            this.txt_descuentos = new System.Windows.Forms.Label();
             this.main_panel = new System.Windows.Forms.Panel();
             this.dgv_factura = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.RTN = new System.Windows.Forms.Label();
             this.header_panel.SuspendLayout();
             this.botton_panel.SuspendLayout();
             this.main_panel.SuspendLayout();
@@ -64,8 +65,8 @@ namespace SuMueble.Views.Prompts
             // 
             this.header_panel.Controls.Add(this.hora);
             this.header_panel.Controls.Add(this.label6);
-            this.header_panel.Controls.Add(this.label5);
-            this.header_panel.Controls.Add(this.label7);
+            this.header_panel.Controls.Add(this.nombre_cliente);
+            this.header_panel.Controls.Add(this.dni_cliente);
             this.header_panel.Controls.Add(this.cajero);
             this.header_panel.Controls.Add(this.fecha);
             this.header_panel.Controls.Add(this.RTN);
@@ -90,6 +91,38 @@ namespace SuMueble.Views.Prompts
             this.hora.Text = "Hora:";
             this.hora.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(97, 376);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(203, 35);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Datos del Cliente";
+            // 
+            // nombre_cliente
+            // 
+            this.nombre_cliente.AutoSize = true;
+            this.nombre_cliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nombre_cliente.Location = new System.Drawing.Point(32, 471);
+            this.nombre_cliente.Name = "nombre_cliente";
+            this.nombre_cliente.Size = new System.Drawing.Size(77, 23);
+            this.nombre_cliente.TabIndex = 2;
+            this.nombre_cliente.Text = "Nombre:";
+            this.nombre_cliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // dni_cliente
+            // 
+            this.dni_cliente.AutoSize = true;
+            this.dni_cliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dni_cliente.Location = new System.Drawing.Point(32, 438);
+            this.dni_cliente.Name = "dni_cliente";
+            this.dni_cliente.Size = new System.Drawing.Size(102, 23);
+            this.dni_cliente.TabIndex = 2;
+            this.dni_cliente.Text = "DNI Cliente:";
+            this.dni_cliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // cajero
             // 
             this.cajero.AutoSize = true;
@@ -111,6 +144,17 @@ namespace SuMueble.Views.Prompts
             this.fecha.TabIndex = 3;
             this.fecha.Text = "Fecha:";
             this.fecha.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // RTN
+            // 
+            this.RTN.AutoSize = true;
+            this.RTN.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RTN.Location = new System.Drawing.Point(42, 241);
+            this.RTN.Name = "RTN";
+            this.RTN.Size = new System.Drawing.Size(50, 23);
+            this.RTN.TabIndex = 4;
+            this.RTN.Text = "RTN: ";
+            this.RTN.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // cod_factura
             // 
@@ -169,43 +213,45 @@ namespace SuMueble.Views.Prompts
             // 
             // botton_panel
             // 
-            this.botton_panel.Controls.Add(this.camcelar);
-            this.botton_panel.Controls.Add(this.imprimir);
+            this.botton_panel.Controls.Add(this.btn_print);
             this.botton_panel.Controls.Add(this.total);
-            this.botton_panel.Location = new System.Drawing.Point(0, 865);
+            this.botton_panel.Controls.Add(this.txt_descuentos);
+            this.botton_panel.Location = new System.Drawing.Point(0, 859);
             this.botton_panel.Name = "botton_panel";
-            this.botton_panel.Size = new System.Drawing.Size(449, 129);
+            this.botton_panel.Size = new System.Drawing.Size(449, 91);
             this.botton_panel.TabIndex = 3;
             // 
-            // camcelar
+            // btn_print
             // 
-            this.camcelar.Location = new System.Drawing.Point(12, 86);
-            this.camcelar.Name = "camcelar";
-            this.camcelar.Size = new System.Drawing.Size(94, 29);
-            this.camcelar.TabIndex = 2;
-            this.camcelar.Text = "Cancelar";
-            this.camcelar.UseVisualStyleBackColor = true;
-            // 
-            // imprimir
-            // 
-            this.imprimir.Location = new System.Drawing.Point(317, 86);
-            this.imprimir.Name = "imprimir";
-            this.imprimir.Size = new System.Drawing.Size(94, 29);
-            this.imprimir.TabIndex = 2;
-            this.imprimir.Text = "imprimir";
-            this.imprimir.UseVisualStyleBackColor = true;
-            this.imprimir.Click += new System.EventHandler(this.imprimir_Click);
+            this.btn_print.Location = new System.Drawing.Point(32, 48);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(94, 29);
+            this.btn_print.TabIndex = 2;
+            this.btn_print.Text = "Imprimir";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
             // total
             // 
             this.total.AutoSize = true;
             this.total.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.total.Location = new System.Drawing.Point(250, 16);
+            this.total.Location = new System.Drawing.Point(251, 54);
             this.total.Name = "total";
             this.total.Size = new System.Drawing.Size(50, 23);
             this.total.TabIndex = 1;
             this.total.Text = "Total:";
             this.total.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txt_descuentos
+            // 
+            this.txt_descuentos.AutoSize = true;
+            this.txt_descuentos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_descuentos.Location = new System.Drawing.Point(250, 16);
+            this.txt_descuentos.Name = "txt_descuentos";
+            this.txt_descuentos.Size = new System.Drawing.Size(102, 23);
+            this.txt_descuentos.TabIndex = 1;
+            this.txt_descuentos.Text = "Descuentos:";
+            this.txt_descuentos.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // main_panel
             // 
@@ -226,7 +272,8 @@ namespace SuMueble.Views.Prompts
             this.dgv_factura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.Column4});
             this.dgv_factura.GridColor = System.Drawing.Color.White;
             this.dgv_factura.Location = new System.Drawing.Point(37, 58);
             this.dgv_factura.Name = "dgv_factura";
@@ -255,21 +302,19 @@ namespace SuMueble.Views.Prompts
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "PrecioVenta";
+            this.Column3.DataPropertyName = "PrecioProducto";
             this.Column3.HeaderText = "Valor";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
-            // label6
+            // Column4
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(97, 376);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(203, 35);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Datos del Cliente";
+            this.Column4.DataPropertyName = "Descuento";
+            this.Column4.HeaderText = "Descuento";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // printDocument1
             // 
@@ -286,46 +331,12 @@ namespace SuMueble.Views.Prompts
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(32, 438);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 23);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "DNI Cliente";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(266, 342);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 23);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Cajero:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // RTN
-            // 
-            this.RTN.AutoSize = true;
-            this.RTN.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RTN.Location = new System.Drawing.Point(42, 241);
-            this.RTN.Name = "RTN";
-            this.RTN.Size = new System.Drawing.Size(113, 23);
-            this.RTN.TabIndex = 4;
-            this.RTN.Text = "Factura Nº : 0";
-            this.RTN.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // Factura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.CancelButton = this.camcelar;
-            this.ClientSize = new System.Drawing.Size(449, 995);
+            this.ClientSize = new System.Drawing.Size(449, 951);
             this.Controls.Add(this.main_panel);
             this.Controls.Add(this.botton_panel);
             this.Controls.Add(this.header_panel);
@@ -362,17 +373,18 @@ namespace SuMueble.Views.Prompts
         private System.Windows.Forms.Panel botton_panel;
         private System.Windows.Forms.Panel main_panel;
         private System.Windows.Forms.DataGridView dgv_factura;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label txt_descuentos;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Label dni_cliente;
+        private System.Windows.Forms.Label RTN;
+        private System.Windows.Forms.Label nombre_cliente;
+        private System.Windows.Forms.Label total;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label total;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.Button imprimir;
-        private System.Windows.Forms.Button camcelar;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label RTN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btn_print;
     }
 }

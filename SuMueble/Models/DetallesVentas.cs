@@ -33,6 +33,10 @@ namespace SuMueble.Models
 
         [Write(false)]
         [Computed]
+        public float PrecioProducto { get; set; }
+
+        [Write(false)]
+        [Computed]
         public string Info 
         {
             get { return $"*{Cantidad} *{Producto}  *Subtotal: {SubTotal}"; }
