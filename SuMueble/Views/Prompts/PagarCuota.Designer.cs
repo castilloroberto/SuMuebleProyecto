@@ -30,7 +30,6 @@ namespace SuMueble.Views
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCuota = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtProducto = new System.Windows.Forms.TextBox();
@@ -46,6 +45,8 @@ namespace SuMueble.Views
             this.l_cliente = new System.Windows.Forms.Label();
             this.dtp_fechaFin = new System.Windows.Forms.DateTimePicker();
             this.l_colabora = new System.Windows.Forms.Label();
+            this.txtCuota = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCuota)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -57,16 +58,6 @@ namespace SuMueble.Views
             this.label1.Size = new System.Drawing.Size(138, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cliente:";
-            // 
-            // txtCuota
-            // 
-            this.txtCuota.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCuota.Location = new System.Drawing.Point(132, 225);
-            this.txtCuota.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCuota.Name = "txtCuota";
-            this.txtCuota.Size = new System.Drawing.Size(200, 34);
-            this.txtCuota.TabIndex = 1;
-            this.txtCuota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCuota_KeyPress);
             // 
             // label2
             // 
@@ -171,16 +162,14 @@ namespace SuMueble.Views
             // 
             // txtDNIColaborador
             // 
-            this.txtDNIColaborador.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDNIColaborador.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDNIColaborador.Location = new System.Drawing.Point(453, 225);
             this.txtDNIColaborador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDNIColaborador.MaxLength = 13;
             this.txtDNIColaborador.Name = "txtDNIColaborador";
+            this.txtDNIColaborador.ReadOnly = true;
             this.txtDNIColaborador.Size = new System.Drawing.Size(200, 34);
             this.txtDNIColaborador.TabIndex = 11;
-            this.txtDNIColaborador.TextChanged += new System.EventHandler(this.txtDNIColaborador_TextChanged);
-            this.txtDNIColaborador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNIColaborador_KeyPress);
-            this.txtDNIColaborador.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDNIColaborador_KeyUp);
             // 
             // txt_monto_pendiente
             // 
@@ -231,12 +220,21 @@ namespace SuMueble.Views
             this.l_colabora.Text = "DNI Colaborador";
             this.l_colabora.Visible = false;
             // 
+            // txtCuota
+            // 
+            this.txtCuota.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCuota.Location = new System.Drawing.Point(136, 224);
+            this.txtCuota.Name = "txtCuota";
+            this.txtCuota.Size = new System.Drawing.Size(200, 34);
+            this.txtCuota.TabIndex = 14;
+            // 
             // PagarCuota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_volver;
             this.ClientSize = new System.Drawing.Size(818, 708);
+            this.Controls.Add(this.txtCuota);
             this.Controls.Add(this.dtp_fechaFin);
             this.Controls.Add(this.l_colabora);
             this.Controls.Add(this.label6);
@@ -251,13 +249,13 @@ namespace SuMueble.Views
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtProducto);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtCuota);
             this.Controls.Add(this.l_cliente);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "PagarCuota";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PagarCuota";
+            ((System.ComponentModel.ISupportInitialize)(this.txtCuota)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,7 +264,6 @@ namespace SuMueble.Views
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCuota;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtProducto;
@@ -282,5 +279,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label l_cliente;
         private System.Windows.Forms.DateTimePicker dtp_fechaFin;
         private System.Windows.Forms.Label l_colabora;
+        private System.Windows.Forms.NumericUpDown txtCuota;
     }
 }
