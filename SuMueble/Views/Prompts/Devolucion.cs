@@ -42,7 +42,7 @@ namespace SuMueble.Views
                 MessageBox.Show("Motivo esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_Motivo.Focus();
             }
-            else if (txt_Cantidad.Text == "")
+            else if (txt_Cantidad.Value == 0)
             {
                 MessageBox.Show("Cantidad esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_Cantidad.Focus();
@@ -57,7 +57,7 @@ namespace SuMueble.Views
                 Devoluciones devolucion = new Devoluciones()
                 {
                     CodigoFactura = detalles_[0].CodigoFactura,
-                    Cantidad = int.Parse(txt_Cantidad.Text),
+                    Cantidad = (int)txt_Cantidad.Value,
                     IDProducto = cb_productos.SelectedValue.GetHashCode(),
                     Motivo = txt_Motivo.Text,
                     Observaciones = txt_Observacion.Text
@@ -74,27 +74,16 @@ namespace SuMueble.Views
             
         }
 
-        private void cb_productos_SelectedValueChanged(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void cb_productos_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            txt_Cantidad.Text = detalles_.Find(x => x.IDProducto == cb_productos.SelectedValue.GetHashCode()).Cantidad.ToString();
+            txt_Cantidad.Value = detalles_.Find(x => x.IDProducto == cb_productos.SelectedValue.GetHashCode()).Cantidad;
 
         }
 
 
-        private void txt_Cantidad_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Introduzca valores numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                e.Handled = true;
-                return;
-            }
-        }
+        
 
     }
 }
