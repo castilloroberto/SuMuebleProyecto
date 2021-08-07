@@ -127,7 +127,7 @@ namespace SuMueble.Views
                     this.Close();
                 }
                 else {
-                    MessageBox.Show("Formato de correco invalido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Formato de correo invalido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
             }
@@ -177,6 +177,18 @@ namespace SuMueble.Views
                 MessageBox.Show("Introduzca valores numericos", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Handled = true;
                 return;
+            }
+        }
+
+        private void ch_verContrasena_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ch_verContrasena.Checked)
+            {
+                txt_clave.PasswordChar = '\0';
+            }
+            else
+            {
+                txt_clave.PasswordChar = '*';
             }
         }
 
