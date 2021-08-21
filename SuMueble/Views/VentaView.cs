@@ -323,10 +323,6 @@ namespace SuMueble.Views
 
             this.Show();
         }
-        private void btn_verFactura_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
+        
     }
 }

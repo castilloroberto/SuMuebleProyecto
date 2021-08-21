@@ -68,7 +68,7 @@ namespace SuMueble.Controller
 
         public IEnumerable<Ventas> ObtenerVenta()
         {
-            string sql = @"select * from v_ventasResumen order by CodigoFactura";
+            string sql = @"select * from v_resumenVentas order by CodigoFactura";
             using (var db = GetConnection)
             {       
                 return db.Query<Ventas>(sql);
