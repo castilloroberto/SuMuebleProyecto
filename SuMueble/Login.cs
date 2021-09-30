@@ -40,7 +40,7 @@ namespace SuMueble.Views
                   
                 }
                 else {
-                    MessageBox.Show("Colaborador desactivado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Colaborador desactivado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                    
                 }
             }
