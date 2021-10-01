@@ -68,7 +68,7 @@ namespace SuMueble.Controller
 
         public IEnumerable<Ventas> ObtenerVenta()
         {
-            string sql = @"select * from v_resumenVentas order by CodigoFactura";
+            string sql = @"select * from Ventas order by CodigoFactura";
             using (var db = GetConnection)
             {       
                 return db.Query<Ventas>(sql);
@@ -109,7 +109,7 @@ namespace SuMueble.Controller
             using (var db = GetConnection)
             {
                 db.Open();
-                SqlCommand command = new SqlCommand("Select * from v_VentasCredito order by CodigoFactura", db);
+                SqlCommand command = new SqlCommand("Select * from ventas where IDTipoVenta = 2 order by CodigoFactura", db);
                 SqlDataReader reader = command.ExecuteReader();
                 DataTable resultado = new DataTable();
                
