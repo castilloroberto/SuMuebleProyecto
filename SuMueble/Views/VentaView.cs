@@ -40,7 +40,7 @@ namespace SuMueble.Views
             productos = pc.GetProductos().ToList();
             dgv_productos.DataSource = productos;
         }
-
+        //Andrea Celeste
         private void btn_terminarVenta_Click(object sender, EventArgs e)
         {
             Clientes c = new Clientes()
@@ -63,7 +63,7 @@ namespace SuMueble.Views
                     IDColaborador = Menu.colaborador.DNI,
                     FechaFin = DateTime.Now,
                     TotalVenta = Total,
-                    IDCliente = c.DNI
+                    IDCliente     = c.DNI
 
                 };
 
@@ -235,6 +235,7 @@ namespace SuMueble.Views
             return msg;
 
         }
+        //NO se
 
         private void VentaView_Load(object sender, EventArgs e)
         {
