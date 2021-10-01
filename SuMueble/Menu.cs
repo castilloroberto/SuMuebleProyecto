@@ -25,7 +25,7 @@ namespace SuMueble.Views
         }
         private void ValidarRol() 
         {
-            // ventas
+            // venta
             if (colaborador.IDPuesto == 2)
             {
                 btn_inventario.Visible = false;
