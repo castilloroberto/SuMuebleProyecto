@@ -53,6 +53,7 @@ namespace SuMueble.Views.Prompts
             this.txt_nombreCliente.PlaceholderText = "Nombre y Apellidos...";
             this.txt_nombreCliente.Size = new System.Drawing.Size(325, 34);
             this.txt_nombreCliente.TabIndex = 37;
+            this.txt_nombreCliente.Leave += new System.EventHandler(this.txt_nombreCliente_Leave);
             // 
             // txtDNIReferencia
             // 
@@ -129,6 +130,7 @@ namespace SuMueble.Views.Prompts
             this.txtDireccion.PlaceholderText = "Escriba Aqui...";
             this.txtDireccion.Size = new System.Drawing.Size(325, 82);
             this.txtDireccion.TabIndex = 39;
+            this.txtDireccion.Leave += new System.EventHandler(this.txtDireccion_Leave);
             // 
             // label3
             // 

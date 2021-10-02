@@ -86,5 +86,18 @@ namespace SuMueble.Views.Prompts
                 return;
             }
         }
+
+
+
+        //validaciones espacios al inicio y final //date:01/10
+        private void txt_nombreCliente_Leave(object sender, EventArgs e)
+        {
+            txt_nombreCliente.Text = txt_nombreCliente.Text.Trim(); 
+        }
+
+        private void txtDireccion_Leave(object sender, EventArgs e)
+        {
+            txtDireccion.Text = txtDireccion.Text.Trim();
+        }
     }
 }

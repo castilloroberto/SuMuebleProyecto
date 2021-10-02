@@ -76,6 +76,7 @@ namespace SuMueble.Views
             this.txt_nombreCliente.Size = new System.Drawing.Size(325, 34);
             this.txt_nombreCliente.TabIndex = 33;
             this.txt_nombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombreCliente_KeyPress);
+            this.txt_nombreCliente.Leave += new System.EventHandler(this.txt_nombreCliente_Leave);
             // 
             // txt_dniCliente
             // 
@@ -302,6 +303,7 @@ namespace SuMueble.Views
             this.txt_dirCliente.PlaceholderText = "Ciudad, colonia, referencias...";
             this.txt_dirCliente.Size = new System.Drawing.Size(325, 33);
             this.txt_dirCliente.TabIndex = 33;
+            this.txt_dirCliente.Leave += new System.EventHandler(this.txt_dirCliente_Leave);
             // 
             // l_dir
             // 
