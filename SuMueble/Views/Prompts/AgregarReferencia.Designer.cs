@@ -106,7 +106,7 @@ namespace SuMueble.Views.Prompts
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 28);
             this.label1.TabIndex = 38;
-            this.label1.Text = "Telefono";
+            this.label1.Text = "Teléfono";
             // 
             // label2
             // 
@@ -116,7 +116,7 @@ namespace SuMueble.Views.Prompts
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 28);
             this.label2.TabIndex = 38;
-            this.label2.Text = "Direccion";
+            this.label2.Text = "Dirección";
             // 
             // txtDireccion
             // 
@@ -136,9 +136,9 @@ namespace SuMueble.Views.Prompts
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(39, 206);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 28);
+            this.label3.Size = new System.Drawing.Size(159, 28);
             this.label3.TabIndex = 38;
-            this.label3.Text = "Codigo de Factura";
+            this.label3.Text = "Codigo de Recibo";
             // 
             // txtCodigoFactura
             // 

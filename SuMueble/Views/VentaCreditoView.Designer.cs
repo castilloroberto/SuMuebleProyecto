@@ -97,7 +97,7 @@ namespace SuMueble.Views
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 28);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Telefono Cliente";
+            this.label1.Text = "Teléfono Cliente";
             // 
             // label5
             // 
@@ -290,7 +290,7 @@ namespace SuMueble.Views
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 28);
             this.label8.TabIndex = 30;
-            this.label8.Text = "Direccion";
+            this.label8.Text = "Dirección";
             // 
             // txt_dirCliente
             // 
@@ -327,7 +327,7 @@ namespace SuMueble.Views
             this.btn_quitarItem.Name = "btn_quitarItem";
             this.btn_quitarItem.Size = new System.Drawing.Size(129, 38);
             this.btn_quitarItem.TabIndex = 47;
-            this.btn_quitarItem.Text = "Quitar Item";
+            this.btn_quitarItem.Text = "Quitar Ítem";
             this.btn_quitarItem.UseVisualStyleBackColor = false;
             this.btn_quitarItem.Click += new System.EventHandler(this.btn_quitarItem_Click);
             // 
