@@ -18,7 +18,7 @@ namespace SuMueble.Views.Prompts
         int CodigoFactura = 0;
         Bitmap Bitmap;
      
-        public Factura(Ventas venta = null)
+        public Factura(Venta venta = null)
         {
             InitializeComponent();
 

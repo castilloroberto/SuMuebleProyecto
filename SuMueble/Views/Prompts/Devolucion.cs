@@ -54,7 +54,7 @@ namespace SuMueble.Views
             }
             else
             {
-                Devoluciones devolucion = new Devoluciones()
+                Models.Devolucion devolucion = new Models.Devolucion()
                 {
                     CodigoFactura = detalles_[0].CodigoFactura,
                     Cantidad = (int)txt_Cantidad.Value,

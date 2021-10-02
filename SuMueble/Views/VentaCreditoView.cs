@@ -14,11 +14,11 @@ namespace SuMueble.Views
 
         //Variables
         public static Guid _IDVenta;
-        public static Ventas _venta;  
-        public static List<DetallesVentas> listaProductos;
-        public static List<Referencias> listaReferencias;
+        public static Venta _venta;  
+        public static List<DetalleVenta> listaProductos;
+        public static List<Referencia> listaReferencias;
         private static float _Total = 0;
-        public static void listaProducto(DetallesVentas dv)
+        public static void listaProducto(DetalleVenta dv)
         {
             dv.IDVenta = _IDVenta;
             listaProductos.Clear();
@@ -61,7 +61,7 @@ namespace SuMueble.Views
             if (txt_dniCliente.Text.Length == 13)
             {
                 ClearCliente();
-                Clientes cliente = clienteControlador.GetCliente(txt_dniCliente.Text);
+                Cliente cliente = clienteControlador.GetCliente(txt_dniCliente.Text);
                 if (cliente == null)
                 {
                     ActivarIndicadores();
@@ -89,7 +89,7 @@ namespace SuMueble.Views
             listaProductos.Clear();
             listaReferencias.Clear();
             _Total = 0;
-            _venta = new Ventas();
+            _venta = new Venta();
             CargarListView();
             CargarReferencias();
 
@@ -121,7 +121,7 @@ namespace SuMueble.Views
             if (msg == "")
             {
                 
-                Clientes cliente = new Clientes()
+                Cliente cliente = new Cliente()
                 {
                     DNI       = txt_dniCliente.Text,
                     Direccion = txt_dirCliente.Text,
@@ -130,7 +130,7 @@ namespace SuMueble.Views
                     Tel       = txtTelefonoCliente.Text
 
                 };
-                _venta = new Ventas()
+                _venta = new Venta()
                 {
                     ID = _IDVenta,
                     Cliente = cliente,
@@ -187,8 +187,8 @@ namespace SuMueble.Views
         public VentaCreditoView()
         {
             InitializeComponent();
-            listaProductos = new List<DetallesVentas>();
-            listaReferencias = new List<Referencias>();
+            listaProductos = new List<DetalleVenta>();
+            listaReferencias = new List<Referencia>();
             _IDVenta = Guid.NewGuid();
         }
 

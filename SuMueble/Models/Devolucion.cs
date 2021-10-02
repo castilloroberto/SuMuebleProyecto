@@ -6,7 +6,7 @@ using System.Text;
 namespace SuMueble.Models
 {
     [Table("Devoluciones")]
-    public class Devoluciones
+    public class Devolucion
     {
         //Lave Primaria
         [Key]

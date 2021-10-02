@@ -14,7 +14,7 @@ namespace SuMueble.Views
     public partial class HistorialVentasView : UserControl
     {
         VentaController ventaController = new VentaController();
-        List<Ventas> ventas;
+        List<Venta> ventas;
 
         //bool toogle = true;
         public HistorialVentasView()
@@ -72,7 +72,7 @@ namespace SuMueble.Views
         {
             string buscar = txt_BuscarCliente.Text.ToLower();
 
-            List<Ventas> filtrados = ventas.Where<Ventas>(x => {
+            List<Venta> filtrados = ventas.Where<Venta>(x => {
 
                 return x.NombreCliente.ToLower().StartsWith(buscar);
 
@@ -89,7 +89,7 @@ namespace SuMueble.Views
 
             if (tipoVenta != "Todo")
             {
-                List<Ventas> filtrados = ventas.Where<Ventas>(x =>
+                List<Venta> filtrados = ventas.Where<Venta>(x =>
                 {
 
                     return x.TipoVenta == tipoVenta;

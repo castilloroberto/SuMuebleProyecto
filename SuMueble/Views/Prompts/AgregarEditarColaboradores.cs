@@ -107,7 +107,7 @@ namespace SuMueble.Views
                 {
 
                     // enviar el insert 
-                    Colaboradores colaborador = new Colaboradores()
+                    Colaborador colaborador = new Colaborador()
                     {
                         Clave = txt_clave.Text,
                         Contratado = dtp_contratoIniciado.Value,

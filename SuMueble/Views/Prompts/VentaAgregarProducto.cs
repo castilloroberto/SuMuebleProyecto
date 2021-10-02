@@ -15,7 +15,7 @@ namespace SuMueble.Views.Prompts
     public partial class VentaAgregarProducto : Form
     {
         ProductoControlador productoControlador = new ProductoControlador();
-        List<Productos> productos;
+        List<Producto> productos;
         public VentaAgregarProducto()
         {
             InitializeComponent();
@@ -53,7 +53,7 @@ namespace SuMueble.Views.Prompts
             }
             else
             {
-                DetallesVentas dv = new DetallesVentas()
+                DetalleVenta dv = new DetalleVenta()
                 {
                     IDProducto = GetCell(0),
                     Cantidad = 1,
@@ -73,7 +73,7 @@ namespace SuMueble.Views.Prompts
         {
             string buscar = txt_buscarProducto.Text.ToLower();
 
-            List<Productos> filtrados = productos.Where<Productos>(x => {
+            List<Producto> filtrados = productos.Where<Producto>(x => {
 
                 return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
 

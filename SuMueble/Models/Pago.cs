@@ -1,22 +1,20 @@
-﻿using Dapper.Contrib.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace SuMueble.Models
 {
     [Table("Pagos")]
-    public class Pagos
+    public class Pago
     {
         public string IDColaborador { get; set; }
 
-        [ExplicitKey]
+        [ForeignKey("")]
         public Guid IDVenta { get; set; }
 
         public float Monto { get; set; }
 
-        [Write(false)]
-        [Computed]
         public DateTime Fecha { get; set; }
     }
 }

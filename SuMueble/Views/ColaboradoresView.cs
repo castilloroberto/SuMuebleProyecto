@@ -15,7 +15,7 @@ namespace SuMueble.Views
     public partial class ColaboradoresView : UserControl
     {
         ColaboradorControlador cControlador = new ColaboradorControlador();
-        List<Colaboradores> colaboradores;
+        List<Colaborador> colaboradores;
 
         public ColaboradoresView()
         {
@@ -59,7 +59,7 @@ namespace SuMueble.Views
         {
             string buscar =txt_busqueda.Text.ToLower();
 
-            List<Colaboradores> filtrados = colaboradores.Where<Colaboradores>(x => {
+            List<Colaborador> filtrados = colaboradores.Where<Colaborador>(x => {
 
                 return x.Nombre.ToLower().StartsWith(buscar) || x.DNI.ToLower().StartsWith(buscar);
 

@@ -22,7 +22,7 @@ namespace SuMueble.Views
         Guid IDVenta;
         private string codFactura;
         DataTable DetalleVenta;
-        Ventas venta_;
+        Venta venta_;
 
 
         public PagarCuota(string cod_factura)
@@ -73,7 +73,7 @@ namespace SuMueble.Views
         {
             if (Validardatos())
             {
-                Pagos p = new Pagos()
+                Pago p = new Pago()
                 {
                     IDVenta= IDVenta,
                     IDColaborador = txtDNIColaborador.Text,

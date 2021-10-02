@@ -41,7 +41,7 @@ namespace SuMueble.Views.Prompts
             }
             else
             {
-                Referencias referencias = new Referencias()
+                Referencia referencias = new Referencia()
                 {
                     CodigoRecibo = txtCodigoFactura.Text,
                     Direccion = txtDireccion.Text,

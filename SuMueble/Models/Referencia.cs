@@ -6,7 +6,7 @@ using System.Text;
 namespace SuMueble.Models
 {
    [Table("Referencias")]
-    public class Referencias
+    public class Referencia
     {
        [Key]
         public int ID { get; set; }
