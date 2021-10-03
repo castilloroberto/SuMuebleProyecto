@@ -19,25 +19,50 @@ namespace SuMueble.Views.Prompts
                 MessageBox.Show("DNI referencia esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDNIReferencia.Focus();
             }
+            else if (txtDNIReferencia.Text.Length != 13) //date:02/10/2021
+            {   // longitud 13
+                MessageBox.Show("DNI Incompleto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDNIReferencia.Focus();
+            }
             else if (txt_nombreCliente.Text == "")
             {
                 MessageBox.Show("Nombre referencia esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_nombreCliente.Focus();
             }
+            else if (txt_nombreCliente.Text.Length < 12) //date:02/10/2021
+            {   // min 12 - max 150
+                MessageBox.Show("Nombre Incompleto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_nombreCliente.Focus();
+            }
             else if (txt_telefono.Text == "")
             {
-                MessageBox.Show("Telefono referencia esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Teléfono referencia esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_telefono.Focus();
             }
-            else if (txtCodigoFactura.Text == "")
-            {
-                MessageBox.Show("Codigo Factura referencia esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtCodigoFactura.Focus();
+            else if (txt_telefono.Text.Length != 8) //date:02/10/2021
+            {   // longitud 8 
+                MessageBox.Show("Número Teléfononico Incompleto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_telefono.Focus();
             }
             else if (txtDireccion.Text == "")
             {
-                MessageBox.Show("Codigo Factura referencia esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Dirección referencia esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDireccion.Focus();
+            }
+            else if (txtDireccion.Text.Length < 9) //date:02/10/2021
+            {   // dir corta min 9 - max 200
+                MessageBox.Show("Dirección corta Incompleta", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDireccion.Focus();
+            }
+            else if (txtCodigoFactura.Text == "")
+            {
+                MessageBox.Show("Código Recibo referencia esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCodigoFactura.Focus();
+            }
+            else if (txtCodigoFactura.Text.Length < 7) //date:02/10/2021
+            {   // min 7 - max 18 
+                MessageBox.Show("Código Recibo Incompleto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCodigoFactura.Focus();
             }
             else
             {
@@ -99,5 +124,6 @@ namespace SuMueble.Views.Prompts
         {
             txtDireccion.Text = txtDireccion.Text.Trim();
         }
+
     }
 }

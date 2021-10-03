@@ -154,7 +154,7 @@ namespace SuMueble.Views
             {
                 MessageBox.Show(msg, "Campos incompletos",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
-            
+
 
         }
 

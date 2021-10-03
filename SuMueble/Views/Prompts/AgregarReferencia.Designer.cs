@@ -48,7 +48,7 @@ namespace SuMueble.Views.Prompts
             this.txt_nombreCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_nombreCliente.Location = new System.Drawing.Point(301, 66);
             this.txt_nombreCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_nombreCliente.MaxLength = 255;
+            this.txt_nombreCliente.MaxLength = 150;
             this.txt_nombreCliente.Name = "txt_nombreCliente";
             this.txt_nombreCliente.PlaceholderText = "Nombre y Apellidos...";
             this.txt_nombreCliente.Size = new System.Drawing.Size(325, 34);
@@ -124,7 +124,7 @@ namespace SuMueble.Views.Prompts
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDireccion.Location = new System.Drawing.Point(301, 154);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDireccion.MaxLength = 255;
+            this.txtDireccion.MaxLength = 200;
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.PlaceholderText = "Escriba Aqui...";
@@ -147,7 +147,7 @@ namespace SuMueble.Views.Prompts
             this.txtCodigoFactura.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCodigoFactura.Location = new System.Drawing.Point(42, 238);
             this.txtCodigoFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCodigoFactura.MaxLength = 15;
+            this.txtCodigoFactura.MaxLength = 18;
             this.txtCodigoFactura.Name = "txtCodigoFactura";
             this.txtCodigoFactura.PlaceholderText = "Escriba Aqui...";
             this.txtCodigoFactura.Size = new System.Drawing.Size(223, 34);
