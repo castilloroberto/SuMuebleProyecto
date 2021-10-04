@@ -309,7 +309,7 @@ namespace SuMueble.Views
 
         }
        
-
+        
         private void VentaView_Load(object sender, EventArgs e)
         {
 
