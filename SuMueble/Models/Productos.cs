@@ -29,7 +29,13 @@ namespace SuMueble.Models
 
         public Productos()
         {
-            Estado = true;
+            try
+            {
+                Estado = true;
+            }
+            catch {
+                Estado = false;
+            }
         }
     }
 }
