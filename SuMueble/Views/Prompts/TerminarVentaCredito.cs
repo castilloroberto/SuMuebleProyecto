@@ -28,7 +28,6 @@ namespace SuMueble.Views.Prompts
             VentaCreditoView._venta.FechaFin = dtp_fechaFin.Value;
             VentaCreditoView._venta.Prima = (float)txt_prima.Value;
 
-            txt_cuotas.Value = 2;
 
             bool ok = vcontroller.SaveVenta(VentaCreditoView._venta);
             if (ok) 
