@@ -45,7 +45,6 @@ namespace SuMueble.Views
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            Menu.main_panel = new System.Windows.Forms.Panel();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel.SuspendLayout();
@@ -254,23 +253,11 @@ namespace SuMueble.Views
             this.panel1.Size = new System.Drawing.Size(303, 840);
             this.panel1.TabIndex = 2;
             // 
-            // main_panel
-            // 
-            Menu.main_panel.AutoScroll = true;
-            Menu.main_panel.BackColor = System.Drawing.Color.White;
-            Menu.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            Menu.main_panel.Location = new System.Drawing.Point(303, 0);
-            Menu.main_panel.Margin = new System.Windows.Forms.Padding(2);
-            Menu.main_panel.Name = "main_panel";
-            Menu.main_panel.Size = new System.Drawing.Size(1579, 840);
-            Menu.main_panel.TabIndex = 3;
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1882, 840);
-            this.Controls.Add(Menu.main_panel);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
