@@ -161,7 +161,8 @@ namespace SuMueble.Views
         {
             Login login = new Login();
             login.Show();
-            this.Close();
+            Application.Exit();
+
         }
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
