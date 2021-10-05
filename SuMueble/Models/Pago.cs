@@ -8,13 +8,22 @@ namespace SuMueble.Models
     [Table("Pagos")]
     public class Pago
     {
-        public string IDColaborador { get; set; }
+        public int Id { get; set; }
 
-        [ForeignKey("")]
-        public Guid IDVenta { get; set; }
+        [ForeignKey("Colaborador")]
+        public string ColaboradorDNI { get; set; }
+        public Colaborador Colaborador { get; set; }
 
-        public float Monto { get; set; }
+        [ForeignKey("Venta")]
+        public int CodigoFactura { get; set; }
+        public Venta Venta { get; set; }
+        public decimal Monto { get; set; }
 
         public DateTime Fecha { get; set; }
+
+        public Pago()
+        {
+            Fecha = DateTime.Now;
+        }
     }
 }

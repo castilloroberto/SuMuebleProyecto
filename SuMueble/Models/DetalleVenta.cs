@@ -12,7 +12,7 @@ namespace SuMueble.Models
         public int Id { get; set; }
 
         [ForeignKey("Venta")]
-        public int VentaCodigoFactura { get; set; }
+        public int CodigoFactura { get; set; }
         public Venta Venta { get; set; }
 
         [ForeignKey("Producto")]
