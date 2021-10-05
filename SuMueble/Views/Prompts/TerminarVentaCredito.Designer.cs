@@ -97,17 +97,47 @@ namespace SuMueble.Views.Prompts
             // 
             this.txt_cuotas.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_cuotas.Location = new System.Drawing.Point(64, 108);
+            this.txt_cuotas.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.txt_cuotas.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.txt_cuotas.Name = "txt_cuotas";
             this.txt_cuotas.Size = new System.Drawing.Size(208, 34);
             this.txt_cuotas.TabIndex = 48;
+            this.txt_cuotas.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             // 
             // txt_prima
             // 
             this.txt_prima.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_prima.Location = new System.Drawing.Point(64, 223);
+            this.txt_prima.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txt_prima.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             this.txt_prima.Name = "txt_prima";
             this.txt_prima.Size = new System.Drawing.Size(208, 34);
             this.txt_prima.TabIndex = 48;
+            this.txt_prima.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // TerminarVentaCredito
             // 

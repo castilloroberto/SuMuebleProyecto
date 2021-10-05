@@ -76,6 +76,7 @@ namespace SuMueble.Views
             this.txt_nombreCliente.Size = new System.Drawing.Size(325, 34);
             this.txt_nombreCliente.TabIndex = 33;
             this.txt_nombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombreCliente_KeyPress);
+            this.txt_nombreCliente.Leave += new System.EventHandler(this.txt_nombreCliente_Leave);
             // 
             // txt_dniCliente
             // 
@@ -97,7 +98,7 @@ namespace SuMueble.Views
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 28);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Telefono Cliente";
+            this.label1.Text = "Teléfono Cliente";
             // 
             // label5
             // 
@@ -290,7 +291,7 @@ namespace SuMueble.Views
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 28);
             this.label8.TabIndex = 30;
-            this.label8.Text = "Direccion";
+            this.label8.Text = "Dirección";
             // 
             // txt_dirCliente
             // 
@@ -302,6 +303,7 @@ namespace SuMueble.Views
             this.txt_dirCliente.PlaceholderText = "Ciudad, colonia, referencias...";
             this.txt_dirCliente.Size = new System.Drawing.Size(325, 33);
             this.txt_dirCliente.TabIndex = 33;
+            this.txt_dirCliente.Leave += new System.EventHandler(this.txt_dirCliente_Leave);
             // 
             // l_dir
             // 
@@ -327,7 +329,7 @@ namespace SuMueble.Views
             this.btn_quitarItem.Name = "btn_quitarItem";
             this.btn_quitarItem.Size = new System.Drawing.Size(129, 38);
             this.btn_quitarItem.TabIndex = 47;
-            this.btn_quitarItem.Text = "Quitar Item";
+            this.btn_quitarItem.Text = "Quitar Ítem";
             this.btn_quitarItem.UseVisualStyleBackColor = false;
             this.btn_quitarItem.Click += new System.EventHandler(this.btn_quitarItem_Click);
             // 
