@@ -29,7 +29,7 @@ namespace SuMueble.Views.Prompts
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_agregarProducto = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_buscarProducto = new System.Windows.Forms.TextBox();
@@ -41,8 +41,12 @@ namespace SuMueble.Views.Prompts
             this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.existencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_descuento = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.txt_precio = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_descuento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_precio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,14 +119,14 @@ namespace SuMueble.Views.Prompts
             this.dgv_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_productos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -183,18 +187,54 @@ namespace SuMueble.Views.Prompts
             this.existencias.Name = "existencias";
             this.existencias.ReadOnly = true;
             // 
+            // txt_descuento
+            // 
+            this.txt_descuento.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_descuento.Location = new System.Drawing.Point(338, 543);
+            this.txt_descuento.Maximum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
+            this.txt_descuento.Name = "txt_descuento";
+            this.txt_descuento.Size = new System.Drawing.Size(223, 34);
+            this.txt_descuento.TabIndex = 43;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(567, 543);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 28);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "%";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(334, 512);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 28);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "Descuento";
+            // 
             // txt_precio
             // 
+            this.txt_precio.DecimalPlaces = 2;
+            this.txt_precio.Enabled = false;
             this.txt_precio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_precio.Location = new System.Drawing.Point(669, 543);
+            this.txt_precio.Location = new System.Drawing.Point(668, 543);
             this.txt_precio.Maximum = new decimal(new int[] {
-            100000000,
+            200000,
             0,
             0,
             0});
             this.txt_precio.Name = "txt_precio";
             this.txt_precio.Size = new System.Drawing.Size(223, 34);
-            this.txt_precio.TabIndex = 40;
+            this.txt_precio.TabIndex = 44;
+            this.txt_precio.ThousandsSeparator = true;
             // 
             // VentaAgregarProducto
             // 
@@ -204,6 +244,9 @@ namespace SuMueble.Views.Prompts
             this.CancelButton = this.btn_cancelar;
             this.ClientSize = new System.Drawing.Size(933, 682);
             this.Controls.Add(this.txt_precio);
+            this.Controls.Add(this.txt_descuento);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.dgv_productos);
             this.Controls.Add(this.txt_buscarProducto);
             this.Controls.Add(this.label7);
@@ -216,6 +259,7 @@ namespace SuMueble.Views.Prompts
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VentaAgregarProducto";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_descuento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_precio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -235,6 +279,9 @@ namespace SuMueble.Views.Prompts
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn existencias;
+        private System.Windows.Forms.NumericUpDown txt_descuento;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown txt_precio;
     }
 }

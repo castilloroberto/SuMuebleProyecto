@@ -41,56 +41,95 @@ namespace SuMueble.Views
             dgv_productos.DataSource = productos;
         }
         //Andrea Celeste
+        public static bool validarNombre(string nombre_)
+        {
+            //  "        aaaaaaaaaaaaaaa          "
+            var nombre = nombre_.Trim();
+            if (nombre.Length == 0) return false;
+            
+            char primerLetra = nombre.ElementAt(0); //nombre.Remove(1);
+            int count = 0;
+            foreach (var letra in nombre)
+            {
+                if (letra == primerLetra)
+                {
+                    count++;
+                }
+            }
+            if (count == nombre.Length)
+            {
+                return false;
+            }
+
+
+            return true;
+        } 
         private void btn_terminarVenta_Click(object sender, EventArgs e)
         {
-            Clientes c = new Clientes()
+            if (txt_clienteTelefono.Text.FirstOrDefault() == '0')
             {
-                DNI = txt_dniCliente.Text,
-                Nombre = txt_nombreCliente.Text,
-                Tel = txt_clienteTelefono.Text
-            };
+                MessageBox.Show("El primer número del teléfono no puede ser cero");
+                txt_clienteTelefono.Text = "";
 
-            string msg = VentaIsAllReady();
-
-            if (msg == string.Empty)
+            }
+            else if (txt_nombreCliente.Text.FirstOrDefault() == ' ') 
             {
-                Ventas venta = new Ventas()
+                MessageBox.Show("El primer caracter del nombre no puede ser un espacio");
+                txt_nombreCliente.Text = "";
+
+            }
+            else
+            {
+
+
+                Clientes c = new Clientes()
                 {
-                    ID = _IDVenta,
-                    DetallesVenta = _detallesVenta,
-                    Cliente = c,
-                    IDTipoVenta = 1,
-                    IDColaborador = Menu.colaborador.DNI,
-                    FechaFin = DateTime.Now,
-                    TotalVenta = Total,
-                    IDCliente     = c.DNI
-
+                    DNI = txt_dniCliente.Text,
+                    Nombre = txt_nombreCliente.Text,
+                    Tel = txt_clienteTelefono.Text
                 };
 
-                bool ok = ventaController.SaveVenta(venta);
+                string msg = VentaIsAllReady();
 
-                if (ok)
+                if (msg == string.Empty)
                 {
-                    MessageBox.Show($"Venta Terminada\nMonto: {Total} \na continuacion se imprimira la factura", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
-                    MostrarFactura(venta);
+                    Ventas venta = new Ventas()
+                    {
+                        ID = _IDVenta,
+                        DetallesVenta = _detallesVenta,
+                        Cliente = c,
+                        IDTipoVenta = 1,
+                        IDColaborador = Menu.colaborador.DNI,
+                        FechaFin = DateTime.Now,
+                        TotalVenta = Total,
+                        IDCliente = c.DNI
 
-                    CargarDataGrid();
-                    ClearVenta();
+                    };
+
+                    bool ok = ventaController.SaveVenta(venta);
+
+                    if (ok)
+                    {
+                        MessageBox.Show($"Venta Terminada\nMonto: {Total} \na continuacion se imprimira la factura", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MostrarFactura(venta);
+
+                        CargarDataGrid();
+                        ClearVenta();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+
 
                 }
                 else
-                {
-                    MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("los siguientes campos son invalidos:\n" + msg, "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                }
-                
-                
+
             }
-            else
-                MessageBox.Show("Faltan los siguientes datos:\n"+msg, "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
         }
 
         private void ClearVenta()
@@ -193,6 +232,7 @@ namespace SuMueble.Views
 
         private void txt_dniCliente_KeyUp(object sender, KeyEventArgs e)
         {
+            
             if (txt_dniCliente.Text.Length == 13)
             {
                 ClearCliente();
@@ -224,19 +264,117 @@ namespace SuMueble.Views
             txt_clienteTelefono.Clear();
         }
 
-      
+       
+ 
+        //VALIDAR DNI
+        public static bool ValidarDNI(string dni)
+        {
+
+            bool error = false;
+            long trash = 0;
+            if (!(long.TryParse(dni, out trash)))
+            {
+                //return "No es un numero";
+                return error;
+
+            }
+
+            if (dni.Length != 13)
+            {
+                //return "no tiene 13 caracteres";
+                return error;
+            }
+            //0703-2001-01235
+            string depto = dni.Remove(2);
+
+            int municipio = int.Parse(dni.Remove(4).Substring(2));
+
+            int year = int.Parse(dni.Substring(4).Remove(4));
+
+            string codigoUnico = dni.Substring(8);
+
+            //convertir
+            int deptoInt = int.Parse(depto);
+
+            //70-03
+            if (deptoInt <= 0 || deptoInt > 18)
+            {
+                //return "Departamento no es valido";
+                return error;
+
+            }
+
+            if (municipio <= 0 || municipio > 28)
+            {
+                //return "Municipio no es valido";
+                return error;
+            }
+
+            if (year < 1821 || year >= DateTime.Now.Year - 18) // 2003 --hola futuros nosostros 
+            {
+                //return $"año no es valido: {year}";
+                return error;
+            }
+
+            return true;
+        }
+
+        static bool MultipleStartWith(string target,List<char> chars)
+        {
+            bool res = false; 
+            chars.ForEach(e => 
+            {
+                if (target.StartsWith(e))
+                {
+                    res = true;
+                }
+            });
+
+            return res;
+        }
+
+        public static bool telValido(string tel)
+        {
+            if (MultipleStartWith(tel, new List<char>() {  '8', '3','2','9' }))
+            {
+                // 8888 - 8888
+                if (tel.Length < 8)
+                    {
+                        return false;
+                    }
+                    var mitad = tel.Substring(4);
+                    var mitad2 = tel.Remove(4);
+                    if (mitad == mitad2)
+                    {
+                        return false;
+                    }
+                    return true;
+
+            }
+            return false;
+        } 
+
         private string VentaIsAllReady()
         {
-            string msg = txt_dniCliente.Text.Length == 13 ? string.Empty : "* DNI del Cliente\n";
-            msg += txt_nombreCliente.Text != string.Empty ? "" : "* Nombre del Cliente\n";
-            msg += txt_clienteTelefono.Text != string.Empty ? "" : "* Telefono del Cliente\n";
+            bool ok = ValidarDNI(txt_dniCliente.Text.Trim());
+            //validaciones 
+          
+
+            string msg = txt_dniCliente.Text.Trim().Length == 13 ? "" : "* DNI del Cliente\n";
+            msg += (txt_nombreCliente.Text != "") ? "" : "* Nombre del Cliente\n";
+            msg += txt_clienteTelefono.Text != "" ? "" : "* Telefono del Cliente\n";
             msg += _detallesVenta.Count > 0 ? "" : "* Agregar Productos a la Venta\n";
+            msg += telValido(txt_clienteTelefono.Text.Trim()) == true ? "" : "*El telefono no es valido\n";
+            msg += (validarNombre(txt_nombreCliente.Text) == true) ? "" : "*El Nombre no es valido\n";
+            //msg += txt_dniCliente.Text
+            msg += ok == false ? "*DNI invalido" : "";
+           
           
             return msg;
 
         }
-        //NO se
-
+       
+        
         private void VentaView_Load(object sender, EventArgs e)
         {
 
@@ -266,7 +404,14 @@ namespace SuMueble.Views
 
             List<Productos> filtrados = productos.Where<Productos>(x => {
 
-                return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
+                try
+                {
+                    return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
+                }
+                catch
+                {
+                    return false;
+                }
 
 
             }).ToList();
@@ -277,34 +422,39 @@ namespace SuMueble.Views
 
         private void txt_dniCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
+            //valide numeros , que no permita, espacios, 
+            
+                if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+                {
+                    MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+               
         }
+
 
         private void txt_nombreCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-          
-
             if ((e.KeyChar >= 33 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
                 MessageBox.Show("Introduzca letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
+
             }
+           
         }
 
         private void txt_clienteTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
+
+                if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+                {
+                    MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
 
         }
 
@@ -324,6 +474,36 @@ namespace SuMueble.Views
 
             this.Show();
         }
-        
+
+        private void txt_dniCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_clienteTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void txt_descuento_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_descuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar == 46 || e.KeyChar == 44) )
+            {
+                MessageBox.Show("Introduzca solo números enteros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+
+        }
+
+        private void txt_clienteTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

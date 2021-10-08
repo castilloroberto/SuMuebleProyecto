@@ -18,7 +18,7 @@ namespace SuMueble.Views
             InitializeComponent();
             colaborador = colaborador_;
             VentaView ventasUc = new VentaView();
-            main_panel.Controls.Add(ventasUc);
+            contenedor.Controls.Add(ventasUc);
             ValidarRol();
             bienvenido.Text = string.Format("{0}",colaborador_.Nombre);
 
@@ -90,11 +90,11 @@ namespace SuMueble.Views
             // establece el color de selccionado
             btn_ventas.BackColor = Color.DodgerBlue;
             //UserControl
-            main_panel.Controls.Clear();
+            contenedor.Controls.Clear();
             VentaView ventasUc = new VentaView();
             //ventasUc.Width = panel2.Width-5;
             //ventasUc.Height = panel2.Height-5;
-            main_panel.Controls.Add(ventasUc);
+            contenedor.Controls.Add(ventasUc);
             
 
         }
@@ -104,10 +104,10 @@ namespace SuMueble.Views
             HideAll();
             btn_inventario.ForeColor = Color.White;
             btn_inventario.BackColor = Color.DodgerBlue;
-            main_panel.Controls.Clear();
+            contenedor.Controls.Clear();
             // vista
             InventariosView inventario = new InventariosView();
-            main_panel.Controls.Add(inventario);
+            contenedor.Controls.Add(inventario);
         }
     
 
@@ -116,10 +116,10 @@ namespace SuMueble.Views
             HideAll();
             btn_creditos.ForeColor = Color.White;
             btn_creditos.BackColor = Color.DodgerBlue;
-            main_panel.Controls.Clear();
+            contenedor.Controls.Clear();
             // vista
             CreditosView creditos = new CreditosView();
-            main_panel.Controls.Add(creditos);
+            contenedor.Controls.Add(creditos);
         }
 
         private void btn_devoluciones_Click(object sender, EventArgs e)
@@ -127,10 +127,10 @@ namespace SuMueble.Views
             HideAll();
             btn_devoluciones.ForeColor = Color.White;
             btn_devoluciones.BackColor = Color.DodgerBlue;
-            main_panel.Controls.Clear();
+            contenedor.Controls.Clear();
             // vista
             DevolucionesView devoluciones = new DevolucionesView();
-            main_panel.Controls.Add(devoluciones);
+            contenedor.Controls.Add(devoluciones);
         }
 
         private void btn_historialVentas_Click(object sender, EventArgs e)
@@ -140,9 +140,9 @@ namespace SuMueble.Views
             btn_historialVentas.BackColor = Color.DodgerBlue;
             
             // vista
-            main_panel.Controls.Clear();
+            contenedor.Controls.Clear();
             HistorialVentasView historial = new HistorialVentasView();
-            main_panel.Controls.Add(historial);
+            contenedor.Controls.Add(historial);
         }
 
         private void btn_colaboradores_Click(object sender, EventArgs e)
@@ -150,9 +150,9 @@ namespace SuMueble.Views
             HideAll();
             btn_colaboradores.ForeColor = Color.White;
             btn_colaboradores.BackColor = Color.DodgerBlue;
-            main_panel.Controls.Clear();
+            contenedor.Controls.Clear();
             ColaboradoresView uc = new ColaboradoresView();
-            main_panel.Controls.Add(uc);
+            contenedor.Controls.Add(uc);
         }
 
         
@@ -161,7 +161,8 @@ namespace SuMueble.Views
         {
             Login login = new Login();
             login.Show();
-            this.Close();
+            Application.Exit();
+
         }
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
@@ -175,9 +176,9 @@ namespace SuMueble.Views
 
             btn_ventasCredito.ForeColor = Color.White;
             btn_ventasCredito.BackColor = Color.DodgerBlue;
-            main_panel.Controls.Clear();
+            contenedor.Controls.Clear();
             VentaCreditoView ventaCreditoView = new VentaCreditoView();
-            main_panel.Controls.Add(ventaCreditoView);
+            contenedor.Controls.Add(ventaCreditoView);
         }
     }
 }

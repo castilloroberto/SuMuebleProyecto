@@ -155,7 +155,7 @@ namespace SuMueble.Views
                 MessageBox.Show(msg, "Campos incompletos",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
 
-            
+
         }
 
         private void ClearVenta()
@@ -175,7 +175,8 @@ namespace SuMueble.Views
             res += txt_nombreCliente.Text.Length < 3 ? "\n* Nombre de Cliente" : "";
             res += txtTelefonoCliente.Text.Length != 8 ? "\n* Telefono de Cliente" : "";
             res += txt_dirCliente.Text.Length < 10 ? "\n* Direccion de Cliente" : "";
-            
+            res += VentaView.ValidarDNI(txt_dniCliente.Text) == false ? "*DNI invalido" : "";
+            res += VentaView.telValido(txtTelefonoCliente.Text) == false ? "*Telefono invalido" : "";
             res += listaReferencias.Count < 2 ? "\n* Faltan Referencias" : "";
 
             res += listaProductos.Count != 1 ? "\n* Falta Agregar Productos a la venta" : "";
@@ -210,7 +211,10 @@ namespace SuMueble.Views
                 e.Handled = true;
                 return;
             }
+
         }
+
+
 
         private void txtTelefonoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -224,7 +228,12 @@ namespace SuMueble.Views
 
         private void txt_rtnCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Introduzca números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
         }
 
        
@@ -246,6 +255,17 @@ namespace SuMueble.Views
             }
         }
 
-   
+
+
+        //validaciones espacios al inicio y final //date:01/10
+        private void txt_nombreCliente_Leave(object sender, EventArgs e)
+        {
+            txt_nombreCliente.Text = txt_nombreCliente.Text.Trim();
+        }
+
+        private void txt_dirCliente_Leave(object sender, EventArgs e)
+        {
+            txt_dirCliente.Text = txt_dirCliente.Text.Trim();
+        }
     }
 }

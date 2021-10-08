@@ -55,23 +55,73 @@ namespace SuMueble.Views
 
         private bool validardatos()
         {
-            bool ok;
-
-            bool ok1 = txt_nombre.Text!=""; 
-            bool ok2= txt_dni.Text!=""; 
-            bool ok3 = txt_rtn.Text!=""; 
-            bool ok4 = txt_telefono.Text!=""; 
-            bool ok5 = txt_correo.Text!=""; 
-            bool ok6 = txt_direccion.Text!=""; 
-            bool ok7 = txt_clave.Text!="";
-
-            ok = ok1 && ok2 && ok3 && ok4 && ok5 && ok6 && ok7;
-            if (ok == false)
-                MessageBox.Show("Ingrese todos los datos que se le solicitan", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
+            List<string> errores = new List<string>();
+            
+            var name = txt_nombre.Text.Trim();
+            if (name == "" || !VentaView.validarNombre(name))
+            {
+                errores.Add("Nombre\n");
+                txt_nombre.Text = txt_nombre.Text.Trim();
+            }
+            var dni = txt_dni.Text.Trim();
+            if ( dni == "" || VentaView.ValidarDNI(dni) == false)
+            {
+                errores.Add("DNI\n");
 
-            return ok;
+            }
+            var rtn = txt_rtn.Text.Trim();
+            if (rtn.Length != 13)
+            {
+                if( !VentaView.ValidarDNI(rtn.Remove(13)) )
+                    errores.Add("RTN\n");
+
+            }
+            var tel = txt_telefono.Text.Trim();
+            if (!VentaView.telValido(tel))
+            {
+                errores.Add("Telefono (Debe tener 8 numeros)\n");
+
+            }
+            if (txt_clave.Text.Trim().Length < 5) // puede ser 8 tambien
+            {
+                errores.Add("Clave (Minimo 5 caracteres)\n");
+
+            }
+            if (txt_correo.Text.Trim().Length < 10)
+            {
+
+                errores.Add("Correo\n");
+            }
+            if (txt_direccion.Text.Trim().Length < 15)
+            {
+                errores.Add("Direccion (Minimo 15 caracteres)\n");
+                txt_direccion.Text = txt_direccion.Text.Trim();
+            }
+            //bool ok4 = !=""; 
+            //bool ok5 = !=""; 
+            //bool ok6 = !=""; 
+            //bool ok7 = !="";
+
+            if (errores.Count > 0)
+            {
+
+                var msg = "Los siguientes campos son invalidos:\n";
+
+                errores.ForEach(e =>
+                {
+                    msg += e;
+                });
+
+                MessageBox.Show(msg, "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+
+                return false;
+            }
+            return true;
+
+
 
         }
 
@@ -103,7 +153,8 @@ namespace SuMueble.Views
             bool ok = validardatos();
             
             if (ok)
-            { if (email_bien_escrito(txt_correo.Text))
+            { 
+                if (email_bien_escrito(txt_correo.Text))
                 {
 
                     // enviar el insert 
@@ -192,12 +243,6 @@ namespace SuMueble.Views
             }
         }
 
-        //private void btn_addPuesto_Click(object sender, EventArgs e)
-        //{
-        //    string Puesto = Input.Show("Ingrese Un Nuevo Puesto", "Nuevo Puesto");
-        //    if (Puesto != "")
-        //        pControlador.InsertarPuestos(Puesto);
-        //    CargarPuestos();
-        //}
+      
     }
 }

@@ -70,12 +70,13 @@ namespace SuMueble.Views
             // 
             this.txt_nombreCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_nombreCliente.Location = new System.Drawing.Point(428, 231);
-            this.txt_nombreCliente.MaxLength = 255;
+            this.txt_nombreCliente.MaxLength = 200;
             this.txt_nombreCliente.Name = "txt_nombreCliente";
             this.txt_nombreCliente.PlaceholderText = "Nombre y Apellidos...";
             this.txt_nombreCliente.Size = new System.Drawing.Size(325, 34);
             this.txt_nombreCliente.TabIndex = 33;
             this.txt_nombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombreCliente_KeyPress);
+            this.txt_nombreCliente.Leave += new System.EventHandler(this.txt_nombreCliente_Leave);
             // 
             // txt_dniCliente
             // 
@@ -97,7 +98,7 @@ namespace SuMueble.Views
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 28);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Telefono Cliente";
+            this.label1.Text = "Teléfono Cliente";
             // 
             // label5
             // 
@@ -290,7 +291,7 @@ namespace SuMueble.Views
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 28);
             this.label8.TabIndex = 30;
-            this.label8.Text = "Direccion";
+            this.label8.Text = "Dirección";
             // 
             // txt_dirCliente
             // 
@@ -302,6 +303,7 @@ namespace SuMueble.Views
             this.txt_dirCliente.PlaceholderText = "Ciudad, colonia, referencias...";
             this.txt_dirCliente.Size = new System.Drawing.Size(325, 33);
             this.txt_dirCliente.TabIndex = 33;
+            this.txt_dirCliente.Leave += new System.EventHandler(this.txt_dirCliente_Leave);
             // 
             // l_dir
             // 
@@ -327,7 +329,7 @@ namespace SuMueble.Views
             this.btn_quitarItem.Name = "btn_quitarItem";
             this.btn_quitarItem.Size = new System.Drawing.Size(129, 38);
             this.btn_quitarItem.TabIndex = 47;
-            this.btn_quitarItem.Text = "Quitar Item";
+            this.btn_quitarItem.Text = "Quitar Ítem";
             this.btn_quitarItem.UseVisualStyleBackColor = false;
             this.btn_quitarItem.Click += new System.EventHandler(this.btn_quitarItem_Click);
             // 

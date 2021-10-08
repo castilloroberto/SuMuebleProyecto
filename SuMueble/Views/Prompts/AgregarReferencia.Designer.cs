@@ -48,11 +48,12 @@ namespace SuMueble.Views.Prompts
             this.txt_nombreCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_nombreCliente.Location = new System.Drawing.Point(301, 66);
             this.txt_nombreCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_nombreCliente.MaxLength = 255;
+            this.txt_nombreCliente.MaxLength = 150;
             this.txt_nombreCliente.Name = "txt_nombreCliente";
             this.txt_nombreCliente.PlaceholderText = "Nombre y Apellidos...";
             this.txt_nombreCliente.Size = new System.Drawing.Size(325, 34);
             this.txt_nombreCliente.TabIndex = 37;
+            this.txt_nombreCliente.Leave += new System.EventHandler(this.txt_nombreCliente_Leave);
             // 
             // txtDNIReferencia
             // 
@@ -106,7 +107,7 @@ namespace SuMueble.Views.Prompts
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 28);
             this.label1.TabIndex = 38;
-            this.label1.Text = "Telefono";
+            this.label1.Text = "Teléfono";
             // 
             // label2
             // 
@@ -116,19 +117,20 @@ namespace SuMueble.Views.Prompts
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 28);
             this.label2.TabIndex = 38;
-            this.label2.Text = "Direccion";
+            this.label2.Text = "Dirección";
             // 
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDireccion.Location = new System.Drawing.Point(301, 154);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDireccion.MaxLength = 255;
+            this.txtDireccion.MaxLength = 200;
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.PlaceholderText = "Escriba Aqui...";
             this.txtDireccion.Size = new System.Drawing.Size(325, 82);
             this.txtDireccion.TabIndex = 39;
+            this.txtDireccion.Leave += new System.EventHandler(this.txtDireccion_Leave);
             // 
             // label3
             // 
@@ -136,16 +138,16 @@ namespace SuMueble.Views.Prompts
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(39, 206);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 28);
+            this.label3.Size = new System.Drawing.Size(159, 28);
             this.label3.TabIndex = 38;
-            this.label3.Text = "Codigo de Factura";
+            this.label3.Text = "Codigo de Recibo";
             // 
             // txtCodigoFactura
             // 
             this.txtCodigoFactura.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCodigoFactura.Location = new System.Drawing.Point(42, 238);
             this.txtCodigoFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCodigoFactura.MaxLength = 15;
+            this.txtCodigoFactura.MaxLength = 7;
             this.txtCodigoFactura.Name = "txtCodigoFactura";
             this.txtCodigoFactura.PlaceholderText = "Escriba Aqui...";
             this.txtCodigoFactura.Size = new System.Drawing.Size(223, 34);
