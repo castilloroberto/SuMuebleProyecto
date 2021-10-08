@@ -317,20 +317,39 @@ namespace SuMueble.Views
             return true;
         }
 
+        static bool MultipleStartWith(string target,List<char> chars)
+        {
+            bool res = false; 
+            chars.ForEach(e => 
+            {
+                if (target.StartsWith(e))
+                {
+                    res = true;
+                }
+            });
+
+            return res;
+        }
+
         public static bool telValido(string tel)
         {
-            //8888-8888
-            if (tel.Length < 8)
+            if (MultipleStartWith(tel, new List<char>() {  '8', '3','2','9' }))
             {
-                return false;
+                // 8888 - 8888
+                if (tel.Length < 8)
+                    {
+                        return false;
+                    }
+                    var mitad = tel.Substring(4);
+                    var mitad2 = tel.Remove(4);
+                    if (mitad == mitad2)
+                    {
+                        return false;
+                    }
+                    return true;
+
             }
-            var mitad = tel.Substring(4); 
-            var mitad2 = tel.Remove(4);
-            if (mitad == mitad2)
-            {
-                return false;
-            }
-            return true;
+            return false;
         } 
 
         private string VentaIsAllReady()

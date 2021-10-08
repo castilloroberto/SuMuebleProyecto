@@ -116,6 +116,8 @@ namespace SuMueble
             // 
             // cmb_Categoria
             // 
+            this.cmb_Categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Categoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmb_Categoria.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmb_Categoria.FormattingEnabled = true;
             this.cmb_Categoria.Location = new System.Drawing.Point(57, 340);
@@ -129,6 +131,7 @@ namespace SuMueble
             this.txt_Codigo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_Codigo.Location = new System.Drawing.Point(57, 89);
             this.txt_Codigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Codigo.MaxLength = 25;
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(269, 34);
             this.txt_Codigo.TabIndex = 1;
@@ -138,6 +141,7 @@ namespace SuMueble
             this.txt_Nombre.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_Nombre.Location = new System.Drawing.Point(382, 89);
             this.txt_Nombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Nombre.MaxLength = 255;
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(269, 34);
             this.txt_Nombre.TabIndex = 2;

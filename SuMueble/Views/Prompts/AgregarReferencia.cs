@@ -24,6 +24,12 @@ namespace SuMueble.Views.Prompts
                 MessageBox.Show("DNI Incompleto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDNIReferencia.Focus();
             }
+            else if (!VentaView.ValidarDNI(txtDNIReferencia.Text))
+            {
+                MessageBox.Show("DNI Invalido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDNIReferencia.Focus();
+
+            }
             else if (txt_nombreCliente.Text == "")
             {
                 MessageBox.Show("Nombre referencia esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -42,6 +48,11 @@ namespace SuMueble.Views.Prompts
             else if (txt_telefono.Text.Length != 8) //date:02/10/2021
             {   // longitud 8 
                 MessageBox.Show("Número Teléfononico Incompleto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_telefono.Focus();
+            }
+            else if ( !VentaView.telValido(txt_telefono.Text) )
+            {
+                MessageBox.Show("Número Teléfononico Invalido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_telefono.Focus();
             }
             else if (txtDireccion.Text == "")
