@@ -55,17 +55,39 @@ namespace SuMueble.Views
 
         private bool validardatos()
         {
-            bool ok;
 
-            bool ok1 = txt_nombre.Text!=""; 
-            bool ok2= txt_dni.Text!=""; 
-            bool ok3 = txt_rtn.Text!=""; 
-            bool ok4 = txt_telefono.Text!=""; 
-            bool ok5 = txt_correo.Text!=""; 
-            bool ok6 = txt_direccion.Text!=""; 
-            bool ok7 = txt_clave.Text!="";
 
-            ok = ok1 && ok2 && ok3 && ok4 && ok5 && ok6 && ok7;
+            bool valid = VentaView.validarNombre(txt_nombre.Text);
+            bool ok = false;
+            List<string> errores = new List<string>();
+            
+            var name = txt_nombre.Text.Trim();
+            if (name != "" || !VentaView.validarNombre(name))
+            {
+                errores.Add("Nombre");
+            }
+            var dni = txt_dni.Text.Trim();
+            if ( dni != "" || VentaView.ValidarDNI(dni) == false)
+            {
+                errores.Add("DNI");
+
+            }
+            var rtn = txt_rtn.Text.Trim();
+            if (rtn == "" || VentaView.ValidarDNI(rtn.Remove(13)))
+            {
+                errores.Add("RTN");
+
+            }
+            var tel = txt_telefono.Text.Trim();
+            if (true)
+            {
+
+            }
+            //bool ok4 = !=""; 
+            //bool ok5 = txt_correo.Text!=""; 
+            //bool ok6 = txt_direccion.Text!=""; 
+            //bool ok7 = txt_clave.Text!="";
+
             if (ok == false)
                 MessageBox.Show("Ingrese todos los datos que se le solicitan", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -103,7 +125,8 @@ namespace SuMueble.Views
             bool ok = validardatos();
             
             if (ok)
-            { if (email_bien_escrito(txt_correo.Text))
+            { 
+                if (email_bien_escrito(txt_correo.Text))
                 {
 
                     // enviar el insert 
@@ -192,12 +215,6 @@ namespace SuMueble.Views
             }
         }
 
-        //private void btn_addPuesto_Click(object sender, EventArgs e)
-        //{
-        //    string Puesto = Input.Show("Ingrese Un Nuevo Puesto", "Nuevo Puesto");
-        //    if (Puesto != "")
-        //        pControlador.InsertarPuestos(Puesto);
-        //    CargarPuestos();
-        //}
+      
     }
 }

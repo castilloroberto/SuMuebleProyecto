@@ -45,6 +45,7 @@ namespace SuMueble.Views
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.contenedor = new System.Windows.Forms.Panel();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel.SuspendLayout();
@@ -56,10 +57,9 @@ namespace SuMueble.Views
             // 
             this.panel4.Controls.Add(this.btn_cerrarSesion);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 430);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Location = new System.Drawing.Point(0, 573);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(265, 120);
+            this.panel4.Size = new System.Drawing.Size(303, 160);
             this.panel4.TabIndex = 10;
             // 
             // btn_cerrarSesion
@@ -70,10 +70,10 @@ namespace SuMueble.Views
             this.btn_cerrarSesion.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_cerrarSesion.ForeColor = System.Drawing.Color.White;
             this.btn_cerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_cerrarSesion.Location = new System.Drawing.Point(48, 41);
-            this.btn_cerrarSesion.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_cerrarSesion.Location = new System.Drawing.Point(55, 55);
+            this.btn_cerrarSesion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_cerrarSesion.Name = "btn_cerrarSesion";
-            this.btn_cerrarSesion.Size = new System.Drawing.Size(152, 34);
+            this.btn_cerrarSesion.Size = new System.Drawing.Size(174, 45);
             this.btn_cerrarSesion.TabIndex = 7;
             this.btn_cerrarSesion.Text = "Cerrar Sesión";
             this.btn_cerrarSesion.UseVisualStyleBackColor = false;
@@ -85,9 +85,8 @@ namespace SuMueble.Views
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(265, 430);
+            this.panel3.Size = new System.Drawing.Size(303, 573);
             this.panel3.TabIndex = 9;
             // 
             // panel
@@ -101,19 +100,17 @@ namespace SuMueble.Views
             this.panel.Controls.Add(this.btn_devoluciones);
             this.panel.Controls.Add(this.btn_creditos);
             this.panel.Controls.Add(this.btn_historialVentas);
-            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel.Location = new System.Drawing.Point(0, 101);
-            this.panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel.Location = new System.Drawing.Point(0, 135);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(265, 329);
+            this.panel.Size = new System.Drawing.Size(303, 438);
             this.panel.TabIndex = 12;
             // 
             // bienvenido
             // 
             this.bienvenido.AutoSize = true;
-            this.bienvenido.Location = new System.Drawing.Point(25, 23);
+            this.bienvenido.Location = new System.Drawing.Point(29, 31);
             this.bienvenido.Name = "bienvenido";
-            this.bienvenido.Size = new System.Drawing.Size(109, 15);
+            this.bienvenido.Size = new System.Drawing.Size(137, 20);
             this.bienvenido.TabIndex = 6;
             this.bienvenido.Text = "Bienvenido Usuario";
             // 
@@ -123,10 +120,10 @@ namespace SuMueble.Views
             this.btn_colaboradores.FlatAppearance.BorderSize = 0;
             this.btn_colaboradores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_colaboradores.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_colaboradores.Location = new System.Drawing.Point(25, 286);
-            this.btn_colaboradores.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_colaboradores.Location = new System.Drawing.Point(29, 381);
+            this.btn_colaboradores.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_colaboradores.Name = "btn_colaboradores";
-            this.btn_colaboradores.Size = new System.Drawing.Size(206, 34);
+            this.btn_colaboradores.Size = new System.Drawing.Size(235, 45);
             this.btn_colaboradores.TabIndex = 5;
             this.btn_colaboradores.Text = "Colaboradores";
             this.btn_colaboradores.UseVisualStyleBackColor = false;
@@ -139,10 +136,10 @@ namespace SuMueble.Views
             this.btn_ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ventas.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_ventas.ForeColor = System.Drawing.Color.White;
-            this.btn_ventas.Location = new System.Drawing.Point(25, 66);
-            this.btn_ventas.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_ventas.Location = new System.Drawing.Point(29, 88);
+            this.btn_ventas.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ventas.Name = "btn_ventas";
-            this.btn_ventas.Size = new System.Drawing.Size(206, 34);
+            this.btn_ventas.Size = new System.Drawing.Size(235, 45);
             this.btn_ventas.TabIndex = 0;
             this.btn_ventas.Text = "Ventas";
             this.btn_ventas.UseVisualStyleBackColor = false;
@@ -154,10 +151,10 @@ namespace SuMueble.Views
             this.btn_inventario.FlatAppearance.BorderSize = 0;
             this.btn_inventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_inventario.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_inventario.Location = new System.Drawing.Point(25, 140);
-            this.btn_inventario.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_inventario.Location = new System.Drawing.Point(29, 187);
+            this.btn_inventario.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_inventario.Name = "btn_inventario";
-            this.btn_inventario.Size = new System.Drawing.Size(206, 34);
+            this.btn_inventario.Size = new System.Drawing.Size(235, 45);
             this.btn_inventario.TabIndex = 1;
             this.btn_inventario.Text = "Inventario";
             this.btn_inventario.UseVisualStyleBackColor = false;
@@ -169,10 +166,10 @@ namespace SuMueble.Views
             this.btn_ventasCredito.FlatAppearance.BorderSize = 0;
             this.btn_ventasCredito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ventasCredito.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_ventasCredito.Location = new System.Drawing.Point(25, 103);
-            this.btn_ventasCredito.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_ventasCredito.Location = new System.Drawing.Point(29, 137);
+            this.btn_ventasCredito.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ventasCredito.Name = "btn_ventasCredito";
-            this.btn_ventasCredito.Size = new System.Drawing.Size(206, 34);
+            this.btn_ventasCredito.Size = new System.Drawing.Size(235, 45);
             this.btn_ventasCredito.TabIndex = 1;
             this.btn_ventasCredito.Text = "Ventas Al Crédito";
             this.btn_ventasCredito.UseVisualStyleBackColor = false;
@@ -184,10 +181,10 @@ namespace SuMueble.Views
             this.btn_devoluciones.FlatAppearance.BorderSize = 0;
             this.btn_devoluciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_devoluciones.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_devoluciones.Location = new System.Drawing.Point(25, 213);
-            this.btn_devoluciones.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_devoluciones.Location = new System.Drawing.Point(29, 284);
+            this.btn_devoluciones.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_devoluciones.Name = "btn_devoluciones";
-            this.btn_devoluciones.Size = new System.Drawing.Size(206, 34);
+            this.btn_devoluciones.Size = new System.Drawing.Size(235, 45);
             this.btn_devoluciones.TabIndex = 3;
             this.btn_devoluciones.Text = "Devoluciones";
             this.btn_devoluciones.UseVisualStyleBackColor = false;
@@ -199,10 +196,10 @@ namespace SuMueble.Views
             this.btn_creditos.FlatAppearance.BorderSize = 0;
             this.btn_creditos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_creditos.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_creditos.Location = new System.Drawing.Point(25, 176);
-            this.btn_creditos.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_creditos.Location = new System.Drawing.Point(29, 235);
+            this.btn_creditos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_creditos.Name = "btn_creditos";
-            this.btn_creditos.Size = new System.Drawing.Size(206, 34);
+            this.btn_creditos.Size = new System.Drawing.Size(235, 45);
             this.btn_creditos.TabIndex = 2;
             this.btn_creditos.Text = "Créditos";
             this.btn_creditos.UseVisualStyleBackColor = false;
@@ -214,10 +211,10 @@ namespace SuMueble.Views
             this.btn_historialVentas.FlatAppearance.BorderSize = 0;
             this.btn_historialVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_historialVentas.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_historialVentas.Location = new System.Drawing.Point(25, 250);
-            this.btn_historialVentas.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_historialVentas.Location = new System.Drawing.Point(29, 333);
+            this.btn_historialVentas.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_historialVentas.Name = "btn_historialVentas";
-            this.btn_historialVentas.Size = new System.Drawing.Size(206, 34);
+            this.btn_historialVentas.Size = new System.Drawing.Size(235, 45);
             this.btn_historialVentas.TabIndex = 4;
             this.btn_historialVentas.Text = "Historial de Ventas";
             this.btn_historialVentas.UseVisualStyleBackColor = false;
@@ -228,9 +225,8 @@ namespace SuMueble.Views
             this.panel5.Controls.Add(this.label1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(265, 101);
+            this.panel5.Size = new System.Drawing.Size(303, 135);
             this.panel5.TabIndex = 11;
             // 
             // label1
@@ -238,9 +234,9 @@ namespace SuMueble.Views
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(10, 23);
+            this.label1.Location = new System.Drawing.Point(11, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 54);
+            this.label1.Size = new System.Drawing.Size(264, 67);
             this.label1.TabIndex = 8;
             this.label1.Text = "Su Mueble";
             // 
@@ -251,19 +247,28 @@ namespace SuMueble.Views
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(265, 550);
+            this.panel1.Size = new System.Drawing.Size(303, 733);
             this.panel1.TabIndex = 2;
+            // 
+            // contenedor
+            // 
+            this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contenedor.Location = new System.Drawing.Point(303, 0);
+            this.contenedor.Name = "contenedor";
+            this.contenedor.Size = new System.Drawing.Size(1051, 733);
+            this.contenedor.TabIndex = 3;
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1185, 550);
+            this.ClientSize = new System.Drawing.Size(1354, 733);
+            this.Controls.Add(this.contenedor);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Su Mueble Menu";
@@ -297,5 +302,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Label bienvenido;
         public static System.Windows.Forms.Panel main_panel;
+        private System.Windows.Forms.Panel contenedor;
     }
 }

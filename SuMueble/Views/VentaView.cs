@@ -41,7 +41,27 @@ namespace SuMueble.Views
             dgv_productos.DataSource = productos;
         }
         //Andrea Celeste
-       
+        public static bool validarNombre(string nombre_)
+        {
+            //  "        aaaaaaaaaaaaaaa          "
+            var nombre = nombre_.Trim();
+            char primerLetra = nombre.ElementAt(0); //nombre.Remove(1);
+            int count = 0;
+            foreach (var letra in nombre)
+            {
+                if (letra == primerLetra)
+                {
+                    count++;
+                }
+            }
+            if (count == nombre.Length)
+            {
+                return false;
+            }
+
+
+            return true;
+        } 
         private void btn_terminarVenta_Click(object sender, EventArgs e)
         {
             if (txt_clienteTelefono.Text.FirstOrDefault() == '0')
@@ -104,7 +124,7 @@ namespace SuMueble.Views
 
                 }
                 else
-                    MessageBox.Show("Faltan los siguientes datos:\n" + msg, "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("los siguientes campos son invalidos:\n" + msg, "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
             }
@@ -245,18 +265,22 @@ namespace SuMueble.Views
        
  
         //VALIDAR DNI
-        string ValidarDNI(string dni)
+        public static bool ValidarDNI(string dni)
         {
 
+            bool error = false;
             long trash = 0;
             if (!(long.TryParse(dni, out trash)))
             {
-                return "No es un numero";
+                //return "No es un numero";
+                return error;
+
             }
 
             if (dni.Length != 13)
             {
-                return "no tiene 13 caracteres";
+                //return "no tiene 13 caracteres";
+                return error;
             }
 
             string depto = dni.Remove(2);
@@ -267,42 +291,62 @@ namespace SuMueble.Views
 
             string codigoUnico = dni.Substring(8);
 
-
             //convertir
             int deptoInt = int.Parse(depto);
 
             //70-03
             if (deptoInt <= 0 || deptoInt > 18)
             {
-                return "departamento no es valido";
+                //return "Departamento no es valido";
+                return error;
 
             }
 
             if (municipio <= 0 || municipio > 28)
             {
-                return "municipio no es valido";
+                //return "Municipio no es valido";
+                return error;
             }
 
             if (year < 1821 || year >= DateTime.Now.Year - 18) // 2003 --hola futuros nosostros 
             {
-                return $"año no es valido: {year}";
+                //return $"año no es valido: {year}";
+                return error;
             }
 
-            return null;
+            return true;
         }
 
+        public static bool telValido(string tel)
+        {
+            //8888-8888
+            if (tel.Length < 8)
+            {
+                return false;
+            }
+            var mitad = tel.Substring(4); 
+            var mitad2 = tel.Remove(4);
+            if (mitad == mitad2)
+            {
+                return false;
+            }
+            return true;
+        } 
 
         private string VentaIsAllReady()
         {
-            string ok = ValidarDNI(txt_dniCliente.Text.Trim());
-            //string ok1 = Validartelefono(txt_clienteTelefono.Text.Trim());
+            bool ok = ValidarDNI(txt_dniCliente.Text.Trim());
             //validaciones 
-            string msg = txt_dniCliente.Text.Trim().Length == 13 ? string.Empty : "* DNI del Cliente\n";
-            msg += txt_nombreCliente.Text != string.Empty ? "" : "* Nombre del Cliente\n";
-            msg += txt_clienteTelefono.Text != string.Empty ? "" : "* Telefono del Cliente\n";
+          
+
+            string msg = txt_dniCliente.Text.Trim().Length == 13 ? "" : "* DNI del Cliente\n";
+            msg += (txt_nombreCliente.Text != "") ? "" : "* Nombre del Cliente\n";
+            msg += txt_clienteTelefono.Text != "" ? "" : "* Telefono del Cliente\n";
             msg += _detallesVenta.Count > 0 ? "" : "* Agregar Productos a la Venta\n";
+            msg += telValido(txt_clienteTelefono.Text.Trim()) == true ? "" : "*El telefono no es valido\n";
+            msg += (validarNombre(txt_nombreCliente.Text) == true) ? "" : "*El Nombre no es valido\n";
             //msg += txt_dniCliente.Text
-            msg += ok == null ? "" : ok;
+            msg += ok == false ? "" : "*DNI invalido";
            
           
             return msg;
