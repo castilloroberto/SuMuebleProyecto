@@ -45,6 +45,8 @@ namespace SuMueble.Views
         {
             //  "        aaaaaaaaaaaaaaa          "
             var nombre = nombre_.Trim();
+            if (nombre.Length == 0) return false;
+            
             char primerLetra = nombre.ElementAt(0); //nombre.Remove(1);
             int count = 0;
             foreach (var letra in nombre)
