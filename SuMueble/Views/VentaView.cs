@@ -344,9 +344,9 @@ namespace SuMueble.Views
             msg += txt_clienteTelefono.Text != "" ? "" : "* Telefono del Cliente\n";
             msg += _detallesVenta.Count > 0 ? "" : "* Agregar Productos a la Venta\n";
             msg += telValido(txt_clienteTelefono.Text.Trim()) == true ? "" : "*El telefono no es valido\n";
-            msg += (validarNombre(txt_nombreCliente.Text) == true) ? "" : "* El Nombre no es valido\n";
+            msg += (validarNombre(txt_nombreCliente.Text) == true) ? "" : "*El Nombre no es valido\n";
             //msg += txt_dniCliente.Text
-            msg += ok == false ? "" : "DNI invalido";
+            msg += ok == false ? "" : "*DNI invalido";
            
           
             return msg;
