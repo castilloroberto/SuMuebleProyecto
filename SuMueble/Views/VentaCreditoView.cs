@@ -175,7 +175,8 @@ namespace SuMueble.Views
             res += txt_nombreCliente.Text.Length < 3 ? "\n* Nombre de Cliente" : "";
             res += txtTelefonoCliente.Text.Length != 8 ? "\n* Telefono de Cliente" : "";
             res += txt_dirCliente.Text.Length < 10 ? "\n* Direccion de Cliente" : "";
-            
+            res += VentaView.ValidarDNI(txt_dniCliente.Text) == false ? "*DNI invalido" : "";
+            res += VentaView.telValido(txtTelefonoCliente.Text) == false ? "*Telefono invalido" : "";
             res += listaReferencias.Count < 2 ? "\n* Faltan Referencias" : "";
 
             res += listaProductos.Count != 1 ? "\n* Falta Agregar Productos a la venta" : "";

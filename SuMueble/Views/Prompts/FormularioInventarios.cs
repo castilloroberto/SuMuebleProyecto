@@ -57,13 +57,14 @@ namespace SuMueble
         {
 
             //VALIDACIONES TEXTBOX VACIOS
-
-            if (txt_Codigo.Text == "")
+            //       cod01
+            var prodCod = txt_Codigo.Text.Trim();
+            if ( prodCod == "" || prodCod.Contains(" ") )
             {
-                MessageBox.Show("Codigo articulo esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Codigo articulo es invalido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_Codigo.Focus();
             }
-            else if (txt_Nombre.Text == "")
+            else if (txt_Nombre.Text.Trim() == "")
             {
                 MessageBox.Show("Nombre articulo esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_Nombre.Focus();
@@ -87,9 +88,9 @@ namespace SuMueble
                 Productos p = new Productos()
                 {
                     ID = IDglobal,
-                    Codigo = txt_Codigo.Text,
+                    Codigo = txt_Codigo.Text.Trim(),
                     Existencias = (int)txt_Existencia.Value,
-                    Producto = txt_Nombre.Text,
+                    Producto = txt_Nombre.Text.Trim(),
                     PrecioUnitario = (float)txt_Precio.Value,
                     IDCategoria = cmb_Categoria.SelectedValue.GetHashCode(),
                     ISV = (float)txt_impuesto.Value

@@ -70,7 +70,7 @@ namespace SuMueble.Views
             // 
             this.txt_nombreCliente.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_nombreCliente.Location = new System.Drawing.Point(428, 231);
-            this.txt_nombreCliente.MaxLength = 255;
+            this.txt_nombreCliente.MaxLength = 200;
             this.txt_nombreCliente.Name = "txt_nombreCliente";
             this.txt_nombreCliente.PlaceholderText = "Nombre y Apellidos...";
             this.txt_nombreCliente.Size = new System.Drawing.Size(325, 34);
