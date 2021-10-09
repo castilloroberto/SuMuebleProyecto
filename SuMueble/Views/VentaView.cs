@@ -109,7 +109,7 @@ namespace SuMueble.Views
                     if (ok)
                     {
                         MessageBox.Show($"Venta Terminada\nMonto: {Total} \na continuacion se imprimira la factura", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MostrarFactura(venta);
+                        //MostrarFactura(venta);
 
                         CargarDataGrid();
                         ClearVenta();
@@ -282,7 +282,7 @@ namespace SuMueble.Views
                 //return "no tiene 13 caracteres";
                 return error;
             }
-
+            //0703-2001-01235
             string depto = dni.Remove(2);
 
             int municipio = int.Parse(dni.Remove(4).Substring(2));
@@ -346,7 +346,7 @@ namespace SuMueble.Views
             msg += telValido(txt_clienteTelefono.Text.Trim()) == true ? "" : "*El telefono no es valido\n";
             msg += (validarNombre(txt_nombreCliente.Text) == true) ? "" : "*El Nombre no es valido\n";
             //msg += txt_dniCliente.Text
-            msg += ok == false ? "" : "*DNI invalido";
+            msg += ok == false ? "*DNI invalido" : "";
            
           
             return msg;
