@@ -72,12 +72,15 @@ namespace SuMueble.Views
 
             }
             var rtn = txt_rtn.Text.Trim();
+
             if (rtn.Length != 13)
             {
-                if( !VentaView.ValidarDNI(rtn.Remove(13)) )
+                
                     errores.Add("RTN\n");
 
-            }
+            } else if (!VentaView.ValidarDNI(rtn.Remove(13)))
+                    errores.Add("RTN\n");
+
             var tel = txt_telefono.Text.Trim();
             if (!VentaView.telValido(tel))
             {
@@ -99,10 +102,16 @@ namespace SuMueble.Views
                 errores.Add("Direccion (Minimo 15 caracteres)\n");
                 txt_direccion.Text = txt_direccion.Text.Trim();
             }
-            //bool ok4 = !=""; 
-            //bool ok5 = !=""; 
-            //bool ok6 = !=""; 
-            //bool ok7 = !="";
+            // -1 = anterior a la selcccionada
+            // 0 = fechas son iguales
+            // 1 = fecha es mayor a la seleccionada
+            var minYear = DateTime.Now.Year - 16;
+            var minFecha = new DateTime(minYear,12,31);// 01/01/2003
+            int res = dtp_fechaNacimiento.Value.CompareTo(minFecha); // 2021 = 2003
+            if (res == 1)
+            {
+                errores.Add("Fecha invalida (Debe tener 16 años minimo)\n");
+            }
 
             if (errores.Count > 0)
             {
@@ -150,9 +159,8 @@ namespace SuMueble.Views
 
         private void btn_hecho_Click(object sender, EventArgs e)
         {
-            bool ok = validardatos();
             
-            if (ok)
+            if (validardatos())
             { 
                 if (email_bien_escrito(txt_correo.Text))
                 {
