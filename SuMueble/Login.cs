@@ -8,6 +8,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+//comentario
+
 namespace SuMueble.Views
 {
     public partial class Login : Form
