@@ -14,20 +14,29 @@ namespace SuMueble.Views
     public partial class HistorialVentasView : UserControl
     {
         VentaController ventaController = new VentaController();
+        DetalleVentaController dvController = new DetalleVentaController();
         List<Ventas> ventas;
+        List<DetallesVentas> detalles;
 
         //bool toogle = true;
         public HistorialVentasView()
         {
             InitializeComponent();
             dvg_ventas.AutoGenerateColumns = false;
-            ventas = ventaController.ObtenerVenta().ToList();
             dvg_ventas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            CargardataGrid();
+
             dvg_ventas.DataSource = ventas;
             cb_filtro.SelectedIndex = 0;
         }
 
-   
+        void CargardataGrid()
+        {
+            ventas = ventaController.ObtenerVenta().ToList();
+            detalles = dvController.ObtenerDetalles();
+            
+        }
 
         private void HistorialVentasView_Load(object sender, EventArgs e)
         {

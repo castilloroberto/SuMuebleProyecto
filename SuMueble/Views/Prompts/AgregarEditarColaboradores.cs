@@ -73,7 +73,7 @@ namespace SuMueble.Views
             }
             var rtn = txt_rtn.Text.Trim();
 
-            if (rtn.Length != 13)
+            if (rtn.Length != 14)
             {
                 
                     errores.Add("RTN\n");
