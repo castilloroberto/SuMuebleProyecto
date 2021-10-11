@@ -51,6 +51,7 @@ namespace SuMueble.Views
             }
             // gerente lo vee todo
             //ID = 1
+            //Holi
         }
         
         private void HideAll()
