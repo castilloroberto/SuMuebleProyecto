@@ -254,6 +254,8 @@ namespace SuMueble.Views
             // 
             // contenedor
             // 
+            this.contenedor.AutoScroll = true;
+            this.contenedor.BackColor = System.Drawing.Color.Transparent;
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(303, 0);
             this.contenedor.Name = "contenedor";
@@ -264,6 +266,7 @@ namespace SuMueble.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1354, 733);
             this.Controls.Add(this.contenedor);
             this.Controls.Add(this.panel1);
