@@ -12,7 +12,7 @@ namespace Ventana_de_Inventarios
     {
         CategoriaController categoriaController = new CategoriaController();
         ProductoControlador pc = new ProductoControlador();
-        List<Productos> productos;
+        List<Producto> productos;
         public InventariosView()
         {
             InitializeComponent();
@@ -70,7 +70,7 @@ namespace Ventana_de_Inventarios
         {
             string buscar = txt_buscar.Text.ToLower();
 
-            List<Productos> filtrados = productos.Where<Productos>(x => {
+            List<Producto> filtrados = productos.Where<Producto>(x => {
 
                 return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar) ;
 
@@ -95,7 +95,7 @@ namespace Ventana_de_Inventarios
 
                 if (idCategoria != 1)
                 {
-                    List<Productos> filtrados = productos.Where<Productos>(x =>
+                    List<Producto> filtrados = productos.Where<Producto>(x =>
                     {
 
                         return x.IDCategoria == idCategoria;

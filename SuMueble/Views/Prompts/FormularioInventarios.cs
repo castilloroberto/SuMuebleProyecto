@@ -36,7 +36,7 @@ namespace SuMueble
         private void cargarDatos(int ID)
         {
 
-            Productos p = productoControlador.GetProducto(ID);
+            Producto p = productoControlador.GetProducto(ID);
             txt_Codigo.Text = p.Codigo;
             txt_Existencia.Value = p.Existencias;
             txt_Nombre.Text = p.Producto.ToString();
@@ -85,7 +85,7 @@ namespace SuMueble
             }
             else
             {
-                Productos p = new Productos()
+                Producto p = new Producto()
                 {
                     ID = IDglobal,
                     Codigo = txt_Codigo.Text.Trim(),

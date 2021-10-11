@@ -17,12 +17,12 @@ namespace SuMueble.Views
         //controladores
         ClienteControlador clienteControlador = new ClienteControlador();
         VentaController ventaController = new VentaController();
-        List<Productos> productos;
+        List<Producto> productos;
         ProductoControlador pc = new ProductoControlador();
 
         //variables
         private float Total = 0;
-        private List<DetallesVentas> _detallesVenta = new List<DetallesVentas>();
+        private List<DetalleVenta> _detallesVenta = new List<DetalleVenta>();
         private string _msg = "1. Seleccione un producto\n2. Indique la cantidad que se venderá\n3. Asegurese de No borrar el precio del producto de el cuadro de texto en la parte inferior";
         private Guid _IDVenta;
 
@@ -140,7 +140,7 @@ namespace SuMueble.Views
             txt_dniCliente.Text = string.Empty;
             ClearCliente();
 
-            _detallesVenta = new List<DetallesVentas>();
+            _detallesVenta = new List<DetalleVenta>();
             ActualizarListView();
         }
 
@@ -173,7 +173,7 @@ namespace SuMueble.Views
                     if (txt_cantidadProducto.Value != 0 && txt_precio.Value != 0)
                     {
                         var descuento = txt_precio.Value * (txt_descuento.Value / 100);
-                        DetallesVentas dv = new DetallesVentas()
+                        DetalleVenta dv = new DetalleVenta()
                         {
                             IDVenta = _IDVenta,
                             IDProducto = GetCell(0),
@@ -201,7 +201,7 @@ namespace SuMueble.Views
 
 
         }
-        private void CargarListVew(DetallesVentas dv)
+        private void CargarListVew(DetalleVenta dv)
         {
             Total += dv.SubTotal;
             l_monto.Text = string.Format("{0:C2}", Total);
@@ -236,7 +236,7 @@ namespace SuMueble.Views
             if (txt_dniCliente.Text.Length == 13)
             {
                 ClearCliente();
-                Clientes cliente = clienteControlador.GetCliente(txt_dniCliente.Text);
+                Cliente cliente = clienteControlador.GetCliente(txt_dniCliente.Text);
                 if (cliente == null)
                 {
                     HideShowLabels(true);
@@ -402,7 +402,7 @@ namespace SuMueble.Views
         {
             string buscar = txt_buscarProducto.Text.ToLower();
 
-            List<Productos> filtrados = productos.Where<Productos>(x => {
+            List<Producto> filtrados = productos.Where<Producto>(x => {
 
                 try
                 {
@@ -458,7 +458,7 @@ namespace SuMueble.Views
 
         }
 
-        private void MostrarFactura(Ventas venta)
+        private void MostrarFactura(Venta venta)
         {
             var verfactura = new Factura(venta);
 

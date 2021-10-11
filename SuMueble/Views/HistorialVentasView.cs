@@ -81,7 +81,7 @@ namespace SuMueble.Views
         {
             string buscar = txt_BuscarCliente.Text.ToLower();
 
-            List<Ventas> filtrados = ventas.Where<Ventas>(x => {
+            List<Venta> filtrados = ventas.Where<Venta>(x => {
 
                 return x.NombreCliente.ToLower().StartsWith(buscar);
 
@@ -98,7 +98,7 @@ namespace SuMueble.Views
 
             if (tipoVenta != "Todo")
             {
-                List<Ventas> filtrados = ventas.Where<Ventas>(x =>
+                List<Venta> filtrados = ventas.Where<Venta>(x =>
                 {
 
                     return x.TipoVenta == tipoVenta;

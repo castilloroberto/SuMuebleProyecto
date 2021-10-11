@@ -20,7 +20,7 @@ namespace SuMueble.Views.Prompts
         Bitmap Bitmap;
 
 
-        public Recibo(Ventas venta=null,float pago=0)
+        public Recibo(Venta venta=null,float pago=0)
         {
             InitializeComponent();
 

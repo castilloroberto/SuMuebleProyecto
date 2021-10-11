@@ -15,7 +15,7 @@ namespace SuMueble.Views
     public partial class DevolucionesView : UserControl
     {
         VentaController ventaController = new VentaController();
-        List<Ventas> ventas;
+        List<Venta> ventas;
         public DevolucionesView()
         {
             InitializeComponent();
@@ -65,7 +65,7 @@ namespace SuMueble.Views
         {
             string buscar = txt_buscarCliente.Text.ToLower();
 
-            List<Ventas> filtrados = ventas.Where<Ventas>(x => {
+            List<Venta> filtrados = ventas.Where<Venta>(x => {
 
                 return x.NombreCliente.ToLower().StartsWith(buscar);
 
@@ -82,7 +82,7 @@ namespace SuMueble.Views
 
             if (tipoVenta != "Todo")
             {
-                List<Ventas> filtrados = ventas.Where<Ventas>(x =>
+                List<Venta> filtrados = ventas.Where<Venta>(x =>
                 {
 
                     return x.TipoVenta == tipoVenta;
