@@ -21,6 +21,7 @@ namespace SuMueble.DataAccess
         public DbSet<Pago> Pagos { get; set; }
         public DbSet<Devolucion> Devoluciones { get; set; }
         public DbSet<Referencia> Referencias { get; set; }
+        // 11 tablas
 
 
 

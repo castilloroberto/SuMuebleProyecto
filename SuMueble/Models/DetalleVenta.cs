@@ -27,6 +27,9 @@ namespace SuMueble.Models
             return $"{Cantidad}*{Producto.Nombre}: {Cantidad * PrecioVenta}";
         }
 
+        [NotMapped]
+        public decimal SubTotal { get { return Cantidad*PrecioVenta; } set { SubTotal = value; } }
+
 
 
     }

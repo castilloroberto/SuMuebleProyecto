@@ -21,6 +21,8 @@ namespace SuMueble.Models
         public Cliente Cliente { get; set; }
 
         public List<DetalleVenta> DetallesVenta { get; set; }
+        
+        [ForeignKey("TipoVenta")]
         public int TipoVentaId { get; set; }
         public TipoVenta TipoVenta { get; set; }
         public decimal Prima { get; set; }

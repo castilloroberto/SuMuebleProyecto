@@ -6,25 +6,22 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Linq;
-using SuMueble.Controller;
 using SuMueble.Models;
 using SuMueble.Views.Prompts;
+using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
     public partial class VentaView : UserControl
     {
         //controladores
-        ClienteControlador clienteControlador = new ClienteControlador();
-        VentaController ventaController = new VentaController();
+        
         List<Producto> productos;
-        ProductoControlador pc = new ProductoControlador();
 
         //variables
-        private float Total = 0;
+        private decimal Total = 0;
         private List<DetalleVenta> _detallesVenta = new List<DetalleVenta>();
         private string _msg = "1. Seleccione un producto\n2. Indique la cantidad que se venderá\n3. Asegurese de No borrar el precio del producto de el cuadro de texto en la parte inferior";
-        private Guid _IDVenta;
 
         // metodos
         public VentaView()
@@ -32,12 +29,15 @@ namespace SuMueble.Views
             InitializeComponent();
             CargarDataGrid();
             dgv_productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            _IDVenta = Guid.NewGuid();
         }
         private void CargarDataGrid()
         {
-            dgv_productos.AutoGenerateColumns = false;                        
-            productos = pc.GetProductos().ToList();
+            dgv_productos.AutoGenerateColumns = false;
+            using (var db = new SuMuebleDBContext())
+            {
+                productos = db.Productos.ToList();
+                
+            }
             dgv_productos.DataSource = productos;
         }
         //Andrea Celeste
@@ -82,46 +82,45 @@ namespace SuMueble.Views
             {
 
 
-                Clientes c = new Clientes()
+                Cliente c = new Cliente()
                 {
-                    DNI = txt_dniCliente.Text,
-                    Nombre = txt_nombreCliente.Text,
-                    Tel = txt_clienteTelefono.Text
+                    DNI = txt_dniCliente.Text.Trim(),
+                    Nombre = txt_nombreCliente.Text.Trim(),
+                    Telefono = txt_clienteTelefono.Text.Trim()
                 };
 
                 string msg = VentaIsAllReady();
 
                 if (msg == string.Empty)
                 {
-                    Ventas venta = new Ventas()
+                    Venta venta = new Venta()
                     {
-                        ID = _IDVenta,
                         DetallesVenta = _detallesVenta,
                         Cliente = c,
-                        IDTipoVenta = 1,
-                        IDColaborador = Menu.colaborador.DNI,
-                        FechaFin = DateTime.Now,
-                        TotalVenta = Total,
-                        IDCliente = c.DNI
+                        TipoVentaId = 1,
+                        ColaboradorDNI = Menu.colaborador.DNI,
 
                     };
-
-                    bool ok = ventaController.SaveVenta(venta);
-
-                    if (ok)
+                    try
                     {
+                        using (var db = new SuMuebleDBContext())
+                        {
+                            db.Ventas.Add(venta);
+                            db.SaveChanges();
+                        }
                         MessageBox.Show($"Venta Terminada\nMonto: {Total} \na continuacion se imprimira la factura", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //MostrarFactura(venta);
 
                         CargarDataGrid();
                         ClearVenta();
-
                     }
-                    else
+                    catch (Exception err)
                     {
-                        MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        MessageBox.Show($"No se pudo terminar la venta\nError:{err}", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
+
 
 
                 }
@@ -136,7 +135,6 @@ namespace SuMueble.Views
         {
             Total = 0;
             l_monto.Text = string.Empty;
-            _IDVenta = Guid.NewGuid();
             txt_dniCliente.Text = string.Empty;
             ClearCliente();
 
@@ -175,13 +173,12 @@ namespace SuMueble.Views
                         var descuento = txt_precio.Value * (txt_descuento.Value / 100);
                         DetalleVenta dv = new DetalleVenta()
                         {
-                            IDVenta = _IDVenta,
-                            IDProducto = GetCell(0),
+                            
+                            ProductoId = GetCell(0),
                             Cantidad = (int)txt_cantidadProducto.Value,
-                            PrecioVenta = (float)(txt_precio.Value - (descuento) ),
+                            PrecioVenta = txt_precio.Value - (descuento) ,
                             Producto = GetCell(2),
-                            descuento = (float)(descuento),
-                            PrecioProducto = (float)txt_precio.Value
+                            Descuento = descuento,
 
                         };
 
@@ -236,7 +233,11 @@ namespace SuMueble.Views
             if (txt_dniCliente.Text.Length == 13)
             {
                 ClearCliente();
-                Cliente cliente = clienteControlador.GetCliente(txt_dniCliente.Text);
+                Cliente cliente = new Cliente();//clienteControlador.GetCliente(txt_dniCliente.Text)
+                using (var db = new SuMuebleDBContext())
+                {
+                    cliente = db.Clientes.Find(txt_dniCliente.Text.Trim());
+                }
                 if (cliente == null)
                 {
                     HideShowLabels(true);
@@ -245,11 +246,11 @@ namespace SuMueble.Views
                 {
                     HideShowLabels(false);
                     txt_nombreCliente.Text = cliente.Nombre;
-                    txt_clienteTelefono.Text = cliente.Tel;
+                    txt_clienteTelefono.Text = cliente.Telefono;
                 }
             }
-            if (txt_dniCliente.Text.Length == 0)
-                ClearCliente();
+            //if (txt_dniCliente.Text.Length == 0)
+            //    ClearCliente();
         }
 
         private void HideShowLabels(bool visible)
@@ -406,7 +407,7 @@ namespace SuMueble.Views
 
                 try
                 {
-                    return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
+                    return x.Nombre.ToLower().StartsWith(buscar) || x.Id.ToString().StartsWith(buscar);
                 }
                 catch
                 {

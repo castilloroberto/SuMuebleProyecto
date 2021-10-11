@@ -39,6 +39,7 @@ namespace SuMueble.Models
 
 
         public List<Venta> Ventas { get; set; }
+        public List<Pago> Pagos { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public DateTime FechaContratado { get; set; }
         public DateTime FechaFinContrato { get; set; }
@@ -47,10 +48,11 @@ namespace SuMueble.Models
         public Colaborador()
         {
             FechaContratado = DateTime.Now;
-            FechaNacimiento = new DateTime(2000, 8, 31);
+            FechaNacimiento = new DateTime(DateTime.Now.Year-18, 8, 31);
             FechaFinContrato = DateTime.Now.AddYears(5);
             Activo = true;
             Ventas = new List<Venta>();
+            Pagos = new List<Pago>();
         }
 
         public override string ToString() => Nombre;
