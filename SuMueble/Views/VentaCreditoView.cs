@@ -267,5 +267,10 @@ namespace SuMueble.Views
         {
             txt_dirCliente.Text = txt_dirCliente.Text.Trim();
         }
+
+        private void txt_rtnCliente_Leave(object sender, EventArgs e)
+        {
+            txt_rtnCliente.Text = txt_rtnCliente.Text.Trim();
+        }
     }
 }

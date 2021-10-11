@@ -86,6 +86,7 @@ namespace SuMueble.Views
             this.txtbuscar.Size = new System.Drawing.Size(234, 34);
             this.txtbuscar.TabIndex = 2;
             this.txtbuscar.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtbuscar.Leave += new System.EventHandler(this.txtbuscar_Leave);
             // 
             // btn_pagarcuota
             // 

@@ -115,5 +115,10 @@ namespace Ventana_de_Inventarios
 
 
         }
+
+        private void txt_buscar_Leave(object sender, EventArgs e)
+        {
+            txt_buscar.Text = txt_buscar.Text.Trim();
+        }
     }
 }

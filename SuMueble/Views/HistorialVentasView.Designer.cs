@@ -34,8 +34,6 @@ namespace SuMueble.Views
             this.label1 = new System.Windows.Forms.Label();
             this.btn_verDetalle = new System.Windows.Forms.Button();
             this.dvg_ventas = new System.Windows.Forms.DataGridView();
-            this.cb_filtro = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.CodigoF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +44,8 @@ namespace SuMueble.Views
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cb_filtro = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_ventas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +59,7 @@ namespace SuMueble.Views
             this.txt_BuscarCliente.Size = new System.Drawing.Size(234, 34);
             this.txt_BuscarCliente.TabIndex = 0;
             this.txt_BuscarCliente.TextChanged += new System.EventHandler(this.txt_BuscarCliente_TextChanged);
+            this.txt_BuscarCliente.Leave += new System.EventHandler(this.txt_BuscarCliente_Leave);
             // 
             // label1
             // 
@@ -121,33 +122,6 @@ namespace SuMueble.Views
             this.dvg_ventas.RowHeadersWidth = 51;
             this.dvg_ventas.Size = new System.Drawing.Size(1364, 377);
             this.dvg_ventas.TabIndex = 4;
-            // 
-            // cb_filtro
-            // 
-            this.cb_filtro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.cb_filtro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_filtro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_filtro.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cb_filtro.FormattingEnabled = true;
-            this.cb_filtro.Items.AddRange(new object[] {
-            "Todo",
-            "Al Credito",
-            "Al Contado"});
-            this.cb_filtro.Location = new System.Drawing.Point(1250, 236);
-            this.cb_filtro.Name = "cb_filtro";
-            this.cb_filtro.Size = new System.Drawing.Size(235, 36);
-            this.cb_filtro.TabIndex = 6;
-            this.cb_filtro.SelectedIndexChanged += new System.EventHandler(this.cb_filtro_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1242, 193);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 32);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Buscar por:";
             // 
             // CodigoF
             // 
@@ -228,6 +202,33 @@ namespace SuMueble.Views
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            // 
+            // cb_filtro
+            // 
+            this.cb_filtro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.cb_filtro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_filtro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_filtro.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cb_filtro.FormattingEnabled = true;
+            this.cb_filtro.Items.AddRange(new object[] {
+            "Todo",
+            "Al Credito",
+            "Al Contado"});
+            this.cb_filtro.Location = new System.Drawing.Point(1250, 236);
+            this.cb_filtro.Name = "cb_filtro";
+            this.cb_filtro.Size = new System.Drawing.Size(235, 36);
+            this.cb_filtro.TabIndex = 6;
+            this.cb_filtro.SelectedIndexChanged += new System.EventHandler(this.cb_filtro_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(1242, 193);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 32);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Buscar por:";
             // 
             // HistorialVentasView
             // 

@@ -82,6 +82,7 @@ namespace SuMueble.Views
             this.txt_buscarCliente.Size = new System.Drawing.Size(235, 34);
             this.txt_buscarCliente.TabIndex = 3;
             this.txt_buscarCliente.TextChanged += new System.EventHandler(this.txt_buscarCliente_TextChanged_1);
+            this.txt_buscarCliente.Leave += new System.EventHandler(this.txt_buscarCliente_Leave);
             // 
             // cb_filtro
             // 
