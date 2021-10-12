@@ -197,9 +197,12 @@ namespace SuMueble.Views
             // 
             this.dtp_fechaNacimiento.Location = new System.Drawing.Point(201, 165);
             this.dtp_fechaNacimiento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtp_fechaNacimiento.MaxDate = new System.DateTime(2003, 12, 31, 0, 0, 0, 0);
+            this.dtp_fechaNacimiento.MinDate = new System.DateTime(1951, 1, 1, 0, 0, 0, 0);
             this.dtp_fechaNacimiento.Name = "dtp_fechaNacimiento";
             this.dtp_fechaNacimiento.Size = new System.Drawing.Size(318, 27);
             this.dtp_fechaNacimiento.TabIndex = 14;
+            this.dtp_fechaNacimiento.Value = new System.DateTime(2003, 12, 31, 0, 0, 0, 0);
             // 
             // label8
             // 
