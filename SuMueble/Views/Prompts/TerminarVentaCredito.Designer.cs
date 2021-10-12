@@ -44,6 +44,7 @@ namespace SuMueble.Views.Prompts
             // 
             this.dtp_fechaFin.CalendarFont = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtp_fechaFin.Location = new System.Drawing.Point(375, 108);
+            this.dtp_fechaFin.MinDate = new System.DateTime(2021, 10, 11, 0, 0, 0, 0);
             this.dtp_fechaFin.Name = "dtp_fechaFin";
             this.dtp_fechaFin.Size = new System.Drawing.Size(250, 27);
             this.dtp_fechaFin.TabIndex = 0;

@@ -93,5 +93,10 @@ namespace SuMueble.Views
             txt_busqueda.Focus();
 
         }
+
+        private void txt_busqueda_Leave(object sender, EventArgs e)
+        {
+            txt_busqueda.Text = txt_busqueda.Text.Trim();
+        }
     }
 }

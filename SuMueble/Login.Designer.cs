@@ -62,6 +62,7 @@ namespace SuMueble.Views
             this.txt_user.Size = new System.Drawing.Size(300, 34);
             this.txt_user.TabIndex = 1;
             this.txt_user.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_user_KeyPress);
             // 
             // txt_password
             // 

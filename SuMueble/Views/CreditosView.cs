@@ -77,5 +77,10 @@ namespace SuMueble.Views
 
             CargarDataGrid(filtrados.AsDataView().ToTable());
         }
+
+        private void txtbuscar_Leave(object sender, EventArgs e)
+        {
+            txtbuscar.Text = txtbuscar.Text.Trim();
+        }
     }
 }
