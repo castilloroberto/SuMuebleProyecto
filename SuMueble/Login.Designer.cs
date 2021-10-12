@@ -70,7 +70,7 @@ namespace SuMueble.Views
             this.txt_password.Location = new System.Drawing.Point(371, 404);
             this.txt_password.MinimumSize = new System.Drawing.Size(4, 37);
             this.txt_password.Name = "txt_password";
-            this.txt_password.PasswordChar = '*';
+            this.txt_password.PasswordChar = '●';
             this.txt_password.PlaceholderText = "Contraseña...";
             this.txt_password.Size = new System.Drawing.Size(300, 34);
             this.txt_password.TabIndex = 2;
