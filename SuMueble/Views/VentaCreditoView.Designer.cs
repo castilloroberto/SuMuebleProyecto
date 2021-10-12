@@ -139,6 +139,7 @@ namespace SuMueble.Views
             this.txt_rtnCliente.PlaceholderText = "Registro Tributario Nacional...";
             this.txt_rtnCliente.Size = new System.Drawing.Size(223, 34);
             this.txt_rtnCliente.TabIndex = 32;
+            this.txt_rtnCliente.Leave += new System.EventHandler(this.txt_rtnCliente_Leave);
             // 
             // lb_referencias
             // 

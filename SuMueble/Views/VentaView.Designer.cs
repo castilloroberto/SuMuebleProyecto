@@ -129,6 +129,7 @@ namespace SuMueble.Views
             this.txt_buscarProducto.Size = new System.Drawing.Size(223, 34);
             this.txt_buscarProducto.TabIndex = 24;
             this.txt_buscarProducto.TextChanged += new System.EventHandler(this.txt_buscarProducto_TextChanged);
+            this.txt_buscarProducto.Leave += new System.EventHandler(this.txt_buscarProducto_Leave);
             // 
             // txt_dniCliente
             // 

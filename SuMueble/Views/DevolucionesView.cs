@@ -98,5 +98,10 @@ namespace SuMueble.Views
                 dvg_devoluciones.DataSource = ventas;
             }
         }
+
+        private void txt_buscarCliente_Leave(object sender, EventArgs e)
+        {
+            txt_buscarCliente.Text = txt_buscarCliente.Text.Trim();
+        }
     }
 }

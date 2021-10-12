@@ -182,10 +182,11 @@ namespace Ventana_de_Inventarios
             this.txt_buscar.Location = new System.Drawing.Point(128, 249);
             this.txt_buscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_buscar.Name = "txt_buscar";
-            this.txt_buscar.PlaceholderText = "Escriba aqui...";
+            this.txt_buscar.PlaceholderText = "Nombre o Codigo del Producto...";
             this.txt_buscar.Size = new System.Drawing.Size(234, 34);
             this.txt_buscar.TabIndex = 12;
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_metodo);
+            this.txt_buscar.Leave += new System.EventHandler(this.txt_buscar_Leave);
             // 
             // InventariosView
             // 

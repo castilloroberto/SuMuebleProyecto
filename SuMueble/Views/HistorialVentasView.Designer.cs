@@ -59,6 +59,7 @@ namespace SuMueble.Views
             this.txt_BuscarCliente.Size = new System.Drawing.Size(234, 34);
             this.txt_BuscarCliente.TabIndex = 0;
             this.txt_BuscarCliente.TextChanged += new System.EventHandler(this.txt_BuscarCliente_TextChanged);
+            this.txt_BuscarCliente.Leave += new System.EventHandler(this.txt_BuscarCliente_Leave);
             // 
             // label1
             // 

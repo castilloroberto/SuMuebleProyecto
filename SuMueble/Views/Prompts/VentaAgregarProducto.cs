@@ -83,5 +83,10 @@ namespace SuMueble.Views.Prompts
             dgv_productos.DataSource = null;
             dgv_productos.DataSource = filtrados;
         }
+
+        private void txt_buscarProducto_Leave(object sender, EventArgs e)
+        {
+            txt_buscarProducto.Text = txt_buscarProducto.Text.Trim();
+        }
     }
 }

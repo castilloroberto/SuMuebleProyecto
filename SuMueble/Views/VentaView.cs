@@ -505,5 +505,10 @@ namespace SuMueble.Views
         {
 
         }
+
+        private void txt_buscarProducto_Leave(object sender, EventArgs e)
+        {
+            txt_buscarProducto.Text = txt_buscarProducto.Text.Trim();
+        }
     }
 }
