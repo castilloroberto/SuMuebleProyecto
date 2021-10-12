@@ -1,5 +1,4 @@
-﻿using SuMueble.Controller;
-using SuMueble.Models;
+﻿using SuMueble.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,59 +9,38 @@ using System.Linq;
 using System.Windows.Forms;
 using SuMueble.Views.Prompts;
 using System.Drawing.Printing;
+using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
     public partial class PagarCuota : Form
     {
 
-        VentaController ventaController = new VentaController();
-        DetalleVentaController detalleControllador = new DetalleVentaController();
-        PagoControlador PagoControlador = new PagoControlador();
-        Guid IDVenta;
-        private string codFactura;
-        DataTable DetalleVenta;
+        private int codFactura;
+        DetalleVenta DetalleVenta;
         Venta venta_;
 
 
-        public PagarCuota(string cod_factura)
+        public PagarCuota(int cod_factura)
         {
             InitializeComponent();
 
-            var venta = ventaController.GetVenta(cod_factura);
-            DetalleVenta = detalleControllador.GetDetalleVenta(int.Parse(cod_factura));
             codFactura = cod_factura;
-            cargarDatos(venta);
+            cargarDatos();
             txtDNIColaborador.Text = Menu.colaborador.DNI;
         }
 
 
-        private void cargarDatos(DataRow venta)
+        private void cargarDatos()
         {
-            IDVenta = venta.Field<Guid>("ID");
        
-            txt_cuotas_pendientes.Text = venta.Field<int>("Cuotas").ToString();
 
             
 
-            dtp_fechaFin.Value = venta.Field<DateTime>("FechaFin");
 
 
-            venta_ = ventaController.GetVentaID(codFactura);
-            l_cliente.Text = venta_.NombreCliente;
 
-            txtProducto.Text = DetalleVenta.Rows[0].Field<string>("Producto");
-            var creditopendiente = PagoControlador.GetCreditoPendiente(int.Parse(codFactura));
-
-            if (creditopendiente.Rows.Count > 0)
-            {
-                txt_monto_pendiente.Text = creditopendiente.Rows[0].Field<double>("Pendiente").ToString();
-
-            }
-            else
-            {
-                txt_monto_pendiente.Text = DetalleVenta.Rows[0].Field<double>("SubTotal").ToString();
-            }
+            
 
             
 
@@ -75,15 +53,19 @@ namespace SuMueble.Views
             {
                 Pago p = new Pago()
                 {
-                    IDVenta= IDVenta,
-                    IDColaborador = txtDNIColaborador.Text,
-                    Monto = (float)txtCuota.Value,
+                    CodigoFactura= codFactura,
+                    ColaboradorDNI = txtDNIColaborador.Text,
+                    Monto = txtCuota.Value,
                     
                 };
 
-                 
-                
-                if (PagoControlador.InsertPagos(p) == true)
+                int res = 0;
+                using (var db = new SuMuebleDBContext())
+                {
+                    db.Pagos.Add(p);
+                    res = db.SaveChanges();
+                }
+                if (res > 0)
                 {
                     MessageBox.Show("Pago completado con exito\nEl recibo se imprimira en seguida", "Mensaje del Sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();

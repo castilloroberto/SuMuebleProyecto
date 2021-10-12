@@ -93,15 +93,18 @@ namespace SuMueble
             {
                 Producto p = new Producto()
                 {
-                    ID = IDglobal,
-                    Codigo = txt_Codigo.Text.Trim(),
-                    Existencias = (int)txt_Existencia.Value,
-                    Producto = txt_Nombre.Text.Trim(),
-                    PrecioUnitario = (float)txt_Precio.Value,
-                    IDCategoria = cmb_Categoria.SelectedValue.GetHashCode(),
-                    ISV = (float)txt_impuesto.Value
+                    Cantidad = (int)txt_Existencia.Value,
+                    Nombre = txt_Nombre.Text.Trim(),
+                    Precio = txt_Precio.Value,
+                    CategoriaId = cmb_Categoria.SelectedValue.GetHashCode(),
+                    Impuesto = txt_impuesto.Value
                 };
-                productoControlador.SaveProductos(p);
+
+                using (var db = new SuMuebleDBContext())
+                {
+                    db.Productos.Add(p);
+                    db.SaveChanges();
+                }
                 MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }

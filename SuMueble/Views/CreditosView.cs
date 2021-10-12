@@ -38,21 +38,21 @@ namespace SuMueble.Views
         }
 
 
-        private string GetCell(int cell)
+        private dynamic GetCell(int cell)
         {
             if (dgv_ventasCredito.Rows.Count > 0)
             {
                 int index = dgv_ventasCredito.CurrentRow.Index;
-                return dgv_ventasCredito.Rows[index].Cells[cell].Value.ToString();
+                return dgv_ventasCredito.Rows[index].Cells[cell].Value;
 
             }
-            else return "0";
+            else return 0;
         }
             
         private void btn_pagarcuota_Click(object sender, EventArgs e)
         {
-            string cod_factura = GetCell(0);
-            if (cod_factura != "0")
+            int cod_factura = GetCell(0);
+            if (cod_factura != 0)
             {
                 PagarCuota pagarCuota = new PagarCuota(cod_factura);
                 pagarCuota.ShowDialog();

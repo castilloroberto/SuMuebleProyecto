@@ -6,23 +6,25 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using SuMueble.Controller;
 using SuMueble.Models;
 using System.Linq;
+using SuMueble.DataAccess;
 
 namespace SuMueble.Views.Prompts
 {
     public partial class VentaAgregarProducto : Form
     {
-        ProductoControlador productoControlador = new ProductoControlador();
         List<Producto> productos;
         public VentaAgregarProducto()
         {
             InitializeComponent();
             dgv_productos.AutoGenerateColumns = false;
-            dgv_productos.DataSource = productoControlador.GetProductos();
-            productos = productoControlador.GetProductos().ToList();
-            dgv_productos.DataSource = productos;
+
+            using (var db = new SuMuebleDBContext())
+            {
+                productos = db.Productos.ToList();
+                dgv_productos.DataSource = productos;
+            }
         }
 
 
@@ -55,9 +57,9 @@ namespace SuMueble.Views.Prompts
             {
                 DetalleVenta dv = new DetalleVenta()
                 {
-                    IDProducto = GetCell(0),
+                    ProductoId = GetCell(0),
                     Cantidad = 1,
-                    PrecioVenta = (float)txt_precio.Value,
+                    PrecioVenta = txt_precio.Value,
                     Producto = GetCell(2)
                 };
 
@@ -75,7 +77,7 @@ namespace SuMueble.Views.Prompts
 
             List<Producto> filtrados = productos.Where<Producto>(x => {
 
-                return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
+                return x.Nombre.ToLower().StartsWith(buscar) || x.Id.ToString().StartsWith(buscar);
 
 
             }).ToList();

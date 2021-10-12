@@ -1,5 +1,4 @@
-﻿using SuMueble.Controller;
-using SuMueble.Models;
+﻿using SuMueble.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +12,6 @@ namespace SuMueble.Views.Prompts
 {
     public partial class Recibo : Form
     {
-        VentaController vcontroller = new VentaController();
-        ClienteControlador clienteControlador = new ClienteControlador();
-        ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
-        PagoControlador pagoControlador = new PagoControlador();
         Bitmap Bitmap;
 
 
@@ -32,9 +27,9 @@ namespace SuMueble.Views.Prompts
                     cliente.Text = string.Format("Cliente: {0}", venta.Cliente.Nombre);
 
                 }
-                if (venta.NombreCliente != null)
+                if (venta.Cliente.Nombre != null)
                 {
-                    cliente.Text = string.Format("Cliente: {0}", venta.NombreCliente);
+                    cliente.Text = string.Format("Cliente: {0}", venta.Cliente.Nombre);
 
                 }
                 cuotaRestantes.Text = venta.Cuotas.ToString();
