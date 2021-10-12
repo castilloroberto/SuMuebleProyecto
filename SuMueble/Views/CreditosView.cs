@@ -1,5 +1,4 @@
-﻿using SuMueble.Controller;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,13 +6,14 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Linq;
+using SuMueble.Models;
+using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
     public partial class CreditosView : UserControl
     {
-        VentaController ventaController = new VentaController();
-        DataTable ListaVentas;
+        List<Venta> ListaVentas;
         public CreditosView()
         {
             InitializeComponent();
@@ -23,11 +23,15 @@ namespace SuMueble.Views
         }
         private void GetData()
         {
-            ListaVentas = ventaController.GetCreditosPendientes();
+            using (var db = new SuMuebleDBContext())
+            {
+                ListaVentas = db.Ventas.Where(x => x.TipoVentaId == 2).ToList();
+
+            }
             CargarDataGrid(ListaVentas);
 
         }
-        private void CargarDataGrid(DataTable lista)
+        private void CargarDataGrid(List<Venta> lista)
         {
 
             dgv_ventasCredito.DataSource = lista;
@@ -67,15 +71,15 @@ namespace SuMueble.Views
         {
 
             
-            var filtrados = ListaVentas.AsEnumerable().Where(x =>
+            var filtrados = ListaVentas.Where(x =>
             {
                 int cf = 0;
                 int.TryParse(txtbuscar.Text, out cf);
                 string cl = txtbuscar.Text.ToLower();
-                return x.Field<int>("CodigoFactura") == cf || x.Field<string>("Cliente").ToLower().StartsWith(cl);
-            });
+                return x.CodigoFactura == cf || x.Cliente.Nombre.ToLower().StartsWith(cl);
+            }).ToList();
 
-            CargarDataGrid(filtrados.AsDataView().ToTable());
+            CargarDataGrid(filtrados);
         }
     }
 }

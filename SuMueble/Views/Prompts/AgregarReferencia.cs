@@ -79,12 +79,11 @@ namespace SuMueble.Views.Prompts
             {
                 Referencia referencias = new Referencia()
                 {
-                    CodigoRecibo = txtCodigoFactura.Text,
+                    ReciboENEE = txtCodigoFactura.Text,
                     Direccion = txtDireccion.Text,
-                    DNIReferencia = txtDNIReferencia.Text,
+                    ReferenciaDNI = txtDNIReferencia.Text,
                     Nombre = txt_nombreCliente.Text,
-                    Tel = txt_telefono.Text,
-                    IDVenta = VentaCreditoView._IDVenta,
+                    Telefono = txt_telefono.Text,
                 };
                 VentaCreditoView.listaReferencias.Add(referencias);
                 MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);

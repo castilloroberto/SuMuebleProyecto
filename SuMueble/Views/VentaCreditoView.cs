@@ -3,24 +3,21 @@ using System.Collections.Generic;
 using SuMueble.Views.Prompts;
 using System.Windows.Forms;
 using SuMueble.Models;
-using SuMueble.Controller;
+using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
 
     public partial class VentaCreditoView : UserControl
     {   //Controladores 
-        ClienteControlador clienteControlador = new ClienteControlador();
 
         //Variables
-        public static Guid _IDVenta;
         public static Venta _venta;  
         public static List<DetalleVenta> listaProductos;
         public static List<Referencia> listaReferencias;
-        private static float _Total = 0;
+        private static decimal _Total = 0;
         public static void listaProducto(DetalleVenta dv)
         {
-            dv.IDVenta = _IDVenta;
             listaProductos.Clear();
             listaProductos.Add(dv);
             _Total = dv.SubTotal;
@@ -61,7 +58,11 @@ namespace SuMueble.Views
             if (txt_dniCliente.Text.Length == 13)
             {
                 ClearCliente();
-                Cliente cliente = clienteControlador.GetCliente(txt_dniCliente.Text);
+                Cliente cliente = new Cliente();//clienteControlador.GetCliente(txt_dniCliente.Text)
+                using (var db = new SuMuebleDBContext())
+                {
+                    cliente = db.Clientes.Find(txt_dniCliente.Text.Trim());
+                }
                 if (cliente == null)
                 {
                     ActivarIndicadores();
@@ -72,7 +73,7 @@ namespace SuMueble.Views
                 {
                    
                     txt_nombreCliente.Text = cliente.Nombre;
-                    txtTelefonoCliente.Text = cliente.Tel;
+                    txtTelefonoCliente.Text = cliente.Telefono;
                     txt_dirCliente.Text = cliente.Direccion;
                     txt_rtnCliente.Text = cliente.RTN;
                     ActivarIndicadores();
@@ -85,7 +86,6 @@ namespace SuMueble.Views
         private void limpiarventa()
         {
             txt_dniCliente.Clear(); ;
-            _IDVenta = Guid.NewGuid();
             listaProductos.Clear();
             listaReferencias.Clear();
             _Total = 0;
@@ -127,18 +127,17 @@ namespace SuMueble.Views
                     Direccion = txt_dirCliente.Text,
                     Nombre    = txt_nombreCliente.Text,
                     RTN       = txt_rtnCliente.Text,
-                    Tel       = txtTelefonoCliente.Text
+                    Telefono       = txtTelefonoCliente.Text
 
                 };
                 _venta = new Venta()
                 {
-                    ID = _IDVenta,
                     Cliente = cliente,
                     DetallesVenta = listaProductos,
-                    IDColaborador = Menu.colaborador.DNI,
+                    ColaboradorDNI = Menu.colaborador.DNI,
                     Referencias = listaReferencias,
-                    IDTipoVenta = 2,
-                    TotalVenta = _Total
+                    TipoVentaId = 2,
+                                        
                 };
 
                 var terminar = new TerminarVentaCredito();
@@ -190,7 +189,6 @@ namespace SuMueble.Views
             InitializeComponent();
             listaProductos = new List<DetalleVenta>();
             listaReferencias = new List<Referencia>();
-            _IDVenta = Guid.NewGuid();
         }
 
         private void txt_dniCliente_KeyPress(object sender, KeyPressEventArgs e)

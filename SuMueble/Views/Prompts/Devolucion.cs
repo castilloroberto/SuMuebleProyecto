@@ -1,4 +1,4 @@
-﻿using SuMueble.Controller;
+﻿using SuMueble.DataAccess;
 using SuMueble.Models;
 using System;
 using System.Collections.Generic;
@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SuMueble.Views
@@ -13,10 +14,8 @@ namespace SuMueble.Views
 
     public partial class Devolucion : Form
     {
-        DevolucionControlador devolucionControlador = new DevolucionControlador();
-        DetalleVentaController dvControllador = new DetalleVentaController();
-        List<SQLViewVentas> detalles_;
-        public Devolucion(Guid IDVenta_)
+        List<DetalleVenta> detalles_;
+        public Devolucion(int IDVenta_)
         {
             InitializeComponent();
             
@@ -24,9 +23,13 @@ namespace SuMueble.Views
         }
         
 
-        private void cargarDatos(Guid IDVenta)
+        private void cargarDatos(int IDVenta)
         {
-            detalles_ = dvControllador.GetDetalles(IDVenta);
+            using (var db = new SuMuebleDBContext())
+            {
+                detalles_ = db.DetallesVenta.Where( x => x.CodigoFactura == IDVenta).ToList();
+
+            }
             cb_productos.DataSource = detalles_;
             cb_productos.DisplayMember = "Producto";
             cb_productos.ValueMember = "IDProducto";
@@ -58,12 +61,17 @@ namespace SuMueble.Views
                 {
                     CodigoFactura = detalles_[0].CodigoFactura,
                     Cantidad = (int)txt_Cantidad.Value,
-                    IDProducto = cb_productos.SelectedValue.GetHashCode(),
+                    ProductoId = cb_productos.SelectedValue.GetHashCode(),
                     Motivo = txt_Motivo.Text,
                     Observaciones = txt_Observacion.Text
 
                 };
-                var res = devolucionControlador.InsertarDevolucion(devolucion);
+                var res = 0;
+                using (var db = new SuMuebleDBContext())
+                {
+                    db.Devoluciones.Add(devolucion);
+                    res = db.SaveChanges();
+                }
                 if (res > 0)
                     MessageBox.Show("Devolucion Guardada Corrrecta Mente", "Devoluciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
@@ -78,7 +86,7 @@ namespace SuMueble.Views
 
         private void cb_productos_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            txt_Cantidad.Value = detalles_.Find(x => x.IDProducto == cb_productos.SelectedValue.GetHashCode()).Cantidad;
+            txt_Cantidad.Value = detalles_.Find(x => x.ProductoId == cb_productos.SelectedValue.GetHashCode()).Cantidad;
 
         }
 

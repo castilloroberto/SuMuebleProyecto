@@ -21,6 +21,7 @@ namespace SuMueble.Models
         public Cliente Cliente { get; set; }
 
         public List<DetalleVenta> DetallesVenta { get; set; }
+        public List<Referencia> Referencias { get; set; }
         
         [ForeignKey("TipoVenta")]
         public int TipoVentaId { get; set; }
@@ -35,6 +36,7 @@ namespace SuMueble.Models
             Fecha = DateTime.Now;
             FechaVencimiento = DateTime.Now;
             DetallesVenta = new List<DetalleVenta>();
+            Referencias = new List<Referencia>();
         }
 
 

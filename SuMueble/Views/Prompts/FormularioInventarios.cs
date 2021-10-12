@@ -1,4 +1,4 @@
-﻿using SuMueble.Controller;
+﻿using SuMueble.DataAccess;
 using SuMueble.Models;
 using System;
 using System.Collections.Generic;
@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SuMueble
@@ -13,14 +14,16 @@ namespace SuMueble
     public partial class FormularioInventarios : Form
     {
         private int IDglobal = 0;
-        ProductoControlador productoControlador = new ProductoControlador();
-        CategoriaController categoriaController = new CategoriaController();
 
 
         public FormularioInventarios(int ID = 0)
         {
             InitializeComponent();
-            cmb_Categoria.DataSource = categoriaController.GetCategorias();
+            using (var db = new SuMuebleDBContext())
+            {
+                cmb_Categoria.DataSource = db.Categorias.ToList();
+
+            }
             cmb_Categoria.DisplayMember = "Categoria";
             cmb_Categoria.ValueMember = "ID";
 
@@ -36,12 +39,15 @@ namespace SuMueble
         private void cargarDatos(int ID)
         {
 
-            Producto p = productoControlador.GetProducto(ID);
-            txt_Codigo.Text = p.Codigo;
-            txt_Existencia.Value = p.Existencias;
-            txt_Nombre.Text = p.Producto.ToString();
-            txt_Precio.Value = (decimal)p.PrecioUnitario;
-            cmb_Categoria.SelectedValue = p.IDCategoria;
+            Producto p = new Producto();
+            using (var db = new SuMuebleDBContext())
+            {
+                p = db.Productos.Find(ID);
+            }
+            txt_Existencia.Value = p.Cantidad;
+            txt_Nombre.Text = p.Nombre;
+            txt_Precio.Value = p.Precio;
+            cmb_Categoria.SelectedValue = p.CategoriaId;
             txt_Codigo.ReadOnly = true;
 
         }

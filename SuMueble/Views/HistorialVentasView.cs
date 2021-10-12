@@ -1,5 +1,4 @@
-﻿using SuMueble.Controller;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,15 +7,14 @@ using System.Text;
 using System.Windows.Forms;
 using System.Linq;
 using SuMueble.Models;
+using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
     public partial class HistorialVentasView : UserControl
     {
-        VentaController ventaController = new VentaController();
-        DetalleVentaController dvController = new DetalleVentaController();
-        List<Ventas> ventas;
-        List<DetallesVentas> detalles;
+        List<Venta> ventas;
+        List<DetalleVenta> detalles;
 
         //bool toogle = true;
         public HistorialVentasView()
@@ -33,8 +31,12 @@ namespace SuMueble.Views
 
         void CargardataGrid()
         {
-            ventas = ventaController.ObtenerVenta().ToList();
-            detalles = dvController.ObtenerDetalles();
+            using (var db = new SuMuebleDBContext())
+            {
+                ventas = db.Ventas.ToList();
+                detalles = db.DetallesVenta.ToList();
+
+            }
             
         }
 
@@ -81,9 +83,9 @@ namespace SuMueble.Views
         {
             string buscar = txt_BuscarCliente.Text.ToLower();
 
-            List<Venta> filtrados = ventas.Where<Venta>(x => {
+            List<Venta> filtrados = ventas.Where(x => {
 
-                return x.NombreCliente.ToLower().StartsWith(buscar);
+                return x.Cliente.Nombre.ToLower().StartsWith(buscar);
 
 
             }).ToList();
@@ -101,7 +103,7 @@ namespace SuMueble.Views
                 List<Venta> filtrados = ventas.Where<Venta>(x =>
                 {
 
-                    return x.TipoVenta == tipoVenta;
+                    return x.TipoVenta.Nombre == tipoVenta;
 
                 }).ToList();
 

@@ -1,5 +1,4 @@
-﻿using SuMueble.Controller;
-using SuMueble.Models;
+﻿using SuMueble.Models;
 using SuMueble.Views.Prompts;
 using System;
 using System.Linq;
@@ -10,13 +9,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
     public partial class AgregarEditarColaboradores : Form
     {
-        ColaboradorControlador cControlador = new ColaboradorControlador();
-        PuestoControlador pControlador = new PuestoControlador();
+       
         public AgregarEditarColaboradores(string DNI = null)
         {
             InitializeComponent();
@@ -29,27 +28,32 @@ namespace SuMueble.Views
 
         private void CargarColaborador(string dni)
         {
-            var colaborador = cControlador.GetColaborador(dni);
+            var colaborador = new Colaborador();
+            using (var db = new SuMuebleDBContext())
+            {
+                colaborador = db.Colaboradores.Find(dni);
+
+            }
             txt_correo.Text = colaborador.Email;
             txt_dni.Text = colaborador.DNI;
             txt_nombre.Text = colaborador.Nombre;
             txt_rtn.Text = colaborador.RTN;
-            txt_telefono.Text = colaborador.Tel;
+            txt_telefono.Text = colaborador.Telefono;
             txt_direccion.Text = colaborador.Direccion;
             dtp_fechaNacimiento.Value = colaborador.FechaNacimiento;
-            dtp_contratoIniciado.Value = colaborador.Contratado;
+            dtp_contratoIniciado.Value = colaborador.FechaContratado;
             txt_clave.Text = colaborador.Clave;
-            if (colaborador.FinContrato == null)
+            if (colaborador.FechaFinContrato == null)
             {
                 txt_finContrato.Text = "No definido";
 
             } else
             {
-                txt_finContrato.Text = colaborador.FinContrato.Value.ToString();
+                txt_finContrato.Text = colaborador.FechaFinContrato.ToString();
 
             }
 
-            cb_puesto.SelectedValue = colaborador.IDPuesto;
+            cb_puesto.SelectedValue = colaborador.PuestoId;
             txt_dni.Enabled = false;
         }
 
@@ -169,19 +173,20 @@ namespace SuMueble.Views
                     Colaborador colaborador = new Colaborador()
                     {
                         Clave = txt_clave.Text,
-                        Contratado = dtp_contratoIniciado.Value,
                         Direccion = txt_direccion.Text,
                         DNI = txt_dni.Text,
                         Email = txt_correo.Text,
                         FechaNacimiento = dtp_fechaNacimiento.Value,
                         Nombre = txt_nombre.Text,
                         RTN = txt_rtn.Text,
-                        Tel = txt_telefono.Text,
-                        FinContrato = null,
-                        IDPuesto = cb_puesto.SelectedValue.GetHashCode(),
-                        Estado = true
+                        Telefono = txt_telefono.Text,
+                        PuestoId = cb_puesto.SelectedValue.GetHashCode(),
                     };
-                    cControlador.SaveColaborador(colaborador);
+                    using (var db = new SuMuebleDBContext())
+                    {
+                        db.Colaboradores.Add(colaborador);
+                        db.SaveChanges();
+                    }
                     MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -205,12 +210,17 @@ namespace SuMueble.Views
         }
         private void CargarPuestos()
         {
-            var puestos = pControlador.GetPuestos();
+            var puestos = new List<Puesto>();
+            using (var db = new SuMuebleDBContext())
+            {
+                puestos = db.Puestos.ToList();
+
+            }
             
-            if (Menu.colaborador.IDPuesto != 1)
+            if (Menu.colaborador.PuestoId != 1)
             {
                 puestos = puestos.Where( item => {
-                    return item.ID != 1;
+                    return item.Id != 1;
                 }).ToList();
             }
 
