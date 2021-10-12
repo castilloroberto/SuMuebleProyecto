@@ -14,7 +14,6 @@ namespace SuMueble.Views
 {
     public partial class VentaView : UserControl
     {
-        //controladores
         
         List<Producto> productos;
 
@@ -32,10 +31,9 @@ namespace SuMueble.Views
         }
         private void CargarDataGrid()
         {
-            dgv_productos.AutoGenerateColumns = false;
             using (var db = new SuMuebleDBContext())
             {
-                productos = db.Productos.ToList();
+                productos = db.Productos.Include("Categoria").ToList();
                 
             }
             dgv_productos.DataSource = productos;
@@ -89,15 +87,20 @@ namespace SuMueble.Views
                     Telefono = txt_clienteTelefono.Text.Trim()
                 };
 
-                string msg = VentaIsAllReady();
 
+                string msg = VentaIsAllReady();
                 if (msg == string.Empty)
                 {
+                    _detallesVenta = _detallesVenta.ConvertAll(x =>
+                    {
+                        x.Producto = null;
+                        return x;
+                    });
                     Venta venta = new Venta()
                     {
                         DetallesVenta = _detallesVenta,
-                        Cliente = c,
                         TipoVentaId = 1,
+                        ClienteDNI = c.DNI,
                         ColaboradorDNI = Menu.colaborador.DNI,
 
                     };
@@ -105,6 +108,18 @@ namespace SuMueble.Views
                     {
                         using (var db = new SuMuebleDBContext())
                         {
+                            var cExist = db.Clientes.Find(c.DNI);
+                            if (cExist == null)
+                            {
+                                venta.Cliente = c; 
+
+                            }
+                            else
+                            {
+                                cExist.Nombre = c.Nombre;
+                                cExist.Telefono = c.Telefono;
+
+                            }
                             db.Ventas.Add(venta);
                             db.SaveChanges();
                         }
@@ -171,13 +186,14 @@ namespace SuMueble.Views
                     if (txt_cantidadProducto.Value != 0 && txt_precio.Value != 0)
                     {
                         var descuento = txt_precio.Value * (txt_descuento.Value / 100);
+                        var prodSelected = GetCell(0);
                         DetalleVenta dv = new DetalleVenta()
                         {
                             
-                            ProductoId = GetCell(0),
+                            ProductoId = prodSelected,
                             Cantidad = (int)txt_cantidadProducto.Value,
                             PrecioVenta = txt_precio.Value - (descuento) ,
-                            Producto = GetCell(2),
+                            Producto = productos.Find( x => x.Id == prodSelected),
                             Descuento = descuento,
 
                         };

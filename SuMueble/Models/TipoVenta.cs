@@ -11,7 +11,7 @@ namespace SuMueble.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required,MaxLength(25)]
         public string Nombre { get; set; }
 
         public List<Venta> Ventas { get; set; }

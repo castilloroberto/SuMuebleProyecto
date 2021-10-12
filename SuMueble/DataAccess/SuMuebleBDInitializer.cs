@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SuMueble.DataAccess
 {
-    public class SuMuebleBDInitializer:DropCreateDatabaseIfModelChanges<SuMuebleDBContext>
+    public class SuMuebleBDInitializer: DropCreateDatabaseIfModelChanges<SuMuebleDBContext>//
     {
 
         protected override void Seed(SuMuebleDBContext context)
@@ -29,9 +29,19 @@ namespace SuMueble.DataAccess
             context.Categorias.AddRange(defaultCategorias);
 
 
-            IList<Puesto> defaultPuestos = new List<Puesto>() 
+           
+            
+            var defaultColaborador = new Colaborador()
             {
-                new Puesto() { Nombre = "Gerente"}, // id = 1
+                DNI = "0703200101235",
+                Clave = "admin678",
+                Nombre = "Administrador",
+                Puesto = new Puesto() { Nombre = "Gerente" }
+            }; 
+            context.Colaboradores.Add(defaultColaborador);
+
+            IList<Puesto> defaultPuestos = new List<Puesto>()
+            {
                 new Puesto() { Nombre = "Ventas"}, // 2 
                 new Puesto() { Nombre = "Bodega"}, // 3
                 new Puesto() { Nombre = "Secretaria"}, // 4
@@ -39,15 +49,6 @@ namespace SuMueble.DataAccess
             };
 
             context.Puestos.AddRange(defaultPuestos);
-            
-            var defaultColaborador = new Colaborador()
-            {
-                DNI = "0703200101235",
-                Clave = "admin678",
-                Nombre = "Administrador",
-                PuestoId = 1
-            }; 
-            context.Colaboradores.Add(defaultColaborador);
 
             base.Seed(context);
         }

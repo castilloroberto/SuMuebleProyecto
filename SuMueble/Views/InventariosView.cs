@@ -15,10 +15,9 @@ namespace Ventana_de_Inventarios
         public InventariosView()
         {
             InitializeComponent();
-            dgv_Productos.AutoGenerateColumns = false;
             CargarDatos();
-            cb_categorias.ValueMember = "ID";
-            cb_categorias.DisplayMember = "Categoria";
+            cb_categorias.ValueMember = "Id";
+            cb_categorias.DisplayMember = "Nombre";
             dgv_Productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
@@ -94,11 +93,11 @@ namespace Ventana_de_Inventarios
             if (categoriaString != "SuMueble.Models.Categorias") {
                 
                 int idCategoria = 0;
-                idCategoria = Convert.ToInt32(categoriaString);
+                int.TryParse(categoriaString,out idCategoria);
 
-                if (idCategoria != 1)
+                if (idCategoria > 1 )
                 {
-                    List<Producto> filtrados = productos.Where<Producto>(x =>
+                    List<Producto> filtrados = productos.Where(x =>
                     {
 
                         return x.CategoriaId == idCategoria;

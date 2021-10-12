@@ -20,12 +20,10 @@ namespace SuMueble.Views
         public HistorialVentasView()
         {
             InitializeComponent();
-            dvg_ventas.AutoGenerateColumns = false;
             dvg_ventas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             CargardataGrid();
 
-            dvg_ventas.DataSource = ventas;
             cb_filtro.SelectedIndex = 0;
         }
 
@@ -33,11 +31,17 @@ namespace SuMueble.Views
         {
             using (var db = new SuMuebleDBContext())
             {
-                ventas = db.Ventas.ToList();
+                ventas = db.Ventas
+                    .Include("Colaborador")
+                    .Include("Cliente")
+                    .Include("TipoVenta")
+                    .ToList();
                 detalles = db.DetallesVenta.ToList();
 
             }
-            
+            dvg_ventas.DataSource = ventas;
+
+
         }
 
         private void HistorialVentasView_Load(object sender, EventArgs e)

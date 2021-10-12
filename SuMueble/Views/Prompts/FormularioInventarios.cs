@@ -24,8 +24,8 @@ namespace SuMueble
                 cmb_Categoria.DataSource = db.Categorias.ToList();
 
             }
-            cmb_Categoria.DisplayMember = "Categoria";
-            cmb_Categoria.ValueMember = "ID";
+            cmb_Categoria.DisplayMember = "Nombre";
+            cmb_Categoria.ValueMember = "Id";
 
             if (ID != 0)
             {
@@ -64,13 +64,7 @@ namespace SuMueble
 
             //VALIDACIONES TEXTBOX VACIOS
             //       cod01
-            var prodCod = txt_Codigo.Text.Trim();
-            if ( prodCod == "" || prodCod.Contains(" ") )
-            {
-                MessageBox.Show("Codigo articulo es invalido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txt_Codigo.Focus();
-            }
-            else if (txt_Nombre.Text.Trim() == "")
+            if (txt_Nombre.Text.Trim() == "")
             {
                 MessageBox.Show("Nombre articulo esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_Nombre.Focus();
@@ -91,22 +85,33 @@ namespace SuMueble
             }
             else
             {
-                Producto p = new Producto()
+                try
                 {
-                    Cantidad = (int)txt_Existencia.Value,
-                    Nombre = txt_Nombre.Text.Trim(),
-                    Precio = txt_Precio.Value,
-                    CategoriaId = cmb_Categoria.SelectedValue.GetHashCode(),
-                    Impuesto = txt_impuesto.Value
-                };
+                    Producto p = new Producto()
+                    {
+                        Cantidad = (int)txt_Existencia.Value,
+                        Nombre = txt_Nombre.Text.Trim(),
+                        Precio = txt_Precio.Value,
+                        CategoriaId = cmb_Categoria.SelectedValue.GetHashCode(),
+                        Impuesto = txt_impuesto.Value,
+                        Descripcion = txt_description.Text.Trim()
+                    };
 
-                using (var db = new SuMuebleDBContext())
-                {
-                    db.Productos.Add(p);
-                    db.SaveChanges();
+                    using (var db = new SuMuebleDBContext())
+                    {
+                        db.Productos.Add(p);
+                        db.SaveChanges();
+                    }
+                    MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+
                 }
-                MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                catch (Exception err)
+                {
+
+                    MessageBox.Show($"Error:{err}", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
             }
 
         }
