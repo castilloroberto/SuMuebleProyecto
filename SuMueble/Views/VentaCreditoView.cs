@@ -9,7 +9,7 @@ namespace SuMueble.Views
 {
 
     public partial class VentaCreditoView : UserControl
-    {   //Controladores 
+    {   
 
         //Variables
         public static Venta _venta;  
@@ -120,23 +120,30 @@ namespace SuMueble.Views
             string msg = IsAllReady() ;
             if (msg == "")
             {
-                
+
+                listaProductos = listaProductos.ConvertAll(dv => {
+
+                    dv.Producto = null;
+                    return dv;
+                });
                 Cliente cliente = new Cliente()
                 {
                     DNI       = txt_dniCliente.Text,
                     Direccion = txt_dirCliente.Text,
                     Nombre    = txt_nombreCliente.Text,
                     RTN       = txt_rtnCliente.Text,
-                    Telefono       = txtTelefonoCliente.Text
+                    Telefono  = txtTelefonoCliente.Text
 
                 };
                 _venta = new Venta()
                 {
-                    Cliente = cliente,
+                    ClienteDNI = cliente.DNI,
+                    Cliente = labelClienteNuevo.Visible ? cliente : null,
                     DetallesVenta = listaProductos,
                     ColaboradorDNI = Menu.colaborador.DNI,
                     Referencias = listaReferencias,
                     TipoVentaId = 2,
+
                                         
                 };
 

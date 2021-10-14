@@ -18,11 +18,10 @@ namespace SuMueble.Views.Prompts
         public VentaAgregarProducto()
         {
             InitializeComponent();
-            dgv_productos.AutoGenerateColumns = false;
 
             using (var db = new SuMuebleDBContext())
             {
-                productos = db.Productos.ToList();
+                productos = db.Productos.Include("Categoria").ToList();
                 dgv_productos.DataSource = productos;
             }
         }
@@ -60,7 +59,7 @@ namespace SuMueble.Views.Prompts
                     ProductoId = GetCell(0),
                     Cantidad = 1,
                     PrecioVenta = txt_precio.Value,
-                    Producto = GetCell(2)
+                    Producto = productos.Find( p => p.Id == GetCell(0))
                 };
 
                 // propiedad estatica de VentaCreditoView

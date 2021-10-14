@@ -16,6 +16,7 @@ namespace SuMueble.Views.Prompts
         public TerminarVentaCredito()
         {
             InitializeComponent();
+            dtp_fechaFin.MinDate = DateTime.Now.AddDays(7);
             
         }
 
@@ -26,20 +27,31 @@ namespace SuMueble.Views.Prompts
             VentaCreditoView._venta.FechaVencimiento = dtp_fechaFin.Value;
             VentaCreditoView._venta.Prima = txt_prima.Value;
 
-            bool ok = false;
-            using (var db = new SuMuebleDBContext())
-            {
-                db.Ventas.Add(VentaCreditoView._venta);
-            }
-            if (ok) 
-            {
-                MessageBox.Show(string.Format(msg,(float)txt_prima.Value), "Imprimer Recibo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //try
+            //{
+                int ok = 0;
+                using (var db = new SuMuebleDBContext())
+                {
+                    db.Ventas.Add(VentaCreditoView._venta);
+                    ok = db.SaveChanges();
+                }
+                if (ok > 0 ) 
+                {
+                    MessageBox.Show(string.Format(msg,(float)txt_prima.Value), "Imprimer Recibo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
-                var recibo = new Recibo(VentaCreditoView._venta,(float)txt_prima.Value);
-                recibo.ShowDialog();
-            }
-            else
-                MessageBox.Show($"Ha habido un error\nIntente de nuevo", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    var recibo = new Recibo(VentaCreditoView._venta,(float)txt_prima.Value);
+                    recibo.ShowDialog();
+                }
+                else
+                    MessageBox.Show($"No se ha podido guardado los datos", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+            //}
+            //catch (Exception err)
+            //{
+            //    MessageBox.Show($"Error:\n{err}", "Ha habido un error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+            //}
             this.Close();
         }
     }
