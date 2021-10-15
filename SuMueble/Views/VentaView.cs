@@ -26,16 +26,22 @@ namespace SuMueble.Views
         public VentaView()
         {
             InitializeComponent();
+            LoadData();
             CargarDataGrid();
             dgv_productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
-        private void CargarDataGrid()
+        void LoadData()
         {
             using (var db = new SuMuebleDBContext())
             {
                 productos = db.Productos.Include("Categoria").ToList();
                 
             }
+
+        }
+        private void CargarDataGrid()
+        {
+            dgv_productos.DataSource = null;
             dgv_productos.DataSource = productos;
         }
         //Andrea Celeste
@@ -125,8 +131,7 @@ namespace SuMueble.Views
                         }
                         MessageBox.Show($"Venta Terminada\nMonto: {Total} \na continuacion se imprimira la factura", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //MostrarFactura(venta);
-
-                        CargarDataGrid();
+                        DecrementaInventario();
                         ClearVenta();
                     }
                     catch (Exception err)
@@ -145,7 +150,21 @@ namespace SuMueble.Views
 
             }
         }
+        void DecrementaInventario()
+        {
+            using (var db = new SuMuebleDBContext())
+            {
+                
 
+                _detallesVenta.ForEach(dv =>
+                {
+                    var prod = db.Productos.Find(dv.ProductoId);
+                    prod.Cantidad -= dv.Cantidad;
+                    db.SaveChanges(); 
+                });
+            }
+            
+        }
         private void ClearVenta()
         {
             Total = 0;
@@ -220,6 +239,10 @@ namespace SuMueble.Views
             l_monto.Text = string.Format("{0:C2}", Total);
             _detallesVenta.Add(dv);
             // actualizar el listview
+            var idx = productos.IndexOf(dv.Producto);
+            dv.Producto.Cantidad -= dv.Cantidad;
+            productos[idx] = dv.Producto;
+            CargarDataGrid();
             ActualizarListView();
 
         }

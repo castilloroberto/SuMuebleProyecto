@@ -54,11 +54,13 @@ namespace SuMueble.Views.Prompts
             }
             else
             {
+                var descue = (txt_descuento.Value/100) * txt_precio.Value;
                 DetalleVenta dv = new DetalleVenta()
                 {
                     ProductoId = GetCell(0),
                     Cantidad = 1,
-                    PrecioVenta = txt_precio.Value,
+                    PrecioVenta = txt_precio.Value - descue,
+                    Descuento = descue,
                     Producto = productos.Find( p => p.Id == GetCell(0))
                 };
 

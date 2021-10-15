@@ -35,9 +35,9 @@ namespace SuMueble.Views.Prompts
                 MessageBox.Show("Nombre referencia esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_nombreCliente.Focus();
             }
-            else if (txt_nombreCliente.Text.Length < 12) //date:02/10/2021
+            else if (txt_nombreCliente.Text.Length < 15) //date:02/10/2021
             {   // min 12 - max 150
-                MessageBox.Show("Nombre Incompleto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nombre Incompleto (minimo 15 caracteres)", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_nombreCliente.Focus();
             }
             else if (txt_telefono.Text == "")
@@ -70,7 +70,7 @@ namespace SuMueble.Views.Prompts
                 MessageBox.Show("Código Recibo referencia esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtCodigoFactura.Focus();
             }
-            else if (txtCodigoFactura.Text.Length < 7) //date:02/10/2021
+            else if (txtCodigoFactura.Text.Length < 6) //date:02/10/2021
             {   // min 7 - max 18 
                 MessageBox.Show("Código Recibo Incompleto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtCodigoFactura.Focus();

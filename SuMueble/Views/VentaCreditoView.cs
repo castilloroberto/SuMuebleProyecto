@@ -4,14 +4,16 @@ using SuMueble.Views.Prompts;
 using System.Windows.Forms;
 using SuMueble.Models;
 using SuMueble.DataAccess;
+using System.Data.Entity.Validation;
 
 namespace SuMueble.Views
 {
 
     public partial class VentaCreditoView : UserControl
-    {   
+    {
 
         //Variables
+        public Cliente _Cliente = new Cliente();
         public static Venta _venta;  
         public static List<DetalleVenta> listaProductos;
         public static List<Referencia> listaReferencias;
@@ -58,12 +60,11 @@ namespace SuMueble.Views
             if (txt_dniCliente.Text.Length == 13)
             {
                 ClearCliente();
-                Cliente cliente = new Cliente();//clienteControlador.GetCliente(txt_dniCliente.Text)
                 using (var db = new SuMuebleDBContext())
                 {
-                    cliente = db.Clientes.Find(txt_dniCliente.Text.Trim());
+                    _Cliente = db.Clientes.Find(txt_dniCliente.Text.Trim());
                 }
-                if (cliente == null)
+                if (_Cliente == null)
                 {
                     ActivarIndicadores();
                     labelClienteNuevo.Visible = true;
@@ -72,10 +73,10 @@ namespace SuMueble.Views
                 else
                 {
                    
-                    txt_nombreCliente.Text = cliente.Nombre;
-                    txtTelefonoCliente.Text = cliente.Telefono;
-                    txt_dirCliente.Text = cliente.Direccion;
-                    txt_rtnCliente.Text = cliente.RTN;
+                    txt_nombreCliente.Text = _Cliente.Nombre;
+                    txtTelefonoCliente.Text = _Cliente.Telefono;
+                    txt_dirCliente.Text = _Cliente.Direccion;
+                    txt_rtnCliente.Text = _Cliente.RTN;
                     ActivarIndicadores();
                     
                  }
@@ -112,9 +113,50 @@ namespace SuMueble.Views
             l_RTNCliente.Visible = txt_rtnCliente.Text == "";
         }
 
+        public static void showValidationError(DbEntityValidationException e)
+        {
+            string msg = "";
+            foreach (var eve in e.EntityValidationErrors)
+            {
+                msg += string.Format("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                    eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                msg += "\n\t";
+                foreach (var ve in eve.ValidationErrors)
+                {
+                    msg += string.Format("- Property: \"{0}\", Error: \"{1}\"",
+                        ve.PropertyName, ve.ErrorMessage);
+                }
+            }
+            MessageBox.Show(msg, "Ha habido un Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        void UpdateCliente()
+        {
+            if (!labelClienteNuevo.Visible)
+            {
+
+                try
+                {
+                    using (var db = new SuMuebleDBContext())
+                    {
+                        var cliente = db.Clientes.Find(_Cliente.DNI);
+                        cliente.Nombre = _Cliente.Nombre;
+                        cliente.Direccion = _Cliente.Direccion;
+                        cliente.RTN = _Cliente.RTN;
+                        cliente.Telefono = _Cliente.Telefono;
+                        db.SaveChanges();
+                    }
+                }
+                catch (DbEntityValidationException e)
+                {
+                    showValidationError(e);
+                }
+            }
+            
+        }
 
 
-    
         private void btn_terminarVenta_Click(object sender, EventArgs e)
         {
             string msg = IsAllReady() ;
@@ -126,25 +168,24 @@ namespace SuMueble.Views
                     dv.Producto = null;
                     return dv;
                 });
-                Cliente cliente = new Cliente()
+                _Cliente = new Cliente()
                 {
-                    DNI       = txt_dniCliente.Text,
+                    DNI = txt_dniCliente.Text,
                     Direccion = txt_dirCliente.Text,
-                    Nombre    = txt_nombreCliente.Text,
-                    RTN       = txt_rtnCliente.Text,
-                    Telefono  = txtTelefonoCliente.Text
+                    Nombre = txt_nombreCliente.Text,
+                    RTN = txt_rtnCliente.Text,
+                    Telefono = txtTelefonoCliente.Text
 
                 };
+                UpdateCliente();
                 _venta = new Venta()
                 {
-                    ClienteDNI = cliente.DNI,
-                    Cliente = labelClienteNuevo.Visible ? cliente : null,
+                    ClienteDNI = _Cliente.DNI,
+                    Cliente = labelClienteNuevo.Visible ? _Cliente : null,
                     DetallesVenta = listaProductos,
                     ColaboradorDNI = Menu.colaborador.DNI,
                     Referencias = listaReferencias,
-                    TipoVentaId = 2,
-
-                                        
+                    TipoVentaId = 2                    
                 };
 
                 var terminar = new TerminarVentaCredito();
@@ -180,7 +221,7 @@ namespace SuMueble.Views
             res += txt_rtnCliente.Text.Length != 14 ? "\n* RTN de Cliente" : "";
             res += txt_nombreCliente.Text.Length < 3 ? "\n* Nombre de Cliente" : "";
             res += txtTelefonoCliente.Text.Length != 8 ? "\n* Telefono de Cliente" : "";
-            res += txt_dirCliente.Text.Length < 10 ? "\n* Direccion de Cliente" : "";
+            res += txt_dirCliente.Text.Length < 25 ? "\n* Direccion de Cliente (minimo 25 caracteres)" : "";
             res += VentaView.ValidarDNI(txt_dniCliente.Text) == false ? "*DNI invalido" : "";
             res += VentaView.telValido(txtTelefonoCliente.Text) == false ? "*Telefono invalido" : "";
             res += listaReferencias.Count < 2 ? "\n* Faltan Referencias" : "";

@@ -27,7 +27,7 @@ namespace SuMueble.Views.Prompts
                     cliente.Text = string.Format("Cliente: {0}", venta.Cliente.Nombre);
 
                 }
-                if (venta.Cliente.Nombre != null)
+                if (venta.Cliente != null)
                 {
                     cliente.Text = string.Format("Cliente: {0}", venta.Cliente.Nombre);
 

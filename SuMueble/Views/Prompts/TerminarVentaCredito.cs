@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -27,8 +28,8 @@ namespace SuMueble.Views.Prompts
             VentaCreditoView._venta.FechaVencimiento = dtp_fechaFin.Value;
             VentaCreditoView._venta.Prima = txt_prima.Value;
 
-            //try
-            //{
+            try
+            {
                 int ok = 0;
                 using (var db = new SuMuebleDBContext())
                 {
@@ -45,13 +46,14 @@ namespace SuMueble.Views.Prompts
                 else
                     MessageBox.Show($"No se ha podido guardado los datos", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
-            //}
-            //catch (Exception err)
-            //{
-            //    MessageBox.Show($"Error:\n{err}", "Ha habido un error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (DbEntityValidationException err)
+            {
+
+                VentaCreditoView.showValidationError(err);
 
 
-            //}
+            }
             this.Close();
         }
     }

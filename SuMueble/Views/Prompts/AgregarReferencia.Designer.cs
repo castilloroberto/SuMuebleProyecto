@@ -147,7 +147,7 @@ namespace SuMueble.Views.Prompts
             this.txtCodigoFactura.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCodigoFactura.Location = new System.Drawing.Point(42, 238);
             this.txtCodigoFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCodigoFactura.MaxLength = 7;
+            this.txtCodigoFactura.MaxLength = 6;
             this.txtCodigoFactura.Name = "txtCodigoFactura";
             this.txtCodigoFactura.PlaceholderText = "Escriba Aqui...";
             this.txtCodigoFactura.Size = new System.Drawing.Size(223, 34);
