@@ -22,12 +22,12 @@ namespace SuMueble.Views
             InitializeComponent();
             dvg_ventas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            LoadData();
             CargardataGrid();
 
             cb_filtro.SelectedIndex = 0;
         }
-
-        void CargardataGrid()
+        void LoadData()
         {
             using (var db = new SuMuebleDBContext())
             {
@@ -36,13 +36,20 @@ namespace SuMueble.Views
                     .Include("Cliente")
                     .Include("TipoVenta")
                     .ToList();
-                detalles = db.DetallesVenta.ToList();
+                detalles = db.DetallesVenta
+                    .Include("Producto")
+                    .ToList();
 
             }
-            dvg_ventas.DataSource = ventas;
-
 
         }
+        void CargardataGrid(bool conDetalles = false)
+        {
+            if (conDetalles) dvg_ventas.DataSource = detalles;
+            else dvg_ventas.DataSource = ventas;
+
+        }
+
 
         private void HistorialVentasView_Load(object sender, EventArgs e)
         {
@@ -98,27 +105,16 @@ namespace SuMueble.Views
             dvg_ventas.DataSource = filtrados;
         }
 
-        private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
+        
+
+        private void cb_filtro_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            string tipoVenta = cb_filtro.Text;
-
-            if (tipoVenta != "Todo")
+            if (cb_filtro.SelectedIndex == 0)
             {
-                List<Venta> filtrados = ventas.Where<Venta>(x =>
-                {
+                CargardataGrid();
 
-                    return x.TipoVenta.Nombre == tipoVenta;
-
-                }).ToList();
-
-                dvg_ventas.DataSource = null;
-                dvg_ventas.DataSource = filtrados;
-            }
-            else
-            {
-                dvg_ventas.DataSource = null;
-                dvg_ventas.DataSource = ventas;
-            }
+            } else 
+                CargardataGrid(true);
         }
     }
 }

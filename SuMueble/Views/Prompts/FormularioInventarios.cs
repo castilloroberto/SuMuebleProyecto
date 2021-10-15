@@ -48,7 +48,6 @@ namespace SuMueble
             txt_Nombre.Text = p.Nombre;
             txt_Precio.Value = p.Precio;
             cmb_Categoria.SelectedValue = p.CategoriaId;
-            txt_Codigo.ReadOnly = true;
 
         }
 

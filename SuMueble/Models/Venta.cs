@@ -39,7 +39,17 @@ namespace SuMueble.Models
             Referencias = new List<Referencia>();
         }
 
-
+        [NotMapped]
+        public decimal Total 
+        {
+            get 
+            {
+                decimal total = 0;
+                DetallesVenta.ForEach(e => total += e.SubTotal);
+                return total;
+            }
+            set { Total = value; }
+        }
 
     }
 }
