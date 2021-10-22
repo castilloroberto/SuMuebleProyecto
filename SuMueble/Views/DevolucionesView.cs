@@ -14,17 +14,16 @@ namespace SuMueble.Views
 {
     public partial class DevolucionesView : UserControl
     {
-        List<Venta> ventas;
+        List<Models.Devolucion> Devoluciones;
         public DevolucionesView()
         {
             InitializeComponent();
-            dvg_devoluciones.AutoGenerateColumns = false;
             using (var db = new SuMuebleDBContext())
             {
-                ventas = db.Ventas.ToList();
+                Devoluciones = db.Devoluciones.ToList();
 
             }
-            dvg_devoluciones.DataSource = ventas;
+            dvg_devoluciones.DataSource = Devoluciones;
             cb_filtro.SelectedIndex = 0;
 
 
@@ -66,9 +65,9 @@ namespace SuMueble.Views
         {
             string buscar = txt_buscarCliente.Text.ToLower();
 
-            List<Venta> filtrados = ventas.Where<Venta>(x => {
+            List<Models.Devolucion> filtrados = Devoluciones.Where(x => {
 
-                return x.Cliente.Nombre.ToLower().StartsWith(buscar);
+                return x.Venta.Cliente.Nombre.ToLower().StartsWith(buscar);
 
 
             }).ToList();
@@ -83,10 +82,10 @@ namespace SuMueble.Views
 
             if (tipoVenta != "Todo")
             {
-                List<Venta> filtrados = ventas.Where(x =>
+                List<Models.Devolucion> filtrados = Devoluciones.Where(x =>
                 {
 
-                    return x.TipoVenta.Nombre == tipoVenta;
+                    return x.Venta.TipoVenta.Nombre == tipoVenta;
 
                 }).ToList();
 
@@ -96,7 +95,7 @@ namespace SuMueble.Views
             else
             {
                 dvg_devoluciones.DataSource = null;
-                dvg_devoluciones.DataSource = ventas;
+                dvg_devoluciones.DataSource = Devoluciones;
             }
         }
     }

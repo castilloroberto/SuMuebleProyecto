@@ -38,6 +38,7 @@ namespace SuMueble.Views.Prompts
                 }
                 if (ok > 0 ) 
                 {
+                    VentaView.DecrementaInventario(VentaCreditoView._venta.DetallesVenta);
                     MessageBox.Show(string.Format(msg,(float)txt_prima.Value), "Imprimer Recibo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                     var recibo = new Recibo(VentaCreditoView._venta,(float)txt_prima.Value);

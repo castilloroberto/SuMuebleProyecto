@@ -131,7 +131,7 @@ namespace SuMueble.Views
                         }
                         MessageBox.Show($"Venta Terminada\nMonto: {Total} \na continuacion se imprimira la factura", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //MostrarFactura(venta);
-                        DecrementaInventario();
+                        DecrementaInventario(_detallesVenta);
                         ClearVenta();
                     }
                     catch (Exception err)
@@ -150,13 +150,13 @@ namespace SuMueble.Views
 
             }
         }
-        void DecrementaInventario()
+        public static void DecrementaInventario(List<DetalleVenta> detallesVenta)
         {
             using (var db = new SuMuebleDBContext())
             {
                 
 
-                _detallesVenta.ForEach(dv =>
+                detallesVenta.ForEach(dv =>
                 {
                     var prod = db.Productos.Find(dv.ProductoId);
                     prod.Cantidad -= dv.Cantidad;

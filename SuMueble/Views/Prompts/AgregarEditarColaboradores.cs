@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using SuMueble.DataAccess;
+using System.Data.Entity.Validation;
 
 namespace SuMueble.Views
 {
@@ -64,9 +65,9 @@ namespace SuMueble.Views
             List<string> errores = new List<string>();
             
             var name = txt_nombre.Text.Trim();
-            if (name == "" || !VentaView.validarNombre(name))
+            if (name.Length < 15 || !VentaView.validarNombre(name) )
             {
-                errores.Add("Nombre\n");
+                errores.Add("Nombre (Minimo 15 caracteres)\n");
                 txt_nombre.Text = txt_nombre.Text.Trim();
             }
             var dni = txt_dni.Text.Trim();
@@ -101,9 +102,9 @@ namespace SuMueble.Views
 
                 errores.Add("Correo\n");
             }
-            if (txt_direccion.Text.Trim().Length < 15)
+            if (txt_direccion.Text.Trim().Length < 25)
             {
-                errores.Add("Direccion (Minimo 15 caracteres)\n");
+                errores.Add("Direccion (Minimo 25 caracteres)\n");
                 txt_direccion.Text = txt_direccion.Text.Trim();
             }
             // -1 = anterior a la selcccionada
@@ -182,13 +183,29 @@ namespace SuMueble.Views
                         Telefono = txt_telefono.Text,
                         PuestoId = cb_puesto.SelectedValue.GetHashCode(),
                     };
-                    using (var db = new SuMuebleDBContext())
+                    try
                     {
-                        db.Colaboradores.Add(colaborador);
-                        db.SaveChanges();
+                        using (var db = new SuMuebleDBContext())
+                        {
+                            var existe = db.Colaboradores.Find(colaborador.DNI);
+                            if (existe != null)
+                            {
+                                MessageBox.Show($"Ya Existe un Colaborador registrado con el DNI: {existe.DNI}", "Crear Colaborador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            } 
+                            db.Colaboradores.Add(colaborador);
+                            db.SaveChanges();
+                        }
+                        MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
-                    MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    catch (DbEntityValidationException err)
+                    {
+                        VentaCreditoView.showValidationError(err);
+
+
+                    }
+
                 }
                 else {
                     MessageBox.Show("Formato de correo invalido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -225,8 +242,8 @@ namespace SuMueble.Views
             }
 
             cb_puesto.DataSource = puestos;
-            cb_puesto.DisplayMember = "Puesto";
-            cb_puesto.ValueMember = "ID";
+            cb_puesto.DisplayMember = "Nombre";
+            cb_puesto.ValueMember = "Id";
         }
 
         private void txt_dni_KeyPress(object sender, KeyPressEventArgs e)

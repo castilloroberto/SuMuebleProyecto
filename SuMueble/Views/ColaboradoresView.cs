@@ -26,7 +26,9 @@ namespace SuMueble.Views
             dgv_colaboradores.DataSource = null;
             using (var db = new SuMuebleDBContext())
             {
-                colaboradores = db.Colaboradores.ToList();
+                colaboradores = db.Colaboradores
+                    .Include("Puesto")
+                    .ToList();
 
             }
             dgv_colaboradores.DataSource = colaboradores;

@@ -21,6 +21,7 @@ namespace SuMueble.Models
         public Cliente Cliente { get; set; }
 
         public List<DetalleVenta> DetallesVenta { get; set; }
+        public List<Pago> Pagos { get; set; }
         public List<Referencia> Referencias { get; set; }
         
         [ForeignKey("TipoVenta")]
@@ -36,9 +37,40 @@ namespace SuMueble.Models
             Fecha = DateTime.Now;
             FechaVencimiento = DateTime.Now;
             DetallesVenta = new List<DetalleVenta>();
+            Pagos = new List<Pago>();
             Referencias = new List<Referencia>();
         }
 
+        [NotMapped]
+        public decimal MontoPendiente
+        {
+            get
+            {
+                if (CuotasPagadas == 0) return Total;
+                var pendiente = Total;
+                Pagos.ForEach(p => 
+                {
+                    pendiente -= p.Monto;
+                });
+                return pendiente;
+            }
+            set
+            {
+                MontoPendiente = value;
+            }
+        }
+        [NotMapped]
+        public int CuotasPagadas
+        {
+            get
+            {
+                return Pagos.Count;
+            }
+            set
+            {
+                CuotasPagadas = value;
+            }
+        }
         [NotMapped]
         public decimal Total 
         {

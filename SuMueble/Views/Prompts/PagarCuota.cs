@@ -16,36 +16,28 @@ namespace SuMueble.Views
     public partial class PagarCuota : Form
     {
 
-        private int codFactura;
-        DetalleVenta DetalleVenta;
-        Venta venta_;
+        Venta Venta;
 
-
-        public PagarCuota(int cod_factura)
+        public PagarCuota(Venta Venta_)
         {
             InitializeComponent();
 
-            codFactura = cod_factura;
+            Venta = Venta_;
             cargarDatos();
-            txtDNIColaborador.Text = Menu.colaborador.DNI;
+            txtDNIColaborador.Text = Menu.colaborador.Nombre;
         }
 
 
         private void cargarDatos()
         {
-       
-
-            
-
-
-
-
-            
-
-            
-
+            l_cliente.Text = Venta.Cliente.Nombre;
+            txtDNIColaborador.Text = Venta.Colaborador.Nombre;
+            txt_cuotas_pendientes.Text = $"{Venta.Cuotas - Venta.CuotasPagadas}";
+            dtp_fechaFin.Value = Venta.FechaVencimiento;
+            txtProducto.Text = Venta.DetallesVenta.FirstOrDefault().Producto.Nombre;
+            txt_monto_pendiente.Text = string.Format("{0:C2}", Venta.MontoPendiente);
         }
-
+        
 
         private void btnImprimirFactura_Click(object sender, EventArgs e)
         {
@@ -53,7 +45,7 @@ namespace SuMueble.Views
             {
                 Pago p = new Pago()
                 {
-                    CodigoFactura= codFactura,
+                    CodigoFactura= Venta.CodigoFactura,
                     ColaboradorDNI = txtDNIColaborador.Text,
                     Monto = txtCuota.Value,
                     
@@ -69,7 +61,7 @@ namespace SuMueble.Views
                 {
                     MessageBox.Show("Pago completado con exito\nEl recibo se imprimira en seguida", "Mensaje del Sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();
-                    var recibo = new Recibo(venta_, (float)txtCuota.Value);
+                    var recibo = new Recibo(Venta, (float)txtCuota.Value);
                     recibo.ShowDialog();
                     //printDocument1 = new PrintDocument();
                     //PrinterSettings ps = new PrinterSettings();
@@ -89,10 +81,7 @@ namespace SuMueble.Views
             
         }
          
-        //private void imprimir(object sender, PrintPageEventArgs e)
-        //{
-            
-        //}
+       
 
 
 

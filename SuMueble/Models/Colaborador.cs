@@ -16,7 +16,7 @@ namespace SuMueble.Models
         [MinLength(14), MaxLength(14)]
         public string RTN { get; set; }
 
-        [MinLength(3), MaxLength(100)]
+        [MinLength(15), MaxLength(100)]
         public string Nombre { get; set; }
 
         [MinLength(25), MaxLength(200)]

@@ -25,7 +25,15 @@ namespace SuMueble.Views
         {
             using (var db = new SuMuebleDBContext())
             {
-                ListaVentas = db.Ventas.Where(x => x.TipoVentaId == 2).ToList();
+                ListaVentas = db.Ventas
+                    .Include("Colaborador")
+                    .Include("Cliente")
+                    .Include("TipoVenta")
+                    .Include("DetallesVenta")
+                    .Include("DetallesVenta.Producto")
+                    .Include("Pagos")
+                    .Where(x => x.TipoVentaId == 2) // TipoVentaId = 2 = Al Credito 
+                    .ToList();
 
             }
             CargarDataGrid(ListaVentas);
@@ -54,7 +62,13 @@ namespace SuMueble.Views
             int cod_factura = GetCell(0);
             if (cod_factura != 0)
             {
-                PagarCuota pagarCuota = new PagarCuota(cod_factura);
+                var venta = ListaVentas.Find(x => x.CodigoFactura == cod_factura);
+                if (venta.CuotasPagadas == venta.Cuotas)
+                {
+                    MessageBox.Show("La Venta No Tiene Pagos Pendientes","Pagar Cuota",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    return;
+                }
+                PagarCuota pagarCuota = new PagarCuota(venta);
                 pagarCuota.ShowDialog();
                 GetData();
 
