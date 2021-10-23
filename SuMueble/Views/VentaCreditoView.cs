@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using SuMueble.Views.Prompts;
 using System.Windows.Forms;
 using SuMueble.Models;
-using SuMueble.Controller;
+using SuMueble.DataAccess;
+using System.Data.Entity.Validation;
 
 namespace SuMueble.Views
 {
 
     public partial class VentaCreditoView : UserControl
-    {   //Controladores 
-        ClienteControlador clienteControlador = new ClienteControlador();
+    {
 
         //Variables
-        public static Guid _IDVenta;
-        public static Ventas _venta;  
-        public static List<DetallesVentas> listaProductos;
-        public static List<Referencias> listaReferencias;
-        private static float _Total = 0;
-        public static void listaProducto(DetallesVentas dv)
+        public Cliente _Cliente = new Cliente();
+        public static Venta _venta;  
+        public static List<DetalleVenta> listaProductos;
+        public static List<Referencia> listaReferencias;
+        private static decimal _Total = 0;
+        public static void listaProducto(DetalleVenta dv)
         {
-            dv.IDVenta = _IDVenta;
             listaProductos.Clear();
             listaProductos.Add(dv);
             _Total = dv.SubTotal;
@@ -61,8 +60,11 @@ namespace SuMueble.Views
             if (txt_dniCliente.Text.Length == 13)
             {
                 ClearCliente();
-                Clientes cliente = clienteControlador.GetCliente(txt_dniCliente.Text);
-                if (cliente == null)
+                using (var db = new SuMuebleDBContext())
+                {
+                    _Cliente = db.Clientes.Find(txt_dniCliente.Text.Trim());
+                }
+                if (_Cliente == null)
                 {
                     ActivarIndicadores();
                     labelClienteNuevo.Visible = true;
@@ -71,10 +73,10 @@ namespace SuMueble.Views
                 else
                 {
                    
-                    txt_nombreCliente.Text = cliente.Nombre;
-                    txtTelefonoCliente.Text = cliente.Tel;
-                    txt_dirCliente.Text = cliente.Direccion;
-                    txt_rtnCliente.Text = cliente.RTN;
+                    txt_nombreCliente.Text = _Cliente.Nombre;
+                    txtTelefonoCliente.Text = _Cliente.Telefono;
+                    txt_dirCliente.Text = _Cliente.Direccion;
+                    txt_rtnCliente.Text = _Cliente.RTN;
                     ActivarIndicadores();
                     
                  }
@@ -85,11 +87,10 @@ namespace SuMueble.Views
         private void limpiarventa()
         {
             txt_dniCliente.Clear(); ;
-            _IDVenta = Guid.NewGuid();
             listaProductos.Clear();
             listaReferencias.Clear();
             _Total = 0;
-            _venta = new Ventas();
+            _venta = new Venta();
             CargarListView();
             CargarReferencias();
 
@@ -112,33 +113,79 @@ namespace SuMueble.Views
             l_RTNCliente.Visible = txt_rtnCliente.Text == "";
         }
 
+        public static void showValidationError(DbEntityValidationException e)
+        {
+            string msg = "";
+            foreach (var eve in e.EntityValidationErrors)
+            {
+                msg += string.Format("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                    eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                msg += "\n\t";
+                foreach (var ve in eve.ValidationErrors)
+                {
+                    msg += string.Format("- Property: \"{0}\", Error: \"{1}\"",
+                        ve.PropertyName, ve.ErrorMessage);
+                }
+            }
+            MessageBox.Show(msg, "Ha habido un Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        void UpdateCliente()
+        {
+            if (!labelClienteNuevo.Visible)
+            {
+
+                try
+                {
+                    using (var db = new SuMuebleDBContext())
+                    {
+                        var cliente = db.Clientes.Find(_Cliente.DNI);
+                        cliente.Nombre = _Cliente.Nombre;
+                        cliente.Direccion = _Cliente.Direccion;
+                        cliente.RTN = _Cliente.RTN;
+                        cliente.Telefono = _Cliente.Telefono;
+                        db.SaveChanges();
+                    }
+                }
+                catch (DbEntityValidationException e)
+                {
+                    showValidationError(e);
+                }
+            }
+            
+        }
 
 
-    
         private void btn_terminarVenta_Click(object sender, EventArgs e)
         {
             string msg = IsAllReady() ;
             if (msg == "")
             {
-                
-                Clientes cliente = new Clientes()
+
+                listaProductos = listaProductos.ConvertAll(dv => {
+
+                    dv.Producto = null;
+                    return dv;
+                });
+                _Cliente = new Cliente()
                 {
-                    DNI       = txt_dniCliente.Text,
+                    DNI = txt_dniCliente.Text,
                     Direccion = txt_dirCliente.Text,
-                    Nombre    = txt_nombreCliente.Text,
-                    RTN       = txt_rtnCliente.Text,
-                    Tel       = txtTelefonoCliente.Text
+                    Nombre = txt_nombreCliente.Text,
+                    RTN = txt_rtnCliente.Text,
+                    Telefono = txtTelefonoCliente.Text
 
                 };
-                _venta = new Ventas()
+                UpdateCliente();
+                _venta = new Venta()
                 {
-                    ID = _IDVenta,
-                    Cliente = cliente,
+                    ClienteDNI = _Cliente.DNI,
+                    Cliente = labelClienteNuevo.Visible ? _Cliente : null,
                     DetallesVenta = listaProductos,
-                    IDColaborador = Menu.colaborador.DNI,
+                    ColaboradorDNI = Menu.colaborador.DNI,
                     Referencias = listaReferencias,
-                    IDTipoVenta = 2,
-                    TotalVenta = _Total
+                    TipoVentaId = 2                    
                 };
 
                 var terminar = new TerminarVentaCredito();
@@ -174,7 +221,7 @@ namespace SuMueble.Views
             res += txt_rtnCliente.Text.Length != 14 ? "\n* RTN de Cliente" : "";
             res += txt_nombreCliente.Text.Length < 3 ? "\n* Nombre de Cliente" : "";
             res += txtTelefonoCliente.Text.Length != 8 ? "\n* Telefono de Cliente" : "";
-            res += txt_dirCliente.Text.Length < 10 ? "\n* Direccion de Cliente" : "";
+            res += txt_dirCliente.Text.Length < 25 ? "\n* Direccion de Cliente (minimo 25 caracteres)" : "";
             res += VentaView.ValidarDNI(txt_dniCliente.Text) == false ? "*DNI invalido" : "";
             res += VentaView.telValido(txtTelefonoCliente.Text) == false ? "*Telefono invalido" : "";
             res += listaReferencias.Count < 2 ? "\n* Faltan Referencias" : "";
@@ -188,9 +235,8 @@ namespace SuMueble.Views
         public VentaCreditoView()
         {
             InitializeComponent();
-            listaProductos = new List<DetallesVentas>();
-            listaReferencias = new List<Referencias>();
-            _IDVenta = Guid.NewGuid();
+            listaProductos = new List<DetalleVenta>();
+            listaReferencias = new List<Referencia>();
         }
 
         private void txt_dniCliente_KeyPress(object sender, KeyPressEventArgs e)

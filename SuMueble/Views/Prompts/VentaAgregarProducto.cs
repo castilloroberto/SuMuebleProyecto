@@ -6,23 +6,24 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using SuMueble.Controller;
 using SuMueble.Models;
 using System.Linq;
+using SuMueble.DataAccess;
 
 namespace SuMueble.Views.Prompts
 {
     public partial class VentaAgregarProducto : Form
     {
-        ProductoControlador productoControlador = new ProductoControlador();
-        List<Productos> productos;
+        List<Producto> productos;
         public VentaAgregarProducto()
         {
             InitializeComponent();
-            dgv_productos.AutoGenerateColumns = false;
-            dgv_productos.DataSource = productoControlador.GetProductos();
-            productos = productoControlador.GetProductos().ToList();
-            dgv_productos.DataSource = productos;
+
+            using (var db = new SuMuebleDBContext())
+            {
+                productos = db.Productos.Include("Categoria").ToList();
+                dgv_productos.DataSource = productos;
+            }
         }
 
 
@@ -53,12 +54,14 @@ namespace SuMueble.Views.Prompts
             }
             else
             {
-                DetallesVentas dv = new DetallesVentas()
+                var descue = (txt_descuento.Value/100) * txt_precio.Value;
+                DetalleVenta dv = new DetalleVenta()
                 {
-                    IDProducto = GetCell(0),
+                    ProductoId = GetCell(0),
                     Cantidad = 1,
-                    PrecioVenta = (float)txt_precio.Value,
-                    Producto = GetCell(2)
+                    PrecioVenta = txt_precio.Value - descue,
+                    Descuento = descue,
+                    Producto = productos.Find( p => p.Id == GetCell(0))
                 };
 
                 // propiedad estatica de VentaCreditoView
@@ -73,9 +76,9 @@ namespace SuMueble.Views.Prompts
         {
             string buscar = txt_buscarProducto.Text.ToLower();
 
-            List<Productos> filtrados = productos.Where<Productos>(x => {
+            List<Producto> filtrados = productos.Where<Producto>(x => {
 
-                return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
+                return x.Nombre.ToLower().StartsWith(buscar) || x.Id.ToString().StartsWith(buscar);
 
 
             }).ToList();

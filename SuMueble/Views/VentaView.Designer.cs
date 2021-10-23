@@ -49,11 +49,6 @@ namespace SuMueble.Views
             this.label2 = new System.Windows.Forms.Label();
             this.lb_productosVenta = new System.Windows.Forms.ListBox();
             this.dgv_productos = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.existencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_quitarItem = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_descuento = new System.Windows.Forms.NumericUpDown();
@@ -286,12 +281,6 @@ namespace SuMueble.Views
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.codigo,
-            this.producto,
-            this.precio,
-            this.existencias});
             this.dgv_productos.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgv_productos.Location = new System.Drawing.Point(75, 389);
             this.dgv_productos.Name = "dgv_productos";
@@ -302,46 +291,6 @@ namespace SuMueble.Views
             this.dgv_productos.Size = new System.Drawing.Size(857, 365);
             this.dgv_productos.TabIndex = 6;
             this.dgv_productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "Codigo";
-            this.codigo.HeaderText = "Codigo";
-            this.codigo.MinimumWidth = 6;
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            // 
-            // producto
-            // 
-            this.producto.DataPropertyName = "Producto";
-            this.producto.HeaderText = "Producto";
-            this.producto.MinimumWidth = 6;
-            this.producto.Name = "producto";
-            this.producto.ReadOnly = true;
-            // 
-            // precio
-            // 
-            this.precio.DataPropertyName = "PrecioUnitario";
-            this.precio.HeaderText = "Precio";
-            this.precio.MinimumWidth = 6;
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            // 
-            // existencias
-            // 
-            this.existencias.DataPropertyName = "Existencias";
-            this.existencias.HeaderText = "Existencias";
-            this.existencias.MinimumWidth = 6;
-            this.existencias.Name = "existencias";
-            this.existencias.ReadOnly = true;
             // 
             // btn_quitarItem
             // 
@@ -490,11 +439,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox lb_productosVenta;
         private System.Windows.Forms.DataGridView dgv_productos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn existencias;
         private System.Windows.Forms.Button btn_quitarItem;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown txt_descuento;
