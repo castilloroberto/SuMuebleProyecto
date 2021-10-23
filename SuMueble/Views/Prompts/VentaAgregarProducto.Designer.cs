@@ -224,11 +224,11 @@ namespace SuMueble.Views.Prompts
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.DataGridView dgv_productos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn existencias;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn producto;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn existencias;
         private System.Windows.Forms.NumericUpDown txt_descuento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;

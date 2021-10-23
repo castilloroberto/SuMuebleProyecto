@@ -157,15 +157,15 @@ namespace SuMueble.Views
         private System.Windows.Forms.DataGridView dvg_ventas;
         private System.Windows.Forms.ComboBox cb_filtro;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn CodigoF;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

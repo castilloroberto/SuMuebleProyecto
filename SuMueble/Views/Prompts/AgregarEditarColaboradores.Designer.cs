@@ -399,7 +399,7 @@ namespace SuMueble.Views
         private System.Windows.Forms.Button btn_hecho;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.TextBox txt_finContrato;
-        private System.Windows.Forms.Button btn_addPuesto;
+        //private System.Windows.Forms.Button btn_addPuesto;
         private System.Windows.Forms.CheckBox ch_verContrasena;
     }
 }
