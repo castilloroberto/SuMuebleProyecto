@@ -1,5 +1,4 @@
-﻿using SuMueble.Controller;
-using SuMueble.Models;
+﻿using SuMueble.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,20 +8,22 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Linq;
+using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
     public partial class DevolucionesView : UserControl
     {
-        VentaController ventaController = new VentaController();
-        List<Ventas> ventas;
+        List<Models.Devolucion> Devoluciones;
         public DevolucionesView()
         {
             InitializeComponent();
-            dvg_devoluciones.AutoGenerateColumns = false;
+            using (var db = new SuMuebleDBContext())
+            {
+                Devoluciones = db.Devoluciones.ToList();
 
-            ventas = ventaController.ObtenerVenta().ToList();
-            dvg_devoluciones.DataSource = ventas;
+            }
+            dvg_devoluciones.DataSource = Devoluciones;
             cb_filtro.SelectedIndex = 0;
 
 
@@ -45,9 +46,8 @@ namespace SuMueble.Views
             int codigofactura_ = int.Parse(GetCell(0));
             if (codigofactura_ != 0)
             {
-                var ventaGuid = ventaController.GetVentaDapper(codigofactura_);
-           
-                Devolucion devolucion = new Devolucion(ventaGuid);
+              
+                Devolucion devolucion = new Devolucion(codigofactura_);
                 devolucion.ShowDialog();
 
             } else
@@ -65,9 +65,9 @@ namespace SuMueble.Views
         {
             string buscar = txt_buscarCliente.Text.ToLower();
 
-            List<Ventas> filtrados = ventas.Where<Ventas>(x => {
+            List<Models.Devolucion> filtrados = Devoluciones.Where(x => {
 
-                return x.NombreCliente.ToLower().StartsWith(buscar);
+                return x.Venta.Cliente.Nombre.ToLower().StartsWith(buscar);
 
 
             }).ToList();
@@ -82,10 +82,10 @@ namespace SuMueble.Views
 
             if (tipoVenta != "Todo")
             {
-                List<Ventas> filtrados = ventas.Where<Ventas>(x =>
+                List<Models.Devolucion> filtrados = Devoluciones.Where(x =>
                 {
 
-                    return x.TipoVenta == tipoVenta;
+                    return x.Venta.TipoVenta.Nombre == tipoVenta;
 
                 }).ToList();
 
@@ -95,7 +95,7 @@ namespace SuMueble.Views
             else
             {
                 dvg_devoluciones.DataSource = null;
-                dvg_devoluciones.DataSource = ventas;
+                dvg_devoluciones.DataSource = Devoluciones;
             }
         }
 

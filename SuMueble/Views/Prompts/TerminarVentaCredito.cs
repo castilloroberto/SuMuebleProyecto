@@ -1,9 +1,10 @@
-﻿using SuMueble.Controller;
+﻿using SuMueble.DataAccess;
 using SuMueble.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -12,12 +13,11 @@ namespace SuMueble.Views.Prompts
 {
     public partial class TerminarVentaCredito : Form
     {
-        //controladores
-        VentaController vcontroller = new VentaController();
         private string msg = "Venta Terminada Exitosamente\nLa factura se imprimira en seguida\nPrimer Monto a pagar: {0:C2}";
         public TerminarVentaCredito()
         {
             InitializeComponent();
+            dtp_fechaFin.MinDate = DateTime.Now.AddDays(7);
             
         }
 
@@ -25,20 +25,36 @@ namespace SuMueble.Views.Prompts
         {
             // propiedad estatica VentaCreditoView
             VentaCreditoView._venta.Cuotas = (int)txt_cuotas.Value;
-            VentaCreditoView._venta.FechaFin = dtp_fechaFin.Value;
-            VentaCreditoView._venta.Prima = (float)txt_prima.Value;
+            VentaCreditoView._venta.FechaVencimiento = dtp_fechaFin.Value;
+            VentaCreditoView._venta.Prima = txt_prima.Value;
 
-
-            bool ok = vcontroller.SaveVenta(VentaCreditoView._venta);
-            if (ok) 
+            try
             {
-                MessageBox.Show(string.Format(msg,(float)txt_prima.Value), "Imprimer Recibo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int ok = 0;
+                using (var db = new SuMuebleDBContext())
+                {
+                    db.Ventas.Add(VentaCreditoView._venta);
+                    ok = db.SaveChanges();
+                }
+                if (ok > 0 ) 
+                {
+                    VentaView.DecrementaInventario(VentaCreditoView._venta.DetallesVenta);
+                    MessageBox.Show(string.Format(msg,(float)txt_prima.Value), "Imprimer Recibo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
-                var recibo = new Recibo(VentaCreditoView._venta,(float)txt_prima.Value);
-                recibo.ShowDialog();
+                    var recibo = new Recibo(VentaCreditoView._venta,(float)txt_prima.Value);
+                    recibo.ShowDialog();
+                }
+                else
+                    MessageBox.Show($"No se ha podido guardado los datos", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
             }
-            else
-                MessageBox.Show($"Ha habido un error\nIntente de nuevo", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            catch (DbEntityValidationException err)
+            {
+
+                VentaCreditoView.showValidationError(err);
+
+
+            }
             this.Close();
         }
     }
