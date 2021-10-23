@@ -41,6 +41,8 @@ namespace SuMueble.Views
             // 
             this.dgv_ventasCredito.AllowUserToAddRows = false;
             this.dgv_ventasCredito.AllowUserToDeleteRows = false;
+            this.dgv_ventasCredito.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_ventasCredito.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_ventasCredito.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_ventasCredito.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

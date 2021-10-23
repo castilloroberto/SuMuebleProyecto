@@ -1,4 +1,5 @@
-﻿using SuMueble.Models;
+﻿using SuMueble.Controller;
+using SuMueble.Models;
 using SuMueble.Views.Prompts;
 using System;
 using System.Linq;
@@ -9,14 +10,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using SuMueble.DataAccess;
-using System.Data.Entity.Validation;
 
 namespace SuMueble.Views
 {
     public partial class AgregarEditarColaboradores : Form
     {
-       
+        ColaboradorControlador cControlador = new ColaboradorControlador();
+        PuestoControlador pControlador = new PuestoControlador();
         public AgregarEditarColaboradores(string DNI = null)
         {
             InitializeComponent();
@@ -29,32 +29,27 @@ namespace SuMueble.Views
 
         private void CargarColaborador(string dni)
         {
-            var colaborador = new Colaborador();
-            using (var db = new SuMuebleDBContext())
-            {
-                colaborador = db.Colaboradores.Find(dni);
-
-            }
+            var colaborador = cControlador.GetColaborador(dni);
             txt_correo.Text = colaborador.Email;
             txt_dni.Text = colaborador.DNI;
             txt_nombre.Text = colaborador.Nombre;
             txt_rtn.Text = colaborador.RTN;
-            txt_telefono.Text = colaborador.Telefono;
+            txt_telefono.Text = colaborador.Tel;
             txt_direccion.Text = colaborador.Direccion;
             dtp_fechaNacimiento.Value = colaborador.FechaNacimiento;
-            dtp_contratoIniciado.Value = colaborador.FechaContratado;
+            dtp_contratoIniciado.Value = colaborador.Contratado;
             txt_clave.Text = colaborador.Clave;
-            if (colaborador.FechaFinContrato == null)
+            if (colaborador.FinContrato == null)
             {
                 txt_finContrato.Text = "No definido";
 
             } else
             {
-                txt_finContrato.Text = colaborador.FechaFinContrato.ToString();
+                txt_finContrato.Text = colaborador.FinContrato.Value.ToString();
 
             }
 
-            cb_puesto.SelectedValue = colaborador.PuestoId;
+            cb_puesto.SelectedValue = colaborador.IDPuesto;
             txt_dni.Enabled = false;
         }
 
@@ -65,9 +60,9 @@ namespace SuMueble.Views
             List<string> errores = new List<string>();
             
             var name = txt_nombre.Text.Trim();
-            if (name.Length < 15 || !VentaView.validarNombre(name) )
+            if (name == "" || !VentaView.validarNombre(name))
             {
-                errores.Add("Nombre (Minimo 15 caracteres)\n");
+                errores.Add("Nombre\n");
                 txt_nombre.Text = txt_nombre.Text.Trim();
             }
             var dni = txt_dni.Text.Trim();
@@ -102,9 +97,9 @@ namespace SuMueble.Views
 
                 errores.Add("Correo\n");
             }
-            if (txt_direccion.Text.Trim().Length < 25)
+            if (txt_direccion.Text.Trim().Length < 15)
             {
-                errores.Add("Direccion (Minimo 25 caracteres)\n");
+                errores.Add("Direccion (Minimo 15 caracteres)\n");
                 txt_direccion.Text = txt_direccion.Text.Trim();
             }
             // -1 = anterior a la selcccionada
@@ -171,41 +166,24 @@ namespace SuMueble.Views
                 {
 
                     // enviar el insert 
-                    Colaborador colaborador = new Colaborador()
+                    Colaboradores colaborador = new Colaboradores()
                     {
                         Clave = txt_clave.Text,
+                        Contratado = dtp_contratoIniciado.Value,
                         Direccion = txt_direccion.Text,
                         DNI = txt_dni.Text,
                         Email = txt_correo.Text,
                         FechaNacimiento = dtp_fechaNacimiento.Value,
                         Nombre = txt_nombre.Text,
                         RTN = txt_rtn.Text,
-                        Telefono = txt_telefono.Text,
-                        PuestoId = cb_puesto.SelectedValue.GetHashCode(),
+                        Tel = txt_telefono.Text,
+                        FinContrato = null,
+                        IDPuesto = cb_puesto.SelectedValue.GetHashCode(),
+                        Estado = true
                     };
-                    try
-                    {
-                        using (var db = new SuMuebleDBContext())
-                        {
-                            var existe = db.Colaboradores.Find(colaborador.DNI);
-                            if (existe != null)
-                            {
-                                MessageBox.Show($"Ya Existe un Colaborador registrado con el DNI: {existe.DNI}", "Crear Colaborador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
-                            } 
-                            db.Colaboradores.Add(colaborador);
-                            db.SaveChanges();
-                        }
-                        MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    catch (DbEntityValidationException err)
-                    {
-                        VentaCreditoView.showValidationError(err);
-
-
-                    }
-
+                    cControlador.SaveColaborador(colaborador);
+                    MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else {
                     MessageBox.Show("Formato de correo invalido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -227,23 +205,18 @@ namespace SuMueble.Views
         }
         private void CargarPuestos()
         {
-            var puestos = new List<Puesto>();
-            using (var db = new SuMuebleDBContext())
-            {
-                puestos = db.Puestos.ToList();
-
-            }
+            var puestos = pControlador.GetPuestos();
             
-            if (Menu.colaborador.PuestoId != 1)
+            if (Menu.colaborador.IDPuesto != 1)
             {
                 puestos = puestos.Where( item => {
-                    return item.Id != 1;
+                    return item.ID != 1;
                 }).ToList();
             }
 
             cb_puesto.DataSource = puestos;
-            cb_puesto.DisplayMember = "Nombre";
-            cb_puesto.ValueMember = "Id";
+            cb_puesto.DisplayMember = "Puesto";
+            cb_puesto.ValueMember = "ID";
         }
 
         private void txt_dni_KeyPress(object sender, KeyPressEventArgs e)

@@ -1,34 +1,32 @@
 ﻿using SuMueble;
+using SuMueble.Controller;
 using SuMueble.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
-using SuMueble.DataAccess;
 
 namespace Ventana_de_Inventarios
 {
     public partial class InventariosView : UserControl
     {
-       
-        List<Producto> productos;
+        CategoriaController categoriaController = new CategoriaController();
+        ProductoControlador pc = new ProductoControlador();
+        List<Productos> productos;
         public InventariosView()
         {
             InitializeComponent();
+            dgv_Productos.AutoGenerateColumns = false;
             CargarDatos();
-            cb_categorias.ValueMember = "Id";
-            cb_categorias.DisplayMember = "Nombre";
+            cb_categorias.ValueMember = "ID";
+            cb_categorias.DisplayMember = "Categoria";
             dgv_Productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void CargarDatos()
         {
-            using (var db = new SuMuebleDBContext())
-            {
-                cb_categorias.DataSource = db.Categorias.ToList();
-                productos = db.Productos.ToList();
-
-            }
+            cb_categorias.DataSource = categoriaController.GetCategorias();
+            productos = pc.GetProductos().ToList();
             dgv_Productos.DataSource = productos;
 
         }
@@ -72,9 +70,9 @@ namespace Ventana_de_Inventarios
         {
             string buscar = txt_buscar.Text.ToLower();
 
-            List<Producto> filtrados = productos.Where<Producto>(x => {
+            List<Productos> filtrados = productos.Where<Productos>(x => {
 
-                return x.Nombre.ToLower().StartsWith(buscar) || x.Id.ToString().StartsWith(buscar) ;
+                return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar) ;
 
 
             }).ToList();
@@ -93,14 +91,14 @@ namespace Ventana_de_Inventarios
             if (categoriaString != "SuMueble.Models.Categorias") {
                 
                 int idCategoria = 0;
-                int.TryParse(categoriaString,out idCategoria);
+                idCategoria = Convert.ToInt32(categoriaString);
 
-                if (idCategoria > 1 )
+                if (idCategoria != 1)
                 {
-                    List<Producto> filtrados = productos.Where(x =>
+                    List<Productos> filtrados = productos.Where<Productos>(x =>
                     {
 
-                        return x.CategoriaId == idCategoria;
+                        return x.IDCategoria == idCategoria;
 
                     }).ToList();
 

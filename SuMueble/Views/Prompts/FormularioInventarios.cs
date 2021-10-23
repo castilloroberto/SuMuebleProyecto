@@ -1,4 +1,4 @@
-﻿using SuMueble.DataAccess;
+﻿using SuMueble.Controller;
 using SuMueble.Models;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace SuMueble
@@ -14,18 +13,16 @@ namespace SuMueble
     public partial class FormularioInventarios : Form
     {
         private int IDglobal = 0;
+        ProductoControlador productoControlador = new ProductoControlador();
+        CategoriaController categoriaController = new CategoriaController();
 
 
         public FormularioInventarios(int ID = 0)
         {
             InitializeComponent();
-            using (var db = new SuMuebleDBContext())
-            {
-                cmb_Categoria.DataSource = db.Categorias.ToList();
-
-            }
-            cmb_Categoria.DisplayMember = "Nombre";
-            cmb_Categoria.ValueMember = "Id";
+            cmb_Categoria.DataSource = categoriaController.GetCategorias();
+            cmb_Categoria.DisplayMember = "Categoria";
+            cmb_Categoria.ValueMember = "ID";
 
             if (ID != 0)
             {
@@ -39,15 +36,13 @@ namespace SuMueble
         private void cargarDatos(int ID)
         {
 
-            Producto p = new Producto();
-            using (var db = new SuMuebleDBContext())
-            {
-                p = db.Productos.Find(ID);
-            }
-            txt_Existencia.Value = p.Cantidad;
-            txt_Nombre.Text = p.Nombre;
-            txt_Precio.Value = p.Precio;
-            cmb_Categoria.SelectedValue = p.CategoriaId;
+            Productos p = productoControlador.GetProducto(ID);
+            txt_Codigo.Text = p.Codigo;
+            txt_Existencia.Value = p.Existencias;
+            txt_Nombre.Text = p.Producto.ToString();
+            txt_Precio.Value = (decimal)p.PrecioUnitario;
+            cmb_Categoria.SelectedValue = p.IDCategoria;
+            txt_Codigo.ReadOnly = true;
 
         }
 
@@ -63,7 +58,13 @@ namespace SuMueble
 
             //VALIDACIONES TEXTBOX VACIOS
             //       cod01
-            if (txt_Nombre.Text.Trim() == "")
+            var prodCod = txt_Codigo.Text.Trim();
+            if ( prodCod == "" || prodCod.Contains(" ") )
+            {
+                MessageBox.Show("Codigo articulo es invalido", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_Codigo.Focus();
+            }
+            else if (txt_Nombre.Text.Trim() == "")
             {
                 MessageBox.Show("Nombre articulo esta vacio", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_Nombre.Focus();
@@ -84,33 +85,19 @@ namespace SuMueble
             }
             else
             {
-                try
+                Productos p = new Productos()
                 {
-                    Producto p = new Producto()
-                    {
-                        Cantidad = (int)txt_Existencia.Value,
-                        Nombre = txt_Nombre.Text.Trim(),
-                        Precio = txt_Precio.Value,
-                        CategoriaId = cmb_Categoria.SelectedValue.GetHashCode(),
-                        Impuesto = txt_impuesto.Value,
-                        Descripcion = txt_description.Text.Trim()
-                    };
-
-                    using (var db = new SuMuebleDBContext())
-                    {
-                        db.Productos.Add(p);
-                        db.SaveChanges();
-                    }
-                    MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-
-                }
-                catch (Exception err)
-                {
-
-                    MessageBox.Show($"Error:{err}", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
-                }
+                    ID = IDglobal,
+                    Codigo = txt_Codigo.Text.Trim(),
+                    Existencias = (int)txt_Existencia.Value,
+                    Producto = txt_Nombre.Text.Trim(),
+                    PrecioUnitario = (float)txt_Precio.Value,
+                    IDCategoria = cmb_Categoria.SelectedValue.GetHashCode(),
+                    ISV = (float)txt_impuesto.Value
+                };
+                productoControlador.SaveProductos(p);
+                MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
 
         }

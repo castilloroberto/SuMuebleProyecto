@@ -1,4 +1,5 @@
-﻿using SuMueble.Models;
+﻿using SuMueble.Controller;
+using SuMueble.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,16 +9,16 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Printing;
-using SuMueble.DataAccess;
 
 namespace SuMueble.Views.Prompts
 {
     public partial class Factura : Form
     {
+        VentaController ventaController = new VentaController();
         int CodigoFactura = 0;
         Bitmap Bitmap;
      
-        public Factura(Venta venta = null)
+        public Factura(Ventas venta = null)
         {
             InitializeComponent();
 
@@ -26,25 +27,21 @@ namespace SuMueble.Views.Prompts
                 dgv_factura.AutoGenerateColumns = false;
                 dgv_factura.DataSource = venta.DetallesVenta;
                 DataGridHeight();
-                var totalVenta = (decimal)0;
-                venta.DetallesVenta.ForEach(e =>
-                {
-                    totalVenta += e.SubTotal;
-                });
-                total.Text = string.Format("Total: {0:C2}", totalVenta);
 
-                var descuentos = (decimal)0;
+                total.Text = string.Format("Total: {0:C2}", venta.TotalVenta);
+
+                var descuentos = 0.0;
 
                 foreach (var item in venta.DetallesVenta)
                 {
-                    descuentos += item.Descuento;
+                    descuentos += item.descuento;
                 }
 
                 txt_descuentos.Text = string.Format("Descuentos: {0:C2}", descuentos);
 
-                
+                CodigoFactura = ventaController.GetVentaByGuid(venta.ID).CodigoFactura;
 
-                cod_factura.Text = string.Format("Factura Nº : {0}", venta.CodigoFactura);
+                cod_factura.Text = string.Format("Factura Nº : {0}", CodigoFactura);
                 nombre_cliente.Text = string.Format("Nombre: {0}", venta.Cliente.Nombre);
                 dni_cliente.Text = string.Format("DNI Cliente: {0}", venta.Cliente.DNI);
 

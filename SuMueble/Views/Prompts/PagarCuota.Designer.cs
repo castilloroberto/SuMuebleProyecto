@@ -205,7 +205,6 @@ namespace SuMueble.Views
             // dtp_fechaFin
             // 
             this.dtp_fechaFin.Enabled = false;
-            this.dtp_fechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_fechaFin.Location = new System.Drawing.Point(136, 497);
             this.dtp_fechaFin.MinDate = new System.DateTime(2021, 10, 11, 0, 0, 0, 0);
             this.dtp_fechaFin.Name = "dtp_fechaFin";
@@ -234,7 +233,7 @@ namespace SuMueble.Views
             0});
             this.txtCuota.Name = "txtCuota";
             this.txtCuota.Size = new System.Drawing.Size(200, 34);
-            this.txtCuota.TabIndex = 0;
+            this.txtCuota.TabIndex = 14;
             // 
             // PagarCuota
             // 

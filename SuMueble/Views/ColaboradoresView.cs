@@ -5,16 +5,17 @@ using System.Drawing;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
+using SuMueble.Controller;
 using SuMueble.Models;
 using SuMueble;
 using System.Linq;
-using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
     public partial class ColaboradoresView : UserControl
     {
-        List<Colaborador> colaboradores;
+        ColaboradorControlador cControlador = new ColaboradorControlador();
+        List<Colaboradores> colaboradores;
 
         public ColaboradoresView()
         {
@@ -24,13 +25,7 @@ namespace SuMueble.Views
         private void CargarDatos()
         {
             dgv_colaboradores.DataSource = null;
-            using (var db = new SuMuebleDBContext())
-            {
-                colaboradores = db.Colaboradores
-                    .Include("Puesto")
-                    .ToList();
-
-            }
+            colaboradores = cControlador.Colaboradores().ToList();
             dgv_colaboradores.DataSource = colaboradores;
         }
 
@@ -64,7 +59,7 @@ namespace SuMueble.Views
         {
             string buscar =txt_busqueda.Text.ToLower();
 
-            List<Colaborador> filtrados = colaboradores.Where<Colaborador>(x => {
+            List<Colaboradores> filtrados = colaboradores.Where<Colaboradores>(x => {
 
                 return x.Nombre.ToLower().StartsWith(buscar) || x.DNI.ToLower().StartsWith(buscar);
 
@@ -83,12 +78,7 @@ namespace SuMueble.Views
                 DialogResult boton = MessageBox.Show("¿Desea terminar el contrato seleccionado?", "Mensaje del sistena", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (boton == DialogResult.OK)
                 {
-                    using (var db = new SuMuebleDBContext())
-                    {
-                        Colaborador colaborador = db.Colaboradores.Find(GetCell(0));
-                        colaborador.Activo = false;
-                        db.SaveChanges();
-                    }
+                    cControlador.desactivarColaborador(GetCell(0));
                     CargarDatos();
                
                 }

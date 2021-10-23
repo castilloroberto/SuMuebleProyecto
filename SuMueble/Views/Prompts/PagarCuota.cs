@@ -1,4 +1,5 @@
-﻿using SuMueble.Models;
+﻿using SuMueble.Controller;
+using SuMueble.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,59 +10,84 @@ using System.Linq;
 using System.Windows.Forms;
 using SuMueble.Views.Prompts;
 using System.Drawing.Printing;
-using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
     public partial class PagarCuota : Form
     {
 
-        Venta Venta;
+        VentaController ventaController = new VentaController();
+        DetalleVentaController detalleControllador = new DetalleVentaController();
+        PagoControlador PagoControlador = new PagoControlador();
+        Guid IDVenta;
+        private string codFactura;
+        DataTable DetalleVenta;
+        Ventas venta_;
 
-        public PagarCuota(Venta Venta_)
+
+        public PagarCuota(string cod_factura)
         {
             InitializeComponent();
 
-            Venta = Venta_;
-            cargarDatos();
-            txtDNIColaborador.Text = Menu.colaborador.Nombre;
+            var venta = ventaController.GetVenta(cod_factura);
+            DetalleVenta = detalleControllador.GetDetalleVenta(int.Parse(cod_factura));
+            codFactura = cod_factura;
+            cargarDatos(venta);
+            txtDNIColaborador.Text = Menu.colaborador.DNI;
         }
 
 
-        private void cargarDatos()
+        private void cargarDatos(DataRow venta)
         {
-            l_cliente.Text = Venta.Cliente.Nombre;
-            txtDNIColaborador.Text = Venta.Colaborador.Nombre;
-            txt_cuotas_pendientes.Text = $"{Venta.Cuotas - Venta.CuotasPagadas}";
-            dtp_fechaFin.Value = Venta.FechaVencimiento;
-            txtProducto.Text = Venta.DetallesVenta.FirstOrDefault().Producto.Nombre;
-            txt_monto_pendiente.Text = string.Format("{0:C2}", Venta.MontoPendiente);
+            IDVenta = venta.Field<Guid>("ID");
+       
+            txt_cuotas_pendientes.Text = venta.Field<int>("Cuotas").ToString();
+
+            
+
+            dtp_fechaFin.Value = venta.Field<DateTime>("FechaFin");
+
+
+            venta_ = ventaController.GetVentaID(codFactura);
+            l_cliente.Text = venta_.NombreCliente;
+
+            txtProducto.Text = DetalleVenta.Rows[0].Field<string>("Producto");
+            var creditopendiente = PagoControlador.GetCreditoPendiente(int.Parse(codFactura));
+
+            if (creditopendiente.Rows.Count > 0)
+            {
+                txt_monto_pendiente.Text = creditopendiente.Rows[0].Field<double>("Pendiente").ToString();
+
+            }
+            else
+            {
+                txt_monto_pendiente.Text = DetalleVenta.Rows[0].Field<double>("SubTotal").ToString();
+            }
+
+            
+
         }
-        
+
 
         private void btnImprimirFactura_Click(object sender, EventArgs e)
         {
             if (Validardatos())
             {
-                Pago p = new Pago()
+                Pagos p = new Pagos()
                 {
-                    CodigoFactura= Venta.CodigoFactura,
-                    ColaboradorDNI = txtDNIColaborador.Text,
-                    Monto = txtCuota.Value,
+                    IDVenta= IDVenta,
+                    IDColaborador = txtDNIColaborador.Text,
+                    Monto = (float)txtCuota.Value,
                     
                 };
 
-                int res = 0;
-                using (var db = new SuMuebleDBContext())
-                {
-                    db.Pagos.Add(p);
-                    res = db.SaveChanges();
-                }
-                if (res > 0)
+                 
+                
+                if (PagoControlador.InsertPagos(p) == true)
                 {
                     MessageBox.Show("Pago completado con exito\nEl recibo se imprimira en seguida", "Mensaje del Sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();
-                    var recibo = new Recibo(Venta, (float)txtCuota.Value);
+                    var recibo = new Recibo(venta_, (float)txtCuota.Value);
                     recibo.ShowDialog();
                     //printDocument1 = new PrintDocument();
                     //PrinterSettings ps = new PrinterSettings();
@@ -81,7 +107,10 @@ namespace SuMueble.Views
             
         }
          
-       
+        //private void imprimir(object sender, PrintPageEventArgs e)
+        //{
+            
+        //}
 
 
 

@@ -34,8 +34,13 @@ namespace Ventana_de_Inventarios
             this.cb_categorias = new System.Windows.Forms.ComboBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.txt_buscar = new System.Windows.Forms.TextBox();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_buscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,17 +111,6 @@ namespace Ventana_de_Inventarios
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // txt_buscar
-            // 
-            this.txt_buscar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_buscar.Location = new System.Drawing.Point(128, 249);
-            this.txt_buscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_buscar.Name = "txt_buscar";
-            this.txt_buscar.PlaceholderText = "Escriba aqui...";
-            this.txt_buscar.Size = new System.Drawing.Size(234, 34);
-            this.txt_buscar.TabIndex = 12;
-            this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_metodo);
-            // 
             // dgv_Productos
             // 
             this.dgv_Productos.AllowUserToAddRows = false;
@@ -125,6 +119,12 @@ namespace Ventana_de_Inventarios
             this.dgv_Productos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.codigo,
+            this.nombreArticulo,
+            this.precioUnit,
+            this.existencia});
             this.dgv_Productos.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgv_Productos.Location = new System.Drawing.Point(121, 297);
             this.dgv_Productos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -135,6 +135,58 @@ namespace Ventana_de_Inventarios
             this.dgv_Productos.Size = new System.Drawing.Size(1201, 377);
             this.dgv_Productos.TabIndex = 5;
             this.dgv_Productos.Text = "dataGridView1";
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "Codigo";
+            this.codigo.HeaderText = "Codigo";
+            this.codigo.MinimumWidth = 6;
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            // 
+            // nombreArticulo
+            // 
+            this.nombreArticulo.DataPropertyName = "Producto";
+            this.nombreArticulo.HeaderText = "Nombre Articulo";
+            this.nombreArticulo.MinimumWidth = 6;
+            this.nombreArticulo.Name = "nombreArticulo";
+            this.nombreArticulo.ReadOnly = true;
+            // 
+            // precioUnit
+            // 
+            this.precioUnit.DataPropertyName = "PrecioUnitario";
+            this.precioUnit.HeaderText = "Precio Unitario";
+            this.precioUnit.MinimumWidth = 6;
+            this.precioUnit.Name = "precioUnit";
+            this.precioUnit.ReadOnly = true;
+            // 
+            // existencia
+            // 
+            this.existencia.DataPropertyName = "Existencias";
+            this.existencia.HeaderText = "Cantidad Disponible";
+            this.existencia.MinimumWidth = 6;
+            this.existencia.Name = "existencia";
+            this.existencia.ReadOnly = true;
+            // 
+            // txt_buscar
+            // 
+            this.txt_buscar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_buscar.Location = new System.Drawing.Point(128, 249);
+            this.txt_buscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_buscar.Name = "txt_buscar";
+            this.txt_buscar.PlaceholderText = "Nombre o Codigo del Producto...";
+            this.txt_buscar.Size = new System.Drawing.Size(234, 34);
+            this.txt_buscar.TabIndex = 12;
+            this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_metodo);
+            this.txt_buscar.Leave += new System.EventHandler(this.txt_buscar_Leave);
             // 
             // InventariosView
             // 
@@ -166,5 +218,10 @@ namespace Ventana_de_Inventarios
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.DataGridView dgv_Productos;
         private System.Windows.Forms.TextBox txt_buscar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn existencia;
     }
 }
