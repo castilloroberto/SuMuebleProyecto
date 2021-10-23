@@ -54,5 +54,12 @@ namespace SuMueble.Controller
             }
         }
 
+        public List<DetallesVentas> ObtenerDetalles()
+        {
+            using (var db = GetConnection)
+            {
+                return db.GetAll<DetallesVentas>().ToList();
+            }
+        }
     }
 }

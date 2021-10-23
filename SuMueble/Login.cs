@@ -60,7 +60,7 @@ namespace SuMueble.Views
                 txt_password.PasswordChar = '\0';
             }
             else {
-                txt_password.PasswordChar = '*';
+                txt_password.PasswordChar = '●';
             }
         }
 

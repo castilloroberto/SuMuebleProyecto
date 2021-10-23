@@ -85,6 +85,7 @@ namespace SuMueble.Views
             this.btn_verDetalle.TabIndex = 3;
             this.btn_verDetalle.Text = "Ver Detalles";
             this.btn_verDetalle.UseVisualStyleBackColor = false;
+            this.btn_verDetalle.Visible = false;
             this.btn_verDetalle.Click += new System.EventHandler(this.btn_verDetalle_Click);
             // 
             // dvg_ventas
