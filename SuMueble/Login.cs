@@ -1,4 +1,4 @@
-﻿using SuMueble.DataAccess;
+﻿using SuMueble.Controller;
 using SuMueble.Models;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,8 @@ namespace SuMueble.Views
 {
     public partial class Login : Form
     {
-        
+        ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
+        Colaboradores colaborador;
         public Login()
         {
             InitializeComponent();
@@ -22,15 +23,12 @@ namespace SuMueble.Views
         {
             string user = txt_user.Text;
             string password = txt_password.Text;
-            var colaborador = new Colaborador();
-            using (var db = new SuMuebleDBContext())
-            {
-                colaborador = db.Colaboradores.Find(user);
-            }
+            colaborador = colaboradorControlador.GetColaborador(user);
+
             if (colaborador != null)
             {
 
-                if (colaborador.Activo)
+                if (colaborador.Estado)
                 {
                     if (colaborador.Clave == password)
                     {
@@ -42,12 +40,12 @@ namespace SuMueble.Views
                   
                 }
                 else {
-                    MessageBox.Show("Colaborador inhabilitado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Colaborador desactivado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                    
                 }
             }
             else
-                MessageBox.Show("Codigo o Clave de Usuario Invalido", "Mensaje del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Codigo o Clave de Usuario Invalido", "Contrasena Incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             
             txt_user.Text = "";
             txt_password.Text = "";

@@ -12,8 +12,8 @@ namespace SuMueble.Views
 {
     public partial class Menu : Form
     {
-        public static Colaborador colaborador;
-        public Menu( Colaborador colaborador_ )
+        public static Colaboradores colaborador;
+        public Menu( Colaboradores colaborador_ )
         {
             InitializeComponent();
             colaborador = colaborador_;
@@ -26,14 +26,14 @@ namespace SuMueble.Views
         private void ValidarRol() 
         {
             // venta
-            if (colaborador.PuestoId == 2)
+            if (colaborador.IDPuesto == 2)
             {
                 btn_inventario.Visible = false;
                 btn_colaboradores.Visible = false;
             }
 
             // bodega
-            if (colaborador.PuestoId == 3)
+            if (colaborador.IDPuesto == 3)
             {
                 btn_ventas.Visible = false;
                 btn_ventasCredito.Visible = false;
@@ -42,7 +42,7 @@ namespace SuMueble.Views
                 btn_colaboradores.Visible = false;
             }
             // secretaria
-            if (colaborador.PuestoId == 4)
+            if (colaborador.IDPuesto == 4)
             {
                 btn_inventario.Visible = false;
                 btn_devoluciones.Visible = false;

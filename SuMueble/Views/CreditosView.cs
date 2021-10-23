@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuMueble.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,14 +7,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Linq;
-using SuMueble.Models;
-using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
     public partial class CreditosView : UserControl
     {
-        List<Venta> ListaVentas;
+        VentaController ventaController = new VentaController();
+        DataTable ListaVentas;
         public CreditosView()
         {
             InitializeComponent();
@@ -23,52 +23,34 @@ namespace SuMueble.Views
         }
         private void GetData()
         {
-            using (var db = new SuMuebleDBContext())
-            {
-                ListaVentas = db.Ventas
-                    .Include("Colaborador")
-                    .Include("Cliente")
-                    .Include("TipoVenta")
-                    .Include("DetallesVenta")
-                    .Include("DetallesVenta.Producto")
-                    .Include("Pagos")
-                    .Where(x => x.TipoVentaId == 2) // TipoVentaId = 2 = Al Credito 
-                    .ToList();
-
-            }
+            ListaVentas = ventaController.GetCreditosPendientes();
             CargarDataGrid(ListaVentas);
 
         }
-        private void CargarDataGrid(List<Venta> lista)
+        private void CargarDataGrid(DataTable lista)
         {
 
             dgv_ventasCredito.DataSource = lista;
         }
 
 
-        private dynamic GetCell(int cell)
+        private string GetCell(int cell)
         {
             if (dgv_ventasCredito.Rows.Count > 0)
             {
                 int index = dgv_ventasCredito.CurrentRow.Index;
-                return dgv_ventasCredito.Rows[index].Cells[cell].Value;
+                return dgv_ventasCredito.Rows[index].Cells[cell].Value.ToString();
 
             }
-            else return 0;
+            else return "0";
         }
             
         private void btn_pagarcuota_Click(object sender, EventArgs e)
         {
-            int cod_factura = GetCell(0);
-            if (cod_factura != 0)
+            string cod_factura = GetCell(0);
+            if (cod_factura != "0")
             {
-                var venta = ListaVentas.Find(x => x.CodigoFactura == cod_factura);
-                if (venta.CuotasPagadas == venta.Cuotas)
-                {
-                    MessageBox.Show("La Venta No Tiene Pagos Pendientes","Pagar Cuota",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                    return;
-                }
-                PagarCuota pagarCuota = new PagarCuota(venta);
+                PagarCuota pagarCuota = new PagarCuota(cod_factura);
                 pagarCuota.ShowDialog();
                 GetData();
 
@@ -85,15 +67,15 @@ namespace SuMueble.Views
         {
 
             
-            var filtrados = ListaVentas.Where(x =>
+            var filtrados = ListaVentas.AsEnumerable().Where(x =>
             {
                 int cf = 0;
                 int.TryParse(txtbuscar.Text, out cf);
                 string cl = txtbuscar.Text.ToLower();
-                return x.CodigoFactura == cf || x.Cliente.Nombre.ToLower().StartsWith(cl);
-            }).ToList();
+                return x.Field<int>("CodigoFactura") == cf || x.Field<string>("Cliente").ToLower().StartsWith(cl);
+            });
 
-            CargarDataGrid(filtrados);
+            CargarDataGrid(filtrados.AsDataView().ToTable());
         }
 
         private void txtbuscar_Leave(object sender, EventArgs e)

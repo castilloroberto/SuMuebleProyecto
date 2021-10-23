@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuMueble.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,71 +8,57 @@ using System.Text;
 using System.Windows.Forms;
 using System.Linq;
 using SuMueble.Models;
-using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
     public partial class HistorialVentasView : UserControl
     {
-        List<Venta> ventas;
-        List<DetalleVenta> detalles;
+        VentaController ventaController = new VentaController();
+        DetalleVentaController dvController = new DetalleVentaController();
+        List<Ventas> ventas;
+        List<DetallesVentas> detalles;
 
         //bool toogle = true;
         public HistorialVentasView()
         {
             InitializeComponent();
+            dvg_ventas.AutoGenerateColumns = false;
             dvg_ventas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            LoadData();
             CargardataGrid();
 
+            dvg_ventas.DataSource = ventas;
             cb_filtro.SelectedIndex = 0;
         }
-        void LoadData()
+
+        void CargardataGrid()
         {
-            using (var db = new SuMuebleDBContext())
-            {
-                ventas = db.Ventas
-                    .Include("Colaborador")
-                    .Include("Cliente")
-                    .Include("TipoVenta")
-                    .ToList();
-                detalles = db.DetallesVenta
-                    .Include("Producto")
-                    .ToList();
-
-            }
-
+            ventas = ventaController.ObtenerVenta().ToList();
+            detalles = dvController.ObtenerDetalles();
+            
         }
-        void CargardataGrid(bool conDetalles = false)
-        {
-            if (conDetalles) dvg_ventas.DataSource = detalles;
-            else dvg_ventas.DataSource = ventas;
-
-        }
-
 
         private void HistorialVentasView_Load(object sender, EventArgs e)
         {
 
         }
 
-        private dynamic GetCell(int cell)
+        private string GetCell(int cell)
         {
             if (dvg_ventas.Rows.Count > 0)
             {
                 int index = dvg_ventas.CurrentRow.Index;
-                return dvg_ventas.Rows[index].Cells[cell].Value;
+                return dvg_ventas.Rows[index].Cells[cell].Value.ToString();
 
             }
             else
-                return 0;
+                return "0";
         }
 
         private void btn_verDetalle_Click(object sender, EventArgs e)
         {
-            int codigofactura = GetCell(0);
-            if (codigofactura != 0)
+            var codigofactura = GetCell(0);
+            if (codigofactura != "0")
             {
                 var ventaCredito = new VentaCredito(codigofactura);
                 var ventascontado = new Ventascontado(codigofactura);
@@ -94,9 +81,9 @@ namespace SuMueble.Views
         {
             string buscar = txt_BuscarCliente.Text.ToLower();
 
-            List<Venta> filtrados = ventas.Where(x => {
+            List<Ventas> filtrados = ventas.Where<Ventas>(x => {
 
-                return x.Cliente.Nombre.ToLower().StartsWith(buscar);
+                return x.NombreCliente.ToLower().StartsWith(buscar);
 
 
             }).ToList();
@@ -105,16 +92,27 @@ namespace SuMueble.Views
             dvg_ventas.DataSource = filtrados;
         }
 
-        
-
-        private void cb_filtro_SelectionChangeCommitted(object sender, EventArgs e)
+        private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cb_filtro.SelectedIndex == 0)
-            {
-                CargardataGrid();
+            string tipoVenta = cb_filtro.Text;
 
-            } else 
-                CargardataGrid(true);
+            if (tipoVenta != "Todo")
+            {
+                List<Ventas> filtrados = ventas.Where<Ventas>(x =>
+                {
+
+                    return x.TipoVenta == tipoVenta;
+
+                }).ToList();
+
+                dvg_ventas.DataSource = null;
+                dvg_ventas.DataSource = filtrados;
+            }
+            else
+            {
+                dvg_ventas.DataSource = null;
+                dvg_ventas.DataSource = ventas;
+            }
         }
 
         private void txt_BuscarCliente_Leave(object sender, EventArgs e)

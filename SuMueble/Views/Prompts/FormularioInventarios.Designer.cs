@@ -36,7 +36,7 @@ namespace SuMueble
             this.label5 = new System.Windows.Forms.Label();
             this.btn_Hecho = new System.Windows.Forms.Button();
             this.cmb_Categoria = new System.Windows.Forms.ComboBox();
-            this.txt_description = new System.Windows.Forms.TextBox();
+            this.txt_Codigo = new System.Windows.Forms.TextBox();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,17 +52,17 @@ namespace SuMueble
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(382, 44);
+            this.label1.Location = new System.Drawing.Point(57, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 28);
+            this.label1.Size = new System.Drawing.Size(72, 28);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Descripcion";
+            this.label1.Text = "Codigo";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(57, 44);
+            this.label2.Location = new System.Drawing.Point(382, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 28);
             this.label2.TabIndex = 1;
@@ -126,21 +126,20 @@ namespace SuMueble
             this.cmb_Categoria.Size = new System.Drawing.Size(269, 36);
             this.cmb_Categoria.TabIndex = 5;
             // 
-            // txt_description
+            // txt_Codigo
             // 
-            this.txt_description.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_description.Location = new System.Drawing.Point(382, 94);
-            this.txt_description.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_description.MaxLength = 25;
-            this.txt_description.Multiline = true;
-            this.txt_description.Name = "txt_description";
-            this.txt_description.Size = new System.Drawing.Size(269, 71);
-            this.txt_description.TabIndex = 1;
+            this.txt_Codigo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_Codigo.Location = new System.Drawing.Point(57, 89);
+            this.txt_Codigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Codigo.MaxLength = 25;
+            this.txt_Codigo.Name = "txt_Codigo";
+            this.txt_Codigo.Size = new System.Drawing.Size(269, 34);
+            this.txt_Codigo.TabIndex = 1;
             // 
             // txt_Nombre
             // 
             this.txt_Nombre.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_Nombre.Location = new System.Drawing.Point(57, 94);
+            this.txt_Nombre.Location = new System.Drawing.Point(382, 89);
             this.txt_Nombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_Nombre.MaxLength = 255;
             this.txt_Nombre.Name = "txt_Nombre";
@@ -214,7 +213,7 @@ namespace SuMueble
             this.Controls.Add(this.txt_impuesto);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.txt_Nombre);
-            this.Controls.Add(this.txt_description);
+            this.Controls.Add(this.txt_Codigo);
             this.Controls.Add(this.cmb_Categoria);
             this.Controls.Add(this.btn_Hecho);
             this.Controls.Add(this.label5);
@@ -254,6 +253,5 @@ namespace SuMueble
         private System.Windows.Forms.NumericUpDown txt_impuesto;
         private System.Windows.Forms.NumericUpDown txt_Precio;
         private System.Windows.Forms.NumericUpDown txt_Existencia;
-        private System.Windows.Forms.TextBox txt_description;
     }
 }

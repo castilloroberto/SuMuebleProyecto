@@ -6,42 +6,38 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Linq;
+using SuMueble.Controller;
 using SuMueble.Models;
 using SuMueble.Views.Prompts;
-using SuMueble.DataAccess;
 
 namespace SuMueble.Views
 {
     public partial class VentaView : UserControl
     {
-        
-        List<Producto> productos;
+        //controladores
+        ClienteControlador clienteControlador = new ClienteControlador();
+        VentaController ventaController = new VentaController();
+        List<Productos> productos;
+        ProductoControlador pc = new ProductoControlador();
 
         //variables
-        private decimal Total = 0;
-        private List<DetalleVenta> _detallesVenta = new List<DetalleVenta>();
+        private float Total = 0;
+        private List<DetallesVentas> _detallesVenta = new List<DetallesVentas>();
         private string _msg = "1. Seleccione un producto\n2. Indique la cantidad que se venderá\n3. Asegurese de No borrar el precio del producto de el cuadro de texto en la parte inferior";
+        private Guid _IDVenta;
 
         // metodos
         public VentaView()
         {
             InitializeComponent();
-            LoadData();
             CargarDataGrid();
             dgv_productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }
-        void LoadData()
-        {
-            using (var db = new SuMuebleDBContext())
-            {
-                productos = db.Productos.Include("Categoria").ToList();
-                
-            }
-
+            _IDVenta = Guid.NewGuid();
         }
         private void CargarDataGrid()
         {
-            dgv_productos.DataSource = null;
+            dgv_productos.AutoGenerateColumns = false;                        
+            productos = pc.GetProductos().ToList();
             dgv_productos.DataSource = productos;
         }
         //Andrea Celeste
@@ -86,61 +82,46 @@ namespace SuMueble.Views
             {
 
 
-                Cliente c = new Cliente()
+                Clientes c = new Clientes()
                 {
-                    DNI = txt_dniCliente.Text.Trim(),
-                    Nombre = txt_nombreCliente.Text.Trim(),
-                    Telefono = txt_clienteTelefono.Text.Trim()
+                    DNI = txt_dniCliente.Text,
+                    Nombre = txt_nombreCliente.Text,
+                    Tel = txt_clienteTelefono.Text
                 };
 
-
                 string msg = VentaIsAllReady();
+
                 if (msg == string.Empty)
                 {
-                    _detallesVenta = _detallesVenta.ConvertAll(x =>
+                    Ventas venta = new Ventas()
                     {
-                        x.Producto = null;
-                        return x;
-                    });
-                    Venta venta = new Venta()
-                    {
+                        ID = _IDVenta,
                         DetallesVenta = _detallesVenta,
-                        TipoVentaId = 1,
-                        ClienteDNI = c.DNI,
-                        ColaboradorDNI = Menu.colaborador.DNI,
+                        Cliente = c,
+                        IDTipoVenta = 1,
+                        IDColaborador = Menu.colaborador.DNI,
+                        FechaFin = DateTime.Now,
+                        TotalVenta = Total,
+                        IDCliente = c.DNI
 
                     };
-                    try
+
+                    bool ok = ventaController.SaveVenta(venta);
+
+                    if (ok)
                     {
-                        using (var db = new SuMuebleDBContext())
-                        {
-                            var cExist = db.Clientes.Find(c.DNI);
-                            if (cExist == null)
-                            {
-                                venta.Cliente = c; 
-
-                            }
-                            else
-                            {
-                                cExist.Nombre = c.Nombre;
-                                cExist.Telefono = c.Telefono;
-
-                            }
-                            db.Ventas.Add(venta);
-                            db.SaveChanges();
-                        }
                         MessageBox.Show($"Venta Terminada\nMonto: {Total} \na continuacion se imprimira la factura", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //MostrarFactura(venta);
-                        DecrementaInventario(_detallesVenta);
+
+                        CargarDataGrid();
                         ClearVenta();
+
                     }
-                    catch (Exception err)
+                    else
                     {
-
-                        MessageBox.Show($"No se pudo terminar la venta\nError:{err}", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Venta no Terminada\nMonto: {Total}", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
-
 
 
                 }
@@ -150,29 +131,16 @@ namespace SuMueble.Views
 
             }
         }
-        public static void DecrementaInventario(List<DetalleVenta> detallesVenta)
-        {
-            using (var db = new SuMuebleDBContext())
-            {
-                
 
-                detallesVenta.ForEach(dv =>
-                {
-                    var prod = db.Productos.Find(dv.ProductoId);
-                    prod.Cantidad -= dv.Cantidad;
-                    db.SaveChanges(); 
-                });
-            }
-            
-        }
         private void ClearVenta()
         {
             Total = 0;
             l_monto.Text = string.Empty;
+            _IDVenta = Guid.NewGuid();
             txt_dniCliente.Text = string.Empty;
             ClearCliente();
 
-            _detallesVenta = new List<DetalleVenta>();
+            _detallesVenta = new List<DetallesVentas>();
             ActualizarListView();
         }
 
@@ -205,15 +173,15 @@ namespace SuMueble.Views
                     if (txt_cantidadProducto.Value != 0 && txt_precio.Value != 0)
                     {
                         var descuento = txt_precio.Value * (txt_descuento.Value / 100);
-                        var prodSelected = GetCell(0);
-                        DetalleVenta dv = new DetalleVenta()
+                        DetallesVentas dv = new DetallesVentas()
                         {
-                            
-                            ProductoId = prodSelected,
+                            IDVenta = _IDVenta,
+                            IDProducto = GetCell(0),
                             Cantidad = (int)txt_cantidadProducto.Value,
-                            PrecioVenta = txt_precio.Value - (descuento) ,
-                            Producto = productos.Find( x => x.Id == prodSelected),
-                            Descuento = descuento,
+                            PrecioVenta = (float)(txt_precio.Value - (descuento) ),
+                            Producto = GetCell(2),
+                            descuento = (float)(descuento),
+                            PrecioProducto = (float)txt_precio.Value
 
                         };
 
@@ -233,16 +201,12 @@ namespace SuMueble.Views
 
 
         }
-        private void CargarListVew(DetalleVenta dv)
+        private void CargarListVew(DetallesVentas dv)
         {
             Total += dv.SubTotal;
             l_monto.Text = string.Format("{0:C2}", Total);
             _detallesVenta.Add(dv);
             // actualizar el listview
-            var idx = productos.IndexOf(dv.Producto);
-            dv.Producto.Cantidad -= dv.Cantidad;
-            productos[idx] = dv.Producto;
-            CargarDataGrid();
             ActualizarListView();
 
         }
@@ -272,11 +236,7 @@ namespace SuMueble.Views
             if (txt_dniCliente.Text.Length == 13)
             {
                 ClearCliente();
-                Cliente cliente = new Cliente();//clienteControlador.GetCliente(txt_dniCliente.Text)
-                using (var db = new SuMuebleDBContext())
-                {
-                    cliente = db.Clientes.Find(txt_dniCliente.Text.Trim());
-                }
+                Clientes cliente = clienteControlador.GetCliente(txt_dniCliente.Text);
                 if (cliente == null)
                 {
                     HideShowLabels(true);
@@ -285,11 +245,11 @@ namespace SuMueble.Views
                 {
                     HideShowLabels(false);
                     txt_nombreCliente.Text = cliente.Nombre;
-                    txt_clienteTelefono.Text = cliente.Telefono;
+                    txt_clienteTelefono.Text = cliente.Tel;
                 }
             }
-            //if (txt_dniCliente.Text.Length == 0)
-            //    ClearCliente();
+            if (txt_dniCliente.Text.Length == 0)
+                ClearCliente();
         }
 
         private void HideShowLabels(bool visible)
@@ -442,11 +402,11 @@ namespace SuMueble.Views
         {
             string buscar = txt_buscarProducto.Text.ToLower();
 
-            List<Producto> filtrados = productos.Where<Producto>(x => {
+            List<Productos> filtrados = productos.Where<Productos>(x => {
 
                 try
                 {
-                    return x.Nombre.ToLower().StartsWith(buscar) || x.Id.ToString().StartsWith(buscar);
+                    return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
                 }
                 catch
                 {
@@ -498,7 +458,7 @@ namespace SuMueble.Views
 
         }
 
-        private void MostrarFactura(Venta venta)
+        private void MostrarFactura(Ventas venta)
         {
             var verfactura = new Factura(venta);
 
