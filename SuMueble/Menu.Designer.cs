@@ -35,6 +35,7 @@ namespace SuMueble.Views
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel = new System.Windows.Forms.Panel();
             this.bienvenido = new System.Windows.Forms.Label();
+            this.btn_clientes = new System.Windows.Forms.Button();
             this.btn_colaboradores = new System.Windows.Forms.Button();
             this.btn_ventas = new System.Windows.Forms.Button();
             this.btn_inventario = new System.Windows.Forms.Button();
@@ -57,9 +58,9 @@ namespace SuMueble.Views
             // 
             this.panel4.Controls.Add(this.btn_cerrarSesion);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 573);
+            this.panel4.Location = new System.Drawing.Point(0, 652);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(303, 160);
+            this.panel4.Size = new System.Drawing.Size(303, 81);
             this.panel4.TabIndex = 10;
             // 
             // btn_cerrarSesion
@@ -70,7 +71,7 @@ namespace SuMueble.Views
             this.btn_cerrarSesion.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_cerrarSesion.ForeColor = System.Drawing.Color.White;
             this.btn_cerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_cerrarSesion.Location = new System.Drawing.Point(55, 55);
+            this.btn_cerrarSesion.Location = new System.Drawing.Point(59, 22);
             this.btn_cerrarSesion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_cerrarSesion.Name = "btn_cerrarSesion";
             this.btn_cerrarSesion.Size = new System.Drawing.Size(174, 45);
@@ -86,13 +87,14 @@ namespace SuMueble.Views
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(303, 573);
+            this.panel3.Size = new System.Drawing.Size(303, 652);
             this.panel3.TabIndex = 9;
             // 
             // panel
             // 
             this.panel.AutoScroll = true;
             this.panel.Controls.Add(this.bienvenido);
+            this.panel.Controls.Add(this.btn_clientes);
             this.panel.Controls.Add(this.btn_colaboradores);
             this.panel.Controls.Add(this.btn_ventas);
             this.panel.Controls.Add(this.btn_inventario);
@@ -102,7 +104,7 @@ namespace SuMueble.Views
             this.panel.Controls.Add(this.btn_historialVentas);
             this.panel.Location = new System.Drawing.Point(0, 135);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(303, 438);
+            this.panel.Size = new System.Drawing.Size(303, 517);
             this.panel.TabIndex = 12;
             // 
             // bienvenido
@@ -113,6 +115,21 @@ namespace SuMueble.Views
             this.bienvenido.Size = new System.Drawing.Size(137, 20);
             this.bienvenido.TabIndex = 6;
             this.bienvenido.Text = "Bienvenido Usuario";
+            // 
+            // btn_clientes
+            // 
+            this.btn_clientes.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_clientes.FlatAppearance.BorderSize = 0;
+            this.btn_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_clientes.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_clientes.Location = new System.Drawing.Point(29, 432);
+            this.btn_clientes.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn_clientes.Name = "btn_clientes";
+            this.btn_clientes.Size = new System.Drawing.Size(235, 45);
+            this.btn_clientes.TabIndex = 5;
+            this.btn_clientes.Text = "Clientes";
+            this.btn_clientes.UseVisualStyleBackColor = false;
+            this.btn_clientes.Click += new System.EventHandler(this.btn_clientes_Click);
             // 
             // btn_colaboradores
             // 
@@ -306,5 +323,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label bienvenido;
         public static System.Windows.Forms.Panel main_panel;
         private System.Windows.Forms.Panel contenedor;
+        private System.Windows.Forms.Button btn_clientes;
     }
 }

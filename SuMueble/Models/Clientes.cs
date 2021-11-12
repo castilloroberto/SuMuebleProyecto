@@ -18,6 +18,7 @@ namespace SuMueble.Models
         public string Direccion { get; set; }
         public string Email { get; set; }
         public string Tel { get; set; }
+        public string Compras { get; set; }
 
 
         
