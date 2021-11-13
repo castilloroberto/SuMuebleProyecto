@@ -18,13 +18,42 @@ namespace SuMueble.Models
         public string Direccion { get; set; }
         public string Email { get; set; }
         public string Tel { get; set; }
-        public string Compras { get; set; }
+
+        [Write(false)]
+        public List<Ventas> Compras { get; set; }
 
 
+
+
+        private float _montoInvertido;
         
+        [Write(false)] // no se inserte en la base de datos
+        public float MontoInvertido 
+        { 
+            get 
+            {
+                float total = 0;
+                foreach (var item in Compras)
+                {
+                    total += item.TotalVenta;
+                }
+                return total;
+            } 
+            set 
+            {
+                _montoInvertido = value;
+            }
+        }
+
+
         [Write(false)] // insert no se inserta este atributo
         [Computed] // update no se actualiza este atributo
         public DateTime Registrado  { get; set; }
+
+        public Clientes()
+        {
+            Compras = new List<Ventas>();
+        }
 
     
     }

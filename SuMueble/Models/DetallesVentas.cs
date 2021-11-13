@@ -18,13 +18,17 @@ namespace SuMueble.Models
         public float descuento { get; set; }
 
 
+        private float _subTotal;
         // propiedades que no forman parte de la tabla 
         [Write(false)]
         [Computed]
         public float SubTotal 
         {
-            get { return PrecioVenta * Cantidad; } 
-             
+            get { return (PrecioVenta * Cantidad) - descuento; }
+            set 
+            {
+                _subTotal = value;
+            }
         }
 
         [Write(false)]

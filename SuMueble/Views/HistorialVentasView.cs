@@ -22,7 +22,6 @@ namespace SuMueble.Views
         public HistorialVentasView()
         {
             InitializeComponent();
-            dvg_ventas.AutoGenerateColumns = false;
             dvg_ventas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             CargardataGrid();
@@ -83,7 +82,7 @@ namespace SuMueble.Views
 
             List<Ventas> filtrados = ventas.Where<Ventas>(x => {
 
-                return x.NombreCliente.ToLower().StartsWith(buscar);
+                return x.Cliente.Nombre.ToLower().StartsWith(buscar);
 
 
             }).ToList();

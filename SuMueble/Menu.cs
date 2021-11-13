@@ -78,7 +78,10 @@ namespace SuMueble.Views
             btn_ventasCredito.ForeColor = Color.FromName("ControlText");
             btn_ventasCredito.BackColor = Color.FromName("ControlLight");
 
+            btn_clientes.ForeColor = Color.FromName("ControlText");
+            btn_clientes.BackColor = Color.FromName("ControlLight");
 
+            
 
         }
 

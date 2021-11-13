@@ -3,6 +3,7 @@ using Dapper.Contrib.Extensions;
 using SuMueble.Models;
 using SuMueble.Views;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,9 +11,23 @@ namespace SuMueble.Controller
 {
     public class ClienteControlador: DBConnection
     {
-        public List<Clientes> GetClientesCompras()
+        public List<Clientes> IncludeCompras()
         {
-            return null;
+            var ventaController = new VentaController();
+
+            using (var db = GetConnection)
+            { 
+
+                var clientes = db.GetAll<Clientes>().AsList();
+                var list = clientes.ConvertAll(cliente =>
+                {
+                    
+                    cliente.Compras = ventaController.IncludeDetalles(cliente.DNI);
+                    return cliente;
+                });
+
+                return list;
+            }
         } 
 
         public List<Clientes> GetAll()

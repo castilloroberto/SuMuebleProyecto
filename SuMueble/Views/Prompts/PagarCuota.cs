@@ -49,7 +49,7 @@ namespace SuMueble.Views
 
 
             venta_ = ventaController.GetVentaID(codFactura);
-            l_cliente.Text = venta_.NombreCliente;
+            l_cliente.Text = venta_.Cliente.Nombre;
 
             txtProducto.Text = DetalleVenta.Rows[0].Field<string>("Producto");
             var creditopendiente = PagoControlador.GetCreditoPendiente(int.Parse(codFactura));
