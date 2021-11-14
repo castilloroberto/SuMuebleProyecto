@@ -33,7 +33,10 @@ namespace SuMueble.Models
 
         public Boolean Estado { get; set; }
 
-
+        public override string ToString()
+        {
+            return Nombre;
+        }
 
     }
 }

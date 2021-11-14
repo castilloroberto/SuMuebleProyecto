@@ -15,7 +15,7 @@ namespace SuMueble.Models
         [Computed]
         public int CodigoFactura { get; set; }
 
-        public string IDCliente {get;set;}
+        public string IDCliente { get; set;}
 
         [Write(false)]
         public Clientes Cliente { get; set; }
@@ -32,8 +32,7 @@ namespace SuMueble.Models
         public int IDTipoVenta { get; set; }
 
         [Write(false)]
-        [Computed]
-        public string TipoVenta { get; set; }
+        public TipoVenta TipoVenta { get; set; }
         public float Prima { get; set; }
         public int Cuotas { get; set; }
 

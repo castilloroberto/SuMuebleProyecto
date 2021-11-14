@@ -15,6 +15,25 @@ namespace SuMueble.Controller
     {
         ReferenciaController rController = new ReferenciaController();
 
+        public List<Ventas> IncludeAll()
+        {
+            using (var db = GetConnection)
+            {
+                List<Ventas> ventas = new List<Ventas>();
+              
+                ventas = db.GetAll<Ventas>().ToList();
+
+                var list = ventas.ConvertAll(venta =>
+                {
+                    venta.Cliente = db.Get<Clientes>(venta.IDCliente);
+                    venta.Colaborador = db.Get<Colaboradores>(venta.IDColaborador);
+                    venta.TipoVenta = db.Get<TipoVenta>(venta.IDTipoVenta);
+                    venta.DetallesVenta = db.Query<DetallesVentas>("select * from DetallesVentas where idventa = @id", new { id = venta.ID }).ToList();
+                    return venta;
+                });
+                return list;
+            }
+        }
         public List<Ventas> IncludeDetalles(string clienteId = "" )
         {
             using (var db = GetConnection)

@@ -55,6 +55,9 @@ namespace SuMueble.Models
             Compras = new List<Ventas>();
         }
 
-    
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

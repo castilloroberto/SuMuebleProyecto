@@ -134,6 +134,7 @@ namespace SuMueble.Views
                 {
                     ID = _IDVenta,
                     Cliente = cliente,
+                    IDCliente = cliente.DNI,
                     DetallesVenta = listaProductos,
                     IDColaborador = Menu.colaborador.DNI,
                     Referencias = listaReferencias,
