@@ -10,6 +10,16 @@ namespace SuMueble.Controller
 {
     public class ClienteControlador: DBConnection
     {
+        public List<Clientes> GetClientesCompras()
+        {
+            return null;
+        } 
+
+        public List<Clientes> GetAll()
+        {
+            using (var db = GetConnection)
+                return db.GetAll<Clientes>().AsList();
+        }
         public Clientes Login(string DNI, string Clave) { 
         
             using (var  DB= GetConnection)
