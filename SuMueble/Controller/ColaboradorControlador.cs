@@ -1,59 +1,87 @@
 ﻿using Dapper;
 using Dapper.Contrib.Extensions;
+using SuMueble.Helpers;
 using SuMueble.Models;
 using SuMueble.Views;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SuMueble.Controller
 {
    public class ColaboradorControlador: DBConnection
     {
-        private bool InsertColaborador(Colaboradores c)
+        private bool Insert(Colaborador c)
         {
             using (var db = GetConnection)
             {
-               return db.Insert<Colaboradores>(c) >0;
+               return db.Insert(c) >0;
             }
         }
-        private bool UpdateColaborador(Colaboradores c)
+        private bool Update(Colaborador c)
         {
             using (var db = GetConnection)
             {
-                return db.Update<Colaboradores>(c);
+                return db.Update(c);
             }
         }
 
-        public bool desactivarColaborador(string DNI)
+        public bool Desactivar(string DNI)
         {
             using (var db = GetConnection)
             {
                 string sql = @$"UPDATE Colaboradores
-                                        SET FinContrato = GETDATE()
-                                       ,Estado = 0
-                                       WHERE DNI = '{DNI}' ";
-                return db.Execute(sql) > 0;
+                                        SET FechaFinContrato = GETDATE()
+                                       ,Activo = 0
+                                       WHERE DNI = @DNI ";
+                return db.Execute(sql,new { DNI=DNI}) > 0;
             }
         }
+        public void Check()
+        {
+            var defaultColaborador = new Colaborador()
+            {
+                DNI = "0703200101235",
+                RTN = "0703200101235R",
+                Nombre = "Robero Castillo",
+                Telefono = "88137603",
+                Email = "robertocastillo945@gmail.com",
+                FechaNacimiento = new DateTime(2000, 08, 31),
+                Clave = Security.Encrypt("123"),
+                PuestoFk = 1
+            };
+            Save(defaultColaborador);
+           
+        }
 
-        public Colaboradores GetColaborador(string DNI)
+        public  Colaborador Get(string DNI)
         {
             using (var db = GetConnection)
             {
-                return db.Get<Colaboradores>(DNI);
+                string sql = "select * from Colaboradores where dni = @dni";
+                try
+                {
+                    return db.Query<Colaborador>(sql,new { dni=DNI}).First();
+
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+                
             }
         }
-        public bool SaveColaborador(Colaboradores c)
+        public bool Save(Colaborador c)
         {
-            Colaboradores Colaborador = GetColaborador(c.DNI);
+            var Colaborador = Get(c.DNI);
             if (Colaborador == null)
             {
-               return InsertColaborador(c);
+               return Insert(c);
             }
             else
             {
-               return UpdateColaborador(c);
+               return Update(c);
             }
         }
 
@@ -62,7 +90,7 @@ namespace SuMueble.Controller
             bool ok = false;
             using (var DB=GetConnection)
             {
-                Colaboradores colaborador = DB.Get<Colaboradores>(DNI);
+                Colaborador colaborador = DB.Get<Colaborador>(DNI);
 
                 if (colaborador != null)
                     ok = colaborador.Clave == clave;
@@ -70,12 +98,17 @@ namespace SuMueble.Controller
                 return ok;
             }
         }
-        public IEnumerable<Colaboradores> Colaboradores() //obtener lista de colaboradores
+        public List<Colaborador> GetAll() //obtener lista de colaboradores
         {
             using (var db = GetConnection)
             {
-                string sql = "SELECT * from Colaboradores Where Estado = 1";
-                return db.Query<Colaboradores>(sql);
+                
+                var colaboradores = db.GetAll<Colaborador>().ToList();
+                var res = colaboradores.ConvertAll(c => {
+                    c.Puesto = db.Get<Puestos>(c.PuestoFk);
+                    return c;
+                });
+                return res;
             }
         }
     }

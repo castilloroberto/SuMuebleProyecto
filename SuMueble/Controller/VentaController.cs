@@ -26,7 +26,7 @@ namespace SuMueble.Controller
                 var list = ventas.ConvertAll(venta =>
                 {
                     venta.Cliente = db.Get<Clientes>(venta.IDCliente);
-                    venta.Colaborador = db.Get<Colaboradores>(venta.IDColaborador);
+                    venta.Colaborador = db.Get<Colaborador>(venta.IDColaborador);
                     venta.TipoVenta = db.Get<TipoVenta>(venta.IDTipoVenta);
                     venta.DetallesVenta = db.Query<DetallesVentas>("select * from DetallesVentas where idventa = @id", new { id = venta.ID }).ToList();
                     return venta;

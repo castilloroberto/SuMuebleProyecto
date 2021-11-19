@@ -20,7 +20,7 @@ namespace SuMueble.Controller
         {
             using (var DB = GetConnection)
             {
-                return DB.Insert<Puestos>(new Puestos{ID=0,Puesto=Puesto})>0;
+                return DB.Insert(new Puestos{IdPuesto=0,Puesto=Puesto})>0;
             }
         }
     }

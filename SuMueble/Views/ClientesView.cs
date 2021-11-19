@@ -26,6 +26,8 @@ namespace SuMueble.Views
         {
             dgv_clientes.DataSource = null;
             dgv_clientes.DataSource = clientes;
+            total_clientes.Text = $"Total Clientes: {clientes.Count}";
+
         }
         private void txt_buscar_nombre_KeyUp(object sender, KeyEventArgs e)
         {
@@ -83,6 +85,12 @@ namespace SuMueble.Views
              }).ToList();
 
             LoadDGV(clientesAntesDe);
+        }
+
+        private void btn_ver_todos_Click(object sender, EventArgs e)
+        {
+            LoadDGV(Clientes);
+
         }
     }
 }

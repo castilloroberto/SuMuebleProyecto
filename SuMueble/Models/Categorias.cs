@@ -9,7 +9,7 @@ namespace SuMueble.Models
     public class Categorias
     {
         [Key]
-        public int ID { get; set; }
+        public int IdCategoria { get; set; }
         public string Categoria { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace SuMueble
             InitializeComponent();
             cmb_Categoria.DataSource = categoriaController.GetCategorias();
             cmb_Categoria.DisplayMember = "Categoria";
-            cmb_Categoria.ValueMember = "ID";
+            cmb_Categoria.ValueMember = "IdCategoria";
 
             if (ID != 0)
             {

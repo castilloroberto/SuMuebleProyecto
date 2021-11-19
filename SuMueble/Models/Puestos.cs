@@ -9,7 +9,12 @@ namespace SuMueble.Models
     public class Puestos
     {
         [Key]
-        public int ID { get; set; }
+        public int IdPuesto { get; set; }
         public string Puesto { get; set; }
+
+        public override string ToString()
+        {
+            return Puesto;
+        }
     }
 }

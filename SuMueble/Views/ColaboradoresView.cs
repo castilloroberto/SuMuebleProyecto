@@ -15,7 +15,7 @@ namespace SuMueble.Views
     public partial class ColaboradoresView : UserControl
     {
         ColaboradorControlador cControlador = new ColaboradorControlador();
-        List<Colaboradores> colaboradores;
+        List<Colaborador> colaboradores;
 
         public ColaboradoresView()
         {
@@ -25,7 +25,7 @@ namespace SuMueble.Views
         private void CargarDatos()
         {
             dgv_colaboradores.DataSource = null;
-            colaboradores = cControlador.Colaboradores().ToList();
+            colaboradores = cControlador.GetAll().ToList();
             dgv_colaboradores.DataSource = colaboradores;
         }
 
@@ -59,7 +59,7 @@ namespace SuMueble.Views
         {
             string buscar =txt_busqueda.Text.ToLower();
 
-            List<Colaboradores> filtrados = colaboradores.Where<Colaboradores>(x => {
+            List<Colaborador> filtrados = colaboradores.Where<Colaborador>(x => {
 
                 return x.Nombre.ToLower().StartsWith(buscar) || x.DNI.ToLower().StartsWith(buscar);
 
@@ -78,7 +78,7 @@ namespace SuMueble.Views
                 DialogResult boton = MessageBox.Show("¿Desea terminar el contrato seleccionado?", "Mensaje del sistena", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (boton == DialogResult.OK)
                 {
-                    cControlador.desactivarColaborador(GetCell(0));
+                    cControlador.Desactivar(GetCell(0));
                     CargarDatos();
                
                 }

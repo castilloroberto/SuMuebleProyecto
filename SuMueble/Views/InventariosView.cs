@@ -18,7 +18,7 @@ namespace Ventana_de_Inventarios
             InitializeComponent();
             dgv_Productos.AutoGenerateColumns = false;
             CargarDatos();
-            cb_categorias.ValueMember = "ID";
+            cb_categorias.ValueMember = "IdCategoria";
             cb_categorias.DisplayMember = "Categoria";
             dgv_Productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }

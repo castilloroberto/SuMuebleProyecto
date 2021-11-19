@@ -24,7 +24,7 @@ namespace SuMueble.Models
 
 
         [Write(false)]
-        public Colaboradores Colaborador { get; set; }
+        public Colaborador Colaborador { get; set; }
 
         // Tipo de venta :
         // 1 al contado
