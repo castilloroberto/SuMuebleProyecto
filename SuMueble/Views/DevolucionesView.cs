@@ -24,7 +24,7 @@ namespace SuMueble.Views
         {
             var devolucionControlador = new DevolucionControlador();
 
-            Devoluciones = devolucionControlador.ObtenerDevoluciones().ToList();
+            Devoluciones = devolucionControlador.GetAll().ToList();
             LoadDGV(Devoluciones);
         }
 
@@ -76,8 +76,13 @@ namespace SuMueble.Views
 
             var filtrados = Devoluciones.Where(devolucion => {
 
-                return devolucion.Motivo.ToLower().StartsWith(buscar);
+                var match = false;
+                devolucion.DetalleDevolucion.Where(d => {
 
+                    match = d.Motivo.ToLower().StartsWith(buscar);
+                    return match;
+                });
+                return match;
 
             }).ToList();
 

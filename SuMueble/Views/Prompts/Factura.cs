@@ -34,7 +34,7 @@ namespace SuMueble.Views.Prompts
 
                 foreach (var item in venta.DetallesVenta)
                 {
-                    descuentos += item.descuento;
+                    descuentos += item.Descuento;
                 }
 
                 txt_descuentos.Text = string.Format("Descuentos: {0:C2}", descuentos);

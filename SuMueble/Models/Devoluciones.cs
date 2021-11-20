@@ -14,6 +14,8 @@ namespace SuMueble.Models
         public int VentaFk { set; get; }
         public int ColaboradorFk { set; get; }
         
+        [Write(false)]
+        public List<DetalleDevolucion> DetalleDevolucion { get; set; }
 
         [Write(false)]
         public DateTime Fecha { set; get; }

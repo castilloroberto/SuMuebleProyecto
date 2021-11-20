@@ -24,7 +24,6 @@ namespace SuMueble.Views
         private float Total = 0;
         private List<DetallesVentas> _detallesVenta = new List<DetallesVentas>();
         private string _msg = "1. Seleccione un producto\n2. Indique la cantidad que se venderá\n3. Asegurese de No borrar el precio del producto de el cuadro de texto en la parte inferior";
-        private Guid _IDVenta;
 
         // metodos
         public VentaView()
@@ -32,7 +31,6 @@ namespace SuMueble.Views
             InitializeComponent();
             CargarDataGrid();
             dgv_productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            _IDVenta = Guid.NewGuid();
         }
         private void CargarDataGrid()
         {
@@ -86,7 +84,7 @@ namespace SuMueble.Views
                 {
                     DNI = txt_dniCliente.Text,
                     Nombre = txt_nombreCliente.Text,
-                    Tel = txt_clienteTelefono.Text
+                    Telefono = txt_clienteTelefono.Text
                 };
 
                 string msg = VentaIsAllReady();
@@ -95,7 +93,6 @@ namespace SuMueble.Views
                 {
                     Ventas venta = new Ventas()
                     {
-                        ID = _IDVenta,
                         DetallesVenta = _detallesVenta,
                         Cliente = c,
                         IDTipoVenta = 1,
@@ -136,7 +133,6 @@ namespace SuMueble.Views
         {
             Total = 0;
             l_monto.Text = string.Empty;
-            _IDVenta = Guid.NewGuid();
             txt_dniCliente.Text = string.Empty;
             ClearCliente();
 
@@ -175,13 +171,11 @@ namespace SuMueble.Views
                         var descuento = txt_precio.Value * (txt_descuento.Value / 100);
                         DetallesVentas dv = new DetallesVentas()
                         {
-                            IDVenta = _IDVenta,
-                            IDProducto = GetCell(0),
+                            ProductoFk = GetCell(0),
                             Cantidad = (int)txt_cantidadProducto.Value,
                             PrecioVenta = (float)(txt_precio.Value - (descuento) ),
                             Producto = GetCell(2),
-                            descuento = (float)(descuento),
-                            PrecioProducto = (float)txt_precio.Value
+                            Descuento = (float)(descuento),
 
                         };
 
@@ -245,7 +239,7 @@ namespace SuMueble.Views
                 {
                     HideShowLabels(false);
                     txt_nombreCliente.Text = cliente.Nombre;
-                    txt_clienteTelefono.Text = cliente.Tel;
+                    txt_clienteTelefono.Text = cliente.Telefono;
                 }
             }
             if (txt_dniCliente.Text.Length == 0)

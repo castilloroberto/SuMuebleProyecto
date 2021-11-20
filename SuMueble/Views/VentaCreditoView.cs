@@ -20,7 +20,6 @@ namespace SuMueble.Views
         private static float _Total = 0;
         public static void listaProducto(DetallesVentas dv)
         {
-            dv.IDVenta = _IDVenta;
             listaProductos.Clear();
             listaProductos.Add(dv);
             _Total = dv.SubTotal;
@@ -72,7 +71,7 @@ namespace SuMueble.Views
                 {
                    
                     txt_nombreCliente.Text = cliente.Nombre;
-                    txtTelefonoCliente.Text = cliente.Tel;
+                    txtTelefonoCliente.Text = cliente.Telefono;
                     txt_dirCliente.Text = cliente.Direccion;
                     txt_rtnCliente.Text = cliente.RTN;
                     ActivarIndicadores();
@@ -127,7 +126,7 @@ namespace SuMueble.Views
                     Direccion = txt_dirCliente.Text,
                     Nombre    = txt_nombreCliente.Text,
                     RTN       = txt_rtnCliente.Text,
-                    Tel       = txtTelefonoCliente.Text
+                    Telefono  = txtTelefonoCliente.Text
 
                 };
                 _venta = new Ventas()

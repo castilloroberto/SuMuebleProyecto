@@ -55,7 +55,7 @@ namespace SuMueble.Views.Prompts
             {
                 DetallesVentas dv = new DetallesVentas()
                 {
-                    IDProducto = GetCell(0),
+                    ProductoFk = GetCell(0),
                     Cantidad = 1,
                     PrecioVenta = (float)txt_precio.Value,
                     Producto = GetCell(2)
