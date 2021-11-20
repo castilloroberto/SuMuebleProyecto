@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Dapper;
 
 namespace SuMueble.Controller
 {
@@ -22,21 +23,26 @@ namespace SuMueble.Controller
 
         }
 
-        public List<Devoluciones> ObtenerDevoluciones()
+        public List<Devoluciones> GetAll()
         {
             using (var db = GetConnection)
             {
-                return db.GetAll<Devoluciones>().ToList();
-
+                string sql = "seelct * from DetalleDevolucion where DevolucioneFk = @id";
+                var devoluciones = db.GetAll<Devoluciones>().ToList();
+                var res = devoluciones.ConvertAll(d => {
+                    d.DetalleDevolucion = db.Query<DetalleDevolucion>(sql,new { id=d.IdDevolucion}).ToList();
+                    return d;
+                });
+                return res;
             }
 
         }
 
-        public Devoluciones ObtenerDevoluciones(int ID)
+        public Devoluciones Get(int id)
         {
             using (var db = GetConnection)
             {
-                return db.Get<Devoluciones>(ID);
+                return db.Get<Devoluciones>(id);
 
             }
 

@@ -15,7 +15,6 @@ namespace SuMueble.Views
     {
         DevolucionControlador devolucionControlador = new DevolucionControlador();
         DetalleVentaController dvControllador = new DetalleVentaController();
-        List<SQLViewVentas> detalles_;
         public Devolucion(Guid IDVenta_)
         {
             InitializeComponent();
@@ -26,13 +25,7 @@ namespace SuMueble.Views
 
         private void cargarDatos(Guid IDVenta)
         {
-            detalles_ = dvControllador.GetDetalles(IDVenta);
-            cb_productos.DataSource = detalles_;
-            cb_productos.DisplayMember = "Producto";
-            cb_productos.ValueMember = "IDProducto";
-
-            //
-            txt_CodigoFactura.Text = detalles_[0].CodigoFactura.ToString();
+           
         }
 
         private void btn_hecho_Click(object sender, EventArgs e)
@@ -56,11 +49,7 @@ namespace SuMueble.Views
             {
                 Devoluciones devolucion = new Devoluciones()
                 {
-                    CodigoFactura = detalles_[0].CodigoFactura,
-                    Cantidad = (int)txt_Cantidad.Value,
-                    IDProducto = cb_productos.SelectedValue.GetHashCode(),
-                    Motivo = txt_Motivo.Text,
-                    Observaciones = txt_Observacion.Text
+                   
 
                 };
                 var res = devolucionControlador.InsertarDevolucion(devolucion);
@@ -78,7 +67,7 @@ namespace SuMueble.Views
 
         private void cb_productos_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            txt_Cantidad.Value = detalles_.Find(x => x.IDProducto == cb_productos.SelectedValue.GetHashCode()).Cantidad;
+            //txt_Cantidad.Value = detalles_.Find(x => x.IDProducto == cb_productos.SelectedValue.GetHashCode()).Cantidad;
 
         }
 
