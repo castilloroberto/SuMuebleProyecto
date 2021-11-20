@@ -12,8 +12,8 @@ namespace SuMueble.Views
 {
     public partial class Menu : Form
     {
-        public static Colaboradores colaborador;
-        public Menu( Colaboradores colaborador_ )
+        public static Colaborador colaborador;
+        public Menu( Colaborador colaborador_ )
         {
             InitializeComponent();
             colaborador = colaborador_;
@@ -26,14 +26,14 @@ namespace SuMueble.Views
         private void ValidarRol() 
         {
             // venta
-            if (colaborador.IDPuesto == 2)
+            if (colaborador.PuestoFk == 3)
             {
                 btn_inventario.Visible = false;
                 btn_colaboradores.Visible = false;
             }
 
             // bodega
-            if (colaborador.IDPuesto == 3)
+            if (colaborador.PuestoFk == 4)
             {
                 btn_ventas.Visible = false;
                 btn_ventasCredito.Visible = false;
@@ -42,7 +42,7 @@ namespace SuMueble.Views
                 btn_colaboradores.Visible = false;
             }
             // secretaria
-            if (colaborador.IDPuesto == 4)
+            if (colaborador.PuestoFk == 2)
             {
                 btn_inventario.Visible = false;
                 btn_devoluciones.Visible = false;
@@ -50,8 +50,7 @@ namespace SuMueble.Views
                 btn_ventasCredito.Visible = false;
             }
             // gerente lo vee todo
-            //ID = 1
-            //Holi
+            // ID = 1
         }
         
         private void HideAll()
@@ -78,7 +77,10 @@ namespace SuMueble.Views
             btn_ventasCredito.ForeColor = Color.FromName("ControlText");
             btn_ventasCredito.BackColor = Color.FromName("ControlLight");
 
+            btn_clientes.ForeColor = Color.FromName("ControlText");
+            btn_clientes.BackColor = Color.FromName("ControlLight");
 
+            
 
         }
 

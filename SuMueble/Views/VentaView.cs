@@ -510,5 +510,11 @@ namespace SuMueble.Views
         {
             txt_buscarProducto.Text = txt_buscarProducto.Text.Trim();
         }
+
+        private void btn_ayuda_Click(object sender, EventArgs e)
+        {
+            var manual = new Manual("ventas");
+            manual.Show();
+        }
     }
 }

@@ -32,9 +32,9 @@ namespace SuMueble.Views.Prompts
                     cliente.Text = string.Format("Cliente: {0}", venta.Cliente.Nombre);
 
                 }
-                if (venta.NombreCliente != null)
+                if (venta.Cliente.Nombre != null)
                 {
-                    cliente.Text = string.Format("Cliente: {0}", venta.NombreCliente);
+                    cliente.Text = string.Format("Cliente: {0}", venta.Cliente.Nombre);
 
                 }
                 cuotaRestantes.Text = venta.Cuotas.ToString();

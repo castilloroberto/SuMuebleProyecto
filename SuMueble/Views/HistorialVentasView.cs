@@ -14,28 +14,26 @@ namespace SuMueble.Views
     public partial class HistorialVentasView : UserControl
     {
         VentaController ventaController = new VentaController();
-        DetalleVentaController dvController = new DetalleVentaController();
-        List<Ventas> ventas;
-        List<DetallesVentas> detalles;
+        List<Ventas> Ventas;
 
-        //bool toogle = true;
         public HistorialVentasView()
         {
             InitializeComponent();
-            dvg_ventas.AutoGenerateColumns = false;
             dvg_ventas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            CargardataGrid();
-
-            dvg_ventas.DataSource = ventas;
             cb_filtro.SelectedIndex = 0;
-        }
+            LoadVentas();
+           
 
-        void CargardataGrid()
-        {
-            ventas = ventaController.ObtenerVenta().ToList();
-            detalles = dvController.ObtenerDetalles();
             
+        }
+        void LoadVentas()
+        {
+            Ventas = ventaController.IncludeAll();
+            CargarDGV(Ventas);
+        }
+        void CargarDGV(List<Ventas> ventas)
+        {
+            dvg_ventas.DataSource = ventas;
         }
 
         private void HistorialVentasView_Load(object sender, EventArgs e)
@@ -81,9 +79,9 @@ namespace SuMueble.Views
         {
             string buscar = txt_BuscarCliente.Text.ToLower();
 
-            List<Ventas> filtrados = ventas.Where<Ventas>(x => {
+            List<Ventas> filtrados = Ventas.Where<Ventas>(x => {
 
-                return x.NombreCliente.ToLower().StartsWith(buscar);
+                return x.Cliente.Nombre.ToLower().StartsWith(buscar);
 
 
             }).ToList();
@@ -98,10 +96,10 @@ namespace SuMueble.Views
 
             if (tipoVenta != "Todo")
             {
-                List<Ventas> filtrados = ventas.Where<Ventas>(x =>
+                List<Ventas> filtrados = Ventas.Where<Ventas>(x =>
                 {
 
-                    return x.TipoVenta == tipoVenta;
+                    return x.TipoVenta.Tipo == tipoVenta;
 
                 }).ToList();
 
@@ -111,7 +109,7 @@ namespace SuMueble.Views
             else
             {
                 dvg_ventas.DataSource = null;
-                dvg_ventas.DataSource = ventas;
+                dvg_ventas.DataSource = Ventas;
             }
         }
 

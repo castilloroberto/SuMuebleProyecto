@@ -1,4 +1,5 @@
 ﻿using SuMueble.Controller;
+using SuMueble.Helpers;
 using SuMueble.Models;
 using System;
 using System.Collections.Generic;
@@ -12,25 +13,31 @@ namespace SuMueble.Views
 {
     public partial class Login : Form
     {
-        ColaboradorControlador colaboradorControlador = new ColaboradorControlador();
-        Colaboradores colaborador;
+        Colaborador colaborador = new Colaborador();
         public Login()
         {
             InitializeComponent();
+            CheckDefaultColaborador();
+        }
+        void CheckDefaultColaborador()
+        {
+            colaborador.Check();
         }
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
-            string user = txt_user.Text;
+            string dni = txt_user.Text;
             string password = txt_password.Text;
-            colaborador = colaboradorControlador.GetColaborador(user);
+
+            colaborador = colaborador.Get(dni);
 
             if (colaborador != null)
             {
 
-                if (colaborador.Estado)
+                if (colaborador.Activo)
                 {
-                    if (colaborador.Clave == password)
+                    bool valid = Security.Verify(password, colaborador.Clave);
+                    if (valid)
                     {
                         Menu menu = new Menu(colaborador);
                         menu.Show();
@@ -45,7 +52,7 @@ namespace SuMueble.Views
                 }
             }
             else
-                MessageBox.Show("Codigo o Clave de Usuario Invalido", "Contrasena Incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("DNI o Clave de Usuario Invalido", "Contrasena Incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             
             txt_user.Text = "";
             txt_password.Text = "";

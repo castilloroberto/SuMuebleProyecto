@@ -14,19 +14,17 @@ namespace SuMueble.Models
         [Write(false)]
         [Computed]
         public int CodigoFactura { get; set; }
-        public string IDCliente {
-            get;
-            set; 
-        }
+
+        public string IDCliente { get; set;}
+
+        [Write(false)]
+        public Clientes Cliente { get; set; }
+       
         public string IDColaborador { get; set; }
 
-        [Write(false)]
-        [Computed]
-        public string NombreCliente { get; set; }
 
         [Write(false)]
-        [Computed]
-        public string Colaborador { get; set; }
+        public Colaborador Colaborador { get; set; }
 
         // Tipo de venta :
         // 1 al contado
@@ -34,8 +32,7 @@ namespace SuMueble.Models
         public int IDTipoVenta { get; set; }
 
         [Write(false)]
-        [Computed]
-        public string TipoVenta { get; set; }
+        public TipoVenta TipoVenta { get; set; }
         public float Prima { get; set; }
         public int Cuotas { get; set; }
 
@@ -43,9 +40,27 @@ namespace SuMueble.Models
         [Computed]
         public DateTime FechaInicio { get; set; }
 
+        private float _totalVenta; 
         [Write(false)]
         [Computed]
-        public float TotalVenta { get; set; } 
+        public float TotalVenta 
+        { 
+            get 
+            {
+                float total = 0;
+                foreach (var item in DetallesVenta)
+                {
+                    total += item.SubTotal;
+                }
+                return total;
+            } 
+            set 
+            {
+                
+                 
+                _totalVenta = value;
+            } 
+        } 
         
         [Write(false)]
         [Computed]
@@ -59,15 +74,16 @@ namespace SuMueble.Models
         [Computed]
         public List<DetallesVentas> DetallesVenta { get; set; }
 
-        [Write(false)]
-        [Computed]
-        public Clientes Cliente { get; set; }
+        
 
 
         [Write(false)]
         [Computed]
         public List<Referencias> Referencias { get; set; }
-
+        public Ventas()
+        {
+            DetallesVenta = new List<DetallesVentas>(); 
+        }
 
     }
 }

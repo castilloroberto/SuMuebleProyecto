@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using SuMueble.Helpers;
 
 namespace SuMueble.Views
 {
@@ -29,27 +30,27 @@ namespace SuMueble.Views
 
         private void CargarColaborador(string dni)
         {
-            var colaborador = cControlador.GetColaborador(dni);
+            var colaborador = cControlador.Get(dni);
             txt_correo.Text = colaborador.Email;
             txt_dni.Text = colaborador.DNI;
             txt_nombre.Text = colaborador.Nombre;
             txt_rtn.Text = colaborador.RTN;
-            txt_telefono.Text = colaborador.Tel;
+            txt_telefono.Text = colaborador.Telefono;
             txt_direccion.Text = colaborador.Direccion;
             dtp_fechaNacimiento.Value = colaborador.FechaNacimiento;
-            dtp_contratoIniciado.Value = colaborador.Contratado;
+            dtp_contratoIniciado.Value = colaborador.FechaContratado;
             txt_clave.Text = colaborador.Clave;
-            if (colaborador.FinContrato == null)
+            if (colaborador.FechaFinContrato == null)
             {
                 txt_finContrato.Text = "No definido";
 
             } else
             {
-                txt_finContrato.Text = colaborador.FinContrato.Value.ToString();
+                txt_finContrato.Text = colaborador.FechaFinContrato.Value.ToString();
 
             }
 
-            cb_puesto.SelectedValue = colaborador.IDPuesto;
+            cb_puesto.SelectedValue = colaborador.PuestoFk;
             txt_dni.Enabled = false;
         }
 
@@ -135,7 +136,7 @@ namespace SuMueble.Views
         }
 
 
-        private Boolean email_bien_escrito(String email)
+        private bool email_bien_escrito(String email)
         {
             String expresion;
             expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
@@ -166,22 +167,20 @@ namespace SuMueble.Views
                 {
 
                     // enviar el insert 
-                    Colaboradores colaborador = new Colaboradores()
+                    Colaborador colaborador = new Colaborador()
                     {
-                        Clave = txt_clave.Text,
-                        Contratado = dtp_contratoIniciado.Value,
+                        Clave = Security.Encrypt(txt_clave.Text),
+                        FechaContratado = dtp_contratoIniciado.Value,
                         Direccion = txt_direccion.Text,
                         DNI = txt_dni.Text,
                         Email = txt_correo.Text,
                         FechaNacimiento = dtp_fechaNacimiento.Value,
                         Nombre = txt_nombre.Text,
                         RTN = txt_rtn.Text,
-                        Tel = txt_telefono.Text,
-                        FinContrato = null,
-                        IDPuesto = cb_puesto.SelectedValue.GetHashCode(),
-                        Estado = true
+                        Telefono = txt_telefono.Text,
+                        PuestoFk = cb_puesto.SelectedValue.GetHashCode(),
                     };
-                    cControlador.SaveColaborador(colaborador);
+                    cControlador.Save(colaborador);
                     MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -207,16 +206,16 @@ namespace SuMueble.Views
         {
             var puestos = pControlador.GetPuestos();
             
-            if (Menu.colaborador.IDPuesto != 1)
+            if (Menu.colaborador.PuestoFk != 1)
             {
                 puestos = puestos.Where( item => {
-                    return item.ID != 1;
+                    return item.IdPuesto != 1;
                 }).ToList();
             }
 
             cb_puesto.DataSource = puestos;
             cb_puesto.DisplayMember = "Puesto";
-            cb_puesto.ValueMember = "ID";
+            cb_puesto.ValueMember = "IdPuesto";
         }
 
         private void txt_dni_KeyPress(object sender, KeyPressEventArgs e)

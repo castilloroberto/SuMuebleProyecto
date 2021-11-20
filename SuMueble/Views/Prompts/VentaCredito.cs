@@ -31,7 +31,7 @@ namespace SuMueble.Views
         private void CargarDatos(string cod_factura)
         {
             var venta_ = ventacontrolador.GetVentaID(cod_factura);
-            txt_cliente.Text = venta_.NombreCliente;
+            txt_cliente.Text = venta_.Cliente.Nombre;
             txt_cuotasPendientes.Text = venta.Field<int>("Cuotas").ToString();
             var creditopendiente = pagoControlador.GetCreditoPendiente(int.Parse(cod_factura));
 

@@ -14,17 +14,24 @@ namespace SuMueble.Views
 {
     public partial class DevolucionesView : UserControl
     {
-        VentaController ventaController = new VentaController();
-        List<Ventas> ventas;
+        List<Devoluciones> Devoluciones = new List<Devoluciones>();
         public DevolucionesView()
         {
             InitializeComponent();
-            dvg_devoluciones.AutoGenerateColumns = false;
-
-            ventas = ventaController.ObtenerVenta().ToList();
-            dvg_devoluciones.DataSource = ventas;
             cb_filtro.SelectedIndex = 0;
+        }
+        void LoadDevoluciones()
+        {
+            var devolucionControlador = new DevolucionControlador();
 
+            Devoluciones = devolucionControlador.ObtenerDevoluciones().ToList();
+            LoadDGV(Devoluciones);
+        }
+
+        void LoadDGV(List<Devoluciones> devoluciones)
+        {
+            dvg_devoluciones.DataSource = null;
+            dvg_devoluciones.DataSource = devoluciones;
 
         }
         private string GetCell(int cell)
@@ -45,6 +52,8 @@ namespace SuMueble.Views
             int codigofactura_ = int.Parse(GetCell(0));
             if (codigofactura_ != 0)
             {
+
+                var ventaController = new VentaController();
                 var ventaGuid = ventaController.GetVentaDapper(codigofactura_);
            
                 Devolucion devolucion = new Devolucion(ventaGuid);
@@ -65,15 +74,14 @@ namespace SuMueble.Views
         {
             string buscar = txt_buscarCliente.Text.ToLower();
 
-            List<Ventas> filtrados = ventas.Where<Ventas>(x => {
+            var filtrados = Devoluciones.Where(devolucion => {
 
-                return x.NombreCliente.ToLower().StartsWith(buscar);
+                return devolucion.Motivo.ToLower().StartsWith(buscar);
 
 
             }).ToList();
 
-            dvg_devoluciones.DataSource = null;
-            dvg_devoluciones.DataSource = filtrados;
+            LoadDGV(filtrados);
         }
 
         private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,20 +90,18 @@ namespace SuMueble.Views
 
             if (tipoVenta != "Todo")
             {
-                List<Ventas> filtrados = ventas.Where<Ventas>(x =>
+                var filtrados = Devoluciones.Where(devolucion =>
                 {
 
-                    return x.TipoVenta == tipoVenta;
-
+                    //return devolucion. == tipoVenta;
+                    return true;
                 }).ToList();
 
-                dvg_devoluciones.DataSource = null;
-                dvg_devoluciones.DataSource = filtrados;
+                LoadDGV(filtrados);
             }
             else
             {
-                dvg_devoluciones.DataSource = null;
-                dvg_devoluciones.DataSource = ventas;
+                LoadDGV(Devoluciones);
             }
         }
 

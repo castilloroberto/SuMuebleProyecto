@@ -9,34 +9,33 @@ namespace SuMueble.Models
     public class DetallesVentas
     {
 
-        [ExplicitKey]
-        public Guid IDVenta { get; set; }
-        public int IDProducto { get; set; }
+        [Key]
+        public int VentaFk { get; set; }
+        public int ProductoFk { get; set; }
         public float PrecioVenta { get; set; }
         public int Cantidad { get; set; }
-        public int cantidadDevuelta { get; set; }
-        public float descuento { get; set; }
+        public float Descuento { get; set; }
 
 
+        private float _subTotal;
         // propiedades que no forman parte de la tabla 
         [Write(false)]
-        [Computed]
         public float SubTotal 
         {
-            get { return PrecioVenta * Cantidad; } 
-             
+            get { return (PrecioVenta * Cantidad) - Descuento; }
+            set 
+            {
+                _subTotal = value;
+            }
         }
 
+        
         [Write(false)]
-        [Computed]
-        public string Producto { get; set; }
+        public Productos Producto { get; set; }
+
+       
 
         [Write(false)]
-        [Computed]
-        public float PrecioProducto { get; set; }
-
-        [Write(false)]
-        [Computed]
         public string Info 
         {
             get { return $"*{Cantidad} *{Producto}  *Subtotal: {SubTotal}"; }

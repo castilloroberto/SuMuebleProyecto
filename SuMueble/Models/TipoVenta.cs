@@ -5,16 +5,16 @@ using System.Text;
 
 namespace SuMueble.Models
 {
-    [Table("Puestos")]
-    public class Puestos
+    [Table("TiposVentas")]
+    public class TipoVenta
     {
         [Key]
-        public int IdPuesto { get; set; }
-        public string Puesto { get; set; }
+        public int ID { get; set; }
+        public string Tipo { get; set; }
 
         public override string ToString()
         {
-            return Puesto;
+            return Tipo;
         }
     }
 }

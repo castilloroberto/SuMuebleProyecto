@@ -370,7 +370,7 @@ namespace SuMueble.Views
             this.MinimizeBox = false;
             this.Name = "AgregarEditarColaboradores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AgregarEditarColaboradores";
+            this.Text = "Colaboradores";
             this.ResumeLayout(false);
             this.PerformLayout();
 
