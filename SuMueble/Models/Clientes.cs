@@ -8,16 +8,16 @@ namespace SuMueble.Models
     [Table("Clientes")]
     public class Clientes
     {
-        
 
-        // espesificar que es una llave creada en el programa
-        [ExplicitKey]
+        [Key]
+        public int IdCliente { get; set; }
+      
         public string DNI { get; set; }
         public string RTN { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }
         public string Email { get; set; }
-        public string Tel { get; set; }
+        public string Telefono { get; set; }
 
         [Write(false)]
         public List<Ventas> Compras { get; set; }

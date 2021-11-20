@@ -26,14 +26,14 @@ namespace SuMueble.Views
         private void ValidarRol() 
         {
             // venta
-            if (colaborador.PuestoFk == 2)
+            if (colaborador.PuestoFk == 3)
             {
                 btn_inventario.Visible = false;
                 btn_colaboradores.Visible = false;
             }
 
             // bodega
-            if (colaborador.PuestoFk == 3)
+            if (colaborador.PuestoFk == 4)
             {
                 btn_ventas.Visible = false;
                 btn_ventasCredito.Visible = false;
@@ -42,7 +42,7 @@ namespace SuMueble.Views
                 btn_colaboradores.Visible = false;
             }
             // secretaria
-            if (colaborador.PuestoFk == 4)
+            if (colaborador.PuestoFk == 2)
             {
                 btn_inventario.Visible = false;
                 btn_devoluciones.Visible = false;
@@ -50,8 +50,7 @@ namespace SuMueble.Views
                 btn_ventasCredito.Visible = false;
             }
             // gerente lo vee todo
-            //ID = 1
-            //Holi
+            // ID = 1
         }
         
         private void HideAll()

@@ -19,7 +19,6 @@ namespace SuMueble.Models
 
         public string Nombre { get; set; }
 
-        public string Clave { get; set; }
 
 
         [Write(false)]
@@ -38,6 +37,7 @@ namespace SuMueble.Models
         public Nullable<DateTime> FechaFinContrato { get; set; }
 
         public bool Activo { get; set; }
+        public string Clave { get; set; }
         public int PuestoFk { get; set; }
 
         public Colaborador()

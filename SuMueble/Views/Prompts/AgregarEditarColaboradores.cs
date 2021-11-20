@@ -215,7 +215,7 @@ namespace SuMueble.Views
 
             cb_puesto.DataSource = puestos;
             cb_puesto.DisplayMember = "Puesto";
-            cb_puesto.ValueMember = "ID";
+            cb_puesto.ValueMember = "IdPuesto";
         }
 
         private void txt_dni_KeyPress(object sender, KeyPressEventArgs e)
