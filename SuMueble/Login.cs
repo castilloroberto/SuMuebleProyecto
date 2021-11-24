@@ -23,40 +23,51 @@ namespace SuMueble.Views
         {
             colaborador.Check();
         }
+        void notValidUser(string msg = "DNI o Clave de Usuario Invalido")
+        {
+
+            MessageBox.Show(msg, "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            txt_user.Text = "";
+            txt_password.Text = "";
+            txt_user.Focus();
+        }
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
             string dni = txt_user.Text;
             string password = txt_password.Text;
-
+            colaborador = new Colaborador();
             colaborador = colaborador.Get(dni);
 
-            if (colaborador != null)
+            if (colaborador == null)
+            {
+                notValidUser();
+                return; 
+                
+            }
+            if (!colaborador.Activo)
+            {
+                notValidUser("El Colaborador esta inactivo");
+                return;
+                
+
+            }
+
+            bool valid = Security.Verify(password, colaborador.Clave);
+            if (!valid)
             {
 
-                if (colaborador.Activo)
-                {
-                    bool valid = Security.Verify(password, colaborador.Clave);
-                    if (valid)
-                    {
-                        Menu menu = new Menu(colaborador);
-                        menu.Show();
-                        this.Hide();
+                notValidUser();
+                return;
 
-                    }
-                  
-                }
-                else {
-                    MessageBox.Show("Colaborador desactivado", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   
-                }
             }
-            else
-                MessageBox.Show("DNI o Clave de Usuario Invalido", "Contrasena Incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            Menu menu = new Menu(colaborador);
+            menu.Show();
+            this.Hide();
+           
+
             
-            txt_user.Text = "";
-            txt_password.Text = "";
-            txt_user.Focus();
 
         }
 

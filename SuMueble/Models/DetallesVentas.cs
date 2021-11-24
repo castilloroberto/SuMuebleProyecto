@@ -1,4 +1,5 @@
 ﻿using Dapper.Contrib.Extensions;
+using SuMueble.Controller;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Text;
 namespace SuMueble.Models
 {
     [Table("DetallesVentas")]
-    public class DetallesVentas
+    public class DetallesVentas:DetalleVentaController
     {
 
         [Key]
@@ -31,7 +32,7 @@ namespace SuMueble.Models
 
         
         [Write(false)]
-        public Productos Producto { get; set; }
+        public Producto Producto { get; set; }
 
        
 

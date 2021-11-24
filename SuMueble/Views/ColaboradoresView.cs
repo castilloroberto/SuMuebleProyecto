@@ -98,5 +98,11 @@ namespace SuMueble.Views
         {
             txt_busqueda.Text = txt_busqueda.Text.Trim();
         }
+
+        private void btn_ayuda_Click(object sender, EventArgs e)
+        {
+            var manual = new Manual("colaboradores");
+            manual.Show();
+        }
     }
 }

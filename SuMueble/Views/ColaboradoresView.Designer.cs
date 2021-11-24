@@ -34,6 +34,7 @@
             this.dgv_colaboradores = new System.Windows.Forms.DataGridView();
             this.txt_busqueda = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_ayuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_colaboradores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,11 +130,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Colaborador:";
             // 
+            // btn_ayuda
+            // 
+            this.btn_ayuda.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ayuda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_ayuda.Location = new System.Drawing.Point(1380, 37);
+            this.btn_ayuda.Name = "btn_ayuda";
+            this.btn_ayuda.Size = new System.Drawing.Size(94, 29);
+            this.btn_ayuda.TabIndex = 49;
+            this.btn_ayuda.Text = "Ayuda";
+            this.btn_ayuda.UseVisualStyleBackColor = false;
+            this.btn_ayuda.Click += new System.EventHandler(this.btn_ayuda_Click);
+            // 
             // ColaboradoresView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btn_ayuda);
             this.Controls.Add(this.dgv_colaboradores);
             this.Controls.Add(this.btn_terminarContrato);
             this.Controls.Add(this.btn_nuevo);
@@ -156,5 +170,6 @@
         private System.Windows.Forms.Button btn_terminarContrato;
         private System.Windows.Forms.Button btn_nuevo;
         private System.Windows.Forms.Button btn_actualizar;
+        private System.Windows.Forms.Button btn_ayuda;
     }
 }

@@ -23,7 +23,6 @@ namespace SuMueble.Helpers
             string[] saltAndPassword = encryptedPassword.Split(":");
             var saltBytes = Convert.FromBase64String(saltAndPassword[0]);
             var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, saltBytes, 10000);
-
             return saltAndPassword[1] == Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256));
         }
     }

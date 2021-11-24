@@ -5,18 +5,18 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
+using SuMueble.Views;
 
 namespace Ventana_de_Inventarios
 {
     public partial class InventariosView : UserControl
     {
-        CategoriaController categoriaController = new CategoriaController();
-        ProductoControlador pc = new ProductoControlador();
-        List<Productos> productos;
+        Categorias Categoria = new Categorias();
+        Producto Producto = new Producto();
+        List<Producto> Productos;
         public InventariosView()
         {
             InitializeComponent();
-            dgv_Productos.AutoGenerateColumns = false;
             CargarDatos();
             cb_categorias.ValueMember = "IdCategoria";
             cb_categorias.DisplayMember = "Categoria";
@@ -25,9 +25,9 @@ namespace Ventana_de_Inventarios
 
         private void CargarDatos()
         {
-            cb_categorias.DataSource = categoriaController.GetCategorias();
-            productos = pc.GetProductos().ToList();
-            dgv_Productos.DataSource = productos;
+            cb_categorias.DataSource = Categoria.GetAll();
+            Productos = Producto.IncludeEstado();
+            dgv_Productos.DataSource = Productos;
 
         }
 
@@ -70,9 +70,9 @@ namespace Ventana_de_Inventarios
         {
             string buscar = txt_buscar.Text.ToLower();
 
-            List<Productos> filtrados = productos.Where<Productos>(x => {
+            List<Producto> filtrados = Productos.Where<Producto>(x => {
 
-                return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar) ;
+                return x.NombreProducto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar) ;
 
 
             }).ToList();
@@ -95,10 +95,10 @@ namespace Ventana_de_Inventarios
 
                 if (idCategoria != 1)
                 {
-                    List<Productos> filtrados = productos.Where<Productos>(x =>
+                    List<Producto> filtrados = Productos.Where<Producto>(x =>
                     {
 
-                        return x.IDCategoria == idCategoria;
+                        return x.CategoriaFk == idCategoria;
 
                     }).ToList();
 
@@ -106,7 +106,7 @@ namespace Ventana_de_Inventarios
                     dgv_Productos.DataSource = filtrados;
                 } else {
                     dgv_Productos.DataSource = null;
-                    dgv_Productos.DataSource = productos;
+                    dgv_Productos.DataSource = Productos;
                 }
 
                 
@@ -119,6 +119,12 @@ namespace Ventana_de_Inventarios
         private void txt_buscar_Leave(object sender, EventArgs e)
         {
             txt_buscar.Text = txt_buscar.Text.Trim();
+        }
+
+        private void btn_ayuda_Click(object sender, EventArgs e)
+        {
+            var manual = new Manual("inventario");
+            manual.Show();
         }
     }
 }

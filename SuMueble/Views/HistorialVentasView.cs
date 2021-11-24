@@ -41,22 +41,22 @@ namespace SuMueble.Views
 
         }
 
-        private string GetCell(int cell)
+        private dynamic GetCell(int cell)
         {
             if (dvg_ventas.Rows.Count > 0)
             {
                 int index = dvg_ventas.CurrentRow.Index;
-                return dvg_ventas.Rows[index].Cells[cell].Value.ToString();
+                return dvg_ventas.Rows[index].Cells[cell].Value;
 
             }
             else
-                return "0";
+                return 0;
         }
 
         private void btn_verDetalle_Click(object sender, EventArgs e)
         {
-            var codigofactura = GetCell(0);
-            if (codigofactura != "0")
+            int codigofactura = GetCell(0);
+            if (codigofactura > 0)
             {
                 var ventaCredito = new VentaCredito(codigofactura);
                 var ventascontado = new Ventascontado(codigofactura);
@@ -116,6 +116,12 @@ namespace SuMueble.Views
         private void txt_BuscarCliente_Leave(object sender, EventArgs e)
         {
             txt_BuscarCliente.Text = txt_BuscarCliente.Text.Trim();
+        }
+
+        private void btn_ayuda_Click(object sender, EventArgs e)
+        {
+            var manual = new Manual("historialventas");
+            manual.Show();
         }
     }
 }

@@ -35,12 +35,8 @@ namespace Ventana_de_Inventarios
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_buscar = new System.Windows.Forms.TextBox();
+            this.btn_ayuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,16 +111,9 @@ namespace Ventana_de_Inventarios
             // 
             this.dgv_Productos.AllowUserToAddRows = false;
             this.dgv_Productos.AllowUserToDeleteRows = false;
-            this.dgv_Productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Productos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.codigo,
-            this.nombreArticulo,
-            this.precioUnit,
-            this.existencia});
             this.dgv_Productos.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgv_Productos.Location = new System.Drawing.Point(121, 297);
             this.dgv_Productos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -135,46 +124,6 @@ namespace Ventana_de_Inventarios
             this.dgv_Productos.Size = new System.Drawing.Size(1201, 377);
             this.dgv_Productos.TabIndex = 5;
             this.dgv_Productos.Text = "dataGridView1";
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "Codigo";
-            this.codigo.HeaderText = "Codigo";
-            this.codigo.MinimumWidth = 6;
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            // 
-            // nombreArticulo
-            // 
-            this.nombreArticulo.DataPropertyName = "Producto";
-            this.nombreArticulo.HeaderText = "Nombre Articulo";
-            this.nombreArticulo.MinimumWidth = 6;
-            this.nombreArticulo.Name = "nombreArticulo";
-            this.nombreArticulo.ReadOnly = true;
-            // 
-            // precioUnit
-            // 
-            this.precioUnit.DataPropertyName = "PrecioUnitario";
-            this.precioUnit.HeaderText = "Precio Unitario";
-            this.precioUnit.MinimumWidth = 6;
-            this.precioUnit.Name = "precioUnit";
-            this.precioUnit.ReadOnly = true;
-            // 
-            // existencia
-            // 
-            this.existencia.DataPropertyName = "Existencias";
-            this.existencia.HeaderText = "Cantidad Disponible";
-            this.existencia.MinimumWidth = 6;
-            this.existencia.Name = "existencia";
-            this.existencia.ReadOnly = true;
             // 
             // txt_buscar
             // 
@@ -188,10 +137,23 @@ namespace Ventana_de_Inventarios
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_metodo);
             this.txt_buscar.Leave += new System.EventHandler(this.txt_buscar_Leave);
             // 
+            // btn_ayuda
+            // 
+            this.btn_ayuda.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ayuda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_ayuda.Location = new System.Drawing.Point(1398, 30);
+            this.btn_ayuda.Name = "btn_ayuda";
+            this.btn_ayuda.Size = new System.Drawing.Size(94, 29);
+            this.btn_ayuda.TabIndex = 49;
+            this.btn_ayuda.Text = "Ayuda";
+            this.btn_ayuda.UseVisualStyleBackColor = false;
+            this.btn_ayuda.Click += new System.EventHandler(this.btn_ayuda_Click);
+            // 
             // InventariosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_ayuda);
             this.Controls.Add(this.txt_buscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -218,10 +180,6 @@ namespace Ventana_de_Inventarios
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.DataGridView dgv_Productos;
         private System.Windows.Forms.TextBox txt_buscar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioUnit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn existencia;
+        private System.Windows.Forms.Button btn_ayuda;
     }
 }

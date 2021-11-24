@@ -12,36 +12,35 @@ namespace SuMueble
 {
     public partial class FormularioInventarios : Form
     {
-        private int IDglobal = 0;
-        ProductoControlador productoControlador = new ProductoControlador();
-        CategoriaController categoriaController = new CategoriaController();
+        private int IdProducto = 0;
+        Categorias Categorias = new Categorias();
 
-
-        public FormularioInventarios(int ID = 0)
+        public FormularioInventarios(int idProducto = 0)
         {
             InitializeComponent();
-            cmb_Categoria.DataSource = categoriaController.GetCategorias();
+            cmb_Categoria.DataSource = Categorias.GetAll();
             cmb_Categoria.DisplayMember = "Categoria";
             cmb_Categoria.ValueMember = "IdCategoria";
 
-            if (ID != 0)
+            if (idProducto != 0)
             {
-                cargarDatos(ID);
+                cargarDatos(idProducto);
                 txt_Existencia.Enabled = false;
                 txt_Precio.Enabled = false;
             }
-            IDglobal = ID;
+            IdProducto = idProducto;
         }
 
-        private void cargarDatos(int ID)
+        private void cargarDatos(int idProducto)
         {
 
-            Productos p = productoControlador.GetProducto(ID);
+            Producto p = new Producto();
+            p = p.Get(idProducto);
             txt_Codigo.Text = p.Codigo;
             txt_Existencia.Value = p.Existencias;
-            txt_Nombre.Text = p.Producto.ToString();
+            txt_Nombre.Text = p.NombreProducto.ToString();
             txt_Precio.Value = (decimal)p.PrecioUnitario;
-            cmb_Categoria.SelectedValue = p.IDCategoria;
+            cmb_Categoria.SelectedValue = p.CategoriaFk;
             txt_Codigo.ReadOnly = true;
 
         }
@@ -85,17 +84,18 @@ namespace SuMueble
             }
             else
             {
-                Productos p = new Productos()
+                Producto p = new Producto()
                 {
-                    ID = IDglobal,
+                    IdProducto = IdProducto,
                     Codigo = txt_Codigo.Text.Trim(),
                     Existencias = (int)txt_Existencia.Value,
-                    Producto = txt_Nombre.Text.Trim(),
-                    PrecioUnitario = (float)txt_Precio.Value,
-                    IDCategoria = cmb_Categoria.SelectedValue.GetHashCode(),
-                    ISV = (float)txt_impuesto.Value
+                    NombreProducto = txt_Nombre.Text.Trim(),
+                    PrecioUnitario = txt_Precio.Value,
+                    CategoriaFk = cmb_Categoria.SelectedValue.GetHashCode(),
+                    ISV = txt_impuesto.Value,
+                    EstadoFk = cb_prod_estado.SelectedIndex+1
                 };
-                productoControlador.SaveProductos(p);
+                p.Save(p);
                 MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }

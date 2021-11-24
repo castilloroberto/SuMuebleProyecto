@@ -10,9 +10,10 @@ using System.Linq;
 
 namespace SuMueble.Controller
 {
-    public class DetalleVentaController : DBConnection
+    public class DetalleVentaController : BasicController<DetallesVentas>
     {
-        public bool InsertDetallesVenta(List<DetallesVentas> detallesVenta)
+
+        public bool Insert(List<DetallesVentas> detallesVenta)
         {
             using (var db = GetConnection)
             {
@@ -24,42 +25,10 @@ namespace SuMueble.Controller
 
         }
 
-        public DataTable GetDetalleVenta(int cod_factura)
-        {
-            using (var db = GetConnection)
-            {
-                db.Open();
-                SqlCommand command = new SqlCommand("Select * from v_venta1 where CodigoFactura = @cod_factura", db);
-                command.Parameters.AddWithValue("@cod_factura", cod_factura);
-                SqlDataReader reader = command.ExecuteReader();
-                DataTable resultado = new DataTable();
+       
 
-                resultado.Load(reader);
+       
 
-                reader.Close();
-
-                return resultado;
-
-
-            }
-        }
-
-        public List<SQLViewVentas> GetDetalles(Guid IDVenta)
-        {
-            using (var db = GetConnection)
-            {
-
-                string sql = @"sp_SQLViewVentas @IDVenta";
-                return db.Query<SQLViewVentas>(sql, new { IDVenta = IDVenta }).ToList();
-            }
-        }
-
-        public List<DetallesVentas> ObtenerDetalles()
-        {
-            using (var db = GetConnection)
-            {
-                return db.GetAll<DetallesVentas>().ToList();
-            }
-        }
+       
     }
 }

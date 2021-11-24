@@ -7,13 +7,13 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
+using System.Linq;
 
 namespace SuMueble.Controller
 {
-    public class VentaController : DBConnection
+    public class VentaController : BasicController<Ventas>
     {
-        ReferenciaController rController = new ReferenciaController();
+        Referencias Referencia = new Referencias();
 
         public List<Ventas> IncludeAll()
         {
@@ -25,24 +25,24 @@ namespace SuMueble.Controller
 
                 var list = ventas.ConvertAll(venta =>
                 {
-                    venta.Cliente = db.Get<Clientes>(venta.IDCliente);
-                    venta.Colaborador = db.Get<Colaborador>(venta.IDColaborador);
-                    venta.TipoVenta = db.Get<TipoVenta>(venta.IDTipoVenta);
-                    venta.DetallesVenta = db.Query<DetallesVentas>("select * from DetallesVentas where idventa = @id", new { id = venta.ID }).ToList();
+                    venta.Cliente = db.Get<Clientes>(venta.ClienteFK);
+                    venta.Colaborador = db.Get<Colaborador>(venta.ColaboradorFk);
+                    venta.TipoVenta = db.Get<TipoVenta>(venta.TipoVentaFk);
+                    venta.DetallesVenta = db.Query<DetallesVentas>("select * from DetallesVentas where idventa = @id", new { id = venta.IdVenta }).ToList();
                     return venta;
                 });
                 return list;
             }
         }
-        public List<Ventas> IncludeDetalles(string clienteId = "" )
+        public List<Ventas> IncludeDetalles(int clienteId = 0 )
         {
             using (var db = GetConnection)
             {
                 List<Ventas> ventas = new List<Ventas>(); 
-                if (clienteId != "")
+                if (clienteId > 0)
                 {
                     string sql = @"
-                            select * from ventas where idcliente = @id
+                            select * from ventas where clientefk = @id
                         ";
                     ventas = db.Query<Ventas>(sql, new { id = clienteId }).ToList();
 
@@ -55,7 +55,7 @@ namespace SuMueble.Controller
 
                 var list = ventas.ConvertAll(venta => 
                 {
-                    venta.DetallesVenta = db.Query<DetallesVentas>("select * from DetallesVentas where idventa = @id", new { id = venta.ID }).ToList();
+                    venta.DetallesVenta = db.Query<DetallesVentas>("select * from DetallesVentas where idventa = @id", new { id = venta.IdVenta }).ToList();
                     return venta;
                 });
                 return list;
@@ -63,112 +63,45 @@ namespace SuMueble.Controller
 
         }
 
-        private bool InsertVenta(Ventas v)
+       
+
+      
+
+      
+
+      
+
+        public bool Save(Ventas v)
         {
-            using (var db = GetConnection)
+
+
+            long idCliente = v.Cliente.Save(v.Cliente);
+
+            if (idCliente > 0)
             {
-                return db.Insert(v) > 0;
-            }
-        }
-
-        internal DataRow GetVenta()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Guid GetVentaDapper(int CodigoFactura)
-        {
-            using (var db = GetConnection)
-            {
-                string sql = "SELECT ID FROM Ventas WHERE CodigoFactura = @CodigoFactura";
-                return db.QuerySingle<Guid>(sql, new { CodigoFactura }); 
-            }
-        }
-
-        public Ventas GetVentaByGuid(Guid guid)
-        {
-            using (var db = GetConnection)
-            {
-                return db.Get<Ventas>(guid);
-            }
-        }
-
-        public bool SaveVenta(Ventas v)
-        {
-            var clienteControlador = new ClienteControlador();
-
-            var detalleVentaController = new DetalleVentaController();
-
-            bool ok = clienteControlador.SaveCliente(v.Cliente);
-
-            if (ok == true)
-            {
-                if (InsertVenta(v))
+                v.ClienteFK = (int)idCliente;
+                int idVenta = (int)Insert(v);
+                if (idVenta > 0)
                 {
-                    if(v.Referencias != null)
-                        ok = rController.InsertReferencia(v.Referencias);    
+                    Referencia.InsertAll(v.Referencias);    
                         
-                    ok = detalleVentaController.InsertDetallesVenta(v.DetallesVenta);
+                    return v.DetallesVenta[0].Insert(v.DetallesVenta);
 
                 }
 
             }
-            
-            return ok;
+            return false;
+
         }
 
-        public IEnumerable<Ventas> ObtenerVenta()
-        {
-            string sql = @"select * from Ventas order by CodigoFactura";
-            using (var db = GetConnection)
-            {       
-                return db.Query<Ventas>(sql);
-            }       
-        }
 
-        public Ventas GetVentaID(string cod_factura)
-        {
-            string sql = @$"select * from v_ventasResumen where CodigoFactura = {cod_factura} order by CodigoFactura";
-            using (var db = GetConnection)
-            {
-                return db.QueryFirst<Ventas>(sql);
-            }
-        }
-
-        public DataRow GetVenta(string cod_factura)
+        public List<Ventas> GetCreditosPendientes()
         {
             using (var db = GetConnection)
             {
-                db.Open();
-                SqlCommand command = new SqlCommand("Select * from Ventas where CodigoFactura = @CodigoFactura", db);
-                command.Parameters.AddWithValue("@CodigoFactura", cod_factura);
-                SqlDataReader reader = command.ExecuteReader();
-                DataTable resultado = new DataTable();
+                string sql = "Select * from ventas where TipoVentaFk = 2";
 
-                resultado.Load(reader);
-
-                reader.Close();
-
-                return resultado.AsEnumerable().First();
-
-
-            }
-        }
-
-        public DataTable GetCreditosPendientes()
-        {
-            using (var db = GetConnection)
-            {
-                db.Open();
-                SqlCommand command = new SqlCommand("Select * from ventas where IDTipoVenta = 2 order by CodigoFactura", db);
-                SqlDataReader reader = command.ExecuteReader();
-                DataTable resultado = new DataTable();
-               
-                resultado.Load(reader);
-
-                reader.Close();
-
-                return resultado; 
+                return db.Query<Ventas>(sql).ToList();
 
 
             }

@@ -83,8 +83,7 @@ namespace SuMueble.Views.Prompts
                     Direccion = txtDireccion.Text,
                     DNIReferencia = txtDNIReferencia.Text,
                     Nombre = txt_nombreCliente.Text,
-                    Tel = txt_telefono.Text,
-                    IDVenta = VentaCreditoView._IDVenta,
+                    Telefono = txt_telefono.Text,
                 };
                 VentaCreditoView.listaReferencias.Add(referencias);
                 MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);

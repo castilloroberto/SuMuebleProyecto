@@ -60,7 +60,7 @@ namespace SuMueble.Views
             if (txt_dniCliente.Text.Length == 13)
             {
                 ClearCliente();
-                Clientes cliente = clienteControlador.GetCliente(txt_dniCliente.Text);
+                Clientes cliente = clienteControlador.Get(1);//txt_dniCliente.Text
                 if (cliente == null)
                 {
                     ActivarIndicadores();
@@ -84,7 +84,6 @@ namespace SuMueble.Views
         private void limpiarventa()
         {
             txt_dniCliente.Clear(); ;
-            _IDVenta = Guid.NewGuid();
             listaProductos.Clear();
             listaReferencias.Clear();
             _Total = 0;
@@ -131,13 +130,12 @@ namespace SuMueble.Views
                 };
                 _venta = new Ventas()
                 {
-                    ID = _IDVenta,
                     Cliente = cliente,
-                    IDCliente = cliente.DNI,
+                    ClienteFK = cliente.IdCliente,
                     DetallesVenta = listaProductos,
-                    IDColaborador = Menu.colaborador.DNI,
+                    ColaboradorFk = Menu.colaborador.IdColaborador,
                     Referencias = listaReferencias,
-                    IDTipoVenta = 2,
+                    TipoVentaFk = 2,
                     TotalVenta = _Total
                 };
 
@@ -271,6 +269,13 @@ namespace SuMueble.Views
         private void txt_rtnCliente_Leave(object sender, EventArgs e)
         {
             txt_rtnCliente.Text = txt_rtnCliente.Text.Trim();
+        }
+
+        private void btn_ayuda_Click(object sender, EventArgs e)
+        {
+            var manual = new Manual("ventascredito");
+            manual.Show();
+            
         }
     }
 }

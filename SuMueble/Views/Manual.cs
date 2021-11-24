@@ -10,7 +10,7 @@ namespace SuMueble.Views
 {
     public partial class Manual : Form
     {
-        public Manual(string seccion ="ventas")
+        public Manual(string seccion = "ventascontado")
         {
             InitializeComponent();
             string url = "https://robert-virtual.github.io/web-manual/#"+seccion;

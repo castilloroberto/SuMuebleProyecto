@@ -40,6 +40,7 @@ namespace SuMueble.Views
             this.label3 = new System.Windows.Forms.Label();
             this.total_clientes = new System.Windows.Forms.Label();
             this.btn_ver_todos = new System.Windows.Forms.Button();
+            this.btn_ayuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.n_monto_minimo)).BeginInit();
             this.SuspendLayout();
@@ -150,10 +151,23 @@ namespace SuMueble.Views
             this.btn_ver_todos.UseVisualStyleBackColor = true;
             this.btn_ver_todos.Click += new System.EventHandler(this.btn_ver_todos_Click);
             // 
+            // btn_ayuda
+            // 
+            this.btn_ayuda.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ayuda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_ayuda.Location = new System.Drawing.Point(1393, 25);
+            this.btn_ayuda.Name = "btn_ayuda";
+            this.btn_ayuda.Size = new System.Drawing.Size(94, 29);
+            this.btn_ayuda.TabIndex = 49;
+            this.btn_ayuda.Text = "Ayuda";
+            this.btn_ayuda.UseVisualStyleBackColor = false;
+            this.btn_ayuda.Click += new System.EventHandler(this.btn_ayuda_Click);
+            // 
             // ClientesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_ayuda);
             this.Controls.Add(this.total_clientes);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtp_cliente_desde);
@@ -187,5 +201,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label total_clientes;
         private System.Windows.Forms.Button btn_ver_todos;
+        private System.Windows.Forms.Button btn_ayuda;
     }
 }
