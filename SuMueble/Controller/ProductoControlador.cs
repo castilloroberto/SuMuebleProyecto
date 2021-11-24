@@ -1,70 +1,43 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using SuMueble.Models;
 using SuMueble.Views;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace SuMueble.Controller
 {
-    public class ProductoControlador : DBConnection
+    public class ProductoControlador : BasicController<Producto>
     {
-        public IEnumerable<Productos> GetProductos()
+
+        public List<Producto> IncludeEstado()
         {
-            using (var DB = GetConnection)
+            using (var db = GetConnection)
+            {
+                string sql = "select * from productos";
+               var prods = db.Query<Producto>(sql).ToList();
+                var res = prods.ConvertAll(p => 
+                {
+                    p.Estado = p.Estado.Get(p.EstadoFk);
+                    return p;
+                });
+                return res;
+            }
+        }
+        public bool Save(Producto producto)
+        {
+           if (producto.IdProducto == 0)
             {
                 
-                return DB.GetAll<Productos>();
-
-            }
-        }
-
-        private bool InsertProductos(Productos producto)
-        {
-            using (var DB = GetConnection)
-            {
-
-                return DB.Insert(producto) > 0;
-
-            }
-        }
-
-        internal object GetProducto()
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool UpdateProductos(Productos producto)
-        {
-            using (var DB = GetConnection)
-            {
-
-                return DB.Update(producto);
-
-            }
-        }
-
-        public bool SaveProductos(Productos producto)
-        {
-           if (producto.ID == 0)
-            {
-                
-               return InsertProductos(producto);
+               return Insert(producto) > 0;
             }
             else
             {
-               return UpdateProductos(producto);
+               return Update(producto);
             }
         }
 
-        public Productos GetProducto(int ID)
-        {
-            using (var DB = GetConnection)
-            {
-
-                return DB.Get<Productos>(ID);
-
-            }
-        }
+        
     }
 }

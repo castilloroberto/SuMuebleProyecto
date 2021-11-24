@@ -25,11 +25,11 @@ namespace SuMueble.Views.Prompts
         {
             // propiedad estatica VentaCreditoView
             VentaCreditoView._venta.Cuotas = (int)txt_cuotas.Value;
-            VentaCreditoView._venta.FechaFin = dtp_fechaFin.Value;
+            VentaCreditoView._venta.FechaFinCredito = dtp_fechaFin.Value;
             VentaCreditoView._venta.Prima = (float)txt_prima.Value;
 
 
-            bool ok = vcontroller.SaveVenta(VentaCreditoView._venta);
+            bool ok = vcontroller.Save(VentaCreditoView._venta);
             if (ok) 
             {
                 MessageBox.Show(string.Format(msg,(float)txt_prima.Value), "Imprimer Recibo", MessageBoxButtons.OK, MessageBoxIcon.Information);

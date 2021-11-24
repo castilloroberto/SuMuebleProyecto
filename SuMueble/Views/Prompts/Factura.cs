@@ -39,7 +39,6 @@ namespace SuMueble.Views.Prompts
 
                 txt_descuentos.Text = string.Format("Descuentos: {0:C2}", descuentos);
 
-                CodigoFactura = ventaController.GetVentaByGuid(venta.ID).CodigoFactura;
 
                 cod_factura.Text = string.Format("Factura Nº : {0}", CodigoFactura);
                 nombre_cliente.Text = string.Format("Nombre: {0}", venta.Cliente.Nombre);

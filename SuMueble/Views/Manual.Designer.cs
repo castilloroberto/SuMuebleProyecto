@@ -40,18 +40,19 @@ namespace SuMueble.Views
             this.webView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webView.Location = new System.Drawing.Point(0, 0);
             this.webView.Name = "webView";
-            this.webView.Size = new System.Drawing.Size(800, 450);
+            this.webView.Size = new System.Drawing.Size(1283, 753);
             this.webView.TabIndex = 0;
             this.webView.ZoomFactor = 1D;
             // 
-            // Manueal
+            // Manual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1283, 753);
             this.Controls.Add(this.webView);
-            this.Name = "Manueal";
-            this.Text = "Manueal";
+            this.Name = "Manual";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Manual";
             ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
             this.ResumeLayout(false);
 

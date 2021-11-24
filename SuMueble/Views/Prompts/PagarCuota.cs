@@ -16,54 +16,23 @@ namespace SuMueble.Views
     public partial class PagarCuota : Form
     {
 
-        VentaController ventaController = new VentaController();
-        DetalleVentaController detalleControllador = new DetalleVentaController();
-        PagoControlador PagoControlador = new PagoControlador();
-        Guid IDVenta;
-        private string codFactura;
-        DataTable DetalleVenta;
-        Ventas venta_;
+        
+       
+        Ventas Venta = new Ventas();
 
 
-        public PagarCuota(string cod_factura)
+        public PagarCuota(int idVenta)
         {
             InitializeComponent();
 
-            var venta = ventaController.GetVenta(cod_factura);
-            DetalleVenta = detalleControllador.GetDetalleVenta(int.Parse(cod_factura));
-            codFactura = cod_factura;
-            cargarDatos(venta);
+            Venta = Venta.Get(idVenta);
             txtDNIColaborador.Text = Menu.colaborador.DNI;
         }
 
 
         private void cargarDatos(DataRow venta)
         {
-            IDVenta = venta.Field<Guid>("ID");
        
-            txt_cuotas_pendientes.Text = venta.Field<int>("Cuotas").ToString();
-
-            
-
-            dtp_fechaFin.Value = venta.Field<DateTime>("FechaFin");
-
-
-            venta_ = ventaController.GetVentaID(codFactura);
-            l_cliente.Text = venta_.Cliente.Nombre;
-
-            txtProducto.Text = DetalleVenta.Rows[0].Field<string>("Producto");
-            var creditopendiente = PagoControlador.GetCreditoPendiente(int.Parse(codFactura));
-
-            if (creditopendiente.Rows.Count > 0)
-            {
-                txt_monto_pendiente.Text = creditopendiente.Rows[0].Field<double>("Pendiente").ToString();
-
-            }
-            else
-            {
-                txt_monto_pendiente.Text = DetalleVenta.Rows[0].Field<double>("SubTotal").ToString();
-            }
-
             
 
         }
@@ -75,7 +44,6 @@ namespace SuMueble.Views
             {
                 Pagos p = new Pagos()
                 {
-                    IDVenta= IDVenta,
                     IDColaborador = txtDNIColaborador.Text,
                     Monto = (float)txtCuota.Value,
                     
@@ -83,11 +51,11 @@ namespace SuMueble.Views
 
                  
                 
-                if (PagoControlador.InsertPagos(p) == true)
+                if (p.Insert(p) > 0)
                 {
                     MessageBox.Show("Pago completado con exito\nEl recibo se imprimira en seguida", "Mensaje del Sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();
-                    var recibo = new Recibo(venta_, (float)txtCuota.Value);
+                    var recibo = new Recibo(Venta, (float)txtCuota.Value);
                     recibo.ShowDialog();
                     //printDocument1 = new PrintDocument();
                     //PrinterSettings ps = new PrinterSettings();

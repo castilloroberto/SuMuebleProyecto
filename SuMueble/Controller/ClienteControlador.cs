@@ -9,7 +9,7 @@ using System.Text;
 
 namespace SuMueble.Controller
 {
-    public class ClienteControlador: DBConnection
+    public class ClienteControlador: BasicController<Clientes>
     {
         public List<Clientes> IncludeCompras()
         {
@@ -22,31 +22,26 @@ namespace SuMueble.Controller
                 var list = clientes.ConvertAll(cliente =>
                 {
                     
-                    cliente.Compras = ventaController.IncludeDetalles(cliente.DNI);
+                    cliente.Compras = ventaController.IncludeDetalles(cliente.IdCliente);
                     return cliente;
                 });
 
                 return list;
             }
         } 
-
-        public List<Clientes> GetAll()
+        public Clientes GetByDNI(string dni)
         {
             using (var db = GetConnection)
-                return db.GetAll<Clientes>().AsList();
-        }
-        public Clientes Login(string DNI, string Clave) { 
-        
-            using (var  DB= GetConnection)
             {
-
-               return DB.QueryFirst<Clientes>("select from Clientes where DNI=@DNI and Clave=@Clave", new { Clave = Clave, DNI = DNI });
-
-
+                string sql = "select * from clientes where dni = @dni";
+                var res = db.Query<Clientes>(sql, new { dni = dni }).ToList();
+                return res.Count > 0 ? res[0] : null;
             }
         }
+       
+       
 
-        private bool InsertCliente(Clientes cliente) {
+        private long Insert(Clientes cliente) {
 
             List<Clientes> clientes = new List<Clientes>()
             {
@@ -55,43 +50,37 @@ namespace SuMueble.Controller
             using (var DB = GetConnection)
             {
 
-                return DB.Insert(clientes) > 0;
+                return DB.Insert(clientes);
 
 
             }
 
         }
 
-        private bool UpdateCliente(Clientes cliente)
+        private long Update(Clientes cliente)
         {
 
             using (var DB = GetConnection)
             {
 
-                return DB.Update(cliente);
+                return DB.Update(cliente) ? cliente.IdCliente : 0;
 
 
             }
         }
 
-        public Clientes GetCliente(string DNI)
-        {
-            using (var db = GetConnection)
-            {
-                return db.Get<Clientes>(DNI);
-            }
-        }
-        public bool SaveCliente(Clientes cliente)
+     
+        public long Save(Clientes cliente)
         {
             
-            Clientes c = GetCliente(cliente.DNI);
+            Clientes c = Get(cliente.IdCliente);
             if (c != null)
             {
-                return UpdateCliente(cliente);
+                return Update(cliente);
             }
             else
             {
-                return InsertCliente(cliente);
+                return Insert(cliente);
             }
 
            

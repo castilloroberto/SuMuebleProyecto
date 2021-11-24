@@ -1,4 +1,5 @@
 ﻿using Dapper.Contrib.Extensions;
+using SuMueble.Controller;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,21 +7,18 @@ using System.Text;
 namespace SuMueble.Models
 {
     [Table("Ventas")]
-    public class Ventas
+    public class Ventas:VentaController
     {
-        [ExplicitKey]
-        public Guid ID { get; set; }
+        [Key]
+        public int IdVenta { get; set; }
 
-        [Write(false)]
-        [Computed]
-        public int CodigoFactura { get; set; }
 
-        public string IDCliente { get; set;}
+        public int ClienteFK { get; set;}
 
         [Write(false)]
         public Clientes Cliente { get; set; }
        
-        public string IDColaborador { get; set; }
+        public int ColaboradorFk { get; set; }
 
 
         [Write(false)]
@@ -29,7 +27,7 @@ namespace SuMueble.Models
         // Tipo de venta :
         // 1 al contado
         // 2 al credito
-        public int IDTipoVenta { get; set; }
+        public int TipoVentaFk { get; set; }
 
         [Write(false)]
         public TipoVenta TipoVenta { get; set; }
@@ -38,7 +36,7 @@ namespace SuMueble.Models
 
         [Write(false)]
         [Computed]
-        public DateTime FechaInicio { get; set; }
+        public DateTime FechaVenta { get; set; }
 
         private float _totalVenta; 
         [Write(false)]
@@ -67,7 +65,7 @@ namespace SuMueble.Models
         public float Descuento { get; set; }
 
         //[Computed]
-        public DateTime FechaFin { get; set; }
+        public DateTime FechaFinCredito { get; set; }
 
         // propiedades con de la parte programable
         [Write(false)]

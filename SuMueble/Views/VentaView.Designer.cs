@@ -29,7 +29,6 @@ namespace SuMueble.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_terminarVenta = new System.Windows.Forms.Button();
             this.btn_agregarProducto = new System.Windows.Forms.Button();
             this.txt_clienteTelefono = new System.Windows.Forms.TextBox();
@@ -48,12 +47,6 @@ namespace SuMueble.Views
             this.l_monto = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lb_productosVenta = new System.Windows.Forms.ListBox();
-            this.dgv_productos = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.existencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_quitarItem = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_descuento = new System.Windows.Forms.NumericUpDown();
@@ -61,10 +54,11 @@ namespace SuMueble.Views
             this.txt_precio = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_ayuda = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
+            this.dgv_productos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.txt_descuento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_cantidadProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_precio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_terminarVenta
@@ -271,79 +265,6 @@ namespace SuMueble.Views
             this.lb_productosVenta.Size = new System.Drawing.Size(513, 312);
             this.lb_productosVenta.TabIndex = 7;
             // 
-            // dgv_productos
-            // 
-            this.dgv_productos.AllowUserToAddRows = false;
-            this.dgv_productos.AllowUserToDeleteRows = false;
-            this.dgv_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_productos.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgv_productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.codigo,
-            this.producto,
-            this.precio,
-            this.existencias});
-            this.dgv_productos.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgv_productos.Location = new System.Drawing.Point(75, 389);
-            this.dgv_productos.Name = "dgv_productos";
-            this.dgv_productos.ReadOnly = true;
-            this.dgv_productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgv_productos.RowHeadersWidth = 51;
-            this.dgv_productos.RowTemplate.Height = 29;
-            this.dgv_productos.Size = new System.Drawing.Size(857, 365);
-            this.dgv_productos.TabIndex = 6;
-            this.dgv_productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "Codigo";
-            this.codigo.HeaderText = "Codigo";
-            this.codigo.MinimumWidth = 6;
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            // 
-            // producto
-            // 
-            this.producto.DataPropertyName = "Producto";
-            this.producto.HeaderText = "Producto";
-            this.producto.MinimumWidth = 6;
-            this.producto.Name = "producto";
-            this.producto.ReadOnly = true;
-            // 
-            // precio
-            // 
-            this.precio.DataPropertyName = "PrecioUnitario";
-            this.precio.HeaderText = "Precio";
-            this.precio.MinimumWidth = 6;
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            // 
-            // existencias
-            // 
-            this.existencias.DataPropertyName = "Existencias";
-            this.existencias.HeaderText = "Existencias";
-            this.existencias.MinimumWidth = 6;
-            this.existencias.Name = "existencias";
-            this.existencias.ReadOnly = true;
-            // 
             // btn_quitarItem
             // 
             this.btn_quitarItem.BackColor = System.Drawing.Color.Crimson;
@@ -440,11 +361,30 @@ namespace SuMueble.Views
             this.btn_ayuda.UseVisualStyleBackColor = false;
             this.btn_ayuda.Click += new System.EventHandler(this.btn_ayuda_Click);
             // 
+            // dgv_productos
+            // 
+            this.dgv_productos.AllowUserToAddRows = false;
+            this.dgv_productos.AllowUserToDeleteRows = false;
+            this.dgv_productos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_productos.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgv_productos.Location = new System.Drawing.Point(73, 374);
+            this.dgv_productos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgv_productos.Name = "dgv_productos";
+            this.dgv_productos.ReadOnly = true;
+            this.dgv_productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgv_productos.RowHeadersWidth = 51;
+            this.dgv_productos.Size = new System.Drawing.Size(860, 377);
+            this.dgv_productos.TabIndex = 35;
+            this.dgv_productos.Text = "dataGridView1";
+            // 
             // VentaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.dgv_productos);
             this.Controls.Add(this.btn_ayuda);
             this.Controls.Add(this.txt_precio);
             this.Controls.Add(this.txt_cantidadProducto);
@@ -470,14 +410,13 @@ namespace SuMueble.Views
             this.Controls.Add(this.l_monto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lb_productosVenta);
-            this.Controls.Add(this.dgv_productos);
             this.Name = "VentaView";
             this.Size = new System.Drawing.Size(1523, 917);
             this.Load += new System.EventHandler(this.VentaView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_descuento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_cantidadProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_precio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -503,12 +442,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.Label l_monto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox lb_productosVenta;
-        private System.Windows.Forms.DataGridView dgv_productos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn existencias;
         private System.Windows.Forms.Button btn_quitarItem;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown txt_descuento;
@@ -516,5 +449,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.NumericUpDown txt_precio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_ayuda;
+        private System.Windows.Forms.DataGridView dgv_productos;
     }
 }

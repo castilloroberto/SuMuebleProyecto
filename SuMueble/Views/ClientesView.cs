@@ -92,5 +92,11 @@ namespace SuMueble.Views
             LoadDGV(Clientes);
 
         }
+
+        private void btn_ayuda_Click(object sender, EventArgs e)
+        {
+            var manual = new Manual("clientes");
+            manual.Show();
+        }
     }
 }

@@ -53,6 +53,7 @@ namespace SuMueble.Views
             this.txt_dirCliente = new System.Windows.Forms.TextBox();
             this.l_dir = new System.Windows.Forms.Label();
             this.btn_quitarItem = new System.Windows.Forms.Button();
+            this.btn_ayuda = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtTelefonoCliente
@@ -334,10 +335,23 @@ namespace SuMueble.Views
             this.btn_quitarItem.UseVisualStyleBackColor = false;
             this.btn_quitarItem.Click += new System.EventHandler(this.btn_quitarItem_Click);
             // 
+            // btn_ayuda
+            // 
+            this.btn_ayuda.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ayuda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_ayuda.Location = new System.Drawing.Point(1313, 35);
+            this.btn_ayuda.Name = "btn_ayuda";
+            this.btn_ayuda.Size = new System.Drawing.Size(94, 29);
+            this.btn_ayuda.TabIndex = 48;
+            this.btn_ayuda.Text = "Ayuda";
+            this.btn_ayuda.UseVisualStyleBackColor = false;
+            this.btn_ayuda.Click += new System.EventHandler(this.btn_ayuda_Click);
+            // 
             // VentaCreditoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_ayuda);
             this.Controls.Add(this.btn_quitarItem);
             this.Controls.Add(this.l_RTNCliente);
             this.Controls.Add(this.l_dir);
@@ -395,5 +409,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.TextBox txt_dirCliente;
         private System.Windows.Forms.Label l_dir;
         private System.Windows.Forms.Button btn_quitarItem;
+        private System.Windows.Forms.Button btn_ayuda;
     }
 }

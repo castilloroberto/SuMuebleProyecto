@@ -7,13 +7,14 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Linq;
+using SuMueble.Models;
 
 namespace SuMueble.Views
 {
     public partial class CreditosView : UserControl
     {
-        VentaController ventaController = new VentaController();
-        DataTable ListaVentas;
+        Ventas Venta = new Ventas();
+        List<Ventas> ListaVentas;
         public CreditosView()
         {
             InitializeComponent();
@@ -23,32 +24,32 @@ namespace SuMueble.Views
         }
         private void GetData()
         {
-            ListaVentas = ventaController.GetCreditosPendientes();
+            ListaVentas = Venta.GetCreditosPendientes();
             CargarDataGrid(ListaVentas);
 
         }
-        private void CargarDataGrid(DataTable lista)
+        private void CargarDataGrid(List<Ventas> lista)
         {
 
             dgv_ventasCredito.DataSource = lista;
         }
 
 
-        private string GetCell(int cell)
+        private dynamic GetCell(int cell)
         {
             if (dgv_ventasCredito.Rows.Count > 0)
             {
                 int index = dgv_ventasCredito.CurrentRow.Index;
-                return dgv_ventasCredito.Rows[index].Cells[cell].Value.ToString();
+                return dgv_ventasCredito.Rows[index].Cells[cell].Value;
 
             }
-            else return "0";
+            return 0;
         }
             
         private void btn_pagarcuota_Click(object sender, EventArgs e)
         {
-            string cod_factura = GetCell(0);
-            if (cod_factura != "0")
+            int cod_factura = GetCell(0);
+            if (cod_factura > 0)
             {
                 PagarCuota pagarCuota = new PagarCuota(cod_factura);
                 pagarCuota.ShowDialog();
@@ -67,20 +68,25 @@ namespace SuMueble.Views
         {
 
             
-            var filtrados = ListaVentas.AsEnumerable().Where(x =>
+            var filtrados = ListaVentas.Where(x =>
             {
-                int cf = 0;
-                int.TryParse(txtbuscar.Text, out cf);
+                
                 string cl = txtbuscar.Text.ToLower();
-                return x.Field<int>("CodigoFactura") == cf || x.Field<string>("Cliente").ToLower().StartsWith(cl);
-            });
+                return x.IdVenta.ToString().StartsWith(txtbuscar.Text) || x.Cliente.Nombre.ToLower().StartsWith(cl);
+            }).ToList();
 
-            CargarDataGrid(filtrados.AsDataView().ToTable());
+            CargarDataGrid(filtrados);
         }
 
         private void txtbuscar_Leave(object sender, EventArgs e)
         {
             txtbuscar.Text = txtbuscar.Text.Trim();
+        }
+
+        private void btn_ayuda_Click(object sender, EventArgs e)
+        {
+            var manual = new Manual("creditos");
+            manual.Show();
         }
     }
 }

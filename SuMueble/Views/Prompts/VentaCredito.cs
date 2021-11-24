@@ -20,20 +20,18 @@ namespace SuMueble.Views
         {
         }
 
-        public VentaCredito(string cod_factura)
+        public VentaCredito(int idVenta)
         {
             InitializeComponent();
-            venta = ventacontrolador.GetVenta(cod_factura);
-            DetalleVenta = detalleVentaController.GetDetalleVenta(int.Parse(cod_factura));
-            CargarDatos(cod_factura);
+            
         }
 
-        private void CargarDatos(string cod_factura)
+        private void CargarDatos(int idVenta)
         {
-            var venta_ = ventacontrolador.GetVentaID(cod_factura);
+            var venta_ = ventacontrolador.Get(idVenta);
             txt_cliente.Text = venta_.Cliente.Nombre;
             txt_cuotasPendientes.Text = venta.Field<int>("Cuotas").ToString();
-            var creditopendiente = pagoControlador.GetCreditoPendiente(int.Parse(cod_factura));
+            var creditopendiente = pagoControlador.GetCreditoPendiente(idVenta);
 
             if (creditopendiente.Rows.Count > 0)
             {
@@ -44,16 +42,7 @@ namespace SuMueble.Views
             {
                 txt_montoPendiente.Text = DetalleVenta.Rows[0].Field<double>("SubTotal").ToString();
             }
-            var res = pagoControlador.GetPagado(ventacontrolador.GetVentaDapper(int.Parse(cod_factura)));
-            if (res != null && res != 0)
-            {
-                txt_montoPagado.Text = res.ToString();
-            }
-            else
-            {
-                txt_montoPagado.Text = "0";
-            }
-            dgv_articulo.DataSource = DetalleVenta;
+           
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -49,14 +49,13 @@ namespace SuMueble.Views
         }
         private void btn_agregarDevolucion_Click(object sender, EventArgs e)
         {
-            int codigofactura_ = int.Parse(GetCell(0));
-            if (codigofactura_ != 0)
+            int idVenta = int.Parse(GetCell(0));
+            if (idVenta != 0)
             {
-
-                var ventaController = new VentaController();
-                var ventaGuid = ventaController.GetVentaDapper(codigofactura_);
+                var Venta = new Ventas();
+                Venta = Venta.Get(idVenta);
            
-                Devolucion devolucion = new Devolucion(ventaGuid);
+                Devolucion devolucion = new Devolucion(Venta);
                 devolucion.ShowDialog();
 
             } else
@@ -113,6 +112,12 @@ namespace SuMueble.Views
         private void txt_buscarCliente_Leave(object sender, EventArgs e)
         {
             txt_buscarCliente.Text = txt_buscarCliente.Text.Trim();
+        }
+
+        private void btn_ayuda_Click(object sender, EventArgs e)
+        {
+            var manual = new Manual("devoluciones");
+            manual.Show();
         }
     }
 }

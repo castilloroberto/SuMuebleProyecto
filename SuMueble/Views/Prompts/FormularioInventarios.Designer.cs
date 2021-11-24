@@ -43,6 +43,8 @@ namespace SuMueble
             this.txt_impuesto = new System.Windows.Forms.NumericUpDown();
             this.txt_Precio = new System.Windows.Forms.NumericUpDown();
             this.txt_Existencia = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cb_prod_estado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txt_impuesto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Precio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Existencia)).BeginInit();
@@ -105,7 +107,7 @@ namespace SuMueble
             this.btn_Hecho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Hecho.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Hecho.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btn_Hecho.Location = new System.Drawing.Point(501, 421);
+            this.btn_Hecho.Location = new System.Drawing.Point(501, 511);
             this.btn_Hecho.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Hecho.Name = "btn_Hecho";
             this.btn_Hecho.Size = new System.Drawing.Size(150, 37);
@@ -153,7 +155,7 @@ namespace SuMueble
             this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Cancelar.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Cancelar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Cancelar.Location = new System.Drawing.Point(57, 421);
+            this.btn_Cancelar.Location = new System.Drawing.Point(57, 511);
             this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(150, 37);
@@ -202,19 +204,46 @@ namespace SuMueble
             this.txt_Existencia.Size = new System.Drawing.Size(269, 34);
             this.txt_Existencia.TabIndex = 8;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(57, 396);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 28);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Estado";
+            // 
+            // cb_prod_estado
+            // 
+            this.cb_prod_estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_prod_estado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cb_prod_estado.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cb_prod_estado.FormattingEnabled = true;
+            this.cb_prod_estado.Items.AddRange(new object[] {
+            "Nuevo",
+            "Usado"});
+            this.cb_prod_estado.Location = new System.Drawing.Point(57, 441);
+            this.cb_prod_estado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cb_prod_estado.Name = "cb_prod_estado";
+            this.cb_prod_estado.Size = new System.Drawing.Size(269, 36);
+            this.cb_prod_estado.TabIndex = 5;
+            // 
             // FormularioInventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Cancelar;
-            this.ClientSize = new System.Drawing.Size(708, 524);
+            this.ClientSize = new System.Drawing.Size(708, 663);
             this.Controls.Add(this.txt_Existencia);
             this.Controls.Add(this.txt_Precio);
             this.Controls.Add(this.txt_impuesto);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.txt_Nombre);
             this.Controls.Add(this.txt_Codigo);
+            this.Controls.Add(this.cb_prod_estado);
             this.Controls.Add(this.cmb_Categoria);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_Hecho);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -253,5 +282,7 @@ namespace SuMueble
         private System.Windows.Forms.NumericUpDown txt_impuesto;
         private System.Windows.Forms.NumericUpDown txt_Precio;
         private System.Windows.Forms.NumericUpDown txt_Existencia;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cb_prod_estado;
     }
 }

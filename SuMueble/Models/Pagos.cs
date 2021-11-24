@@ -1,4 +1,5 @@
 ﻿using Dapper.Contrib.Extensions;
+using SuMueble.Controller;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Text;
 namespace SuMueble.Models
 {
     [Table("Pagos")]
-    public class Pagos
+    public class Pagos:PagoControlador
     {
         public string IDColaborador { get; set; }
 

@@ -36,6 +36,7 @@ namespace SuMueble.Views
             this.cb_filtro = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dvg_devoluciones = new System.Windows.Forms.DataGridView();
+            this.btn_ayuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_devoluciones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,10 +128,23 @@ namespace SuMueble.Views
             this.dvg_devoluciones.Size = new System.Drawing.Size(1364, 377);
             this.dvg_devoluciones.TabIndex = 5;
             // 
+            // btn_ayuda
+            // 
+            this.btn_ayuda.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ayuda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_ayuda.Location = new System.Drawing.Point(1391, 40);
+            this.btn_ayuda.Name = "btn_ayuda";
+            this.btn_ayuda.Size = new System.Drawing.Size(94, 29);
+            this.btn_ayuda.TabIndex = 49;
+            this.btn_ayuda.Text = "Ayuda";
+            this.btn_ayuda.UseVisualStyleBackColor = false;
+            this.btn_ayuda.Click += new System.EventHandler(this.btn_ayuda_Click);
+            // 
             // DevolucionesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_ayuda);
             this.Controls.Add(this.dvg_devoluciones);
             this.Controls.Add(this.cb_filtro);
             this.Controls.Add(this.txt_buscarCliente);
@@ -153,6 +167,6 @@ namespace SuMueble.Views
         private System.Windows.Forms.ComboBox cb_filtro;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dvg_devoluciones;
-       
+        private System.Windows.Forms.Button btn_ayuda;
     }
 }

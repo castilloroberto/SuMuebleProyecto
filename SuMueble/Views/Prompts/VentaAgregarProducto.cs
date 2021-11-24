@@ -14,15 +14,15 @@ namespace SuMueble.Views.Prompts
 {
     public partial class VentaAgregarProducto : Form
     {
-        ProductoControlador productoControlador = new ProductoControlador();
-        List<Productos> productos;
+        Producto Producto = new Producto();
+        List<Producto> Productos;
         public VentaAgregarProducto()
         {
             InitializeComponent();
             dgv_productos.AutoGenerateColumns = false;
-            dgv_productos.DataSource = productoControlador.GetProductos();
-            productos = productoControlador.GetProductos().ToList();
-            dgv_productos.DataSource = productos;
+            dgv_productos.DataSource = Producto.GetAll();
+            Productos = Producto.GetAll();
+            dgv_productos.DataSource = Productos;
         }
 
 
@@ -73,9 +73,9 @@ namespace SuMueble.Views.Prompts
         {
             string buscar = txt_buscarProducto.Text.ToLower();
 
-            List<Productos> filtrados = productos.Where<Productos>(x => {
+            List<Producto> filtrados = Productos.Where<Producto>(x => {
 
-                return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
+                return x.NombreProducto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
 
 
             }).ToList();

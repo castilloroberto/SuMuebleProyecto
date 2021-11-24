@@ -7,9 +7,9 @@ using System.Text;
 
 namespace SuMueble.Controller
 {
-    public class ReferenciaController: DBConnection
+    public class ReferenciaController: BasicController<Referencias>
     {
-      public bool InsertReferencia(List<Referencias> referencias)
+      public bool InsertAll(List<Referencias> referencias)
         {
             using (var db = GetConnection)
             {

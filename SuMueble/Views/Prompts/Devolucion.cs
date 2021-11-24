@@ -15,11 +15,10 @@ namespace SuMueble.Views
     {
         DevolucionControlador devolucionControlador = new DevolucionControlador();
         DetalleVentaController dvControllador = new DetalleVentaController();
-        public Devolucion(Guid IDVenta_)
+        public Devolucion(Ventas Venta)
         {
             InitializeComponent();
             
-            cargarDatos(IDVenta_);
         }
         
 

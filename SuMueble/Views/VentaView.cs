@@ -15,10 +15,10 @@ namespace SuMueble.Views
     public partial class VentaView : UserControl
     {
         //controladores
-        ClienteControlador clienteControlador = new ClienteControlador();
+        Clientes Cliente = new Clientes();
         VentaController ventaController = new VentaController();
-        List<Productos> productos;
-        ProductoControlador pc = new ProductoControlador();
+        List<Producto> Productos;
+        Producto Producto = new Producto();
 
         //variables
         private float Total = 0;
@@ -34,9 +34,8 @@ namespace SuMueble.Views
         }
         private void CargarDataGrid()
         {
-            dgv_productos.AutoGenerateColumns = false;                        
-            productos = pc.GetProductos().ToList();
-            dgv_productos.DataSource = productos;
+            Productos = Producto.GetAll();
+            dgv_productos.DataSource = Productos;
         }
         //Andrea Celeste
         public static bool validarNombre(string nombre_)
@@ -82,6 +81,7 @@ namespace SuMueble.Views
 
                 Clientes c = new Clientes()
                 {
+                    IdCliente = Cliente.IdCliente,
                     DNI = txt_dniCliente.Text,
                     Nombre = txt_nombreCliente.Text,
                     Telefono = txt_clienteTelefono.Text
@@ -95,15 +95,15 @@ namespace SuMueble.Views
                     {
                         DetallesVenta = _detallesVenta,
                         Cliente = c,
-                        IDTipoVenta = 1,
-                        IDColaborador = Menu.colaborador.DNI,
-                        FechaFin = DateTime.Now,
-                        TotalVenta = Total,
-                        IDCliente = c.DNI
+                        TipoVentaFk = 1,
+                        ColaboradorFk = Menu.colaborador.IdColaborador,
+                        FechaFinCredito = DateTime.Now,
+                        TotalVenta = Total
+                        
 
                     };
 
-                    bool ok = ventaController.SaveVenta(venta);
+                    bool ok = ventaController.Save(venta);
 
                     if (ok)
                     {
@@ -143,7 +143,7 @@ namespace SuMueble.Views
         private void dgv_productos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // cell 3 = precio
-            decimal precio = (decimal)GetCell(3);
+            decimal precio = (decimal)GetCell(4);
             txt_precio.Value = precio;
         }
 
@@ -169,12 +169,13 @@ namespace SuMueble.Views
                     if (txt_cantidadProducto.Value != 0 && txt_precio.Value != 0)
                     {
                         var descuento = txt_precio.Value * (txt_descuento.Value / 100);
+                        int pId = GetCell(0);
                         DetallesVentas dv = new DetallesVentas()
                         {
-                            ProductoFk = GetCell(0),
+                            ProductoFk = pId,
                             Cantidad = (int)txt_cantidadProducto.Value,
                             PrecioVenta = (float)(txt_precio.Value - (descuento) ),
-                            Producto = GetCell(2),
+                            Producto = Productos.Find(p=>p.IdProducto== pId),
                             Descuento = (float)(descuento),
 
                         };
@@ -230,16 +231,16 @@ namespace SuMueble.Views
             if (txt_dniCliente.Text.Length == 13)
             {
                 ClearCliente();
-                Clientes cliente = clienteControlador.GetCliente(txt_dniCliente.Text);
-                if (cliente == null)
+                Cliente = Cliente.GetByDNI(txt_dniCliente.Text);
+                if (Cliente == null)
                 {
                     HideShowLabels(true);
                 }
                 else
                 {
                     HideShowLabels(false);
-                    txt_nombreCliente.Text = cliente.Nombre;
-                    txt_clienteTelefono.Text = cliente.Telefono;
+                    txt_nombreCliente.Text = Cliente.Nombre;
+                    txt_clienteTelefono.Text = Cliente.Telefono;
                 }
             }
             if (txt_dniCliente.Text.Length == 0)
@@ -396,11 +397,11 @@ namespace SuMueble.Views
         {
             string buscar = txt_buscarProducto.Text.ToLower();
 
-            List<Productos> filtrados = productos.Where<Productos>(x => {
+            List<Producto> filtrados = Productos.Where<Producto>(x => {
 
                 try
                 {
-                    return x.Producto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
+                    return x.NombreProducto.ToLower().StartsWith(buscar) || x.Codigo.ToLower().StartsWith(buscar);
                 }
                 catch
                 {
@@ -507,7 +508,7 @@ namespace SuMueble.Views
 
         private void btn_ayuda_Click(object sender, EventArgs e)
         {
-            var manual = new Manual("ventas");
+            var manual = new Manual("ventascontado");
             manual.Show();
         }
     }
