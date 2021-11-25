@@ -16,12 +16,14 @@ namespace SuMueble.Views
 {
     public partial class AgregarEditarColaboradores : Form
     {
-        ColaboradorControlador cControlador = new ColaboradorControlador();
+        Colaborador Colaborador = new Colaborador();
         PuestoControlador pControlador = new PuestoControlador();
-        public AgregarEditarColaboradores(string DNI = null)
+        List<Colaborador> Colaboradores = new List<Colaborador>();
+        public AgregarEditarColaboradores(string DNI = null,List<Colaborador> colaboradors_ = null)
         {
             InitializeComponent();
             CargarPuestos();
+            Colaboradores = colaboradors_;
             if (DNI != null)
             {
                 CargarColaborador(DNI);
@@ -30,7 +32,7 @@ namespace SuMueble.Views
 
         private void CargarColaborador(string dni)
         {
-            var colaborador = cControlador.Get(dni);
+            var colaborador = Colaborador.Get(dni);
             txt_correo.Text = colaborador.Email;
             txt_dni.Text = colaborador.DNI;
             txt_nombre.Text = colaborador.Nombre;
@@ -160,7 +162,15 @@ namespace SuMueble.Views
 
         private void btn_hecho_Click(object sender, EventArgs e)
         {
-            
+            var gerente = Colaboradores.Where(c => 
+            {
+                return c.Activo && c.PuestoFk == 1;
+            });
+            if (gerente != null)
+            {
+                MessageBox.Show("Ya existe un Gerente desactive el gerente actual para agregar un nuevo", "Colaboradores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (validardatos())
             { 
                 if (email_bien_escrito(txt_correo.Text))
@@ -180,7 +190,7 @@ namespace SuMueble.Views
                         Telefono = txt_telefono.Text,
                         PuestoFk = cb_puesto.SelectedValue.GetHashCode(),
                     };
-                    cControlador.Save(colaborador);
+                    colaborador.Save(colaborador);
                     MessageBox.Show("Guardado con exito", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -205,7 +215,7 @@ namespace SuMueble.Views
         private void CargarPuestos()
         {
             var puestos = pControlador.GetPuestos();
-            
+            // si el gerente esta logeado
             if (Menu.colaborador.PuestoFk != 1)
             {
                 puestos = puestos.Where( item => {

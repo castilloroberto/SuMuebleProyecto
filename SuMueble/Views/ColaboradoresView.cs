@@ -33,7 +33,7 @@ namespace SuMueble.Views
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            AgregarEditarColaboradores addEditColaborador = new AgregarEditarColaboradores();
+            var addEditColaborador = new AgregarEditarColaboradores(null,colaboradores);
 
             addEditColaborador.ShowDialog();
             CargarDatos();

@@ -27,15 +27,15 @@ namespace SuMueble.Controller
             }
         }
 
-        public bool Desactivar(string DNI)
+        public bool Desactivar(int IdColaborador)
         {
             using (var db = GetConnection)
             {
                 string sql = @$"UPDATE Colaboradores
                                         SET FechaFinContrato = GETDATE()
                                        ,Activo = 0
-                                       WHERE DNI = @DNI ";
-                return db.Execute(sql,new { DNI=DNI}) > 0;
+                                       WHERE IdColaborador = @IdColaborador ";
+                return db.Execute(sql,new { IdColaborador = IdColaborador }) > 0;
             }
         }
         public void Check()
@@ -108,6 +108,8 @@ namespace SuMueble.Controller
                     c.Puesto = db.Get<Puestos>(c.PuestoFk);
                     return c;
                 });
+
+                res.Reverse();
                 return res;
             }
         }
