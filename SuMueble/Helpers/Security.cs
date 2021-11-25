@@ -17,6 +17,7 @@ namespace SuMueble.Helpers
             var hashedPassword = Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256));
 
             return $"{salt}:{hashedPassword}";// cadena de 433 caracteres 
+            // "sbndjkfbdjhfdfdfbdhfb:skjdbshbdshjbdsjhdsbdjhs"
         }
         public static bool Verify(string password, string encryptedPassword)
         {
