@@ -91,5 +91,11 @@ namespace SuMueble.Views
                 return;
             }
         }
+
+        private void btn_ayuda_Click(object sender, EventArgs e)
+        {
+            var manual = new Manual("login");
+            manual.Show();
+        }
     }
 }
