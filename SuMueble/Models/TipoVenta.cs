@@ -9,7 +9,7 @@ namespace SuMueble.Models
     public class TipoVenta
     {
         [Key]
-        public int ID { get; set; }
+        public int IdTipoVenta { get; set; }
         public string Tipo { get; set; }
 
         public override string ToString()

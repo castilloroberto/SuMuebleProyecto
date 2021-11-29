@@ -378,6 +378,7 @@ namespace SuMueble.Views
             this.dgv_productos.Size = new System.Drawing.Size(860, 377);
             this.dgv_productos.TabIndex = 35;
             this.dgv_productos.Text = "dataGridView1";
+            this.dgv_productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellClick);
             // 
             // VentaView
             // 

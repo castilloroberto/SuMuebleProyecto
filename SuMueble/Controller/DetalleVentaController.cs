@@ -13,14 +13,17 @@ namespace SuMueble.Controller
     public class DetalleVentaController : BasicController<DetallesVentas>
     {
 
-        public bool Insert(List<DetallesVentas> detallesVenta)
+        public bool Insert(List<DetallesVentas> detallesVenta,int idVenta)
         {
             using (var db = GetConnection)
             {
-                bool ok = false;
-                long rows =  db.Insert(detallesVenta) ;
-                ok = rows >= detallesVenta.Count;
-                return ok;
+                detallesVenta = detallesVenta.ConvertAll((dv) => 
+                {
+                    dv.VentaFk = idVenta;
+                    return dv;
+                });
+                return db.Insert(detallesVenta) > 0;
+                 
             }
 
         }

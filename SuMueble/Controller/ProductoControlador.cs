@@ -4,13 +4,17 @@ using SuMueble.Models;
 using SuMueble.Views;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace SuMueble.Controller
 {
+
+   
     public class ProductoControlador : BasicController<Producto>
     {
-
+     
         public List<Producto> IncludeEstado()
         {
             using (var db = GetConnection)

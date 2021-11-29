@@ -1,12 +1,6 @@
-﻿using SuMueble.Controller;
-using SuMueble.Helpers;
+﻿using SuMueble.Helpers;
 using SuMueble.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SuMueble.Views
