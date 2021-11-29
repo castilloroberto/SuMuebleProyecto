@@ -230,10 +230,13 @@ namespace SuMueble.Views
             
             if (txt_dniCliente.Text.Length == 13)
             {
+                Cliente = new Clientes();
                 ClearCliente();
                 Cliente = Cliente.GetByDNI(txt_dniCliente.Text);
                 if (Cliente == null)
                 {
+                    Cliente = new Clientes();
+                    Cliente.IdCliente = 0;
                     HideShowLabels(true);
                 }
                 else

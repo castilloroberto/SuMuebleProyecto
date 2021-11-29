@@ -1,12 +1,8 @@
-﻿using SuMueble.Controller;
-using SuMueble.Helpers;
+﻿using SuMueble.Helpers;
 using SuMueble.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SuMueble.Views
@@ -19,6 +15,9 @@ namespace SuMueble.Views
             InitializeComponent();
             CheckDefaultColaborador();
         }
+
+        
+
         void CheckDefaultColaborador()
         {
             colaborador.Check();

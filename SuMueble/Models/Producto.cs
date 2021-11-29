@@ -24,6 +24,8 @@ namespace SuMueble.Models
         public int CategoriaFk { get; set; }
 
         public int EstadoFk { get; set; }
+        
+        [Write(false)]
         public ProductoEstado Estado { get; set; }
         public bool Activo { get; set; }
 

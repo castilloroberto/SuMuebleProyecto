@@ -10,7 +10,6 @@ namespace SuMueble.Models
     public class DetallesVentas:DetalleVentaController
     {
 
-        [Key]
         public int VentaFk { get; set; }
         public int ProductoFk { get; set; }
         public float PrecioVenta { get; set; }

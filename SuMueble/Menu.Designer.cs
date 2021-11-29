@@ -47,6 +47,7 @@ namespace SuMueble.Views
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.contenedor = new System.Windows.Forms.Panel();
+            this.btn_reportes = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel.SuspendLayout();
@@ -58,7 +59,7 @@ namespace SuMueble.Views
             // 
             this.panel4.Controls.Add(this.btn_cerrarSesion);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 652);
+            this.panel4.Location = new System.Drawing.Point(0, 766);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(303, 81);
             this.panel4.TabIndex = 10;
@@ -87,13 +88,14 @@ namespace SuMueble.Views
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(303, 652);
+            this.panel3.Size = new System.Drawing.Size(303, 766);
             this.panel3.TabIndex = 9;
             // 
             // panel
             // 
             this.panel.AutoScroll = true;
             this.panel.Controls.Add(this.bienvenido);
+            this.panel.Controls.Add(this.btn_reportes);
             this.panel.Controls.Add(this.btn_clientes);
             this.panel.Controls.Add(this.btn_colaboradores);
             this.panel.Controls.Add(this.btn_ventas);
@@ -104,7 +106,7 @@ namespace SuMueble.Views
             this.panel.Controls.Add(this.btn_historialVentas);
             this.panel.Location = new System.Drawing.Point(0, 135);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(303, 517);
+            this.panel.Size = new System.Drawing.Size(303, 631);
             this.panel.TabIndex = 12;
             // 
             // bienvenido
@@ -266,7 +268,7 @@ namespace SuMueble.Views
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(303, 733);
+            this.panel1.Size = new System.Drawing.Size(303, 847);
             this.panel1.TabIndex = 2;
             // 
             // contenedor
@@ -276,15 +278,30 @@ namespace SuMueble.Views
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(303, 0);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(1051, 733);
+            this.contenedor.Size = new System.Drawing.Size(1051, 847);
             this.contenedor.TabIndex = 3;
+            // 
+            // btn_reportes
+            // 
+            this.btn_reportes.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_reportes.FlatAppearance.BorderSize = 0;
+            this.btn_reportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reportes.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_reportes.Location = new System.Drawing.Point(29, 483);
+            this.btn_reportes.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn_reportes.Name = "btn_reportes";
+            this.btn_reportes.Size = new System.Drawing.Size(235, 45);
+            this.btn_reportes.TabIndex = 5;
+            this.btn_reportes.Text = "Reportes";
+            this.btn_reportes.UseVisualStyleBackColor = false;
+            this.btn_reportes.Click += new System.EventHandler(this.btn_reportes_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1354, 733);
+            this.ClientSize = new System.Drawing.Size(1354, 847);
             this.Controls.Add(this.contenedor);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -324,5 +341,6 @@ namespace SuMueble.Views
         public static System.Windows.Forms.Panel main_panel;
         private System.Windows.Forms.Panel contenedor;
         private System.Windows.Forms.Button btn_clientes;
+        private System.Windows.Forms.Button btn_reportes;
     }
 }

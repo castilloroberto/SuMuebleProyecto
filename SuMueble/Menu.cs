@@ -80,7 +80,9 @@ namespace SuMueble.Views
             btn_clientes.ForeColor = Color.FromName("ControlText");
             btn_clientes.BackColor = Color.FromName("ControlLight");
 
-            
+            btn_reportes.ForeColor = Color.FromName("ControlText");
+            btn_reportes.BackColor = Color.FromName("ControlLight");
+
 
         }
 
@@ -193,6 +195,17 @@ namespace SuMueble.Views
             contenedor.Controls.Clear();
             var clientesView = new ClientesView();
             contenedor.Controls.Add(clientesView);
+        }
+
+        private void btn_reportes_Click(object sender, EventArgs e)
+        {
+            HideAll();
+
+            btn_reportes.ForeColor = Color.White;
+            btn_reportes.BackColor = Color.DodgerBlue;
+            contenedor.Controls.Clear();
+            var reportes = new Reportes();
+            contenedor.Controls.Add(reportes);
         }
     }
 }
